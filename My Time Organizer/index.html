@@ -88,15 +88,18 @@
 
 					var icon = document.createElement('img');
 					icon.setAttribute('src', 'icons/write.png');
+					icon.draggable = false;
 					note_icons.appendChild(icon);
 
 					var icon = document.createElement('img');
 					icon.setAttribute('src', 'icons/color.png');
+					icon.draggable = false;
 					icon.style.marginLeft = '6px';
 					note_icons.appendChild(icon);
 
 					var icon = document.createElement('img');
 					icon.setAttribute('src', 'icons/close.png');
+					icon.draggable = false;
 					icon.style.float = 'right';
 					icon.onclick = function() {
 						function removeNote() { this.parentNode.removeChild(this); }
