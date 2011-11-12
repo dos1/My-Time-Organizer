@@ -144,6 +144,24 @@
 				}
 				arr2[i].ondragover = function () { return false; }
 			}
+			
+			function saveNotes() {
+				for ( i = 0; i < 7; i++ ) {
+					var column = document.getElementById("#day"+(i+1)).getElementsByTagName("div");
+					var note_count = 0;
+					var notes = new array;
+					for ( j = 0; j < column.length; j++ ) {
+						if ( column[j].getAttribute('class') == "note" ) {
+							notes[note_count] = column[j].getAttribute("data-date");
+							notes[note_count+1] = column[j].getAttribute("data-content");
+							notes[note_count+2] = column[j].getAttribute("data-bgcolor");
+							note_count += 3;
+						}
+					}
+					localStorage.setItem("day"+(i+1), notes.join(";"));
+				}
+			}
+			
 		});
 		</script>
 	</head>
