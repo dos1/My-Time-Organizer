@@ -150,9 +150,9 @@
 			
 			function saveNotes() {
 				for ( i = 0; i < 7; i++ ) {
-					var column = document.getElementById("#day"+(i+1)).getElementsByTagName("div");
+					var column = document.getElementById('day'+(i+1)).childNodes;
 					var note_count = 0;
-					var notes = new array;
+					var notes = new Array();
 					for ( j = 0; j < column.length; j++ ) {
 						if ( column[j].getAttribute('class') == "note" ) {
 							notes[note_count] = column[j].getAttribute("data-date");
@@ -161,7 +161,8 @@
 							note_count += 3;
 						}
 					}
-					localStorage.setItem("day"+(i+1), notes.join(";"));
+					localStorage['day'+(i+1)]=JSON.stringify(notes);
+					alert(localStorage['day'+(i+1)]);
 				}
 			}
 			
