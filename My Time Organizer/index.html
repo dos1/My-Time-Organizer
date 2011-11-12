@@ -44,6 +44,47 @@
 				if(event.which == 39) right_slide();
 				else if (event.which == 37) left_slide();
 			}
+
+
+			function fillNote(note) {
+					note.setAttribute('class','note');
+
+					$(note).css('backgroundColor', note.getAttribute('data-bgcolor'));
+
+					var note_content = document.createElement('div');
+					note_content.setAttribute('class','note_content');
+					if (note.getAttribute('data-content')==='')
+					note_content.innerHTML = 'Kliknij ikonę ołówka aby edytować tę notatkę lub pędzla aby zmienić kolor tekstu i/lub kartki. Krzyżyk usuwa notatkę.';
+					else note_content.innerHTML = note.getAttribute('data-content');
+					note.appendChild(note_content);
+
+					var note_icons = document.createElement('div');
+					note_icons.setAttribute('class','menu');
+
+					var icon = document.createElement('img');
+					icon.setAttribute('src', 'icons/write.png');
+					icon.draggable = false;
+					note_icons.appendChild(icon);
+
+					var icon = document.createElement('img');
+					icon.setAttribute('src', 'icons/color.png');
+					icon.draggable = false;
+					icon.style.marginLeft = '6px';
+					note_icons.appendChild(icon);
+
+					var icon = document.createElement('img');
+					icon.setAttribute('src', 'icons/close.png');
+					icon.draggable = false;
+					icon.style.float = 'right';
+					icon.onclick = function() {
+						function removeNote() { this.parentNode.removeChild(this); }
+						$(this.parentNode.parentNode).animate({opacity: 0, rotate: '-70deg', scale: 0, height: 0, marginBottom: '-4%'}, 500, removeNote);
+					}
+					note_icons.appendChild(icon);
+
+					note.appendChild(note_icons);
+					$(note).css("opacity", 0).scale(0).rotate('-70deg').animate({opacity: 1, rotate: 0, scale: 1}, 500);
+			}
 		
 			document.addEventListener("keydown", keydown, false);
 			
@@ -80,48 +121,13 @@
 				arr2[i].ondrop = function(event) {
 					$("#panel_slider").click();
 					var note = document.createElement('div');
-					note.setAttribute('class','note');
 
 					note.setAttribute('data-content', '');
 					note.setAttribute('data-bgcolor', '#f0f000');
 					note.setAttribute('data-date', arr1[i]);
 
-					$(note).css('backgroundColor', note.getAttribute('data-bgcolor'));
-
-					var note_content = document.createElement('div');
-					note_content.setAttribute('class','note_content');
-					if (note.getAttribute('data-content')==='')
-					note_content.innerHTML = 'Kliknij ikonę ołówka aby edytować tę notatkę lub pędzla aby zmienić kolor tekstu i/lub kartki. Krzyżyk usuwa notatkę.';
-					else note_content.innerHTML = note.getAttribute('data-content');
-					note.appendChild(note_content);
-
-					var note_icons = document.createElement('div');
-					note_icons.setAttribute('class','menu');
-
-					var icon = document.createElement('img');
-					icon.setAttribute('src', 'icons/write.png');
-					icon.draggable = false;
-					note_icons.appendChild(icon);
-
-					var icon = document.createElement('img');
-					icon.setAttribute('src', 'icons/color.png');
-					icon.draggable = false;
-					icon.style.marginLeft = '6px';
-					note_icons.appendChild(icon);
-
-					var icon = document.createElement('img');
-					icon.setAttribute('src', 'icons/close.png');
-					icon.draggable = false;
-					icon.style.float = 'right';
-					icon.onclick = function() {
-						function removeNote() { this.parentNode.removeChild(this); }
-						$(this.parentNode.parentNode).animate({opacity: 0, rotate: '-70deg', scale: 0, height: 0, marginBottom: '-4%'}, 500, removeNote);
-					}
-					note_icons.appendChild(icon);
-
-					note.appendChild(note_icons);
+					fillNote(note);
 					this.appendChild(note);
-					$(note).css("opacity", 0).scale(0).rotate('-70deg').animate({opacity: 1, rotate: 0, scale: 1}, 500);
 				}
 				arr2[i].ondragover = function () { return false; }
 			}
