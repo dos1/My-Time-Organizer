@@ -1,0 +1,121 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<link rel="stylesheet" type="text/css" href="style.css" />
+		<title>My Time Organizer</title>
+		<script type="text/javascript" src="jquery-1.7.js"></script>
+		<script type="text/javascript" src="moment.js"></script>
+		<script type="text/javascript">
+		lang = new Array();
+		lang["en"] = new Array();
+		lang["pl"] = new Array();
+		
+		var mylang ="pl";
+		
+		lang["en"]["days"] = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
+		lang["pl"]["days"] = ["Poniedziałek", "Wtorek", "Środa", "Czwartek", "Piątek", "Sobota", "Niedziela"];
+		
+		$(document).ready(function() {
+		var now = moment();
+		var mdn = now.format("d")-1;
+		//alert(day);
+			var d = now.add("days", (-1)*mdn);
+			for(i = 0; i < lang[mylang]["days"].length; i++) {
+				/*
+				<nav>
+				<div class="header">
+					<h3>7.11<br/>Poniedziałek</h3>
+				</div>
+				<div class="day_content" id="day1">
+				</div>
+			</nav>
+				*/
+				var text = $("#inner_table").html();
+				if (i == mdn) text += "<nav><div class='header' id='current_day'>";
+				else text += "<nav><div class='header'>"
+				text += "<h3>"+d.format("D")+"."+d.format("M")+"<br/>"+lang[mylang]["days"][i]+"</h3></div><div class='day_content' id='day"+(i+1)+"'></div></nav>";
+				$("#inner_table").html(text);
+				d.add("days", 1);
+			}
+			$("#panel_slider").click(function() {
+				if ($("#add_panel").css("margin-left") === "0px") $("#add_panel").css("margin-left", "-300px");
+				else $("#add_panel").css("margin-left", "0px");
+			});
+		
+			var arr1 = new Array(), arr2 = new Array();
+			for(i = 0; i < 7; i++) {
+				arr1[i] = 'day'+(i+1);
+				arr2[i] = document.getElementById(arr1[i]);
+				arr2[i].ondrop = function(event) {
+					this.innerHTML += '<div class="note">Kliknij ikonę ołówka aby edytować tę notatkę lub pędzla aby zmienić kolor tekstu i/lub kartki. Krzyżyk usuwa notatkę.<div class="note_icons"></div></div>';
+				}
+				arr2[i].ondragover = function () { return false; }
+			}
+		});
+		</script>
+	</head>
+	<body>
+		<!-- items that can be dropped onto the table -->
+		<div id="add_panel">
+			<div id="note_icon" draggable="true">
+			</div>
+			<div id="panel_slider"></div>
+		</div>
+		<!-- main table starts here -->
+		<div id="border_table">
+		<div id="inner_table">
+			<!--<nav>
+				<div class="header">
+					<h3>7.11<br/>Poniedziałek</h3>
+				</div>
+				<div class="day_content" id="day1">
+				</div>
+			</nav>
+			<nav>
+				<div class="header">
+					<h3>8.11<br/>Wtorek</h3>
+				</div>
+				<div class="day_content" id="day2">
+				</div>
+			</nav>
+			<nav>
+				<div class="header">
+					<h3>9.11<br/>Środa</h3>
+				</div>
+				<div class="day_content" id="day3">
+				</div>
+			</nav>
+			<nav>
+				<div class="header">
+					<h3>10.11<br/>Czwartek</h3>
+				</div>
+				<div class="day_content" id="day4">
+				</div>
+			</nav>
+			<nav>
+				<div class="header">
+					<h3>11.11<br/>Piątek</h3>
+				</div>
+				<div class="day_content" id="day5">
+				</div>
+			</nav>
+			<nav>
+				<div class="header">
+					<h3>12.11<br/>Sobota</h3>
+				</div>
+				<div class="day_content" id = "day6">
+				</div>
+			</nav>
+			<nav>
+				<div class="header">
+					<h3><b>13.11<br/>Niedziela</b></h3>
+				</div>
+				<div class="day_content" id="day7">
+				</div>
+			</nav>-->
+		</div>
+		</div>
+		<!-- main table ends here -->
+	</body>
+</html>
