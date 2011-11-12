@@ -1,0 +1,33 @@
+{
+  // Required
+  "name": "My Time Organizer",
+  "version": "0.1 Alpha",
+
+  // Recommended
+  "description": "A plain text description",
+  "icons": "48": "icon48.png",
+          "128": "icon128.png",
+  "default_locale": "pl",
+
+  // Pick one (or none)
+  //"browser_action": {...},
+  //"page_action": {...},
+  //"theme": {...},
+  //"app": {...},
+
+  // Add any of these that you need
+  //"background_page": "aFile.html",
+  //"chrome_url_overrides": {...},
+  //"content_scripts": [...],
+  //"content_security_policy": "policyString",
+  //"file_browser_handlers": [...],
+  //"homepage_url": "http://path/to/homepage",
+  //"incognito": "spanning" or "split",
+  //"key": "publicKey",
+  //"minimum_chrome_version": "versionString",
+  //"nacl_modules": [...],
+  "offline_enabled": true,
+  //"omnibox": { "keyword": "aString" },
+  //"options_page": "aFile.html",
+  "permissions": ["notifications"]
+}
