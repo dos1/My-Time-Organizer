@@ -75,6 +75,7 @@
 						} else {
 							note_content.contentEditable = true;
 						}
+						note_content.parentNode.setAttribute('data-editedNow', note_content.isContentEditable);
 					}
 
 					note_icons.appendChild(icon);

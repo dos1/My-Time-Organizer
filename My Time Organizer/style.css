@@ -222,7 +222,7 @@ nav .header h3 {
 	/*background-color: #FF0000;*/
 }
 
-.note:hover .menu { height: 16px; opacity: 1; }
+.note:hover .menu, .note[data-editedNow=true] .menu { height: 16px; opacity: 1; }
 
 .menu img {
 	cursor: pointer;
