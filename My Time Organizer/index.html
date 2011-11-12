@@ -79,7 +79,8 @@
 					$("#panel_slider").click();
 					var note = document.createElement('div');
 					note.setAttribute('class','note');
-					note.innerHTML = 'Kliknij ikonę ołówka aby edytować tę notatkę lub pędzla aby zmienić kolor tekstu i/lub kartki. Krzyżyk usuwa notatkę.';
+					note.innerHTML += 'Kliknij ikonę ołówka aby edytować tę notatkę lub pędzla aby zmienić kolor tekstu i/lub kartki. Krzyżyk usuwa notatkę.<div class="menu"><img src="icons/write.png"/><img style="margin-left: 6px" src="icons/color.png"/><img src="icons/close.png" style="float: right"/></div>';
+					//note.innerHTML = 'Kliknij ikonę ołówka aby edytować tę notatkę lub pędzla aby zmienić kolor tekstu i/lub kartki. Krzyżyk usuwa notatkę.';
 					var note_icons = document.createElement('div');
 					note_icons.setAttribute('class','note_icons');
 					note.appendChild(note_icons);
