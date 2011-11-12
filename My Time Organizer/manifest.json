@@ -13,7 +13,11 @@
   //"browser_action": {...},
   //"page_action": {...},
   //"theme": {...},
-  //"app": {...},
+  "app": {
+    "launch": {
+       "local_path": "index.html"
+    }
+  },
 
   // Add any of these that you need
   //"background_page": "aFile.html",
@@ -29,5 +33,5 @@
   "offline_enabled": true,
   //"omnibox": { "keyword": "aString" },
   //"options_page": "aFile.html",
-  "permissions": ["notifications"]
+  "permissions": ["notifications", "unlimitedStorage"]
 }
