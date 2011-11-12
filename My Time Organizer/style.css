@@ -95,6 +95,7 @@ body {
 	-webkit-box-pack: 	center;
 	-webkit-box-sizing: content-box;
 	margin: 			auto;
+	padding: 1px;
 	overflow: hidden;
 }
 
@@ -107,6 +108,8 @@ body {
 	-webkit-box-pack: 	center;
 	-webkit-box-sizing: content-box;
 	-webkit-transition: margin 0.75s ease-out;
+	
+	outline: 1px solid darkgrey;
 	/*border: 17px solid lightgrey;
 	border-right: 22px solid lightgrey;*/
 }
@@ -114,16 +117,14 @@ body {
 nav {
 	width: 			14.3%;
 	height: 		100%;
-	border-top: 	1px solid darkgrey;
-	border-bottom: 	1px solid darkgrey;
 }
 
-nav:first-child {
-	border-left: 1px solid darkgrey;
+/*nav:first-child {
+	outline: 1px solid darkgrey;
 }
 nav:last-child {
-	border-right: 1px solid darkgrey;
-}
+	outline: 1px solid darkgrey;
+}*/
 
 nav:nth-child(odd) {
 	background-color: #eeeef4;
@@ -140,9 +141,9 @@ nav:nth-child(even):hover {
 
 nav:nth-child(even) {
 	background-color: 	#f4f4f4;
-	border-left: 		1px dotted #BCBCBC;
-	border-right: 		1px dotted #BCBCBC;
-}
+	outline: 		1px dotted #BCBCBC;
+	/*border-right: 		1px dotted #BCBCBC;
+*/}
 
 .header {
 	width: 						100%;
