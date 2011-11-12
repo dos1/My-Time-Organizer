@@ -54,8 +54,9 @@ body {
 	-webkit-box-shadow: 	 	0px 0px 45px #999;
 	border-top-right-radius: 	25px 25px;
 	border-bottom-right-radius: 25px 25px;
-	background-color: 			#eeeeee;
+	background-color: 			rgba(238,238,238,0.9);
 	-webkit-transition: margin-left 0.3s ease-out;
+	z-index: 1;
 }
 
 #panel_slider {
