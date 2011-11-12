@@ -150,8 +150,14 @@ $(icon).ColorPicker({
 				d.add("days", 1);
 			}
 			$("#panel_slider").click(function() {
-				if ($("#add_panel").css("margin-left") === "0px") $("#add_panel").css("margin-left", "-300px");
-				else $("#add_panel").css("margin-left", "0px");
+				if ($("#add_panel").css("margin-left") === "0px") { 
+$("#add_panel").css("margin-left", "-300px");
+$("#add_panel img").animate({rotate:"0deg"}, 400); 
+}
+				else { 
+$("#add_panel").css("margin-left", "0px");
+ $("#add_panel img").animate({rotate:"180deg"}, 400); 
+}
 			});
 
 			var arr1 = new Array(), arr2 = new Array();
@@ -221,7 +227,7 @@ $(icon).ColorPicker({
 			<div id="event_icon" draggable="false">
 			event
 			</div>
-			<div id="panel_slider"></div>
+			<div id="panel_slider"><img src="szczalka.png" /></div>
 		</div>
 		<!-- main table starts here -->
 		<div id="border_table">

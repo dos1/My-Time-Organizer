@@ -104,6 +104,10 @@ body {
 	opacity: 0.4;
 }
 
+#add_panel img {
+   margin-top: 38px; 
+}
+
 #settings_panel {
 }
 
