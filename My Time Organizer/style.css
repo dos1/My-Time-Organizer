@@ -67,12 +67,16 @@ body {
 
 #note_icon {
 	cursor: 			move;
-	height: 			50px;
+	height: 			35px;
+	padding-top: 		15px;
+	font-family:		Verdana;
+	font-size:			12px;
 	width: 				50px;
 	background-color: 	#f0f000;
 	-moz-box-shadow: 	0px 0px 45px #999;
 	-webkit-box-shadow: 0px 0px 45px #999;
 	float: 				left;
+	text-align:			center;
 }
 
 #settings_panel {
