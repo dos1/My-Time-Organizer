@@ -200,6 +200,7 @@ nav .header h3 {
 	opacity: 0;
 	overflow: hidden;
 	-webkit-transition: all 0.25s ease-out;
+	-webkit-user-select: none;
 	/*background-color: #FF0000;*/
 }
 

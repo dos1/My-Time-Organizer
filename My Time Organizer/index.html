@@ -81,10 +81,11 @@
 					$("#panel_slider").click();
 					var note = document.createElement('div');
 					note.setAttribute('class','note');
-					note.innerHTML += 'Kliknij ikonę ołówka aby edytować tę notatkę lub pędzla aby zmienić kolor tekstu i/lub kartki. Krzyżyk usuwa notatkę.<div class="menu"><img src="icons/write.png"/><img style="margin-left: 6px" src="icons/color.png"/><img src="icons/close.png" style="float: right"/></div>';
+					note.innerHTML += 'Kliknij ikonę ołówka aby edytować tę notatkę lub pędzla aby zmienić kolor tekstu i/lub kartki. Krzyżyk usuwa notatkę.';
 					//note.innerHTML = 'Kliknij ikonę ołówka aby edytować tę notatkę lub pędzla aby zmienić kolor tekstu i/lub kartki. Krzyżyk usuwa notatkę.';
 					var note_icons = document.createElement('div');
-					note_icons.setAttribute('class','note_icons');
+					note_icons.setAttribute('class','menu');
+					note_icons.innerHTML = '<img src="icons/write.png"/><img style="margin-left: 6px" src="icons/color.png"/><img src="icons/close.png" style="float: right"/>';
 					note.appendChild(note_icons);
 					this.appendChild(note);
 					$(note).css("opacity", 0).scale(0).rotate('-70deg').animate({opacity: 1, rotate: 0, scale: 1}, 500);
