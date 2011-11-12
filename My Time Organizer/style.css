@@ -83,6 +83,7 @@ body {
 	-webkit-box-shadow: 0px 0px 45px #999;
 	float: 				left;
 	text-align:			center;
+	color:	#777777;
 }
 
 #settings_panel {
@@ -217,4 +218,9 @@ nav .header h3 {
 
 #current_day {
 	background-color: #cfcfcf;
+}
+
+[contenteditable=true] {
+  outline: 1px dotted #ccc;
+  background-color: rgba(255,255,255,0.3);
 }
