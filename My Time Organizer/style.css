@@ -83,7 +83,7 @@ body {
 #settings_panel {
 }
 
-#inner_table {
+#outer_inner_table {
 	height: 			100%;
 	display: 			-webkit-box;
     -webkit-box-orient: horizontal;
@@ -91,6 +91,17 @@ body {
 	-webkit-box-pack: 	center;
 	-webkit-box-sizing: content-box;
 	margin: 			auto;
+	overflow: hidden;
+}
+
+#inner_table {
+	height: 			99.3%;
+	width: 99.4%;
+	display: 			-webkit-box;
+    -webkit-box-orient: horizontal;
+	-webkit-box-align: 	center;
+	-webkit-box-pack: 	center;
+	-webkit-box-sizing: content-box;
 	/*border: 17px solid lightgrey;
 	border-right: 22px solid lightgrey;*/
 }

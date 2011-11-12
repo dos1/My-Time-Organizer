@@ -23,22 +23,22 @@
 		
 		document.addEventListener("keydown", keydown, false);
 		
-		function right_slide() {
-			alert("Prawa szczałka!");
-		}
-		
-		function left_slide() {
-			alert("Lewa szczałka!");
-		}
-		
-		function keydown(e) {
-			if(event.which == 39) right_slide();
-			else if (event.which == 37) left_slide();
-		}
-		
 		$(document).ready(function() {
-		var now = moment();
-		var mdn = now.format("d")-1;
+			function right_slide() {
+			//alert("Prawa szczałka!");
+				$("#inner_table").css("margin-left", "100%");
+			}
+		
+			function left_slide() {
+				//alert("Lewa szczałka!");
+			}
+		
+			function keydown(e) {
+				if(event.which == 39) right_slide();
+				else if (event.which == 37) left_slide();
+			}
+			var now = moment();
+			var mdn = now.format("d")-1;
 		//alert(day);
 			var d = now.add("days", (-1)*mdn);
 			for(i = 0; i < lang[mylang]["days"].length; i++) {
@@ -93,6 +93,7 @@
 		</div>
 		<!-- main table starts here -->
 		<div id="border_table">
+		<div id="outer_inner_table">
 		<div id="inner_table">
 			<!--<nav>
 				<div class="header">
@@ -143,6 +144,7 @@
 				<div class="day_content" id="day7">
 				</div>
 			</nav>-->
+		</div>
 		</div>
 		</div>
 		<!-- main table ends here -->
