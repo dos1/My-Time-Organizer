@@ -1,13 +1,13 @@
 {
   // Required
   "name": "My Time Organizer",
-  "version": "0.1 Alpha",
+  "version": "0.1",
 
   // Recommended
   "description": "A Chrome time organizer with notes, events, event notifications and much more. Still in development stage so stay tuned!",
-  "icons": "48": "icon48.png",
-          "128": "icon128.png",
-  "default_locale": "pl",
+  "icons": {"48": "icon48.png",
+          "128": "icon128.png"},
+  //"default_locale": "pl",
 
   // Pick one (or none)
   //"browser_action": {...},
