@@ -6,6 +6,8 @@
                 <link rel="stylesheet" type="text/css" href="dos.css" />
 		<title>My Time Organizer</title>
 		<script type="text/javascript" src="jquery-1.7.js"></script>
+		<script type="text/javascript" src="jquery-css-transform.js"></script>
+		<script type="text/javascript" src="jquery-animate-css-rotate-scale.js"></script>
 		<script type="text/javascript" src="moment.js"></script>
 		<script type="text/javascript">
 		lang = new Array();
@@ -60,20 +62,23 @@
 				if ($("#add_panel").css("margin-left") === "0px") $("#add_panel").css("margin-left", "-300px");
 				else $("#add_panel").css("margin-left", "0px");
 			});
-		
+
 			var arr1 = new Array(), arr2 = new Array();
 			for(i = 0; i < 7; i++) {
 				arr1[i] = 'day'+(i+1);
 				arr2[i] = document.getElementById(arr1[i]);
-				arr2[i].ondragleave = function(event) {
-					this.style.opacity = 1;
-				}
 				arr2[i].ondrop = function(event) {
-					this.style.opacity = 1;
-					$(this).css("-webkit-transition", "opacity 1s");
-					this.innerHTML += '<div class="note">Kliknij ikonę ołówka aby edytować tę notatkę lub pędzla aby zmienić kolor tekstu i/lub kartki. Krzyżyk usuwa notatkę.<div class="note_icons"></div></div>';
+					$("#panel_slider").click();
+					var note = document.createElement('div');
+					note.setAttribute('class','note');
+					note.innerHTML = 'Kliknij ikonę ołówka aby edytować tę notatkę lub pędzla aby zmienić kolor tekstu i/lub kartki. Krzyżyk usuwa notatkę.';
+					var note_icons = document.createElement('div');
+					note_icons.setAttribute('class','note_icons');
+					note.appendChild(note_icons);
+					this.appendChild(note);
+					$(note).css("opacity", 0).css("z-index", 0).scale(0).rotate('-180deg').animate({opacity: 1, rotate: 0, scale: 1}, 500);
 				}
-				arr2[i].ondragover = function () { this.style.opacity = 0.35; return false; }
+				arr2[i].ondragover = function () { return false; }
 			}
 		});
 		</script>
