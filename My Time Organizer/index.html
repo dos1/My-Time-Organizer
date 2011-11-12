@@ -3,11 +3,12 @@
 	<head>
 		<meta charset="utf-8">
 		<link rel="stylesheet" type="text/css" href="style.css" />
-                <link rel="stylesheet" type="text/css" href="dos.css" />
+                <link rel="stylesheet" href="css/colorpicker.css" type="text/css" />
 		<title>My Time Organizer</title>
 		<script type="text/javascript" src="jquery-1.7.js"></script>
 		<script type="text/javascript" src="jquery-css-transform.js"></script>
 		<script type="text/javascript" src="jquery-animate-css-rotate-scale.js"></script>
+		<script type="text/javascript" src="js/colorpicker.js"></script>
 		<script type="text/javascript" src="moment.js"></script>
 		<script type="text/javascript">
 		document.designMode = 'on';
@@ -85,6 +86,29 @@
 					var icon = document.createElement('img');
 					icon.setAttribute('src', 'icons/color.png');
 					icon.draggable = false;
+
+$(icon).ColorPicker({
+	color: note.getAttribute('data-bgcolor'),
+	onShow: function (colpkr) {
+		this.setAttribute('id', 'COLORPICKERTROLOLOLO');
+                this.parentNode.parentNode.setAttribute('data-whileInColorPicker', true);
+		$(colpkr).fadeIn(500);
+		return false;
+	},
+	onHide: function (colpkr) {
+		document.getElementById('COLORPICKERTROLOLOLO').parentNode.parentNode.setAttribute('data-whileInColorPicker', false);
+		document.getElementById('COLORPICKERTROLOLOLO').parentNode.parentNode.style.backgroundColor=document.getElementById('COLORPICKERTROLOLOLO').parentNode.parentNode.getAttribute('data-bgcolor');
+		document.getElementById('COLORPICKERTROLOLOLO').setAttribute('id', '');
+		$(colpkr).fadeOut(500);
+		saveNotes();
+		return false;
+	},
+	onChange: function (hsb, hex, rgb) {
+		document.getElementById('COLORPICKERTROLOLOLO').parentNode.parentNode.setAttribute('data-bgcolor', '#'+hex);
+		//document.getElementById('COLORPICKERTROLOLOLO').parentNode.parentNode.style.backgroundColor = '#'+hex;
+	}
+});
+
 					icon.style.marginLeft = '6px';
 					note_icons.appendChild(icon);
 
@@ -194,7 +218,7 @@
 			<div id="note_icon" draggable="true">
 			note
 			</div>
-			<div id="event_icon" draggable="true">
+			<div id="event_icon" draggable="false">
 			event
 			</div>
 			<div id="panel_slider"></div>

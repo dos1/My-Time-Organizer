@@ -101,6 +101,7 @@ body {
 	float: 				left;
 	text-align:			center;
 	color:				black;
+	opacity: 0.4;
 }
 
 #settings_panel {
@@ -227,7 +228,7 @@ nav .header h3 {
 	/*background-color: #FF0000;*/
 }
 
-.note:hover .menu, .note[data-editedNow=true] .menu { height: 16px; opacity: 1; }
+.note:hover .menu, .note[data-editedNow=true] .menu, .note[data-whileInColorPicker=true] .menu { height: 16px; opacity: 1; }
 
 .menu img {
 	cursor: pointer;
