@@ -206,6 +206,15 @@ nav .header h3 {
 
 .note:hover .menu { height: 16px; opacity: 1; }
 
+.menu img {
+	cursor: pointer;
+	-webkit-transition: opacity 0.25s;
+}
+
+.menu img:hover {
+	opacity: 0.75;
+}
+
 #current_day {
 	background-color: #cfcfcf;
 }
