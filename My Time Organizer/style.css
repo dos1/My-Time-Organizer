@@ -209,6 +209,10 @@ nav .header h3 {
 		-webkit-user-select: text;
 }
 
+.day_content .note .note_content {
+	min-height: 1em;
+}
+
 .menu {
 	display: block;
 	width: 100%;

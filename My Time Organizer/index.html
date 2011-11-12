@@ -74,6 +74,7 @@
 							note_content.contentEditable = false;
 							saveNotes();
 						} else {
+							note_content.innerHTML = note_content.parentNode.getAttribute('data-content');
 							note_content.contentEditable = true;
 						}
 						note_content.parentNode.setAttribute('data-editedNow', note_content.isContentEditable);
