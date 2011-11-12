@@ -72,6 +72,7 @@
 						if (note_content.isContentEditable) {
 							note_content.parentNode.setAttribute('data-content', note_content.innerHTML);
 							note_content.contentEditable = false;
+							saveNotes();
 						} else {
 							note_content.contentEditable = true;
 						}
@@ -142,6 +143,7 @@
 
 					fillNote(note);
 					this.appendChild(note);
+					saveNotes();
 				}
 				arr2[i].ondragover = function () { return false; }
 			}
