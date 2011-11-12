@@ -102,7 +102,7 @@ body {
 	-webkit-box-align: 	center;
 	-webkit-box-pack: 	center;
 	-webkit-box-sizing: content-box;
-	-webkit-transition: margin-left 1.0s ease-out;
+	-webkit-transition: margin 0.75s ease-out;
 	/*border: 17px solid lightgrey;
 	border-right: 22px solid lightgrey;*/
 }
