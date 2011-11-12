@@ -93,7 +93,7 @@
 					icon.draggable = false;
 					icon.style.float = 'right';
 					icon.onclick = function() {
-						function removeNote() { this.parentNode.removeChild(this); }
+						function removeNote() { this.parentNode.removeChild(this); saveNotes(); }
 						$(this.parentNode.parentNode).animate({opacity: 0, rotate: '-70deg', scale: 0, height: 0, marginBottom: '-4%'}, 500, removeNote);
 					}
 					note_icons.appendChild(icon);
@@ -166,6 +166,24 @@
 					//alert(localStorage['day'+(i+1)]);
 				}
 			}
+			
+			function loadNotes() {
+				for ( i = 0; i < 7; i++ ) {
+					var column = Array();
+					var note_count = 0;
+					column = JSON.parse(localStorage['day'+(i+1)]);
+					for ( j = 0; j < column.length; j+=3 ) {
+						var note = document.createElement('div');
+						note.setAttribute('data-date', column[j]);
+						note.setAttribute('data-content', column[j+1]);
+						note.setAttribute('data-bgcolor', column[j+2]);
+						fillNote(note);
+						document.getElementById('day'+(i+1)).appendChild(note);							
+					}
+				}
+			}
+			
+			loadNotes();
 			
 		});
 		</script>
