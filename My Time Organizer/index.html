@@ -21,8 +21,6 @@
 		/* Polish */
 		lang["pl"]["days"] = ["Poniedziałek", "Wtorek", "Środa", "Czwartek", "Piątek", "Sobota", "Niedziela"];
 		
-		document.addEventListener("keydown", keydown, false);
-		
 		$(document).ready(function() {
 			function right_slide() {
 			//alert("Prawa szczałka!");
@@ -37,6 +35,9 @@
 				if(event.which == 39) right_slide();
 				else if (event.which == 37) left_slide();
 			}
+		
+			document.addEventListener("keydown", keydown, false);
+			
 			var now = moment();
 			var mdn = now.format("d")-1;
 		//alert(day);
