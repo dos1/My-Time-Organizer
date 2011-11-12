@@ -68,12 +68,12 @@
 					icon.setAttribute('src', 'icons/write.png');
 					icon.draggable = false;
 					icon.onclick = function() {
-						alert(this.parentNode.parentNode.childNodes[0].contentEditable == true);
-						if (this.parentNode.parentNode.childNodes[0].contentEditable) {
-							this.parentNode.parentNode.setAttribute('data-content', this.parentNode.parentNode.childNodes[0].innerHTML);
-							this.parentNode.parentNode.childNodes[0].contentEditable = false;
+						note_content = this.parentNode.parentNode.childNodes[0];
+						if (note_content.isContentEditable) {
+							note_content.parentNode.setAttribute('data-content', note_content.innerHTML);
+							note_content.contentEditable = false;
 						} else {
-							this.parentNode.parentNode.childNodes[0].contentEditable = true;
+							note_content.contentEditable = true;
 						}
 					}
 
