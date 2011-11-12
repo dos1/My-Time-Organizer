@@ -24,11 +24,18 @@
 		$(document).ready(function() {
 			function right_slide() {
 			//alert("Prawa szczałka!");
-				$("#inner_table").css("margin-left", "100%");
+				if ($("#inner_table").css("margin-left") !== "-100%")
+					$("#inner_table").css("margin-left", "-200%");
+				if ($("#inner_table").css("margin-left") === "100%")
+					$("#inner_table").css("margin-left", "0");
 			}
 		
 			function left_slide() {
 				//alert("Lewa szczałka!");
+				if ($("#inner_table").css("margin-left") !== "100%")
+					$("#inner_table").css("margin-left", "100%");
+				if ($("#inner_table").css("margin-left") === "-200%")
+					$("#inner_table").css("margin-left", "0");
 			}
 		
 			function keydown(e) {
