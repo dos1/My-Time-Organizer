@@ -145,8 +145,9 @@ nav:last-child {
 	border-right: 1px solid darkgrey;
 }
 
-nav:nth-child(odd) {
-	background-color: #eeeef4;
+nav:nth-child(even) {
+	background-color: #f4f4f4;
+	outline: 1px dotted darkgrey;
 }
 
 /* TO-DO: change hover color and enable on-hover background-color change */
@@ -158,10 +159,10 @@ nav:nth-child(even):hover {
 	background-color: #ffaaaa;
 }*/
 
-nav:nth-child(even) {
-	background-color: 	#f4f4f4;
-	border-left: 		1px dotted #BCBCBC;
-	border-right: 		1px dotted #BCBCBC;
+nav:nth-child(odd) {
+	background-color: 	#eeeef4;
+/*	border-left: 		1px dotted #BCBCBC;
+	border-right: 		1px dotted #BCBCBC;*/
 }
 
 .header {
@@ -170,7 +171,7 @@ nav:nth-child(even) {
 	padding-top: 				10px;
 	text-align: 				center;
 	background-color: 			#dddddd;
-	border-bottom: 				1px dotted #BABABA;
+	border-bottom: 				1px dotted #BCBCBC;
 	overflow: 					hidden;
 }
 
@@ -187,7 +188,7 @@ nav .header h3 {
         -webkit-box-sizing: padding-box;
 	overflow-y: auto;
 	overflow-x: hidden;
-	padding-top: 3px;
+	padding-top: 10px;
 }
 
 .day_content .note {
@@ -197,14 +198,12 @@ nav .header h3 {
 	padding-right: 		5%;
 	padding-top: 		4%;
 	padding-bottom: 	4%;
-	border-top: 		1px dotted #BCBCBC;
-	border-bottom:		1px dotted #BCBCBC;
+	border: 		1px dotted #BCBCBC;
 	text-align:		 	justify;
 	font-family: 		Verdana;
 	font-size: 			0.7em;
 	color: 				#333333;
-	-moz-box-shadow: 	0px 0px 45px #999;
-	-webkit-box-shadow: 0px 0px 45px #999;
+	box-shadow: 0px 0px 45px #999;
 	margin-bottom: 		4%;
 	background-color: 	#f0f000;
 	-webkit-user-select: text;
