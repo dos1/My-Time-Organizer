@@ -6,7 +6,9 @@
  * [!] [alphabetical order]
  */
 
-html { height: 100%;}
+html {
+	height: 100%;
+}
 
 body {
 	/*background-image: url("http://acrisdesign.com/wp-content/uploads/2010/01/49.jpg");
