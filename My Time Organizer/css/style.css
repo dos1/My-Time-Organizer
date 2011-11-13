@@ -250,3 +250,26 @@ nav .header h3 {
 	outline: 1px dotted #ccc;
 	background-color: rgba(255,255,255,0.3);
 }
+#logowrapper {
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	padding: 0;
+	margin: 0;
+}
+#logo {
+	display: inline-block;
+	text-align: center;
+	background-color: lightgray;
+	padding: 5px;
+	padding-left: 15px;
+	padding-right: 15px;
+	height: 21px;
+	border-left: 1px solid darkgrey;
+	border-right: 1px solid darkgrey;
+        font-family: Sans-Serif;
+        color: #777777;
+        text-shadow: 0px 0px 15px #999;
+	font-weight: bold;
+}
