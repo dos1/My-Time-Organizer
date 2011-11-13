@@ -41,7 +41,7 @@ $(document).ready(function() {
 		r=parseInt(color.substring(1,3),16);
 		g=parseInt(color.substring(3,5),16);
 		b=parseInt(color.substring(5,7),16);
-		if (((r+b+g)/3)>100) return "#333333"; else return "#CCCCCC";
+		if (((r+b+g)/3)>84) return "#333333"; else return "#E0E0E0";
 	}
 
 	function resizeDays() {
