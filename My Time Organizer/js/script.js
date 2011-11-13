@@ -15,19 +15,20 @@ lang["pl"]["days"] = ["Poniedziałek", "Wtorek", "Środa", "Czwartek", "Piątek"
 $(document).ready(function() {
 	function right_slide() {
 	//alert("Prawa szczałka!");
-		if ($("#inner_table").css("margin-left") !== "-100%")
-			$("#inner_table").css("margin-left", "-200%"); //.css("-webkit-transform", "translate(-3px,0px)");
-		if ($("#inner_table").css("margin-left") === "100%")
-			$("#inner_table").css("margin-left", "0"); //.css("-webkit-transform", "");
+		if ($("#inner_table").css("transform") !== "translate(100%, 0px)") {
+			$("#inner_table").css("transform", "translate(-100%, 0px)");
+		}
+		if ($("#inner_table").css("transform") === "translate(100%, 0px)")
+			$("#inner_table").css("transform", "");
 	}
 		
 	function left_slide() {
 		//alert("Lewa szczałka!");
-		if ($("#inner_table").css("margin-left") !== "100%") {
-			$("#inner_table").css("margin-left", "100%"); //.css("-webkit-transform", "translate(2px,0px)");
+		if ($("#inner_table").css("transform") !== "translate(-100%, 0px)") {
+			$("#inner_table").css("transform", "translate(100%, 0px)");
 		}
-		if ($("#inner_table").css("margin-left") === "-200%") {
-			$("#inner_table").css("margin-left", "0px"); //.css("-webkit-transform", "");
+		if ($("#inner_table").css("transform") === "translate(-100%, 0px)") {
+			$("#inner_table").css("transform", "");
 		}
 	}
 		

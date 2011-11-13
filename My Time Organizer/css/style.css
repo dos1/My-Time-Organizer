@@ -124,7 +124,7 @@ body {
 	-webkit-box-align: 	center;
 	-webkit-box-pack: 	center;
         -webkit-box-sizing: border-box;
-	-webkit-transition: margin 0.75s ease-out;
+	-webkit-transition: all 0.75s ease-out;
 	
 	/*border: 17px solid lightgrey;
 	border-right: 22px solid lightgrey;*/
