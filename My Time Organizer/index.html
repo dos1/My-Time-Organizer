@@ -28,18 +28,18 @@
 			function right_slide() {
 			//alert("Prawa szczałka!");
 				if ($("#inner_table").css("margin-left") !== "-100%")
-					$("#inner_table").css("margin-left", "-200%").css("margin-right", "3px");
+					$("#inner_table").css("margin-left", "-200%").css("-webkit-transform", "translate(-3px,0px)");
 				if ($("#inner_table").css("margin-left") === "100%")
-					$("#inner_table").css("margin-left", "0").css("margin-right", "0");
+					$("#inner_table").css("margin-left", "0").css("-webkit-transform", "");
 			}
 		
 			function left_slide() {
 				//alert("Lewa szczałka!");
 				if ($("#inner_table").css("margin-left") !== "100%") {
-					$("#inner_table").css("margin-left", "100%");
+					$("#inner_table").css("margin-left", "100%").css("-webkit-transform", "translate(2px,0px)");
 				}
 				if ($("#inner_table").css("margin-left") === "-200%") {
-					$("#inner_table").css("margin-left", "0");
+					$("#inner_table").css("margin-left", "0px").css("-webkit-transform", "");
 				}
 			}
 		
