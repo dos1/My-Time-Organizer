@@ -65,7 +65,7 @@ body {
 	margin-top: -20px;
 }
 
-#note_icon {
+#note_icon, #event_icon, #task_icon {
 	cursor: 			move;
 	height: 			35px;
 	padding-top: 		15px;
@@ -80,21 +80,20 @@ body {
 	margin-right: 		15px;
 }
 
-#event_icon {
-	cursor: 			move;
-	height: 			35px;
-	padding-top: 		15px;
-	font-family:		Verdana;
-	color:				black;
-	font-size:			12px;
-	width: 				50px;
-	background-color: 	#f00000;
-	-moz-box-shadow: 	0px 0px 45px #999;
-	-webkit-box-shadow: 0px 0px 45px #999;
-	float: 				left;
-	text-align:			center;
-	color:				black;
+#note_icon[draggable=false], #event_icon[draggable=false], #task_icon[draggable=false] {
 	opacity: 0.4;
+}
+
+#note_icon {
+	background-color:       #f0f000;
+}
+
+#event_icon {
+	background-color: 	#e00000;
+}
+
+#task_icon {
+	background-color:	#00e000;
 }
 
 #add_panel img {
