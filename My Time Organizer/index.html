@@ -56,9 +56,11 @@
 				if (((r+b+g)/3)>100) return "#333333"; else return "#CCCCCC";
 			}
 
-			window.onresize = function() {
-                               //alert($(".day_content")[0].height);
+			function resizeDays() {
+                               $(".day_content").css("height",$("nav").height()-71);
                         }
+
+			window.onresize = resizeDays;
 
 			function fillNote(note) {
 					note.setAttribute('class','note');
@@ -228,7 +230,7 @@ $("#add_panel").css("margin-left", "0px");
 			}
 			
 			loadNotes();
-			
+			resizeDays();			
 		});
 		</script>
 	</head>
