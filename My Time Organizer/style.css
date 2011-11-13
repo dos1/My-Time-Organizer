@@ -34,8 +34,6 @@ body {
 	-webkit-box-sizing: 	border-box;
 }
 
-
-
 @font-face {
 	font-family: myFont;
 	src: 		 url('daniel.ttf') format("truetype");
@@ -53,8 +51,8 @@ body {
 	padding-left: 				25px;
 	-moz-box-shadow: 		 	0px 0px 45px #999;
 	-webkit-box-shadow: 	 	0px 0px 45px #999;
-	border-top-right-radius: 	25px 25px;
-	border-bottom-right-radius: 25px 25px;
+	border-top-right-radius: 25px;
+	border-bottom-right-radius: 25px;
 	background-color: 			rgba(238,238,238,0.9);
 	-webkit-transition: margin-left 0.3s ease-out;
 	z-index: 1;
@@ -109,7 +107,7 @@ body {
 #outer_inner_table {
 	height: 			100%;
 	display: 			-webkit-box;
-    -webkit-box-orient: horizontal;
+	-webkit-box-orient: horizontal;
 	-webkit-box-align: 	center;
 	-webkit-box-pack: 	center;
 	-webkit-box-sizing: border-box;
@@ -121,10 +119,9 @@ body {
 	height: 			100%;
 	width: 100%;
 	display: 			-webkit-box;
-    -webkit-box-orient: horizontal;
+	-webkit-box-orient: horizontal;
 	-webkit-box-align: 	center;
 	-webkit-box-pack: 	center;
-	/*-webkit-box-sizing: content-box;*/
         -webkit-box-sizing: border-box;
 	-webkit-transition: margin 0.75s ease-out;
 	
@@ -189,7 +186,7 @@ nav .header h3 {
         -webkit-box-sizing: padding-box;
 	overflow-y: auto;
 	overflow-x: hidden;
-	/*background-color: red;*/
+	padding-top: 3px;
 }
 
 .day_content .note {
@@ -209,8 +206,8 @@ nav .header h3 {
 	-webkit-box-shadow: 0px 0px 45px #999;
 	margin-bottom: 		4%;
 	background-color: 	#f0f000;
-		-webkit-user-select: text;
-			-webkit-transition: background-color 0.75s, color 0.2s;
+	-webkit-user-select: text;
+	-webkit-transition: background-color 0.75s, color 0.2s;
 }
 
 .day_content .note .note_content {
@@ -230,7 +227,10 @@ nav .header h3 {
 	/*background-color: #FF0000;*/
 }
 
-.note:hover .menu, .note[data-editedNow=true] .menu, .note[data-whileInColorPicker=true] .menu { height: 16px; opacity: 1; }
+.note:hover .menu, .note[data-editedNow=true] .menu, .note[data-whileInColorPicker=true] .menu {
+	height: 16px;
+	opacity: 1;
+}
 
 .menu img {
 	cursor: pointer;
@@ -246,6 +246,6 @@ nav .header h3 {
 }
 
 [contenteditable=true] {
-  outline: 1px dotted #ccc;
-  background-color: rgba(255,255,255,0.3);
+	outline: 1px dotted #ccc;
+	background-color: rgba(255,255,255,0.3);
 }
