@@ -6,7 +6,7 @@
  * [!] [alphabetical order]
  */
 
-html { height: 85%;}
+html { height: 100%;}
 
 body {
 	/*background-image: url("http://acrisdesign.com/wp-content/uploads/2010/01/49.jpg");
@@ -16,26 +16,22 @@ body {
 	text-align: 		center;
 	height: 100%;
 	-webkit-user-select: none;
-	/*height: 			800px;*/
+	min-width: 600px;
+	margin: 0;
+	padding: 30px;
+	-webkit-box-sizing: border-box;
 }
 
 #border_table { 
-	
-	height: 100%; /* height */
-	width: 				89.3%;				 /* width */
-	border: 			1px solid darkgrey;	 /* border */
-	margin: 			auto;				 /* margin */
-	margin-top: 		30px;					 /* margin-top */
+	height: 		100%; /* height */
+	width: 			100%;				 /* width */
+	border: 		1px solid darkgrey;	 /* border */
 	text-align: 		center;				 /* text-align */
 	background-color: 	lightgray;			 /* bg color */
-	
-	border-bottom-left-radius: 	25px 25px;
-	border-top-left-radius: 	25px 25px;
-	border-bottom-right-radius: 25px 25px;
-	border-top-right-radius: 	25px 25px;
-	padding: 					20px 24px 20px 20px;
-	-moz-box-shadow: 			0px 0px 45px #999;
-	-webkit-box-shadow: 		0px 0px 45px #999;
+	border-radius: 		25px;
+	padding: 		20px 20px 20px 20px;
+	box-shadow: 		0px 0px 45px #999;
+	-webkit-box-sizing: 	border-box;
 }
 
 
@@ -79,8 +75,7 @@ body {
 	font-size:			12px;
 	width: 				50px;
 	background-color: 	#f0f000;
-	-moz-box-shadow: 	0px 0px 45px #999;
-	-webkit-box-shadow: 0px 0px 45px #999;
+	box-shadow: 0px 0px 45px #999;
 	float: 				left;
 	text-align:			center;
 	color:				#333333;
@@ -117,9 +112,8 @@ body {
     -webkit-box-orient: horizontal;
 	-webkit-box-align: 	center;
 	-webkit-box-pack: 	center;
-	-webkit-box-sizing: content-box;
+	-webkit-box-sizing: border-box;
 	margin: 			auto;
-	padding: 1px;
 	overflow: hidden;
 }
 
@@ -130,25 +124,28 @@ body {
     -webkit-box-orient: horizontal;
 	-webkit-box-align: 	center;
 	-webkit-box-pack: 	center;
-	-webkit-box-sizing: content-box;
+	/*-webkit-box-sizing: content-box;*/
+        -webkit-box-sizing: border-box;
 	-webkit-transition: margin 0.75s ease-out;
 	
-	outline: 1px solid darkgrey;
 	/*border: 17px solid lightgrey;
 	border-right: 22px solid lightgrey;*/
 }
 
 nav {
-	width: 			14.3%;
+	border-top: 1px solid darkgrey;
+	border-bottom: 1px solid darkgrey;
+	width: 			14.29%;
+        -webkit-box-sizing: border-box;
 	height: 		100%;
 }
 
-/*nav:first-child {
-	outline: 1px solid darkgrey;
+nav:first-child {
+	border-left: 1px solid darkgrey;
 }
 nav:last-child {
-	outline: 1px solid darkgrey;
-}*/
+	border-right: 1px solid darkgrey;
+}
 
 nav:nth-child(odd) {
 	background-color: #eeeef4;
@@ -165,9 +162,9 @@ nav:nth-child(even):hover {
 
 nav:nth-child(even) {
 	background-color: 	#f4f4f4;
-	outline: 		1px dotted #BCBCBC;
-	/*border-right: 		1px dotted #BCBCBC;
-*/}
+	border-left: 		1px dotted #BCBCBC;
+	border-right: 		1px dotted #BCBCBC;
+}
 
 .header {
 	width: 						100%;
@@ -188,21 +185,22 @@ nav .header h3 {
 
 .day_content {
 	width: 		100%;
-	height: 	100%;
-	margin-top: 11%;
+	height: 100%;
+        -webkit-box-sizing: padding-box;
 	overflow-y: auto;
 	overflow-x: hidden;
 	/*background-color: red;*/
 }
 
 .day_content .note {
-	width: 				91.5%;	
+	width: 				100%;
+	-webkit-box-sizing: border-box;
 	padding-left: 		5%;
 	padding-right: 		5%;
 	padding-top: 		4%;
 	padding-bottom: 	4%;
-	border-bottom: 		1px dotted #BCBCBC;
 	border-top: 		1px dotted #BCBCBC;
+	border-bottom:		1px dotted #BCBCBC;
 	text-align:		 	justify;
 	font-family: 		Verdana;
 	font-size: 			0.7em;
