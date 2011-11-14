@@ -11,6 +11,23 @@ lang["en"]["days"] = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "S
 /* Polish */
 lang["pl"]["days"] = ["Poniedziałek", "Wtorek", "Środa", "Czwartek", "Piątek", "Sobota", "Niedziela"];
 
+function notify(text) {
+	// Create a simple text notification:
+	var notification = webkitNotifications.createNotification(
+	    'icons/icon48.png',  // icon url - can be relative
+	    'Fuck yeah!',  // notification title
+	    text  // notification body text
+	);
+
+	// Or create an HTML notification:
+	//var notification = webkitNotifications.createHTMLNotification(
+	//  'notification.html'  // html url - can be relative
+	//);
+
+	// Then show the notification.
+	notification.show(); 
+}
+
 	
 $(document).ready(function() {
 	function right_slide() {
@@ -177,10 +194,11 @@ $(document).ready(function() {
 			note.setAttribute('data-content', '');
 			note.setAttribute('data-bgcolor', '#f0f000');
 			note.setAttribute('data-date', arr1[i]);
-
+			
 			fillNote(note);
 			this.appendChild(note);
 			saveNotes();
+			notify('Notatka dodana!');
 		}
 		arr2[i].ondragover = function () { return false; }
 	}
