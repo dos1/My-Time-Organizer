@@ -15,6 +15,7 @@ lang["pl"]["days"] = ["Poniedziałek", "Wtorek", "Środa", "Czwartek", "Piątek"
 $(document).ready(function() {
 	function right_slide() {
 	//alert("Prawa szczałka!");
+		if ($("[data-editedNow=true]")[0]) return false;
 		if ($("#inner_table").css("transform") !== "translate(100%, 0px)") {
 			$("#inner_table").css("transform", "translate(-100%, 0px)");
 		}
@@ -24,6 +25,7 @@ $(document).ready(function() {
 		
 	function left_slide() {
 		//alert("Lewa szczałka!");
+		if ($("[data-editedNow=true]")[0]) return false;
 		if ($("#inner_table").css("transform") !== "translate(-100%, 0px)") {
 			$("#inner_table").css("transform", "translate(100%, 0px)");
 		}
