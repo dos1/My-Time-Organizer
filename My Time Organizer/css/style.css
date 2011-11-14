@@ -189,6 +189,7 @@ nav .header h3 {
 	overflow-y: auto;
 	overflow-x: hidden;
 	padding-top: 10px;
+	-webkit-transition: background-color 0.25s;
 }
 
 .day_content .note {

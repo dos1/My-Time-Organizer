@@ -183,24 +183,36 @@ $(document).ready(function() {
 		}
 		});
 
+	$("#note_icon")[0].ondragstart = function(event) {
+		//alert('lol');
+		event.dataTransfer.setData("type","note"); //FIXME
+	}
 	var arr1 = new Array(), arr2 = new Array();
 	for(i = 0; i < 7; i++) {
 		arr1[i] = 'day'+(i+1);
 		arr2[i] = document.getElementById(arr1[i]);
 		arr2[i].ondrop = function(event) {
-			$("#panel_slider").click();
-			var note = document.createElement('div');
+			$(this).css("background-color", "transparent");
+		        type = "note"; //event.dataTransfer.getData("type"); //FIXME
+			text = event.dataTransfer.getData("Text");
+			//alert(type);
+			if ((type==="note") || (text)) {
+				$("#panel_slider").click();
+				var note = document.createElement('div');
 
-			note.setAttribute('data-content', '');
-			note.setAttribute('data-bgcolor', '#f0f000');
-			note.setAttribute('data-date', arr1[i]);
+				note.setAttribute('data-content', text);
+				note.setAttribute('data-bgcolor', '#f0f000');
+				note.setAttribute('data-date', arr1[i]); //FIXME
 			
-			fillNote(note);
-			this.appendChild(note);
-			saveNotes();
-			notify('Notatka dodana!');
+				fillNote(note);
+				this.appendChild(note);
+				saveNotes();
+				notify('Notatka dodana!');
+			}
 		}
 		arr2[i].ondragover = function () { return false; }
+		arr2[i].ondragenter = function () { $(this).css("background-color", "rgba(255,255,255,0.8)"); }
+		arr2[i].ondragleave = function () { $(this).css("background-color", "transparent"); }
 	}
 			
 	function saveNotes() {
