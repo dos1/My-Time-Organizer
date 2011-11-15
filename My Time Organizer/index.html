@@ -1,43 +1,61 @@
 <!DOCTYPE html>
+<!--
+/* [?] My Time Organizer @ Google Apps Hackathon 12.11.2011 (11/12/2011)
+ * [+] Authors: 
+ * - Dominik Galewski (mug3tsu)
+ * - Sebastian Krzyszkowiak (dos)
+ * - Krzysztof Marciniak (hun7er)
+ * [!] [alphabetical order]
+ */
+-->
 <html>
 	<head>
 		<meta charset="utf-8">
-		<link rel="stylesheet" type="text/css" href="css/style.css" />
-                <link rel="stylesheet" href="css/colorpicker.css" type="text/css" />
 		<title>My Time Organizer</title>
+		<link rel="stylesheet" href="css/style.css" type="text/css" />
+		<link rel="stylesheet" href="css/colorpicker.css" type="text/css" />
 		<script type="text/javascript" src="js/jquery-1.7.js"></script>
 		<script type="text/javascript" src="js/jquery-css-transform.js"></script>
 		<script type="text/javascript" src="js/jquery-animate-css-rotate-scale.js"></script>
 		<script type="text/javascript" src="js/colorpicker.js"></script>
 		<script type="text/javascript" src="js/moment.min.js"></script>
 		<script type="text/javascript" src="js/script.js"></script>
-	</head>
-	<body>
+</head>
+<body>
 		<!-- items that can be dropped onto the table -->
-		<div id="logowrapper">
+		<div id="header">
 			<div id="logo">My Time Organizer</div>
+
+			<div id="right_panel">
+
+				<div id="add_panel">
+					<div id="note_icon" draggable="true">
+						Notatka
+					</div>
+					<div id="event_icon" draggable="true">
+						Wydarzenie
+					</div>
+					<div id="task_icon" draggable="true">
+						Zadanie
+					</div>
+				</div>
+
+				<div id="conf_panel">Konfiguracja</div>
+
+				<div id="help_panel">Pomoc</div>
+
+			</div>
+
 		</div>
 
-		<div id="add_panel">
-			<div id="note_icon" draggable="true">
-			note
-			</div>
-			<div id="event_icon" draggable="false">
-			event
-			</div>
-			<div id="task_icon" draggable="false">
-			task
-			</div>
-			<div id="panel_slider"><img src="icons/szczalka.png" /></div>
-		</div>
 		<!-- main table starts here -->
 		<div id="border_table">
-		<div id="outer_inner_table">
-		<div id="inner_table">
-			<!-- days -->
-		</div>
-		</div>
+			<div id="inner_table">
+				<!-- days -->
+			</div>
 		</div>
 		<!-- main table ends here -->
-	</body>
+
+		<div id="footer">Kopirajt baj as</div>
+</body>
 </html>

@@ -6,107 +6,80 @@
  * [!] [alphabetical order]
  */
 
-html {
-	height: 100%;
-}
-
+html { height: 100%; }
 body {
-	/*background-image: url("http://acrisdesign.com/wp-content/uploads/2010/01/49.jpg");
-	background-repeat: 	repeat-x repeat-y;
-	background-size: 25%;*/
-	background-color: 	#dddddd;
-	text-align: 		center;
-	height: 100%;
 	-webkit-user-select: none;
-	min-width: 600px;
+	min-width: 850px;
+	background-color: #FAFAFA;
 	margin: 0;
-	padding: 30px;
+	padding: 0;
+	height: 100%;
+}
+#header {
+	min-width: 850px;
+	position: absolute;
+	background-image: url('../images/header.png');
+	background-position: left top;
+	background-repeat: no-repeat;
+	top: 0px;
+	left: 0px;
+	background-color: #F1F1F1;
+	width: 100%;
+	height: 55px;
 	-webkit-box-sizing: border-box;
+	border-bottom: 2px solid #666666;
+	box-shadow: 0px 1px 3px #d1d1d1;
+	padding: 15px;
+	text-align: right;
+	z-index: 10;
+}
+#footer {
+	min-width: 850px;
+	position: absolute;
+	bottom: 0px;
+	left: 0px;
+	background-color: #E1E1E1;
+	width: 100%;
+	height: 20px;
+	-webkit-box-sizing: border-box;
+	border-top: 1px solid #666666;
+	box-shadow: 0px -1px 3px #d1d1d1;
+	padding: 4px;
+	text-align: right;
+	z-index: 10;
+	font-size: 10px;
+	font-family: "Sans";
+}
+#logo {
+	font-size: 18px;
+	font-family: "Sans";
+	color: #666666;
+	float: left;
+	padding-left: 50px;
+	padding-top: 12px;
+}
+#right_panel > div {
+	display: inline-block;
+	font-family: "Sans";
+	background-image: url('../images/terminator.png');
+	background-repeat: no-repeat;
+	background-position: top right;
+	background-size: 1px 100%;
+	padding-left: 10px;
+	padding-right: 15px;
+	margin-top: -5px;
+	padding-top: 5px;
+	height: 30px;
 }
 
-#border_table { 
-	height: 		100%; /* height */
-	width: 			100%;				 /* width */
-	border: 		1px solid darkgrey;	 /* border */
-	text-align: 		center;				 /* text-align */
-	background-color: 	lightgray;			 /* bg color */
-	border-radius: 		25px;
-	padding: 		20px 20px 20px 20px;
-	box-shadow: 		0px 0px 45px #999;
-	-webkit-box-sizing: 	border-box;
+#right_panel > div:last-of-type {
+	background-image: none;
+	padding-right: 0px;
 }
 
-@font-face {
-	font-family: myFont;
-	src: 		 url('daniel.ttf') format("truetype");
-}
-
-#add_panel {
-	position: 					fixed; 
-	left: 						0px;
-	bottom: 					5%;
-	width: 						300px;   /* THIS... IS... SPARTAAAAAAAA! */
-	margin-left:				-300px;
-	height: 					50px;
-	padding-top: 				20px;
-	padding-bottom: 			20px;
-	padding-left: 				25px;
-	-moz-box-shadow: 		 	0px 0px 45px #999;
-	-webkit-box-shadow: 	 	0px 0px 45px #999;
-	border-top-right-radius: 25px;
-	border-bottom-right-radius: 25px;
-	background-color: 			rgba(238,238,238,0.9);
-	-webkit-transition: margin-left 0.3s ease-out;
-	z-index: 1;
-}
-
-#panel_slider {
-	width: 		25px;
-	height: 	90px;
-	float: 		right;
-	margin-top: -20px;
-}
-
-#note_icon, #event_icon, #task_icon {
-	cursor: 			move;
-	height: 			35px;
-	padding-top: 		15px;
-	font-family:		Verdana;
-	font-size:			12px;
-	width: 				50px;
-	background-color: 	#f0f000;
-	box-shadow: 0px 0px 45px #999;
-	float: 				left;
-	text-align:			center;
-	color:				#333333;
-	margin-right: 		15px;
-}
-
-#note_icon[draggable=false], #event_icon[draggable=false], #task_icon[draggable=false] {
-	opacity: 0.4;
-}
-
-#note_icon {
-	background-color:       #f0f000;
-}
-
-#event_icon {
-	background-color: 	#e00000;
-}
-
-#task_icon {
-	background-color:	#00e000;
-}
-
-#add_panel img {
-   margin-top: 38px; 
-}
-
-#settings_panel {
-}
-
-#outer_inner_table {
+#border_table {
 	height: 			100%;
+	width: 100%;
 	display: 			-webkit-box;
 	-webkit-box-orient: horizontal;
 	-webkit-box-align: 	center;
@@ -114,7 +87,9 @@ body {
 	-webkit-box-sizing: border-box;
 	margin: 			auto;
 	overflow: hidden;
-}
+	padding-top: 54px;
+	padding-bottom: 19px;
+} 
 
 #inner_table {
 	height: 			100%;
@@ -133,21 +108,21 @@ body {
 nav {
 	border-top: 1px solid darkgrey;
 	border-bottom: 1px solid darkgrey;
-	width: 			14.29%;
+	width: 			14.3%;
         -webkit-box-sizing: border-box;
 	height: 		100%;
+	border-right: 1px solid #a6a6a6;
 }
 
-nav:first-child {
+/*nav:first-child {
 	border-left: 1px solid darkgrey;
 }
 nav:last-child {
-	border-right: 1px solid darkgrey;
-}
+	border-right: none; /*1px solid darkgrey;*/
+
 
 nav:nth-child(even) {
-	background-color: #f4f4f4;
-	outline: 1px dotted darkgrey;
+	background-color: rgba(245,245,245,0.5);
 }
 
 /* TO-DO: change hover color and enable on-hover background-color change */
@@ -160,7 +135,7 @@ nav:nth-child(even):hover {
 }*/
 
 nav:nth-child(odd) {
-	background-color: 	#eeeef4;
+	/*background-color: 	#eeeef4;*/
 /*	border-left: 		1px dotted #BCBCBC;
 	border-right: 		1px dotted #BCBCBC;*/
 }
@@ -170,26 +145,24 @@ nav:nth-child(odd) {
 	height: 					60px;
 	padding-top: 				10px;
 	text-align: 				center;
-	background-color: 			#dddddd;
-	border-bottom: 				1px dotted #BCBCBC;
-	overflow: 					hidden;
+	background-color: 			#f0f0f0;
+	border-bottom: 				1px solid #a6a6a6;
 }
 
 nav .header h3 {
 	font-family: 	Sans-Serif;
 	margin-top: 	0;
-	color: 			#777777;
-	text-shadow: 	0px 0px 15px #999;
+	color: 			#666666;
+	/*text-shadow: 	0px 0px 15px #999;*/
 }
 
 .day_content {
 	width: 		100%;
 	height: 100%;
-        -webkit-box-sizing: padding-box;
 	overflow-y: auto;
 	overflow-x: hidden;
 	padding-top: 10px;
-	-webkit-transition: background-color 0.25s;
+	-webkit-transition: background-color 0.25s, opacity 0.25s;
 }
 
 .day_content .note {
@@ -199,16 +172,20 @@ nav .header h3 {
 	padding-right: 		5%;
 	padding-top: 		4%;
 	padding-bottom: 	4%;
-	border: 		1px dotted #BCBCBC;
+	border-top: 		1px solid #BCBCBC;
+	border-bottom: 		1px solid #BCBCBC;
 	text-align:		 	justify;
 	font-family: 		Verdana;
 	font-size: 			0.7em;
 	color: 				#333333;
-	box-shadow: 0px 0px 45px #999;
+	box-shadow: 0px 0px 20px rgba(0,0,0,0.18);
 	margin-bottom: 		4%;
 	background-color: 	#f0f000;
 	-webkit-user-select: text;
 	-webkit-transition: background-color 0.75s, color 0.2s;
+	background-image: url('../images/notka_cien.png');
+	background-repeat: no-repeat;
+	background-position: bottom left;
 }
 
 .day_content .note .note_content {
@@ -242,35 +219,60 @@ nav .header h3 {
 	opacity: 0.75;
 }
 
-#current_day {
-	background-color: #cfcfcf;
+nav .header#current_day {
+	background-image: url('../images/cur_day.png');
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
 }
 
 div[contenteditable=true] {
 	outline: 1px dotted #ccc;
 	background-color: rgba(255,255,255,0.3);
 }
-#logowrapper {
-	position: fixed;
-	top: 0px;
-	left: 0px;
-	width: 100%;
-	min-width: 600px;
-	padding: 0;
-	margin: 0;
-}
-#logo {
-	display: inline-block;
-	text-align: center;
-	background-color: lightgray;
+
+#add_panel div {
+	cursor: 			move;
+	height: 			20px;
 	padding: 5px;
-	padding-left: 15px;
-	padding-right: 15px;
-	height: 21px;
-	border-left: 1px solid darkgrey;
-	border-right: 1px solid darkgrey;
-        font-family: Sans-Serif;
-        color: #777777;
-        text-shadow: 0px 0px 15px #999;
-	font-weight: bold;
+	padding-top: 10px;
+	margin-top: -5px;
+	font-family:		Verdana;
+	font-size:			12px;
+	width: 				auto;
+	box-shadow: 0px 0px 10px #bbb;
+	text-align:			center;
+	margin-right: 		15px;
+	display: inline-block;
+}
+
+#add_panel div:last-of-type {
+	margin-right: 0px;
+}
+
+#add_panel div[draggable=false] {
+	opacity: 0.4;
+}
+
+#note_icon {
+	background-color:       #f0f000;
+	color:				#333333;
+}
+
+#event_icon {
+	background-color: 	#e00000;
+	color: white;
+}
+
+#task_icon {
+	background-color:	#00e000;
+	color: white;
+}
+.day_content::-webkit-scrollbar {
+	position: absolute;
+	width: 3px;
+	background-color: transparent;
+}
+.day_content::-webkit-scrollbar-thumb {
+	background-color: rgba(0, 0, 0, 0.2);
+	box-shadow: inset 1px 1px 0 rgba(0,0,0,0.10),inset 0 -1px 0 rgba(0,0,0,0.07);
 }

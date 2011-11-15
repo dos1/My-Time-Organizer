@@ -1,3 +1,11 @@
+/* [?] My Time Organizer @ Google Apps Hackathon 12.11.2011 (11/12/2011)
+ * [+] Authors: 
+ * - Dominik Galewski (mug3tsu)
+ * - Sebastian Krzyszkowiak (dos)
+ * - Krzysztof Marciniak (hun7er)
+ * [!] [alphabetical order]
+ */
+
 document.designMode = 'on';
 
 lang = new Array();
@@ -60,11 +68,11 @@ $(document).ready(function() {
 		r=parseInt(color.substring(1,3),16);
 		g=parseInt(color.substring(3,5),16);
 		b=parseInt(color.substring(5,7),16);
-		if (((r+b+g)/3)>84) return "#333333"; else return "#E0E0E0";
+		if (((r+b+g)/3)>85) return "#333333"; else return "#ffffff";
 	}
 
 	function resizeDays() {
-		$(".day_content").css("height",$("nav").height()-74);
+		$(".day_content").css("height",$("nav").height()-81);
 	}
 
 	window.onresize = resizeDays;
@@ -183,36 +191,61 @@ $(document).ready(function() {
 		}
 		});
 
-	$("#note_icon")[0].ondragstart = function(event) {
-		//alert('lol');
-		event.dataTransfer.setData("type","note"); //FIXME
+	document.getElementById("note_icon").ondragstart = function(e) {
+		e.dataTransfer.setData("Url","note://");
+	}
+	document.getElementById("event_icon").ondragstart = function(e) {
+		e.dataTransfer.setData("Url","event://");
+	}
+	document.getElementById("task_icon").ondragstart = function(e) {
+		e.dataTransfer.setData("Url","task://");
 	}
 	var arr1 = new Array(), arr2 = new Array();
 	for(i = 0; i < 7; i++) {
 		arr1[i] = 'day'+(i+1);
 		arr2[i] = document.getElementById(arr1[i]);
 		arr2[i].ondrop = function(event) {
-			$(this).css("background-color", "transparent");
-		        type = "note"; //event.dataTransfer.getData("type"); //FIXME
-			text = event.dataTransfer.getData("Text");
+			$(this).css("background-color", "transparent").css("opacity", "1");
+		        var type = event.dataTransfer.getData("Url");
+			var text = event.dataTransfer.getData("Text");
 			//alert(type);
-			if ((type==="note") || (text)) {
-				$("#panel_slider").click();
+			if (!text) text="";
+			if ((type==="note://") || (text)) {
 				var note = document.createElement('div');
 
 				note.setAttribute('data-content', text);
 				note.setAttribute('data-bgcolor', '#f0f000');
-				note.setAttribute('data-date', arr1[i]); //FIXME
+				note.setAttribute('data-date', arr1[i]); //FIXME!
 			
 				fillNote(note);
 				this.appendChild(note);
 				saveNotes();
-				notify('Notatka dodana!');
+				//notify('Notatka dodana!');
+			} else if (type=="event://") {
+				var note = document.createElement('div');
+
+				note.setAttribute('data-content', text);
+				note.setAttribute('data-bgcolor', '#e00000');
+				note.setAttribute('data-date', arr1[i]); //FIXME!
+			
+				fillNote(note);
+				this.appendChild(note);
+				saveNotes();
+			} else if (type=="task://") {
+				var note = document.createElement('div');
+
+				note.setAttribute('data-content', text);
+				note.setAttribute('data-bgcolor', '#00e000');
+				note.setAttribute('data-date', arr1[i]); //FIXME!
+			
+				fillNote(note);
+				this.appendChild(note);
+				saveNotes();
 			}
 		}
 		arr2[i].ondragover = function () { return false; }
-		arr2[i].ondragenter = function () { $(this).css("background-color", "rgba(255,255,255,0.8)"); }
-		arr2[i].ondragleave = function () { $(this).css("background-color", "transparent"); }
+		arr2[i].ondragenter = function () { $(this).css("background-color", "white").css("opacity", "0.8"); }
+		arr2[i].ondragleave = function () { $(this).css("background-color", "transparent").css("opacity", "1"); }
 	}
 			
 	function saveNotes() {
