@@ -147,12 +147,12 @@ $(document).ready(function() {
 		icon.style.float = 'right';
 		icon.onclick = function() {
 			function removeNote() { this.parentNode.removeChild(this); saveNotes(); }
-			$(this.parentNode.parentNode).animate({opacity: 0, rotate: '-70deg', scale: 0, height: 0, marginBottom: '-4%'}, 500, removeNote);
+			$(this.parentNode.parentNode).animate({rotate: '-50deg', scale: 0, height: 0, marginBottom: '-4%'}, 500, removeNote);
 		}
 		note_icons.appendChild(icon);
 
 		note.appendChild(note_icons);
-		$(note).css("opacity", 0).scale(0).rotate('-70deg').animate({opacity: 1, rotate: 0, scale: 1}, 500);
+		$(note).scale(0).rotate('-70deg').animate({rotate: 0, scale: 1}, 500);
 	}
 		
 	document.addEventListener("keydown", keydown, false);
