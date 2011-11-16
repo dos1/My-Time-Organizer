@@ -191,12 +191,24 @@ $(document).ready(function() {
 
 	document.getElementById("note_icon").ondragstart = function(e) {
 		e.dataTransfer.setData("Url","note://");
+		$(this).scale(0.9);
 	}
 	document.getElementById("event_icon").ondragstart = function(e) {
 		e.dataTransfer.setData("Url","event://");
+		$(this).scale(0.9);
 	}
 	document.getElementById("task_icon").ondragstart = function(e) {
 		e.dataTransfer.setData("Url","task://");
+		$(this).scale(0.9);
+	}
+	document.getElementById("note_icon").ondragend = function(e) {
+		$(this).scale(1.0);
+	}
+	document.getElementById("event_icon").ondragend = function(e) {
+		$(this).scale(1.0);
+	}
+	document.getElementById("task_icon").ondragend = function(e) {
+		$(this).scale(1.0);
 	}
 	var arr1 = new Array(), arr2 = new Array();
 	for(i = 0; i < 7; i++) {
@@ -206,7 +218,7 @@ $(document).ready(function() {
 			$(this).css("background-color", "transparent"); $(this.childNodes).css("opacity", "1");
 		        var type = event.dataTransfer.getData("Url");
 			var text = event.dataTransfer.getData("Text");
-			//alert(type);
+			//alert("type: "+type+", text:"+text);
 			if (!text) text="";
 			if ((type==="note://") || (text)) {
 				var note = document.createElement('div');

@@ -248,6 +248,7 @@ div[contenteditable=true] {
 	text-align:			center;
 	margin-right: 		15px;
 	display: inline-block;
+	-webkit-transition: -webkit-transform 0.5s;
 }
 
 #add_panel div:last-of-type {
