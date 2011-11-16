@@ -122,6 +122,35 @@ $(document).ready(function() {
 		}
 
 		note_icons.appendChild(icon);
+		
+		var icon = document.createElement('input');
+		icon.setAttribute('type', 'text');
+		icon.setAttribute('class', 'lolxd');
+		icon.setAttribute('title', 'Rozpoznawanie mowy');
+		icon.setAttribute('x-webkit-speech', 'x-webkit-speech');
+		icon.draggable = false;
+		icon.onfocus = icon.blur;
+		icon.onwebkitspeechchange = function(e) {
+			note_content = this.parentNode.parentNode.childNodes[0];
+			//console.log(e);
+			note_content.innerHTML = e.results[0].utterance[0].toUpperCase() + e.results[0].utterance.slice(1);
+			//icon.value = "";
+			note_content.parentNode.setAttribute('data-content', note_content.innerHTML);
+			note_content.focus();
+			saveNotes();
+		}
+			/*if (note_content.isContentEditable) {
+				note_content.parentNode.setAttribute('data-content', note_content.innerHTML);
+				note_content.contentEditable = false;
+				saveNotes();
+			} else {
+				note_content.innerHTML = note_content.parentNode.getAttribute('data-content');
+				note_content.contentEditable = true;
+				note_content.focus();
+			}
+			note_content.parentNode.setAttribute('data-editedNow', note_content.isContentEditable);
+		}*/
+		note_icons.appendChild(icon);
 
 		var icon = document.createElement('img');
 		icon.setAttribute('src', 'icons/color.png');
@@ -153,6 +182,8 @@ $(document).ready(function() {
 
 		icon.style.marginLeft = '6px';
 		note_icons.appendChild(icon);
+		
+		
 
 		var icon = document.createElement('img');
 		icon.setAttribute('src', 'icons/close.png');
