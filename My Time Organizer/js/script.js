@@ -127,6 +127,7 @@ $(document).ready(function() {
 
 		var icon = document.createElement('img');
 		icon.setAttribute('src', 'icons/write.png');
+		icon.setAttribute('title', 'Edycja');
 		icon.draggable = false;
 		icon.onfocus = icon.blur;
 		icon.onclick = function() {
@@ -176,6 +177,7 @@ $(document).ready(function() {
 
 		var icon = document.createElement('img');
 		icon.setAttribute('src', 'icons/color.png');
+		icon.setAttribute('title', 'Zmiana koloru');
 		icon.draggable = false;
 
 		$(icon).ColorPicker({
@@ -209,6 +211,7 @@ $(document).ready(function() {
 
 		var icon = document.createElement('img');
 		icon.setAttribute('src', 'icons/close.png');
+		icon.setAttribute('title', 'Usuń');
 		icon.draggable = false;
 		icon.style.float = 'right';
 		icon.onclick = function() {
@@ -220,6 +223,7 @@ $(document).ready(function() {
 		var icon = document.createElement('img');
 		icon.setAttribute('src', 'icons/move.png');
 		icon.draggable = false;
+		icon.setAttribute('title', 'Przenieś');
 		icon.style.marginLeft = '6px';
 		icon.onclick = function() {
 			moveAnimate($(this.parentNode.parentNode), $("#day1"));
