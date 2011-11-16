@@ -81,6 +81,13 @@ $(document).ready(function() {
 	function fillNote(note) {
 		note.setAttribute('class','note');
 
+		note.ondragover = function() {
+			old = $('[data-draggedOver=true]')[0];
+			if ((old!=note) && (old)) { $(old).rotate('0deg'); old.setAttribute('data-draggedOver', 'false'); }
+			$(note).rotate('2deg');
+			note.setAttribute('data-draggedOver', 'true');
+		}
+		
 		$(note).css('backgroundColor', note.getAttribute('data-bgcolor')).css('color', colorFromBgColor(note.getAttribute('data-bgcolor')));
 
 		var note_content = document.createElement('div');
@@ -155,7 +162,7 @@ $(document).ready(function() {
 		note_icons.appendChild(icon);
 
 		note.appendChild(note_icons);
-		$(note).scale(0).rotate('-70deg').animate({rotate: 0, scale: 1}, 500);
+		$(note).scale(0).rotate('-70deg').css('margin-bottom','-50%').animate({rotate: 0, scale: 1, marginBottom: '4%'}, 500);
 	}
 		
 	document.addEventListener("keydown", keydown, false);
@@ -219,45 +226,46 @@ $(document).ready(function() {
 		arr2[i] = document.getElementById(arr1[i]);
 		arr2[i].ondrop = function(event) {
 			$(this).css("background-color", "transparent"); $(this.childNodes).css("opacity", "1");
+			old = $('[data-draggedOver=true]')[0];
+			if (old) { $(old).animate({rotate:'0deg'},100); old.setAttribute('data-draggedOver', 'false'); }
 		        var type = event.dataTransfer.getData("Url");
 			var text = event.dataTransfer.getData("Text");
 			//alert("type: "+type+", text:"+text);
 			if (!text) text="";
+			var note = document.createElement('div');
 			if ((type==="note://") || (text)) {
-				var note = document.createElement('div');
-
 				note.setAttribute('data-content', text);
 				note.setAttribute('data-bgcolor', '#f0f000');
 				note.setAttribute('data-date', arr1[i]); //FIXME!
 			
 				fillNote(note);
-				this.appendChild(note);
-				saveNotes();
 				//notify('Notatka dodana!');
 			} else if (type=="event://") {
-				var note = document.createElement('div');
-
 				note.setAttribute('data-content', text);
 				note.setAttribute('data-bgcolor', '#e00000');
 				note.setAttribute('data-date', arr1[i]); //FIXME!
 			
 				fillNote(note);
-				this.appendChild(note);
-				saveNotes();
 			} else if (type=="task://") {
-				var note = document.createElement('div');
-
 				note.setAttribute('data-content', text);
 				note.setAttribute('data-bgcolor', '#00e000');
 				note.setAttribute('data-date', arr1[i]); //FIXME!
 			
 				fillNote(note);
-				this.appendChild(note);
-				saveNotes();
 			}
+			if (old) 
+				this.insertBefore(note,old); 
+			else
+				this.appendChild(note);
+			saveNotes();
+
 		}
-		arr2[i].ondragover = function () { $(this).css("background-color", "white"); $(this.childNodes).css("opacity", "0.75"); return false; }
-		arr2[i].ondragleave = function () { $(this).css("background-color", "transparent"); $(this.childNodes).css("opacity", "1"); }
+		arr2[i].ondragover = function () { $(this).css("background-color", "white"); $(this.childNodes).css("opacity", "0.75"); 
+					return false; }
+		arr2[i].ondragleave = function () { $(this).css("background-color", "transparent"); $(this.childNodes).css("opacity", "1"); 
+								old = $('[data-draggedOver=true]')[0];
+					if (old) { $(old).rotate('0deg');; old.setAttribute('data-draggedOver', 'false'); }
+		}
 	}
 			
 	function saveNotes() {
