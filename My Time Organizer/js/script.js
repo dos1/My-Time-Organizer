@@ -19,6 +19,25 @@ lang["en"]["notify_txt"] = "Event notification";
 lang["pl"]["days"] = ["Poniedziałek", "Wtorek", "Środa", "Czwartek", "Piątek", "Sobota", "Niedziela"];
 lang["pl"]["notify_txt"] = "Przypomnienie o wydarzeniu";
 
+function moveAnimate(element, newParent){
+	w = element.width()+12;
+	h = element.height();
+        var oldOffset = element.offset();
+        element.appendTo(newParent);
+        var newOffset = element.offset();
+
+        var temp = element.clone().appendTo('body');
+        temp    .css('position', 'absolute')
+                .css('left', oldOffset.left)
+                .css('top', oldOffset.top)
+                .css('zIndex', 1000).css('width',w).css('height',h);
+        element.hide();
+        temp.animate( {'top': newOffset.top, 'left':newOffset.left}, 'slow', function(){
+           element.show();
+           temp.remove();
+        });
+}
+
 function notify(text) {
 	// Create a simple text notification:
 	var notification = webkitNotifications.createNotification(
@@ -192,6 +211,15 @@ $(document).ready(function() {
 		icon.onclick = function() {
 			function removeNote() { this.parentNode.removeChild(this); saveNotes(); }
 			$(this.parentNode.parentNode).animate({rotate: '-50deg', scale: 0, height: 0, marginBottom: '-4%'}, 500, removeNote);
+		}
+		note_icons.appendChild(icon);
+		
+		var icon = document.createElement('img');
+		icon.setAttribute('src', 'icons/close.png');
+		icon.draggable = false;
+		icon.style.marginLeft = '6px';
+		icon.onclick = function() {
+			moveAnimate($(this.parentNode.parentNode), $("#day1"));
 		}
 		note_icons.appendChild(icon);
 

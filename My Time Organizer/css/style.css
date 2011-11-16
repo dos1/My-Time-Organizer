@@ -172,13 +172,14 @@ nav .header h3 {
 	-webkit-transition: background-color 0.25s, opacity 0.25s;
 }
 
-.day_content .note {
+.note {
 	width: 				100%;
 	-webkit-box-sizing: border-box;
-	padding-left: 		5%;
+	/*padding-left: 		5%;
 	padding-right: 		5%;
 	padding-top: 		4%;
-	padding-bottom: 	4%;
+	padding-bottom: 	4%;*/
+	padding: 7px;
 	border-top: 		1px solid #BCBCBC;
 	border-bottom: 		1px solid #BCBCBC;
 	text-align:		 	justify;
