@@ -173,7 +173,7 @@ $(document).ready(function() {
 	var d = now.add("days", (-1)*mdn);        // current day
 	var week_last = moment().add("days", -7);   // last week
 	var week_next = moment().add("days", 7);     // next week
-	
+		
 	/* 
 		Środkowa tabela - aktualny tydzień
 	*/
