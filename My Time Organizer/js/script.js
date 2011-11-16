@@ -19,13 +19,17 @@ lang["en"]["notify_txt"] = "Event notification";
 lang["pl"]["days"] = ["Poniedziałek", "Wtorek", "Środa", "Czwartek", "Piątek", "Sobota", "Niedziela"];
 lang["pl"]["notify_txt"] = "Przypomnienie o wydarzeniu";
 
-function moveAnimate(element, newParent){
+function moveAnimate(element, newParent, old){
 	$(".menu").css("display","none");
 	w = element.width()+14;
 	h = element.height()+16;
         var oldOffset = element.offset();
         element.appendTo(newParent);
-        var newOffset = element.offset();
+	//if (old) 
+	//	element.insertBefore(newParent,old); 
+	//else
+		element.appendTo(newParent);
+	var newOffset = element.offset();
 
         var temp = element.clone().appendTo('body');
         temp    .css('position', 'absolute')
@@ -152,7 +156,7 @@ $(document).ready(function() {
 
 		var icon = document.createElement('img');
 		icon.setAttribute('src', 'icons/color.png');
-		icon.setAttribute('title', 'Zmiana koloru');
+		icon.setAttribute('title', 'Zmień kolor');
 		icon.draggable = false;
 
 		$(icon).ColorPicker({
@@ -197,9 +201,16 @@ $(document).ready(function() {
 		
 		var icon = document.createElement('img');
 		icon.setAttribute('src', 'icons/move.png');
-		icon.draggable = false;
+		icon.draggable = true;
 		icon.setAttribute('title', 'Przenieś');
 		icon.style.marginLeft = '6px';
+		icon.ondragstart = function(e) {
+			old = document.getElementById("draggedElement");
+			if (old) old.setAttribute("id", "");
+			this.parentNode.parentNode.setAttribute("id","draggedElement");
+			e.dataTransfer.setDragImage(this.parentNode.parentNode, -10, -10);
+			e.dataTransfer.setData("Url","drag://");
+		}
 		icon.onclick = function() {
 			moveAnimate($(this.parentNode.parentNode), $("#day1"));
 		}
@@ -356,6 +367,11 @@ $(document).ready(function() {
 				note.setAttribute('data-date', arr1[i]); //FIXME!
 			
 				fillNote(note);
+			}
+			else if (type=="drag://") {
+				moveAnimate($("#draggedElement"), this, old);
+				saveNotes();
+				return false;
 			}
 			if (old) 
 				this.insertBefore(note,old); 
