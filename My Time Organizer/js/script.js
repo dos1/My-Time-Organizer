@@ -60,31 +60,6 @@ function notify(text) {
 	
 $(document).ready(function() {
 	//notify("Yay!");
-	function right_slide() {
-	//alert("Prawa szczałka!");
-		if ($("[data-editedNow=true]")[0]) return false;
-		if ($("#inner_table").css("transform") !== "translate(100%, 0px)") {
-			$("#inner_table").css("transform", "translate(-100%, 0px)");
-		}
-		if ($("#inner_table").css("transform") === "translate(100%, 0px)")
-			$("#inner_table").css("transform", "");
-	}
-		
-	function left_slide() {
-		//alert("Lewa szczałka!");
-		if ($("[data-editedNow=true]")[0]) return false;
-		if ($("#inner_table").css("transform") !== "translate(-100%, 0px)") {
-			$("#inner_table").css("transform", "translate(100%, 0px)");
-		}
-		if ($("#inner_table").css("transform") === "translate(-100%, 0px)") {
-			$("#inner_table").css("transform", "");
-		}
-	}
-		
-	function keydown(e) {
-		if(event.which == 39) right_slide();
-		else if (event.which == 37) left_slide();
-	}
 
 	function colorFromBgColor(color) {
 		r=parseInt(color.substring(1,3),16);
@@ -233,15 +208,43 @@ $(document).ready(function() {
 		note.appendChild(note_icons);
 		$(note).scale(0).rotate('-70deg').css('margin-bottom','-50%').animate({rotate: 0, scale: 1, marginBottom: '4%'}, 500);
 	}
+	
+	function right_slide() { // tutaj się coś sypie
+	//alert("Prawa szczałka!");
+		if ($("[data-editedNow=true]")[0]) return false;
+		if ($("#inner_table_center").css("transform") !== "translate(100%, 0px)") {
+			$("#inner_table_center").css("transform", "translate(-100%, 0px)");
+			$("#inner_table_left").css("transform", "translate(-100%, 0px)");
+		}
+		if ($("#inner_table_center").css("transform") === "translate(100%, 0px)")
+			$("#inner_table_center").css("transform", "");
+	}
+		
+	function left_slide() {
+		//alert("Lewa szczałka!");
+		if ($("[data-editedNow=true]")[0]) return false;
+		if ($("#inner_table_center").css("transform") !== "translate(-100%, 0px)") {
+			$("#inner_table_center").css("transform", "translate(100%, 0px)");
+			$("#inner_table_left").css("transform", "translate(100%, 0px)");
+		}
+		if ($("#inner_table_center").css("transform") === "translate(-100%, 0px)") {
+			$("#inner_table_center").css("transform", "");
+		}
+	}
+		
+	function keydown(e) {
+		if(event.which == 39) right_slide(); // prawa szczałka
+		else if (event.which == 37) left_slide(); // lewa szczałka
+	}
 		
 	document.addEventListener("keydown", keydown, false);
 			
 	var now = moment();
-	var mdn = now.format("d")-1;
+	var mdn = now.format("d")-1; // current day of the week
 	//alert(day);
 	var d = now.add("days", (-1)*mdn);        // current day
-	var week_last = moment().add("days", -7);   // last week
-	var week_next = moment().add("days", 7);     // next week
+	var week_last = moment().add("days", -(7+mdn));   // last week
+	var week_next = moment().add("days", 7-mdn);     // next week
 		
 	/* 
 		Środkowa tabela - aktualny tydzień
@@ -257,15 +260,28 @@ $(document).ready(function() {
 				</div>
 			</nav>
 				*/
-		var text = $("#inner_table").html();
-		if (i == mdn) text += "<nav><div class='header' id='current_day'>";
-		else text += "<nav><div class='header'>"
-		text += "<h3>"+d.format("D")+"."+d.format("M")+"<br/>"+lang[mylang]["days"][i]+"</h3></div><div class='day_content' id='day"+(i+1)+"'></div></nav>";
-		$("#inner_table").html(text);
+		var text_c = $("#inner_table_center").html();
+		var text_l = $("#inner_table_left").html();
+		var text_r = $("#inner_table_right").html();
+		
+		if (i == mdn) text_c += "<nav><div class='header' id='current_day'>";
+		else text_c += "<nav><div class='header'>"
+		text_l += "<nav><div class='header'>";
+		text_r += "<nav><div class='header'>";
+		
+		text_c += "<h3>"+d.format("D")+"."+d.format("M")+"<br/>"+lang[mylang]["days"][i]+"</h3></div><div class='day_content' id='day"+(i+1)+"'></div></nav>";
+		text_l += "<h3>"+week_last.format("D")+"."+week_last.format("M")+"<br/>"+lang[mylang]["days"][i]+"</h3></div><div class='day_content' id='day"+(i+1)+"'></div></nav>";
+		text_r += "<h3>"+week_next.format("D")+"."+week_next.format("M")+"<br/>"+lang[mylang]["days"][i]+"</h3></div><div class='day_content' id='day"+(i+1)+"'></div></nav>";
+		
+		$("#inner_table_center").html(text_c);
+		$("#inner_table_left").html(text_l);
+		$("#inner_table_right").html(text_r);
 		d.add("days", 1);
+		week_last.add("days", 1);
+		week_next.add("days", 1);
 	}
 	
-	$("#panel_slider").click(function() {
+	/*$("#panel_slider").click(function() {
 		if ($("#add_panel").css("margin-left") === "0px") { 
 			$("#add_panel").css("margin-left", "-300px");
 			$("#add_panel img").animate({rotate:"0deg"}, 400); 
@@ -274,7 +290,7 @@ $(document).ready(function() {
 			$("#add_panel").css("margin-left", "0px");
 			$("#add_panel img").animate({rotate:"180deg"}, 400); 
 		}
-		});
+		});*/
 
 	document.getElementById("note_icon").ondragstart = function(e) {
 		e.dataTransfer.setData("Url","note://");

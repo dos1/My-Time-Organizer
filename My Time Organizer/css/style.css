@@ -94,7 +94,7 @@ footer {
 	padding-bottom: 19px;
 } 
 
-#inner_table {
+#inner_table_full {
 	height: 			100%;
 	width: 100%;
 	display: 			-webkit-box;
@@ -102,10 +102,59 @@ footer {
 	-webkit-box-align: 	center;
 	-webkit-box-pack: 	center;
         -webkit-box-sizing: border-box;
-	-webkit-transition: all 0.75s ease-out;
 	
 	/*border: 17px solid lightgrey;
 	border-right: 22px solid lightgrey;*/
+}
+
+#inner_table_left {
+	height: 			100%;
+	width: 				100%;
+	display: 			-webkit-box;
+	-webkit-box-orient: horizontal;
+	-webkit-box-align: 	center;
+	-webkit-box-pack: 	center;
+	margin-left: -100%;
+	-webkit-transition: all 0.75s ease-out;
+}
+
+#inner_table_center {
+	height: 			100%;
+	width: 				100%;
+	display: 			-webkit-box;
+	-webkit-box-orient: horizontal;
+	-webkit-box-align: 	center;
+	-webkit-box-pack: 	center;
+	-webkit-transition: all 0.75s ease-out;
+}
+
+#inner_table_right {
+	height: 			100%;
+	width: 				100%;
+	display: 			-webkit-box;
+	-webkit-box-orient: horizontal;
+	-webkit-box-align: 	center;
+	-webkit-box-pack: 	center;
+	margin-left: 100%;
+	-webkit-transition: all 0.75s ease-out;
+}
+
+#inner_table_left_temp {
+	height: 			100%;
+	width: 				100%;
+	display: 			-webkit-box;
+	-webkit-box-orient: horizontal;
+	-webkit-box-align: 	center;
+	-webkit-box-pack: 	center;
+}
+
+#inner_table_right_temp {
+	height: 			100%;
+	width: 				100%;
+	display: 			-webkit-box;
+	-webkit-box-orient: horizontal;
+	-webkit-box-align: 	center;
+	-webkit-box-pack: 	center;
 }
 
 nav {
