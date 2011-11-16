@@ -30,5 +30,5 @@
   "offline_enabled": true,
   //"omnibox": { "keyword": "aString" },
   //"options_page": "aFile.html",
-  "permissions": ["notifications", "unlimitedStorage"]
+  "permissions": ["background", "notifications", "unlimitedStorage"]
 }
