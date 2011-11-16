@@ -135,7 +135,7 @@ footer {
 	-webkit-box-orient: horizontal;
 	-webkit-box-align: 	center;
 	-webkit-box-pack: 	center;
-	margin-left: 100%;
+	margin-left: 0%;
 	-webkit-transition: all 0.75s ease-out;
 }
 
