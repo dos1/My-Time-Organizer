@@ -170,7 +170,14 @@ $(document).ready(function() {
 	var now = moment();
 	var mdn = now.format("d")-1;
 	//alert(day);
-	var d = now.add("days", (-1)*mdn);
+	var d = now.add("days", (-1)*mdn);        // current day
+	var week_last = moment().add("days", -7);   // last week
+	var week_next = moment().add("days", 7);     // next week
+	
+	/* 
+		Środkowa tabela - aktualny tydzień
+	*/
+	
 	for(i = 0; i < lang[mylang]["days"].length; i++) {
 				/*
 				<nav>
@@ -188,6 +195,7 @@ $(document).ready(function() {
 		$("#inner_table").html(text);
 		d.add("days", 1);
 	}
+	
 	$("#panel_slider").click(function() {
 		if ($("#add_panel").css("margin-left") === "0px") { 
 			$("#add_panel").css("margin-left", "-300px");
