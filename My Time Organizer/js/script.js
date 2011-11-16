@@ -14,14 +14,16 @@ var mylang ="pl";
 		
 /* English */
 lang["en"]["days"] = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
+lang["en"]["notify_txt"] = "Event notification";
 /* Polish */
 lang["pl"]["days"] = ["Poniedziałek", "Wtorek", "Środa", "Czwartek", "Piątek", "Sobota", "Niedziela"];
+lang["pl"]["notify_txt"] = "Przypomnienie o wydarzeniu";
 
 function notify(text) {
 	// Create a simple text notification:
 	var notification = webkitNotifications.createNotification(
 	    'icons/icon48.png',  // icon url - can be relative
-	    'Fuck yeah!',  // notification title
+	    lang[mylang]["notify_txt"],  // notification title
 	    text  // notification body text
 	);
 
@@ -36,6 +38,7 @@ function notify(text) {
 
 	
 $(document).ready(function() {
+	//notify("Yay!");
 	function right_slide() {
 	//alert("Prawa szczałka!");
 		if ($("[data-editedNow=true]")[0]) return false;
