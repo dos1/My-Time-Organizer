@@ -6,9 +6,6 @@
  * [!] [alphabetical order]
  */
 
-//var bgWindow = window.open("background.html#0", "bg", "background");
-//bgWindow.close();
- 
 lang = new Array();
 lang["en"] = new Array();
 lang["pl"] = new Array();
@@ -120,7 +117,7 @@ $(document).ready(function() {
 		$(icon).ColorPicker({
 			color: note.getAttribute('data-bgcolor'),
 			onShow: function (colpkr) {
-				if (this.getAttribute('id')!='COLORPICKERTROLOLOLO') {
+				if (this.parentNode.parentNode.getAttribute('data-whileInColorPicker')===false) {
 					this.setAttribute('id', 'COLORPICKERTROLOLOLO');
 					this.parentNode.parentNode.setAttribute('data-whileInColorPicker', true);
 					$(colpkr).fadeIn(500);
@@ -206,7 +203,7 @@ $(document).ready(function() {
 		arr1[i] = 'day'+(i+1);
 		arr2[i] = document.getElementById(arr1[i]);
 		arr2[i].ondrop = function(event) {
-			$(this).css("background-color", "transparent").css("opacity", "1");
+			$(this).css("background-color", "transparent"); $(this.childNodes).css("opacity", "1");
 		        var type = event.dataTransfer.getData("Url");
 			var text = event.dataTransfer.getData("Text");
 			//alert(type);
@@ -244,8 +241,8 @@ $(document).ready(function() {
 				saveNotes();
 			}
 		}
-		arr2[i].ondragover = function () { $(this).css("background-color", "white").css("opacity", "0.8"); return false; }
-		arr2[i].ondragleave = function () { $(this).css("background-color", "transparent").css("opacity", "1"); }
+		arr2[i].ondragover = function () { $(this).css("background-color", "white"); $(this.childNodes).css("opacity", "0.75"); return false; }
+		arr2[i].ondragleave = function () { $(this).css("background-color", "transparent"); $(this.childNodes).css("opacity", "1"); }
 	}
 			
 	function saveNotes() {
