@@ -36,9 +36,15 @@ function moveAnimate(element, newParent, old){
                 .css('left', oldOffset.left)
                 .css('top', oldOffset.top)
                 .css('zIndex', 1000).css('width',w).css('height',h);
+	if (old) {
+		o=$(old);
+		om=o.css("margin-top");
+		o.animate({marginTop:h+16}, 100);
+	}
         element.hide();
         temp.animate( {'top': newOffset.top, 'left':newOffset.left}, 500, function(){
            element.show();
+	   if (old) { o.css("margin-top", om); }
            temp.remove();
 	   $(".menu").css("display", "block");
         });
