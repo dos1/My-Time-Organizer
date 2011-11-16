@@ -6,8 +6,6 @@
  * [!] [alphabetical order]
  */
 
-document.designMode = 'on';
-
 lang = new Array();
 lang["en"] = new Array();
 lang["pl"] = new Array();
