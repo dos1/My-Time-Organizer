@@ -25,9 +25,9 @@ function moveAnimate(element, newParent, old){
 	h = element.height()+16;
         var oldOffset = element.offset();
         element.appendTo(newParent);
-	//if (old) 
-	//	element.insertBefore(newParent,old); 
-	//else
+	if (old) 
+		element.insertBefore($(old)); 
+	else
 		element.appendTo(newParent);
 	var newOffset = element.offset();
 
@@ -225,16 +225,8 @@ $(document).ready(function() {
 		if ($("[data-editedNow=true]")[0]) return false;
 		if ($("#inner_table_center").css("transform") !== "translate(100%, 0px)") {
 			$("#inner_table_center").css("transform", "translate(-100%, 0px)");
-			//
-		}
-		if ($("#inner_table_left").css("transform") !== "translate(-100%, 0px)") {    
 			$("#inner_table_left").css("transform", "translate(-100%, 0px)");
-        }
-		// z tym aktualnie jest problem (i nie mam pojęcia czemu). Dokładniej to w ogóle nie wyświetla się tablica prawa.
-		if($("#inner_table_right").css("transform") !== "translate(-100%, 0px)") {
-			$("#inner_table_right").css("transform", "translate(-100%, 0px)");
 		}
-		//
 		if ($("#inner_table_center").css("transform") === "translate(100%, 0px)")
 			$("#inner_table_center").css("transform", "");
 	}
