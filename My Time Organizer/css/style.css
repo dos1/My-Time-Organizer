@@ -16,7 +16,7 @@ body {
 	height: 100%;
 	word-wrap: break-word;
 }
-#header {
+header {
 	min-width: 850px;
 	position: absolute;
 	background-image: url('../images/header.png');
@@ -34,7 +34,7 @@ body {
 	text-align: right;
 	z-index: 10;
 }
-#footer {
+footer {
 	min-width: 850px;
 	position: absolute;
 	bottom: 0px;
@@ -48,12 +48,13 @@ body {
 	padding: 4px;
 	text-align: right;
 	z-index: 10;
-	font-size: 10px;
-	font-family: "Sans";
+	font-size: 11px;
+	font-family: Sans-Serif;
 }
 #logo {
-	font-size: 18px;
-	font-family: "Sans";
+	font-size: 16px;
+	font-family: Sans-Serif;
+	font-weight: bold;
 	color: #666666;
 	float: left;
 	padding-left: 50px;
@@ -61,7 +62,8 @@ body {
 }
 #right_panel > div {
 	display: inline-block;
-	font-family: "Sans";
+	font-family: Sans-Serif;
+	font-size: 12px;
 	background-image: url('../images/terminator.png');
 	background-repeat: no-repeat;
 	background-position: top right;
@@ -273,6 +275,9 @@ div[contenteditable=true] {
 	background-color:	#00e000;
 	color: white;
 }
+
+
+
 .day_content::-webkit-scrollbar {
 	position: absolute;
 	width: 3px;
@@ -288,7 +293,7 @@ div[contenteditable=true] {
 	left: 50%;
 	width: 400px;
 	padding: 20px;
-	font-family: "Sans";
+	font-family: Sans-Serif;
 	font-size: 12px;
 	text-align: justify;
 	-webkit-box-sizing: border-box;
