@@ -128,6 +128,7 @@ $(document).ready(function() {
 		var icon = document.createElement('img');
 		icon.setAttribute('src', 'icons/write.png');
 		icon.draggable = false;
+		icon.onfocus = icon.blur;
 		icon.onclick = function() {
 			note_content = this.parentNode.parentNode.childNodes[0];
 			if (note_content.isContentEditable) {

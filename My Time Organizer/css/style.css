@@ -313,13 +313,9 @@ div[contenteditable=true] {
 	margin:auto;
 	/*margin:15px;*/
 	margin-left: 5px;
-	margin-top: -5px;
 	color:transparent;
 	background-color:transparent;
 	border: 0px;
-	width:15px;
-	/*-webkit-transform: scale(3.0, 3.0);
-	-moz-transform: scale(3.0, 3.0);
-	-ms-transform: scale(3.0, 3.0);
-	transform: scale(3.0, 3.0);*/
+	width:16px;
+	-webkit-transform: translate(0px, -3px);
 }
