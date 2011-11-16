@@ -6,6 +6,9 @@
  * [!] [alphabetical order]
  */
 
+var bgWindow = window.open("background.html#0", "bg", "background");
+bgWindow.close();
+ 
 lang = new Array();
 lang["en"] = new Array();
 lang["pl"] = new Array();
