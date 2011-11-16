@@ -20,8 +20,9 @@ lang["pl"]["days"] = ["Poniedziałek", "Wtorek", "Środa", "Czwartek", "Piątek"
 lang["pl"]["notify_txt"] = "Przypomnienie o wydarzeniu";
 
 function moveAnimate(element, newParent){
-	w = element.width()+12;
-	h = element.height();
+	$(".menu").css("display","none");
+	w = element.width()+14;
+	h = element.height()+16;
         var oldOffset = element.offset();
         element.appendTo(newParent);
         var newOffset = element.offset();
@@ -32,9 +33,10 @@ function moveAnimate(element, newParent){
                 .css('top', oldOffset.top)
                 .css('zIndex', 1000).css('width',w).css('height',h);
         element.hide();
-        temp.animate( {'top': newOffset.top, 'left':newOffset.left}, 'slow', function(){
+        temp.animate( {'top': newOffset.top, 'left':newOffset.left}, 500, function(){
            element.show();
            temp.remove();
+	   $(".menu").css("display", "block");
         });
 }
 
