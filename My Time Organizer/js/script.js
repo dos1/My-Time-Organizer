@@ -214,8 +214,12 @@ $(document).ready(function() {
 		if ($("[data-editedNow=true]")[0]) return false;
 		if ($("#inner_table_center").css("transform") !== "translate(100%, 0px)") {
 			$("#inner_table_center").css("transform", "translate(-100%, 0px)");
-			$("#inner_table_left").css("transform", "translate(-100%, 0px)");
+			//
+			$("#inner_table_right").css("transform", "translate(-100%, 0px)");
 		}
+		if ($("#inner_table_left").css("transform") !== "translate(-100%, 0px)") {    
+			$("#inner_table_left").css("transform", "translate(-100%, 0px)");
+        }
 		if ($("#inner_table_center").css("transform") === "translate(100%, 0px)")
 			$("#inner_table_center").css("transform", "");
 	}
@@ -227,6 +231,10 @@ $(document).ready(function() {
 			$("#inner_table_center").css("transform", "translate(100%, 0px)");
 			$("#inner_table_left").css("transform", "translate(100%, 0px)");
 		}
+		//
+		if ($("#inner_table_right").css("transform") !== "translate(-100%, 0px)") {    
+			$("#inner_table_right").css("transform", "translate(100%, 0px)");
+        }
 		if ($("#inner_table_center").css("transform") === "translate(-100%, 0px)") {
 			$("#inner_table_center").css("transform", "");
 		}
