@@ -241,8 +241,7 @@ $(document).ready(function() {
 				saveNotes();
 			}
 		}
-		arr2[i].ondragover = function () { return false; }
-		arr2[i].ondragenter = function () { $(this).css("background-color", "white").css("opacity", "0.8"); }
+		arr2[i].ondragover = function () { $(this).css("background-color", "white").css("opacity", "0.8"); return false; }
 		arr2[i].ondragleave = function () { $(this).css("background-color", "transparent").css("opacity", "1"); }
 	}
 			
