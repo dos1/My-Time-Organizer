@@ -79,6 +79,9 @@ $(document).ready(function() {
 	window.onresize = resizeDays;
 
 	function fillNote(note) {
+		
+		$("#helper").css("display","none");
+		
 		note.setAttribute('class','note');
 
 		note.ondragover = function() {
@@ -210,14 +213,17 @@ $(document).ready(function() {
 	document.getElementById("note_icon").ondragstart = function(e) {
 		e.dataTransfer.setData("Url","note://");
 		$(this).scale(0.9);
+		$("#helper").fadeOut(500);
 	}
 	document.getElementById("event_icon").ondragstart = function(e) {
 		e.dataTransfer.setData("Url","event://");
 		$(this).scale(0.9);
+		$("#helper").fadeOut(500);
 	}
 	document.getElementById("task_icon").ondragstart = function(e) {
 		e.dataTransfer.setData("Url","task://");
 		$(this).scale(0.9);
+		$("#helper").fadeOut(500);
 	}
 	document.getElementById("note_icon").ondragend = function(e) {
 		$(this).scale(1.0);

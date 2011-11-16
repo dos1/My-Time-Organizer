@@ -282,3 +282,19 @@ div[contenteditable=true] {
 	background-color: rgba(0, 0, 0, 0.2);
 	box-shadow: inset 1px 1px 0 rgba(0,0,0,0.10),inset 0 -1px 0 rgba(0,0,0,0.07);
 }
+#helper {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	width: 400px;
+	padding: 20px;
+	font-family: "Sans";
+	font-size: 12px;
+	text-align: justify;
+	-webkit-box-sizing: border-box;
+	-webkit-transform: translate(-200px,-50px);
+	color: white;
+	background-color: rgba(0,0,0,0.75);
+	border-radius: 10px;
+	box-shadow: inset 0px 0px 3px white, 1px 1px 5px rgba(0,0,0,0.4);
+}
