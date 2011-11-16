@@ -217,7 +217,7 @@ $(document).ready(function() {
 		note_icons.appendChild(icon);
 		
 		var icon = document.createElement('img');
-		icon.setAttribute('src', 'icons/close.png');
+		icon.setAttribute('src', 'icons/move.png');
 		icon.draggable = false;
 		icon.style.marginLeft = '6px';
 		icon.onclick = function() {
