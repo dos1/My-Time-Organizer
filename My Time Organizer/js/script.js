@@ -225,9 +225,15 @@ $(document).ready(function() {
 		if ($("[data-editedNow=true]")[0]) return false;
 		if ($("#inner_table_center").css("transform") !== "translate(100%, 0px)") {
 			$("#inner_table_center").css("transform", "translate(-100%, 0px)");
-			$("#inner_table_left").css("transform", "translate(-100%, 0px)");
+<<<<<<< .mine			$("#inner_table_right").css("transform", "translate(-100%, 0px)");
+			//
 		}
-		if ($("#inner_table_center").css("transform") === "translate(100%, 0px)")
+		if ($("#inner_table_left").css("transform") !== "translate(-100%, 0px)") {    
+=======>>>>>>> .theirs			$("#inner_table_left").css("transform", "translate(-100%, 0px)");
+<<<<<<< .mine        }
+		
+=======		}
+>>>>>>> .theirs		if ($("#inner_table_center").css("transform") === "translate(100%, 0px)")
 			$("#inner_table_center").css("transform", "");
 	}
 		
@@ -237,7 +243,13 @@ $(document).ready(function() {
 		if ($("#inner_table_center").css("transform") !== "translate(-100%, 0px)") {
 			$("#inner_table_center").css("transform", "translate(100%, 0px)");
 			$("#inner_table_left").css("transform", "translate(100%, 0px)");
+			
 		}
+		// z tym aktualnie jest problem (i nie mam pojęcia czemu). Dokładniej to w ogóle nie wyświetla się tablica prawa.
+		if($("#inner_table_right").css("transform") !== "translate(100%, 0px)") {
+			$("#inner_table_right").css("transform", "translate(100%, 0px)");
+		}
+		//
 		if ($("#inner_table_center").css("transform") === "translate(-100%, 0px)") {
 			$("#inner_table_center").css("transform", "");
 		}
