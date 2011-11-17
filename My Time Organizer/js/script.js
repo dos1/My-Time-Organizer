@@ -20,6 +20,7 @@ lang["pl"]["days"] = ["Poniedziałek", "Wtorek", "Środa", "Czwartek", "Piątek"
 lang["pl"]["notify_txt"] = "Przypomnienie o wydarzeniu";
 
 function moveAnimate(element, newParent, old){
+	if (old==element[0]) return false;
 	$(".menu").css("display","none");
 	w = element.width()+14;
 	h = element.height()+16;
@@ -214,7 +215,7 @@ $(document).ready(function() {
 			old = document.getElementById("draggedElement");
 			if (old) old.setAttribute("id", "");
 			this.parentNode.parentNode.setAttribute("id","draggedElement");
-			e.dataTransfer.setDragImage(this.parentNode.parentNode, -10, -10);
+			e.dataTransfer.setDragImage(this.parentNode.parentNode, $(this.parentNode.parentNode).width, $(this.parentNode.parentNode).height);
 			e.dataTransfer.setData("Url","drag://");
 		}
 		icon.onclick = function() {
