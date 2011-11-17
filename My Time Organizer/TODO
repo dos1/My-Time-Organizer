@@ -1,5 +1,5 @@
 - layout // dos
-- obsługa poprzedniego i następnego tygodnia :D // hun7er
+- dynamiczna zamiana tygodni // hun7er
 - eventy i inne typy oprócz notatek // częściowo dos, a potem: się zobaczy
 - synchronizacja z google calendar	// to w sumie może spróbuję - mug3tsu
 - wprowadzanie głosowe	// mug3tsu
@@ -11,6 +11,3 @@
 
 - posegregowac TODO (co na teraz, co na pozniej)
 - publikacja :D
-
-BUGI:
-- nie działa dodawanie notatek do środkowego i prawego tygodnia // hun7er
