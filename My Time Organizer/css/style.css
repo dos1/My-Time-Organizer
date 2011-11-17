@@ -256,6 +256,7 @@ nav:nth-of-type(odd) .header, #inner_table_center nav:nth-of-type(even) .header 
 	border-bottom-left-radius: 6px;
 	border-bottom-right-radius: 6px;
 	box-shadow: 1px 2px 4px rgba(0,0,0,0.4);
+	z-index: 1;
 }
 
 nav .header h3 {

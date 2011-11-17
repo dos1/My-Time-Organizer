@@ -80,7 +80,7 @@ $(document).ready(function() {
 	}
 
 	function resizeDays() {
-		$(".day_content").css("height",$("nav").height()-46);
+		$(".day_content").css("height",$("nav").height()-38);
 	}
 
 	window.onresize = resizeDays;
