@@ -422,7 +422,7 @@ $(document).ready(function() {
 		arr2_3[i] = document.getElementById(arr1_3[i]);
 		//
 		
-		arr2_1[i].ondrop = function(event) {
+		function arrOnDrop(event) {
 			$(this).css("background-color", "transparent"); $(this.childNodes).css("opacity", "1");
 			old = $('[data-draggedOver=true]')[0];
 			if (old) { $(old).animate({rotate:'0deg'},100); old.setAttribute('data-draggedOver', 'false'); }
@@ -434,20 +434,20 @@ $(document).ready(function() {
 			if ((type==="note://") || (text)) {
 				note.setAttribute('data-content', text);
 				note.setAttribute('data-bgcolor', '#f0f000');
-				note.setAttribute('data-date', arr1[i]); //FIXME!
+				note.setAttribute('data-date', ''); //FIXME!
 			
 				fillNote(note);
 				//notify('Notatka dodana!');
 			} else if (type=="event://") {
 				note.setAttribute('data-content', text);
 				note.setAttribute('data-bgcolor', '#e00000');
-				note.setAttribute('data-date', arr1[i]); //FIXME!
+				note.setAttribute('data-date', ''); //FIXME!
 			
 				fillNote(note);
 			} else if (type=="task://") {
 				note.setAttribute('data-content', text);
 				note.setAttribute('data-bgcolor', '#00e000');
-				note.setAttribute('data-date', arr1[i]); //FIXME!
+				note.setAttribute('data-date', ''); //FIXME!
 			
 				fillNote(note);
 			}
@@ -463,113 +463,24 @@ $(document).ready(function() {
 			saveNotes();
 
 		}
-		//
-		arr2_2[i].ondrop = function(event) {
-			$(this).css("background-color", "transparent"); $(this.childNodes).css("opacity", "1");
-			old = $('[data-draggedOver=true]')[0];
-			if (old) { $(old).animate({rotate:'0deg'},100); old.setAttribute('data-draggedOver', 'false'); }
-		        var type = event.dataTransfer.getData("Url");
-			var text = event.dataTransfer.getData("Text");
-			//alert("type: "+type+", text:"+text);
-			if ((!text) || (text===type)) text="";
-			var note = document.createElement('div');
-			if ((type==="note://") || (text)) {
-				note.setAttribute('data-content', text);
-				note.setAttribute('data-bgcolor', '#f0f000');
-				note.setAttribute('data-date', arr1_2[i]); //FIXME!
-			
-				fillNote(note);
-				//notify('Notatka dodana!');
-			} else if (type=="event://") {
-				note.setAttribute('data-content', text);
-				note.setAttribute('data-bgcolor', '#e00000');
-				note.setAttribute('data-date', arr1_2[i]); //FIXME!
-			
-				fillNote(note);
-			} else if (type=="task://") {
-				note.setAttribute('data-content', text);
-				note.setAttribute('data-bgcolor', '#00e000');
-				note.setAttribute('data-date', arr1_2[i]); //FIXME!
-			
-				fillNote(note);
-			}
-			else if (type=="drag://") {
-				moveAnimate($("#draggedElement"), this, old);
-				saveNotes();
-				return false;
-			}
-			if (old) 
-				this.insertBefore(note,old); 
-			else
-				this.appendChild(note);
-			saveNotes();
-
-		}
-		//
-		arr2_3[i].ondrop = function(event) {
-			$(this).css("background-color", "transparent"); $(this.childNodes).css("opacity", "1");
-			old = $('[data-draggedOver=true]')[0];
-			if (old) { $(old).animate({rotate:'0deg'},100); old.setAttribute('data-draggedOver', 'false'); }
-		        var type = event.dataTransfer.getData("Url");
-			var text = event.dataTransfer.getData("Text");
-			//alert("type: "+type+", text:"+text);
-			if ((!text) || (text===type)) text="";
-			var note = document.createElement('div');
-			if ((type==="note://") || (text)) {
-				note.setAttribute('data-content', text);
-				note.setAttribute('data-bgcolor', '#f0f000');
-				note.setAttribute('data-date', arr1_3[i]); //FIXME!
-			
-				fillNote(note);
-				//notify('Notatka dodana!');
-			} else if (type=="event://") {
-				note.setAttribute('data-content', text);
-				note.setAttribute('data-bgcolor', '#e00000');
-				note.setAttribute('data-date', arr1_3[i]); //FIXME!
-			
-				fillNote(note);
-			} else if (type=="task://") {
-				note.setAttribute('data-content', text);
-				note.setAttribute('data-bgcolor', '#00e000');
-				note.setAttribute('data-date', arr1_3[i]); //FIXME!
-			
-				fillNote(note);
-			}
-			else if (type=="drag://") {
-				moveAnimate($("#draggedElement"), this, old);
-				saveNotes();
-				return false;
-			}
-			if (old) 
-				this.insertBefore(note,old); 
-			else
-				this.appendChild(note);
-			saveNotes();
-
-		}
-		//
-		arr2_1[i].ondragover = function () { $(this).css("background-color", "white"); $(this.childNodes).css("opacity", "0.75"); 
-					return false; }
-		arr2_1[i].ondragleave = function () { $(this).css("background-color", "transparent"); $(this.childNodes).css("opacity", "1"); 
-								old = $('[data-draggedOver=true]')[0];
-					if (old) { $(old).rotate('0deg');; old.setAttribute('data-draggedOver', 'false'); }
-		}
-		//
-		arr2_2[i].ondragover = function () { $(this).css("background-color", "white"); $(this.childNodes).css("opacity", "0.75"); 
-					return false; }
-		arr2_2[i].ondragleave = function () { $(this).css("background-color", "transparent"); $(this.childNodes).css("opacity", "1"); 
-								old = $('[data-draggedOver=true]')[0];
-					if (old) { $(old).rotate('0deg');; old.setAttribute('data-draggedOver', 'false'); }
-		}
-		//
-		arr2_3[i].ondragover = function () { $(this).css("background-color", "white"); $(this.childNodes).css("opacity", "0.75"); 
-					return false; }
-		arr2_3[i].ondragleave = function () { $(this).css("background-color", "transparent"); $(this.childNodes).css("opacity", "1"); 
-								old = $('[data-draggedOver=true]')[0];
-					if (old) { $(old).rotate('0deg');; old.setAttribute('data-draggedOver', 'false'); }
-		}
-	
+		arr2_1[i].ondrop = arrOnDrop;
+		arr2_2[i].ondrop = arrOnDrop;
+		arr2_3[i].ondrop = arrOnDrop;
 		
+		//
+		function arrDragOver() { $(this).css("background-color", "white"); $(this.childNodes).css("opacity", "0.75"); 
+					return false; }
+		function arrDragLeave() { $(this).css("background-color", "transparent"); $(this.childNodes).css("opacity", "1"); 
+								old = $('[data-draggedOver=true]')[0];
+					if (old) { $(old).rotate('0deg');; old.setAttribute('data-draggedOver', 'false'); }
+		}
+		//
+		arr2_1[i].ondragover = arrDragOver;
+		arr2_1[i].ondragleave = arrDragLeave;
+		arr2_2[i].ondragover = arrDragOver;
+		arr2_2[i].ondragleave = arrDragLeave;
+		arr2_3[i].ondragover = arrDragOver;
+		arr2_3[i].ondragleave = arrDragLeave;
 		//
 		
 		d.add("days", 1);
@@ -611,6 +522,6 @@ $(document).ready(function() {
 		}
 	}
 			
+	resizeDays();
 	loadNotes();
-	resizeDays();			
 });
