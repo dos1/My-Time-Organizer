@@ -98,7 +98,7 @@ $(document).ready(function() {
 			note.setAttribute('data-draggedOver', 'true');
 		}
 		
-		$(note).css('backgroundColor', note.getAttribute('data-bgcolor')).css('color', colorFromBgColor(note.getAttribute('data-bgcolor')));
+		$(note).css('backgroundColor', note.getAttribute('data-bgcolor'));
 
 		var note_content = document.createElement('div');
 		note_content.setAttribute('class','note_content');
@@ -177,7 +177,7 @@ $(document).ready(function() {
 			onHide: function (colpkr) {
 				document.getElementById('COLORPICKERTROLOLOLO').parentNode.parentNode.setAttribute('data-whileInColorPicker', false);
 				document.getElementById('COLORPICKERTROLOLOLO').parentNode.parentNode.style.backgroundColor=document.getElementById('COLORPICKERTROLOLOLO').parentNode.parentNode.getAttribute('data-bgcolor');
-				document.getElementById('COLORPICKERTROLOLOLO').parentNode.parentNode.style.color=colorFromBgColor(document.getElementById('COLORPICKERTROLOLOLO').parentNode.parentNode.getAttribute('data-bgcolor'));
+				//document.getElementById('COLORPICKERTROLOLOLO').parentNode.parentNode.style.color=colorFromBgColor(document.getElementById('COLORPICKERTROLOLOLO').parentNode.parentNode.getAttribute('data-bgcolor'));
 				document.getElementById('COLORPICKERTROLOLOLO').setAttribute('id', '');
 				$(colpkr).hide();
 				saveNotes();
