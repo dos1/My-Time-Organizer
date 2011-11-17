@@ -173,11 +173,11 @@ nav:last-child {
 	border-right: none; /*1px solid darkgrey;*/
 
 
-nav:nth-of-type(odd) .day_content {
+nav:nth-of-type(odd) .day_content, #inner_table_center nav:nth-of-type(even) .day_content  {
 	background-color: #FAFAFA;
 }
 
-nav:nth-of-type(even) .day_content {
+nav:nth-of-type(even) .day_content, #inner_table_center nav:nth-of-type(odd) .day_content  {
 	background-color: rgba(245,245,245,0.5);
 }
 
