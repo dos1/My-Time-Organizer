@@ -218,9 +218,6 @@ $(document).ready(function() {
 			e.dataTransfer.setDragImage(this.parentNode.parentNode, $(this.parentNode.parentNode).width, $(this.parentNode.parentNode).height);
 			e.dataTransfer.setData("Url","drag://");
 		}
-		icon.onclick = function() {
-			moveAnimate($(this.parentNode.parentNode), $("#day1"));
-		}
 		note_icons.appendChild(icon);
 
 		note.appendChild(note_icons);
