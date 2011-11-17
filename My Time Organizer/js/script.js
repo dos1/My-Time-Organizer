@@ -169,18 +169,17 @@ $(document).ready(function() {
 		$(icon).ColorPicker({
 			color: note.getAttribute('data-bgcolor'),
 			onShow: function (colpkr) {
-				if (this.parentNode.parentNode.getAttribute('data-whileInColorPicker')===false) {
 					this.setAttribute('id', 'COLORPICKERTROLOLOLO');
 					this.parentNode.parentNode.setAttribute('data-whileInColorPicker', true);
 					$(colpkr).fadeIn(500);
-				}
-				return false;
+					return false;
 			},
 			onHide: function (colpkr) {
 				document.getElementById('COLORPICKERTROLOLOLO').parentNode.parentNode.setAttribute('data-whileInColorPicker', false);
 				document.getElementById('COLORPICKERTROLOLOLO').parentNode.parentNode.style.backgroundColor=document.getElementById('COLORPICKERTROLOLOLO').parentNode.parentNode.getAttribute('data-bgcolor');
 				document.getElementById('COLORPICKERTROLOLOLO').parentNode.parentNode.style.color=colorFromBgColor(document.getElementById('COLORPICKERTROLOLOLO').parentNode.parentNode.getAttribute('data-bgcolor'));
-				$(colpkr).fadeOut(500, function() { document.getElementById('COLORPICKERTROLOLOLO').setAttribute('id', ''); });
+				document.getElementById('COLORPICKERTROLOLOLO').setAttribute('id', '');
+				$(colpkr).hide();
 				saveNotes();
 				return false;
 			},
