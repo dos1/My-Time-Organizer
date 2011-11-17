@@ -444,6 +444,7 @@ $(document).ready(function() {
 			parent.appendChild(nav);
 			var header = document.createElement('div');
 			header.setAttribute('class','header');
+			nav.setAttribute('data-date', date);
 			
 			header.innerHTML = "<h3>"+d.format("D")+"."+d.format("M")+"<br/>"+lang[mylang]["days"][i]+"</h3>";
 			
@@ -499,38 +500,60 @@ $(document).ready(function() {
 		week_next.add("days", 1);
 	}
 			
-	function saveNotes() {
-		/*for ( i = 0; i < 7; i++ ) {
-			var column = document.getElementById('day'+(i+1)).childNodes;
-			var note_count = 0;
-			var notes = new Array();
-			for ( j = 0; j < column.length; j++ ) {
-				if ( column[j].getAttribute('class') == "note" ) {
-					notes[note_count] = column[j].getAttribute("data-date");
-					notes[note_count+1] = column[j].getAttribute("data-content");
-					notes[note_count+2] = column[j].getAttribute("data-bgcolor");
-					note_count += 3;
+	function saveTable(table) {
+		//console.log('TABLE: '+table.getAttribute('id')+ ', length: '+table.childNodes.length);
+			for ( var column = 0; column < table.childNodes.length; column++ ) {
+				//console.log('START: ' +table.childNodes[column]);
+				//console.log(' --- ' + table.childNodes[column].getAttribute('data-date'));
+				col = document.getElementById(table.childNodes[column].getAttribute('data-date')).childNodes;
+				
+				//var column = document.getElementById('day'+(i+1)).childNodes;
+				var note_count = 0;
+				var notes = new Array();
+				for ( j = 0; j < col.length; j++ ) {
+					//console.log('storing note: '+col[j].getAttribute("data-content"));
+					if ( col[j].getAttribute('class') == "note" ) {
+						notes[note_count] = new Array();
+						notes[note_count][0] = col[j].getAttribute("data-date");
+						notes[note_count][1] = col[j].getAttribute("data-content");
+						notes[note_count][2] = col[j].getAttribute("data-bgcolor");
+						note_count += 1;
+					}
 				}
-			}
-			localStorage['day'+(i+1)]=JSON.stringify(notes);
-			//alert(localStorage['day'+(i+1)]);
-		}*/
+				localStorage[table.childNodes[column].getAttribute('data-date')]=JSON.stringify(notes);
+				//console.log(table.childNodes[column].getAttribute('data-date')+': '+JSON.stringify(notes));
+				//alert(localStorage['day'+(i+1)]);
+			}				
 	}
 			
-	function loadNotes() {
-		/*for ( i = 0; i < 7; i++ ) {
+	function saveNotes() {
+		saveTable(document.getElementById('inner_table_left'));
+		saveTable(document.getElementById('inner_table_center'));
+		saveTable(document.getElementById('inner_table_right'));
+	}
+	
+	function loadTable(table) {
+		//console.log('TABLE: '+table.getAttribute('id')+ ', length: '+table.childNodes.length);
+		for ( var col = 0; col < table.childNodes.length; col++ ) {
 			var column = Array();
 			var note_count = 0;
-			column = JSON.parse(localStorage['day'+(i+1)]);
-			for ( j = 0; j < column.length; j+=3 ) {
+			column = JSON.parse(localStorage[table.childNodes[col].getAttribute('data-date')]);
+			for ( j = 0; j < column.length; j++ ) {
 				var note = document.createElement('div');
-				note.setAttribute('data-date', column[j]);
-				note.setAttribute('data-content', column[j+1]);
-				note.setAttribute('data-bgcolor', column[j+2]);
+				//console.log(column[j]);
+				note.setAttribute('data-date', column[j][0]);
+				note.setAttribute('data-content', column[j][1]);
+				note.setAttribute('data-bgcolor', column[j][2]);
 				fillNote(note);
-				document.getElementById('day'+(i+1)).appendChild(note);							
+				document.getElementById(table.childNodes[col].getAttribute('data-date')).appendChild(note);
 			}
-		}*/
+		}
+	}
+	
+	function loadNotes() {
+		loadTable(document.getElementById('inner_table_left'));
+		loadTable(document.getElementById('inner_table_center'));
+		loadTable(document.getElementById('inner_table_right'));
 	}
 			
 	resizeDays();
