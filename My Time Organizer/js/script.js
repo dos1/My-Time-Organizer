@@ -80,7 +80,7 @@ $(document).ready(function() {
 	}
 
 	function resizeDays() {
-		$(".day_content").css("height",$("nav").height()-81);
+		$(".day_content").css("height",$("nav").height()-46);
 	}
 
 	window.onresize = resizeDays;
@@ -233,37 +233,48 @@ $(document).ready(function() {
 		$(note).scale(0).rotate('-70deg').css('margin-bottom','-50%').animate({rotate: 0, scale: 1, marginBottom: '4%'}, 500);
 	}
 	
-	function right_slide() { // tutaj się coś sypie
+	function right_slide() {
 	//alert("Prawa szczałka!");
+	 $("nav").css("box-shadow", "none");
+
 		if ($("[data-editedNow=true]")[0]) return false;
 		if ($("#inner_table_center").css("transform") !== "translate(100%, 0px)") {
 			$("#inner_table_center").css("transform", "translate(-100%, 0px)");
 			$("#inner_table_right").css("transform", "translate(-100%, 0px)");
+			
+			$("body").removeClass("dark");
 			//
 		}
 		if ($("#inner_table_left").css("transform") !== "translate(-100%, 0px)") {    
 			$("#inner_table_left").css("transform", "translate(0px, 0px)");
+			$("body").addClass("dark");
 		}
 		if ($("#inner_table_center").css("transform") === "translate(100%, 0px)") {
 			$("#inner_table_center").css("transform", "");
+			$("body").removeClass("dark");
 		}
 	}
 		
 	function left_slide() {
+			 $("nav").css("box-shadow", "none");
 		//alert("Lewa szczałka!");
 		if ($("[data-editedNow=true]")[0]) return false;
 		if ($("#inner_table_center").css("transform") !== "translate(-100%, 0px)") {
 			$("#inner_table_center").css("transform", "translate(100%, 0px)");
 			$("#inner_table_left").css("transform", "translate(100%, 0px)");
+			$("body").removeClass("dark");
 			
 		}
 		// z tym aktualnie jest problem (i nie mam pojęcia czemu). Dokładniej to w ogóle nie wyświetla się tablica prawa.
 		if($("#inner_table_right").css("transform") !== "translate(100%, 0px)") {
 			$("#inner_table_right").css("transform", "translate(0px, 0px)");
+			$("body").addClass("dark");	
 		}
 		//
 		if ($("#inner_table_center").css("transform") === "translate(-100%, 0px)") {
 			$("#inner_table_center").css("transform", "");
+			$("body").removeClass("dark");
+			
 		}
 	}
 		
@@ -446,9 +457,13 @@ $(document).ready(function() {
 			header.setAttribute('class','header');
 			nav.setAttribute('data-date', date);
 			
-			header.innerHTML = "<h3>"+d.format("D")+"."+d.format("M")+"<br/>"+lang[mylang]["days"][i]+"</h3>";
+			//header.innerHTML = "<h3>"+d.format("D")+"."+d.format("M")+"<br/>"+lang[mylang]["days"][i]+"</h3>";
+			header.innerHTML = "<h3>"+lang[mylang]["days"][i]+"</h3>";
+
 			
 			if (cur) header.setAttribute('id','current_day');
+		  
+		        header.setAttribute('data-date',d.format("D")+"."+d.format("M"));
 		  
 			nav.appendChild(header);
 		  
