@@ -218,6 +218,16 @@ $(document).ready(function() {
 			e.dataTransfer.setDragImage(this.parentNode.parentNode, $(this.parentNode.parentNode).width, $(this.parentNode.parentNode).height);
 			e.dataTransfer.setData("Url","drag://");
 		}
+		icon.onclick = function() {
+			var helper = document.createElement('div');
+			helper.setAttribute("class", "helperSmall");
+			helper = $(helper);
+			helper.hide();
+			helper.css("width", "auto").css("height", "auto").css("top", $(icon).offset().top+16).css("left", $(icon).offset().left).css("position","absolute");
+			helper.html("Aby przenieść notatkę, przeciągnij ikonkę i upuść ją na wybrane miejsce.");
+			helper.appendTo('body');
+			helper.fadeIn(500).delay(3000).fadeOut(1000);
+		}
 		note_icons.appendChild(icon);
 
 		note.appendChild(note_icons);
