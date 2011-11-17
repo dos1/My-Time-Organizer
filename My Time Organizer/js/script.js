@@ -354,8 +354,8 @@ $(document).ready(function() {
 			if (old) { $(old).animate({rotate:'0deg'},100); old.setAttribute('data-draggedOver', 'false'); }
 		        var type = event.dataTransfer.getData("Url");
 			var text = event.dataTransfer.getData("Text");
-			alert("type: "+type+", text:"+text);
-			if (!text) text="";
+			//alert("type: "+type+", text:"+text);
+			if ((!text) || (text===type)) text="";
 			var note = document.createElement('div');
 			if ((type==="note://") || (text)) {
 				note.setAttribute('data-content', text);
