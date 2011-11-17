@@ -1,6 +1,6 @@
 - layout // dos
 - obsługa poprzedniego i następnego tygodnia :D // hun7er
-- eventy i inne typy oprócz notatek
+- eventy i inne typy oprócz notatek // częściowo dos, a potem: się zobaczy
 - synchronizacja z google calendar	// to w sumie może spróbuję - mug3tsu
 - wprowadzanie głosowe	// mug3tsu
 - widok miesiąca
@@ -11,3 +11,8 @@
 
 - posegregowac TODO (co na teraz, co na pozniej)
 - publikacja :D
+
+BUGI:
+- element przeniesiony na samego siebie - znika ;o //dos
+- cuś nie działa z color pickerem // dos
+- nie działa dodawanie notatek do środkowego i prawego tygodnia // hun7er
