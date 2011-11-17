@@ -274,59 +274,6 @@ $(document).ready(function() {
 		
 	document.addEventListener("keydown", keydown, false);
 			
-	var now = moment();
-	var mdn = now.format("d")-1; // current day of the week
-	//alert(day);
-	var d = now.add("days", (-1)*mdn);        // current day
-	var week_last = moment().add("days", -(7+mdn));   // last week
-	var week_next = moment().add("days", 7-mdn);     // next week
-		
-	/* 
-		Środkowa tabela - aktualny tydzień
-	*/
-	
-	for(i = 0; i < lang[mylang]["days"].length; i++) {
-				/*
-				<nav>
-				<div class="header">
-					<h3>7.11<br/>Poniedziałek</h3>
-				</div>
-                                <div class="day_content" id="day1">
-				</div>
-			</nav>
-				*/
-		var text_c = $("#inner_table_center").html();
-		var text_l = $("#inner_table_left").html();
-		var text_r = $("#inner_table_right").html();
-		
-		if (i == mdn) text_c += "<nav><div class='header' id='current_day'>";
-		else text_c += "<nav><div class='header'>"
-		text_l += "<nav><div class='header'>";
-		text_r += "<nav><div class='header'>";
-		
-		text_c += "<h3>"+d.format("D")+"."+d.format("M")+"<br/>"+lang[mylang]["days"][i]+"</h3></div><div class='day_content' id='day"+(i+1)+"'></div></nav>";
-		text_l += "<h3>"+week_last.format("D")+"."+week_last.format("M")+"<br/>"+lang[mylang]["days"][i]+"</h3></div><div class='day_content' id='day"+(i+1)+"'></div></nav>";
-		text_r += "<h3>"+week_next.format("D")+"."+week_next.format("M")+"<br/>"+lang[mylang]["days"][i]+"</h3></div><div class='day_content' id='day"+(i+1)+"'></div></nav>";
-		
-		$("#inner_table_center").html(text_c);
-		$("#inner_table_left").html(text_l);
-		$("#inner_table_right").html(text_r);
-		d.add("days", 1);
-		week_last.add("days", 1);
-		week_next.add("days", 1);
-	}
-	
-	/*$("#panel_slider").click(function() {
-		if ($("#add_panel").css("margin-left") === "0px") { 
-			$("#add_panel").css("margin-left", "-300px");
-			$("#add_panel img").animate({rotate:"0deg"}, 400); 
-		}
-		else { 
-			$("#add_panel").css("margin-left", "0px");
-			$("#add_panel img").animate({rotate:"180deg"}, 400); 
-		}
-		});*/
-
 	document.getElementById("note_icon").ondragstart = function(e) {
 		e.dataTransfer.setData("Url","note://");
 		$(this).scale(0.9);
@@ -351,9 +298,27 @@ $(document).ready(function() {
 	document.getElementById("task_icon").ondragend = function(e) {
 		$(this).scale(1.0);
 	}
-	var arr1 = new Array(), arr2 = new Array();
+	
+	
+	/* 
+		Środkowa tabela - aktualny tydzień
+	*/
+	
+	
+	var now = moment();
+	var mdn = now.format("d")-1; // current day of the week
+	//alert(day);
+	var d = now.add("days", (-1)*mdn);        // current day
+	var week_last = moment().add("days", -(7+mdn));   // last week
+	var week_next = moment().add("days", 7-mdn);     // next week
+		
+	
+	
+	
+	/*
+	
 	for(i = 0; i < 7; i++) {
-		arr1[i] = 'day'+(i+1);
+		arr1[i] = 'day'+(i+1); // wypieprzyć bo 3 razy się id powtarza
 		arr2[i] = document.getElementById(arr1[i]);
 		arr2[i].ondrop = function(event) {
 			$(this).css("background-color", "transparent"); $(this.childNodes).css("opacity", "1");
@@ -402,6 +367,214 @@ $(document).ready(function() {
 								old = $('[data-draggedOver=true]')[0];
 					if (old) { $(old).rotate('0deg');; old.setAttribute('data-draggedOver', 'false'); }
 		}
+	}
+	
+	*/
+	
+	
+	var arr1_1 = new Array(), arr2_1= new Array(),
+		arr1_2 = new Array(), arr2_2 = new Array(),
+		arr1_3 = new Array(), arr2_3 = new Array();
+	
+	for(i = 0; i < lang[mylang]["days"].length; i++) {
+		var text_c = $("#inner_table_center").html();
+		var text_l = $("#inner_table_left").html();
+		var text_r = $("#inner_table_right").html();
+		
+		if (i == mdn) text_c += "<nav><div class='header' id='current_day'>";
+		else text_c += "<nav><div class='header'>"
+		text_l += "<nav><div class='header'>";
+		text_r += "<nav><div class='header'>";
+		
+		var lmyd = (week_last.format("D") < 10) ? "0"+week_last.format("D") : week_last.format("D");
+		var dmyd = (d.format("D") < 10) ? "0"+d.format("D") : d.format("D");
+		var nmyd = (week_next.format("D") < 10) ? "0"+week_next.format("D") : week_next.format("D");
+		
+		var lmym = (week_last.format("M") < 10) ? "0"+week_last.format("M") : week_last.format("M");
+		var dmym = (d.format("M") < 10) ? "0"+d.format("D") : d.format("M");
+		var nmym = (week_next.format("M") < 10) ? "0"+week_next.format("M") : week_next.format("M");
+		
+		var lmyy = week_last.format("YYYY");
+		var dmyy = d.format("YYYY");
+		var nmyy = week_next.format("YYYY");
+		
+		var lmydate = lmyd+"-"+lmym+"-"+lmyy;
+		var dmydate = dmyd+"-"+dmym+"-"+dmyy;
+		var nmydate = nmyd+"-"+nmym+"-"+nmyy;
+		
+		text_c += "<h3>"+d.format("D")+"."+d.format("M")+"<br/>"+lang[mylang]["days"][i]+"</h3></div><div class='day_content' id='"+dmydate+"'></div></nav>";
+		text_l += "<h3>"+week_last.format("D")+"."+week_last.format("M")+"<br/>"+lang[mylang]["days"][i]+"</h3></div><div class='day_content' id='"+lmydate+"'></div></nav>";
+		text_r += "<h3>"+week_next.format("D")+"."+week_next.format("M")+"<br/>"+lang[mylang]["days"][i]+"</h3></div><div class='day_content' id='"+nmydate+"'></div></nav>";
+		
+		$("#inner_table_center").html(text_c);
+		$("#inner_table_left").html(text_l);
+		$("#inner_table_right").html(text_r);
+		
+		//
+		arr1_1[i] = lmydate; // wypieprzyć bo 3 razy się id powtarza
+		arr1_2[i] = dmydate;
+		arr1_3[i] = nmydate;
+		//
+		
+		//
+		arr2_1[i] = document.getElementById(arr1_1[i]);
+		arr2_2[i] = document.getElementById(arr1_2[i]);
+		arr2_3[i] = document.getElementById(arr1_3[i]);
+		//
+		
+		arr2_1[i].ondrop = function(event) {
+			$(this).css("background-color", "transparent"); $(this.childNodes).css("opacity", "1");
+			old = $('[data-draggedOver=true]')[0];
+			if (old) { $(old).animate({rotate:'0deg'},100); old.setAttribute('data-draggedOver', 'false'); }
+		        var type = event.dataTransfer.getData("Url");
+			var text = event.dataTransfer.getData("Text");
+			//alert("type: "+type+", text:"+text);
+			if ((!text) || (text===type)) text="";
+			var note = document.createElement('div');
+			if ((type==="note://") || (text)) {
+				note.setAttribute('data-content', text);
+				note.setAttribute('data-bgcolor', '#f0f000');
+				note.setAttribute('data-date', arr1[i]); //FIXME!
+			
+				fillNote(note);
+				//notify('Notatka dodana!');
+			} else if (type=="event://") {
+				note.setAttribute('data-content', text);
+				note.setAttribute('data-bgcolor', '#e00000');
+				note.setAttribute('data-date', arr1[i]); //FIXME!
+			
+				fillNote(note);
+			} else if (type=="task://") {
+				note.setAttribute('data-content', text);
+				note.setAttribute('data-bgcolor', '#00e000');
+				note.setAttribute('data-date', arr1[i]); //FIXME!
+			
+				fillNote(note);
+			}
+			else if (type=="drag://") {
+				moveAnimate($("#draggedElement"), this, old);
+				saveNotes();
+				return false;
+			}
+			if (old) 
+				this.insertBefore(note,old); 
+			else
+				this.appendChild(note);
+			saveNotes();
+
+		}
+		//
+		arr2_2[i].ondrop = function(event) {
+			$(this).css("background-color", "transparent"); $(this.childNodes).css("opacity", "1");
+			old = $('[data-draggedOver=true]')[0];
+			if (old) { $(old).animate({rotate:'0deg'},100); old.setAttribute('data-draggedOver', 'false'); }
+		        var type = event.dataTransfer.getData("Url");
+			var text = event.dataTransfer.getData("Text");
+			//alert("type: "+type+", text:"+text);
+			if ((!text) || (text===type)) text="";
+			var note = document.createElement('div');
+			if ((type==="note://") || (text)) {
+				note.setAttribute('data-content', text);
+				note.setAttribute('data-bgcolor', '#f0f000');
+				note.setAttribute('data-date', arr1_2[i]); //FIXME!
+			
+				fillNote(note);
+				//notify('Notatka dodana!');
+			} else if (type=="event://") {
+				note.setAttribute('data-content', text);
+				note.setAttribute('data-bgcolor', '#e00000');
+				note.setAttribute('data-date', arr1_2[i]); //FIXME!
+			
+				fillNote(note);
+			} else if (type=="task://") {
+				note.setAttribute('data-content', text);
+				note.setAttribute('data-bgcolor', '#00e000');
+				note.setAttribute('data-date', arr1_2[i]); //FIXME!
+			
+				fillNote(note);
+			}
+			else if (type=="drag://") {
+				moveAnimate($("#draggedElement"), this, old);
+				saveNotes();
+				return false;
+			}
+			if (old) 
+				this.insertBefore(note,old); 
+			else
+				this.appendChild(note);
+			saveNotes();
+
+		}
+		//
+		arr2_3[i].ondrop = function(event) {
+			$(this).css("background-color", "transparent"); $(this.childNodes).css("opacity", "1");
+			old = $('[data-draggedOver=true]')[0];
+			if (old) { $(old).animate({rotate:'0deg'},100); old.setAttribute('data-draggedOver', 'false'); }
+		        var type = event.dataTransfer.getData("Url");
+			var text = event.dataTransfer.getData("Text");
+			//alert("type: "+type+", text:"+text);
+			if ((!text) || (text===type)) text="";
+			var note = document.createElement('div');
+			if ((type==="note://") || (text)) {
+				note.setAttribute('data-content', text);
+				note.setAttribute('data-bgcolor', '#f0f000');
+				note.setAttribute('data-date', arr1_3[i]); //FIXME!
+			
+				fillNote(note);
+				//notify('Notatka dodana!');
+			} else if (type=="event://") {
+				note.setAttribute('data-content', text);
+				note.setAttribute('data-bgcolor', '#e00000');
+				note.setAttribute('data-date', arr1_3[i]); //FIXME!
+			
+				fillNote(note);
+			} else if (type=="task://") {
+				note.setAttribute('data-content', text);
+				note.setAttribute('data-bgcolor', '#00e000');
+				note.setAttribute('data-date', arr1_3[i]); //FIXME!
+			
+				fillNote(note);
+			}
+			else if (type=="drag://") {
+				moveAnimate($("#draggedElement"), this, old);
+				saveNotes();
+				return false;
+			}
+			if (old) 
+				this.insertBefore(note,old); 
+			else
+				this.appendChild(note);
+			saveNotes();
+
+		}
+		//
+		arr2_1[i].ondragover = function () { $(this).css("background-color", "white"); $(this.childNodes).css("opacity", "0.75"); 
+					return false; }
+		arr2_1[i].ondragleave = function () { $(this).css("background-color", "transparent"); $(this.childNodes).css("opacity", "1"); 
+								old = $('[data-draggedOver=true]')[0];
+					if (old) { $(old).rotate('0deg');; old.setAttribute('data-draggedOver', 'false'); }
+		}
+		//
+		arr2_2[i].ondragover = function () { $(this).css("background-color", "white"); $(this.childNodes).css("opacity", "0.75"); 
+					return false; }
+		arr2_2[i].ondragleave = function () { $(this).css("background-color", "transparent"); $(this.childNodes).css("opacity", "1"); 
+								old = $('[data-draggedOver=true]')[0];
+					if (old) { $(old).rotate('0deg');; old.setAttribute('data-draggedOver', 'false'); }
+		}
+		//
+		arr2_3[i].ondragover = function () { $(this).css("background-color", "white"); $(this.childNodes).css("opacity", "0.75"); 
+					return false; }
+		arr2_3[i].ondragleave = function () { $(this).css("background-color", "transparent"); $(this.childNodes).css("opacity", "1"); 
+								old = $('[data-draggedOver=true]')[0];
+					if (old) { $(old).rotate('0deg');; old.setAttribute('data-draggedOver', 'false'); }
+		}
+	
+		
+		//
+		
+		d.add("days", 1);
+		week_last.add("days", 1);
+		week_next.add("days", 1);
 	}
 			
 	function saveNotes() {
