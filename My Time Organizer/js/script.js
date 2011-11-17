@@ -103,7 +103,7 @@ $(document).ready(function() {
 		var note_content = document.createElement('div');
 		note_content.setAttribute('class','note_content');
 		if (note.getAttribute('data-content')==='')
-			note_content.innerHTML = 'Kliknij ikonę ołówka, aby edytować tę notatkę, lub ikonkę obok, aby zmienić kolor kartki. Krzyżyk usuwa notatkę.';
+			note_content.innerHTML = 'Kliknij ikonę ołówka, aby edytować tę notatkę, lub krzyżyk, aby ją usunąć.';
 		else note_content.innerHTML = note.getAttribute('data-content');
 		note_content.contentEditable = false;
 		note.appendChild(note_content);
