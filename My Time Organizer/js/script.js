@@ -104,8 +104,14 @@ $(document).ready(function() {
 
 		var note_content = document.createElement('div');
 		$(note_content).addClass('note_content');
-		if (note.getAttribute('data-content')==='')
-			note_content.innerHTML = 'Kliknij ikonę ołówka, aby edytować tę notatkę, lub krzyżyk, aby ją usunąć.';
+		if (note.getAttribute('data-content')==='') {
+			if (note.getAttribute('class')==='note')
+				note_content.innerHTML = 'Kliknij ikonę ołówka, aby edytować tę notatkę, lub krzyżyk, aby ją usunąć.';
+			else if (note.getAttribute('class')==='task')
+				note_content.innerHTML = 'Kliknij ikonę ołówka, aby edytować to zadanie, lub krzyżyk, aby je usunąć.';
+			else if (note.getAttribute('class')==='event')
+				note_content.innerHTML = 'Kliknij ikonę ołówka, aby edytować to wydarzenie, lub krzyżyk, aby je usunąć.';
+		}
 		else note_content.innerHTML = note.getAttribute('data-content');
 		note_content.contentEditable = false;
 		note.appendChild(note_content);
