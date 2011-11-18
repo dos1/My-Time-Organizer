@@ -201,7 +201,7 @@ $(document).ready(function() {
 		icon.style.float = 'right';
 		icon.onclick = function() {
 			function removeNote() { this.parentNode.removeChild(this); saveNotes(); }
-			$(this.parentNode.parentNode).animate({rotate: '-50deg', scale: 0, height: 0, marginBottom: '-4%'}, 500, removeNote);
+			$(this.parentNode.parentNode).animate({rotate: '-50deg', scale: 0, height: 0, paddingTop: 0, paddingBottom: 0, marginTop: 0, marginBottom: 0}, 500, removeNote);
 		}
 		note_icons.appendChild(icon);
 		
