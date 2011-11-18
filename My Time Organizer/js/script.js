@@ -23,7 +23,7 @@ function moveAnimate(element, newParent, old){
 	if (old==element[0]) return false;
 	$(".menu").css("display","none");
 	w = element.width()+14;
-	h = element.height()+16;
+	h = element.height()+14;
         var oldOffset = element.offset();
         //element.appendTo(newParent);
         var oldElement = element.clone().insertBefore(element);
@@ -42,13 +42,12 @@ function moveAnimate(element, newParent, old){
                 .css('zIndex', 1000).css('width',w).css('height',h);
 	if (old) {
 		o=$(old);
-		om=o.css("margin-top");
-		o.animate({marginTop:h+32}, 300);
+		o.animate({marginTop:h+32}, 200);
 	}
         element.hide();
         temp.animate( {'top': newOffset.top-17, 'left':newOffset.left}, 500, function(){
            element.show();
-	   if (old) { o.css("margin-top", om); }
+	   if (o) { o.css("margin-top", 17); }
            temp.remove();
 	   $(".menu").css("display", "block");
         });
