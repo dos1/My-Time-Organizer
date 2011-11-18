@@ -40,10 +40,10 @@ function moveAnimate(element, newParent, old){
 	if (old) {
 		o=$(old);
 		om=o.css("margin-top");
-		o.animate({marginTop:h+16}, 100);
+		o.animate({marginTop:h+32}, 300);
 	}
         element.hide();
-        temp.animate( {'top': newOffset.top, 'left':newOffset.left}, 500, function(){
+        temp.animate( {'top': newOffset.top-17, 'left':newOffset.left}, 500, function(){
            element.show();
 	   if (old) { o.css("margin-top", om); }
            temp.remove();
@@ -230,7 +230,7 @@ $(document).ready(function() {
 		note_icons.appendChild(icon);
 
 		note.appendChild(note_icons);
-		$(note).scale(0).rotate('-70deg').css('margin-bottom','-50%').animate({rotate: 0, scale: 1, marginBottom: '4%'}, 500);
+		$(note).scale(0).rotate('-70deg').css('margin-bottom','-100%').animate({rotate: 0, scale: 1, marginBottom: '0px'}, 500);
 	}
 	
 	function right_slide() {
