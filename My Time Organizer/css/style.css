@@ -374,7 +374,7 @@ nav .header#current_day {
 	/*background-image: url('../images/cur_day.png');
 	background-repeat: no-repeat;
 	background-size: 100% 100%;*/
-	padding-top: 8px;
+	padding-top: 7px;
 }
 nav .header#current_day:after {
 	font-weight: bold;
