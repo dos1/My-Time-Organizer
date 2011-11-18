@@ -412,6 +412,7 @@ div[contenteditable=true] {
 	text-shadow: 0px 0px 5px rgba(0,0,0,0.5);
 	text-align:			center;
 	margin: 0;
+	margin-left: -4px;
 	display: inline-block;
 	-webkit-transition: -webkit-transform 0.5s;
 }
