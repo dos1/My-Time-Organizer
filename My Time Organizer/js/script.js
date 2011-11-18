@@ -24,7 +24,12 @@ function fixFirstNote() {
 	$(".note").each(function () { $(this).css("margin-top", "10px");	});
 	$(".task").each(function () { $(this).css("margin-top", "10px");	});
 	$(".event").each(function () { $(this).css("margin-top", "24px");	});
-	$(".day_content > div:first-child").css('margin-top', '24px');
+	$(".day_content > div:first-child").each(function () { 
+		if ($(this).attr('data-beingMoved'))
+			$(this).next().css('margin-top', '24px');
+		else
+			$(this).css('margin-top', '24px');
+	});
 }
 
 function moveAnimate(element, newParent, old, saveNotes){
@@ -36,6 +41,7 @@ function moveAnimate(element, newParent, old, saveNotes){
         //element.appendTo(newParent);
         var oldElement = element.clone().insertBefore(element);
 	oldElement.css('visibility','hidden');
+	oldElement.attr('data-beingMoved','true');
 	oldElement.animate( {'height': 0, 'paddingTop': 0, 'paddingBottom':0, 'marginTop':0,'marginBottom':0}, 500, function() { oldElement.remove(); saveNotes(); });
 	if (old) 
 		element.insertBefore($(old)); 
