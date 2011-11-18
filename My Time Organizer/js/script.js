@@ -45,9 +45,9 @@ function moveAnimate(element, newParent, old){
 		o.animate({marginTop:h+32}, 200);
 	}
         element.hide();
-        temp.animate( {'top': newOffset.top-18, 'left':newOffset.left}, 500, function(){
+        temp.animate( {'top': newOffset.top-20, 'left':newOffset.left}, 500, function(){
            element.show();
-	   if (o) { o.css("margin-top", 18); }
+	   if (o) { o.css("margin-top", 20); }
            temp.remove();
 	   $(".menu").css("display", "block");
         });
@@ -423,6 +423,7 @@ $(document).ready(function() {
 				note.setAttribute('data-content', text);
 				note.setAttribute('data-bgcolor', '#78c20f');
 				note.setAttribute('data-date', this.getAttribute('id'));
+				note.setAttribute('data-time', '18:25');
 			
 				fillNote(note);
 			} else if (type=="task://") {
@@ -430,6 +431,8 @@ $(document).ready(function() {
 				note.setAttribute('data-content', text);
 				note.setAttribute('data-bgcolor', '#82418e');
 				note.setAttribute('data-date', this.getAttribute('id'));
+				note.setAttribute('data-done', 'false');
+				
 				fillNote(note);
 			}
 			else if (type=="drag://") {
@@ -560,6 +563,8 @@ $(document).ready(function() {
 						notes[note_count]['date'] = col[j].getAttribute("data-date");
 						notes[note_count]['content'] = col[j].getAttribute("data-content");
 						notes[note_count]['bgcolor'] = col[j].getAttribute("data-bgcolor");
+						notes[note_count]['time'] = col[j].getAttribute("data-time");
+						notes[note_count]['done'] = col[j].getAttribute("data-done");
 						note_count += 1;
 					//}
 				}
@@ -588,6 +593,8 @@ $(document).ready(function() {
 				note.setAttribute('data-date', column[j]['date']);
 				note.setAttribute('data-content', column[j]['content']);
 				note.setAttribute('data-bgcolor', column[j]['bgcolor']);
+				note.setAttribute('data-done', column[j]['done']);
+				note.setAttribute('data-time', column[j]['time']);
 				fillNote(note);
 				document.getElementById(table.childNodes[col].getAttribute('data-date')).appendChild(note);
 			}

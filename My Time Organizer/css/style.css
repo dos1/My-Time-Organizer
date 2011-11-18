@@ -288,7 +288,7 @@ nav .header h3 {
 	font-size: 			0.7em;
 	color: 				#333333;
 	box-shadow: 0px 0px 10px rgba(0,0,0,0.5);
-	margin-top: 18px;
+	margin-top: 20px;
 	background-color: 	attr(data-bgcolor, color); /*#e1e1e1;*/
 	-webkit-user-select: text;
 	-webkit-transition: background-color 0.5s, opacity 0.25s;
@@ -313,7 +313,7 @@ nav .header h3 {
 	z-index: -1;
 }
 .event:after {
-	content: '18:25'; /*atrr(data-time);*/
+	content: attr(data-time);
 	position: absolute;
 	top: -14px;
 	left: 0px;
@@ -328,6 +328,10 @@ nav .header h3 {
 	border-top-left-radius: 6px;
 	border-top-right-radius: 6px;
 	box-shadow: 1px -2px 4px rgba(0,0,0,0.2);
+	-webkit-transition: opacity 0.25s;
+}
+.event[data-editedNow=true]:after {
+	opacity: 0;
 }
 .note_content {
 	min-height: 1em;
