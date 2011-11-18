@@ -427,7 +427,7 @@ div[contenteditable=true] {
 	cursor: pointer;
 }
 #conf_btn:hover:after, #help_btn:hover:after, #view_btn:hover:after {
-	content: attr(title);
+	content: attr(alt);
 	position: absolute;
 	font-size: 16px;
 	right: 0px;
