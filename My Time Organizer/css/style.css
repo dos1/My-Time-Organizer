@@ -262,9 +262,7 @@ nav .header h3 {
 	height: 100%;
 	overflow-y: auto;
 	overflow-x: hidden;
-	padding-left: 4px;
-	padding-right: 4px;
-	padding-top: 6px;
+	padding: 5px;
 	-webkit-box-sizing: border-box;
 	-webkit-transition: background-color 0.25s, opacity 0.25s;
 	background-image: url('../images/cien.png');
