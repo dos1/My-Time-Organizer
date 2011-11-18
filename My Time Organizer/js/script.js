@@ -65,6 +65,7 @@ function moveAnimate(element, newParent, old, saveNotes){
         element.hide();
 	if ((newOffset.left==oldOffset.left) && (newOffset.top>oldOffset.top)) {
 		newOffset.top-=h;
+		if (fix==22) newOffset.top-=10;
 	}
         temp.animate( {'top': parseInt(newOffset.top)-fix, 'left':newOffset.left}, 500, function(){
            element.show();
