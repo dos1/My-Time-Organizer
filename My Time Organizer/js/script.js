@@ -287,27 +287,27 @@ $(document).ready(function() {
 			
 	document.getElementById("note_icon").ondragstart = function(e) {
 		e.dataTransfer.setData("Url","note://");
-		$(this).scale(0.9);
+		$(this).css("transform","scale(0.9) translate(-7px, -3px)");
 		$("#helper").fadeOut(500);
 	}
 	document.getElementById("event_icon").ondragstart = function(e) {
 		e.dataTransfer.setData("Url","event://");
-		$(this).scale(0.9);
+		$(this).css("transform","scale(0.9) translate(7px, -3px)");
 		$("#helper").fadeOut(500);
 	}
 	document.getElementById("task_icon").ondragstart = function(e) {
 		e.dataTransfer.setData("Url","task://");
-		$(this).scale(0.9);
+		$(this).css("transform","scale(0.9) translate(0px, -3px)");
 		$("#helper").fadeOut(500);
 	}
 	document.getElementById("note_icon").ondragend = function(e) {
-		$(this).scale(1.0);
+		$(this).css("transform","none");
 	}
 	document.getElementById("event_icon").ondragend = function(e) {
-		$(this).scale(1.0);
+		$(this).css("transform","none");
 	}
 	document.getElementById("task_icon").ondragend = function(e) {
-		$(this).scale(1.0);
+		$(this).css("transform","none");
 	}
 	
 	
@@ -397,20 +397,20 @@ $(document).ready(function() {
 			var note = document.createElement('div');
 			if ((type==="note://") || (text)) {
 				note.setAttribute('data-content', text);
-				note.setAttribute('data-bgcolor', '#f0f000');
+				note.setAttribute('data-bgcolor', '#5b5b5b');
 				note.setAttribute('data-date', this.getAttribute('id')); //FIXME!
 			
 				fillNote(note);
 				//notify('Notatka dodana!');
 			} else if (type=="event://") {
 				note.setAttribute('data-content', text);
-				note.setAttribute('data-bgcolor', '#e00000');
+				note.setAttribute('data-bgcolor', '#78c20f');
 				note.setAttribute('data-date', this.getAttribute('id')); //FIXME!
 			
 				fillNote(note);
 			} else if (type=="task://") {
 				note.setAttribute('data-content', text);
-				note.setAttribute('data-bgcolor', '#00e000');
+				note.setAttribute('data-bgcolor', '#82418e');
 				note.setAttribute('data-date', this.getAttribute('id')); //FIXME!
 				fillNote(note);
 			}
