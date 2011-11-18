@@ -541,15 +541,15 @@ $(document).ready(function() {
 				for ( j = 0; j < col.length; j++ ) {
 					//console.log('storing note: '+col[j].getAttribute("data-content"));
 					if ( col[j].getAttribute('class') == "note" ) {
-						notes[note_count] = new Array();
-						notes[note_count][0] = col[j].getAttribute("data-date");
-						notes[note_count][1] = col[j].getAttribute("data-content");
-						notes[note_count][2] = col[j].getAttribute("data-bgcolor");
+						notes[note_count] = {};
+						notes[note_count]['date'] = col[j].getAttribute("data-date");
+						notes[note_count]['content'] = col[j].getAttribute("data-content");
+						notes[note_count]['bgcolor'] = col[j].getAttribute("data-bgcolor");
 						note_count += 1;
 					}
 				}
 				localStorage[table.childNodes[column].getAttribute('data-date')]=JSON.stringify(notes);
-				//console.log(table.childNodes[column].getAttribute('data-date')+': '+JSON.stringify(notes));
+				console.log(table.childNodes[column].getAttribute('data-date')+': '+JSON.stringify(notes));
 				//alert(localStorage['day'+(i+1)]);
 			}				
 	}
@@ -569,9 +569,9 @@ $(document).ready(function() {
 			for ( j = 0; j < column.length; j++ ) {
 				var note = document.createElement('div');
 				//console.log(column[j]);
-				note.setAttribute('data-date', column[j][0]);
-				note.setAttribute('data-content', column[j][1]);
-				note.setAttribute('data-bgcolor', column[j][2]);
+				note.setAttribute('data-date', column[j]['date']);
+				note.setAttribute('data-content', column[j]['content']);
+				note.setAttribute('data-bgcolor', column[j]['bgcolor']);
 				fillNote(note);
 				document.getElementById(table.childNodes[col].getAttribute('data-date')).appendChild(note);
 			}
