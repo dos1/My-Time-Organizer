@@ -260,6 +260,7 @@ nav .header h3 {
 	font-size: 18px;
 	font-family: "Bebas Neue", Sans-Serif;
 	opacity: 0.92;
+	font-weight: normal;
 }
 
 .day_content {
@@ -374,14 +375,13 @@ nav .header#current_day {
 	/*background-image: url('../images/cur_day.png');
 	background-repeat: no-repeat;
 	background-size: 100% 100%;*/
-	padding-top: 7px;
+	padding-top: 8px;
 }
 nav .header#current_day:after {
 	font-weight: bold;
 }
 nav .header#current_day h3 {
 	font-size: 22px;
-	padding-top: 2px;
 	opacity: 0.98;
 }
 
