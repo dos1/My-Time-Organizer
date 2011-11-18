@@ -232,7 +232,7 @@ $(document).ready(function() {
 		note_icons.appendChild(icon);
 
 		note.appendChild(note_icons);
-		$(note).scale(0).rotate('-70deg').css('margin-bottom','-100%').animate({rotate: 0, scale: 1, marginBottom: '0px'}, 500);
+		$(note).scale(0).rotate('-70deg').css('margin-bottom','-100%').animate({rotate: 0, scale: 1, marginBottom: 0}, 500);
 	}
 	
 	function right_slide() {

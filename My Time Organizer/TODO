@@ -1,11 +1,14 @@
 - dynamiczna zamiana tygodni // hun7er
-- eventy i inne typy oprócz notatek // częściowo dos, a potem: się zobaczy
-- synchronizacja z google calendar	// to w sumie może spróbuję - mug3tsu
-- widok miesiąca
 - konfiguracja animacji, layoutu, ogólne ustawienia // w sumie to może ja - hun7er. Ale jak zrobię tygodnie
 - eventy i powiadomienia // powiadomienia zrobił dos, przypomnienia o eventach działające w tle zrobię ja - hun7er
+- eventy i inne typy oprócz notatek // częściowo dos, a potem: się zobaczy
 - animowany tutorial // dos
 - funkcja cofnij // dos
+- synchronizacja z google calendar	// to w sumie może spróbuję - mug3tsu
 
-- posegregowac TODO (co na teraz, co na pozniej)
+- poprawić przycisk rozpoznawania mowy (nie działa np. kliknięcie drugi raz)
+- automatyczne pokazywanie i ukrywanie "Nie dodano żadnych elementów" wedle potrzeby
+- dodawanie linków do notatek
+- widok miesiąca
+
 - publikacja :D
