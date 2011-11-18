@@ -34,6 +34,7 @@ function fixFirstNote() {
 function moveAnimate(element, newParent, old, saveNotes){
 	if (old==element[0]) return false;
 	if ((element.next().length===0) && (element.parent()[0]===newParent) && (!(old))) return false;
+	if (element.next()[0]===old) return false;
 	$(".menu").css("display","none");
 	w = element.width()+14;
 	h = element.height()+14;
