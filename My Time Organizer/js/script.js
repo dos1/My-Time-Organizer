@@ -24,7 +24,7 @@ function fixFirstNote() {
 	$(".note").each(function () { $(this).css("margin-top", "10px");	});
 	$(".task").each(function () { $(this).css("margin-top", "10px");	});
 	$(".event").each(function () { $(this).css("margin-top", "24px");	});
-	$(".day_content > div:first-child").css('margin-top', '22px');
+	$(".day_content > div:first-child").css('margin-top', '24px');
 }
 
 function moveAnimate(element, newParent, old, saveNotes){
@@ -54,8 +54,9 @@ function moveAnimate(element, newParent, old, saveNotes){
 		om = o.css('margin-top');
 		o.animate({marginTop:h+32}, 200);
 	}
+	if (element.attr('class')!=='event') fix = 10; else fix = 22; //ugly hack ;/
         element.hide();
-        temp.animate( {'top': parseInt(newOffset.top)-parseInt(element.css('margin-top')), 'left':newOffset.left}, 500, function(){
+        temp.animate( {'top': parseInt(newOffset.top)-fix, 'left':newOffset.left}, 500, function(){
            element.show();
 	   if (old) { o.css("margin-top", om); }
            temp.remove();	   
