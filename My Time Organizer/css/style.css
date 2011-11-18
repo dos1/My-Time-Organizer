@@ -44,7 +44,7 @@ header {
 	text-align: right;
 	z-index: 10;
 }
-body:before {
+body::before {
 	z-index: -1;
 	position: absolute;
 	display: block;
@@ -55,7 +55,7 @@ body:before {
 	content: "";
 	-webkit-transition: background-color 0.5s;
 }
-body.dark:before {
+body.dark::before {
 	background-color: #a88314;	
 }
 footer {
@@ -297,7 +297,7 @@ nav .header h3 {
 	background-size: 100% 3px;
 	position: relative;
 }
-.note:before, .event:before, .task:before {
+.note::before, .event::before, .task::before {
 	position: absolute;
 	left: 0px;
 	top: 0px;
@@ -312,7 +312,7 @@ nav .header h3 {
 	background-size: 100% 100%;
 	z-index: -1;
 }
-.event:after {
+.event::after {
 	content: attr(data-time);
 	position: absolute;
 	top: -14px;
@@ -330,6 +330,7 @@ nav .header h3 {
 	box-shadow: 1px -2px 4px rgba(0,0,0,0.2);
 	-webkit-transition: opacity 0.25s;
 }
+
 .event[data-editedNow=true]:after {
 	opacity: 0;
 }

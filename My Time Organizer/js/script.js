@@ -47,7 +47,7 @@ function moveAnimate(element, newParent, old){
         element.hide();
         temp.animate( {'top': newOffset.top-20, 'left':newOffset.left}, 500, function(){
            element.show();
-	   if (o) { o.css("margin-top", 20); }
+	   if (old) { o.css("margin-top", 20); }
            temp.remove();
 	   $(".menu").css("display", "block");
         });
