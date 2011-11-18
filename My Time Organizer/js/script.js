@@ -27,13 +27,13 @@ function fixFirstNote() {
 	$(".day_content > div:first-child").each(function () { 
 		if ($(this).attr('data-beingMoved'))
 			$(this).next().css('margin-top', '24px');
-		else
-			$(this).css('margin-top', '24px');
+		$(this).css('margin-top', '24px');
 	});
 }
 
 function moveAnimate(element, newParent, old, saveNotes){
 	if (old==element[0]) return false;
+	if ((element.next().length===0) && (element.parent()[0]===newParent) && (!(old))) return false;
 	$(".menu").css("display","none");
 	w = element.width()+14;
 	h = element.height()+14;
