@@ -544,6 +544,7 @@ $(document).ready(function() {
 					//console.log('storing note: '+col[j].getAttribute("data-content"));
 					if ( col[j].getAttribute('class') == "note" ) {
 						notes[note_count] = {};
+						notes[note_count]['type'] = 'note';
 						notes[note_count]['date'] = col[j].getAttribute("data-date");
 						notes[note_count]['content'] = col[j].getAttribute("data-content");
 						notes[note_count]['bgcolor'] = col[j].getAttribute("data-bgcolor");
@@ -551,7 +552,7 @@ $(document).ready(function() {
 					}
 				}
 				localStorage[table.childNodes[column].getAttribute('data-date')]=JSON.stringify(notes);
-				console.log(table.childNodes[column].getAttribute('data-date')+': '+JSON.stringify(notes));
+				//console.log(table.childNodes[column].getAttribute('data-date')+': '+JSON.stringify(notes));
 				//alert(localStorage['day'+(i+1)]);
 			}				
 	}
