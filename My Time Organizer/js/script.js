@@ -290,7 +290,7 @@ $(document).ready(function() {
 			helper.setAttribute("class", "helperSmall");
 			helper = $(helper);
 			helper.hide();
-			helper.css("width", "auto").css("height", "auto").css("top", $("#add_panel").offset().top+50).css("left", $("#add_panel").offset().left-30).css("z-index",100).css("position","absolute");
+			helper.css("width", "auto").css("height", "auto").css("top", $("#add_panel").offset().top+45).css("left", $("#add_panel").offset().left-30).css("z-index",100).css("position","absolute");
 			helper.html("Aby utworzyć nowy element, przeciągnij jeden z przycisków powyżej na kolumnę wybranego dnia.");
 			helper.appendTo('body');
 			helper.fadeIn(500).delay(5000).fadeOut(1000);
