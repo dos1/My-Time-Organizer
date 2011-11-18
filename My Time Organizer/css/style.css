@@ -371,10 +371,10 @@ div[contenteditable=true] {
 }
 
 #right_panel > #add_panel {
-	-webkit-transform: translate(-10px, -15px);
-	background-image: none;
 	width: auto;
 	height: 48px;
+	margin-right: 10px;
+	margin-top: -15px;
 }
 
 #add_panel div {
@@ -411,7 +411,7 @@ div[contenteditable=true] {
 }
 #conf_panel, #help_panel, #view_panel {
 	position: relative;
-	top: -40px;
+	top: -25px;
 }
 #conf_panel {
 	background-image: url('../icons/conf.png');	
