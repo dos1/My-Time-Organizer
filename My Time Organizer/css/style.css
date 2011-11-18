@@ -95,21 +95,9 @@ footer {
 #right_panel > div {
 	display: inline-block;
 	font-family: Sans-Serif;
-	font-size: 12px;
-	background-image: url('../images/terminator.png');
-	background-repeat: no-repeat;
-	background-position: top right;
-	background-size: 1px 100%;
-	padding-left: 10px;
-	padding-right: 15px;
-	margin-top: -5px;
-	padding-top: 5px;
-	height: 30px;
-}
-
-#right_panel > div:last-of-type {
-	background-image: none;
-	padding-right: 0px;
+	font-size: 0px;
+	height: 40px;
+	width: 40px;
 }
 
 #border_table {
@@ -383,8 +371,10 @@ div[contenteditable=true] {
 }
 
 #right_panel > #add_panel {
-	-webkit-transform: translate(-55px, -15px);
+	-webkit-transform: translate(-10px, -15px);
 	background-image: none;
+	width: auto;
+	height: 48px;
 }
 
 #add_panel div {
@@ -401,8 +391,6 @@ div[contenteditable=true] {
 	text-shadow: 0px 0px 5px rgba(0,0,0,0.5);
 	text-align:			center;
 	margin: 0;
-		margin-left: -3px;
-
 	display: inline-block;
 	-webkit-transition: -webkit-transform 0.5s;
 }
@@ -421,10 +409,23 @@ div[contenteditable=true] {
 #note_icon {
 	background-image: url('../images/top3.png');
 }
-
-
-
-
+#conf_panel, #help_panel, #view_panel {
+	position: relative;
+	top: -40px;
+}
+#conf_panel {
+	background-image: url('../icons/conf.png');	
+}
+#help_panel {
+	background-image: url('../icons/help.png');	
+}
+#view_panel {
+	background-image: url('../icons/cal.png');	
+}
+#conf_panel:hover, #help_panel:hover, #view_panel:hover {
+	opacity: 0.8;
+	cursor: pointer;
+}
 .day_content::-webkit-scrollbar {
 	position: absolute;
 	width: 3px;
