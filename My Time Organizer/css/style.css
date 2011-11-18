@@ -274,7 +274,7 @@ nav .header h3 {
 	background-repeat: repeat-x;
 }
 
-.note {
+.note, .task, .event {
 	width: 				100%;
 	-webkit-box-sizing: border-box;
 	/*padding-left: 		5%;
@@ -297,7 +297,7 @@ nav .header h3 {
 	background-size: 100% 3px;
 	position: relative;
 }
-.note:before {
+.note:before, .event:before, .task:before {
 	position: absolute;
 	left: 0px;
 	top: 0px;
@@ -312,14 +312,8 @@ nav .header h3 {
 	background-size: 100% 100%;
 	z-index: -1;
 }
-.note:before {
-	top: 0px;
-}
-.note:after {
-	bottom: 0px;
-}
 
-.day_content .note .note_content {
+.note_content {
 	min-height: 1em;
 }
 
@@ -336,7 +330,7 @@ nav .header h3 {
 	/*background-color: #FF0000;*/
 }
 
-.note:hover .menu, .note[data-editedNow=true] .menu, .note[data-whileInColorPicker=true] .menu {
+.note:hover .menu, .event:hover .menu, .task:hover .menu, [data-editedNow=true] .menu, [data-whileInColorPicker=true] .menu {
 	-webkit-transition: height 0.25s ease-out, opacity 0.25s ease-out;
 	height: 16px;
 	margin-top: 5px;

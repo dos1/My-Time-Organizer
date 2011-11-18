@@ -91,7 +91,7 @@ $(document).ready(function() {
 		
 		$("#helper").css("display","none");
 		
-		$(note).addClass('note');
+		//$(note).addClass('note');
 
 		note.ondragover = function() {
 			old = $('[data-draggedOver=true]')[0];
@@ -411,22 +411,25 @@ $(document).ready(function() {
 			if ((!text) || (text===type)) text="";
 			var note = document.createElement('div');
 			if ((type==="note://") || (text)) {
+				$(note).addClass('note');
 				note.setAttribute('data-content', text);
 				note.setAttribute('data-bgcolor', '#5b5b5b');
-				note.setAttribute('data-date', this.getAttribute('id')); //FIXME!
+				note.setAttribute('data-date', this.getAttribute('id'));
 			
 				fillNote(note);
 				//notify('Notatka dodana!');
 			} else if (type=="event://") {
+				$(note).addClass('event');
 				note.setAttribute('data-content', text);
 				note.setAttribute('data-bgcolor', '#78c20f');
-				note.setAttribute('data-date', this.getAttribute('id')); //FIXME!
+				note.setAttribute('data-date', this.getAttribute('id'));
 			
 				fillNote(note);
 			} else if (type=="task://") {
+				$(note).addClass('task');
 				note.setAttribute('data-content', text);
 				note.setAttribute('data-bgcolor', '#82418e');
-				note.setAttribute('data-date', this.getAttribute('id')); //FIXME!
+				note.setAttribute('data-date', this.getAttribute('id'));
 				fillNote(note);
 			}
 			else if (type=="drag://") {
@@ -550,14 +553,15 @@ $(document).ready(function() {
 						}
 						return o;
 					}
-					if ( "note" in oc(col[j].getAttribute('class').split(" "))) {
+					//type=oc(col[j].getAttribute('class').split(" "));
+					//if ( "note" in type ) {
 						notes[note_count] = {};
-						notes[note_count]['type'] = 'note';
+						notes[note_count]['type'] = col[j].getAttribute("class");
 						notes[note_count]['date'] = col[j].getAttribute("data-date");
 						notes[note_count]['content'] = col[j].getAttribute("data-content");
 						notes[note_count]['bgcolor'] = col[j].getAttribute("data-bgcolor");
 						note_count += 1;
-					}
+					//}
 				}
 				localStorage[table.childNodes[column].getAttribute('data-date')]=JSON.stringify(notes);
 				//console.log(table.childNodes[column].getAttribute('data-date')+': '+JSON.stringify(notes));
@@ -580,6 +584,7 @@ $(document).ready(function() {
 			for ( j = 0; j < column.length; j++ ) {
 				var note = document.createElement('div');
 				//console.log(column[j]);
+				$(note).addClass(column[j]['type']);
 				note.setAttribute('data-date', column[j]['date']);
 				note.setAttribute('data-content', column[j]['content']);
 				note.setAttribute('data-bgcolor', column[j]['bgcolor']);
