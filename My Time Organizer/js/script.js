@@ -63,6 +63,9 @@ function moveAnimate(element, newParent, old, saveNotes){
 	}
 	if (element.attr('class')!=='event') fix = 10; else fix = 22; //ugly hack ;/
         element.hide();
+	if ((newOffset.left==oldOffset.left) && (newOffset.top>oldOffset.top)) {
+		newOffset.top-=h;
+	}
         temp.animate( {'top': parseInt(newOffset.top)-fix, 'left':newOffset.left}, 500, function(){
            element.show();
 	   if (old) { o.css("margin-top", om); }
