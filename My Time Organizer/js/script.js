@@ -91,7 +91,7 @@ $(document).ready(function() {
 		
 		$("#helper").css("display","none");
 		
-		note.setAttribute('class','note');
+		$(note).addClass('note');
 
 		note.ondragover = function() {
 			old = $('[data-draggedOver=true]')[0];
@@ -103,7 +103,7 @@ $(document).ready(function() {
 		$(note).css('backgroundColor', note.getAttribute('data-bgcolor'));
 
 		var note_content = document.createElement('div');
-		note_content.setAttribute('class','note_content');
+		$(note_content).addClass('note_content');
 		if (note.getAttribute('data-content')==='')
 			note_content.innerHTML = 'Kliknij ikonę ołówka, aby edytować tę notatkę, lub krzyżyk, aby ją usunąć.';
 		else note_content.innerHTML = note.getAttribute('data-content');
@@ -111,7 +111,7 @@ $(document).ready(function() {
 		note.appendChild(note_content);
 
 		var note_icons = document.createElement('div');
-		note_icons.setAttribute('class','menu');
+		$(note_icons).addClass('menu');
 
 		var icon = document.createElement('img');
 		icon.setAttribute('src', 'icons/write.png');
@@ -542,7 +542,15 @@ $(document).ready(function() {
 				var notes = new Array();
 				for ( j = 0; j < col.length; j++ ) {
 					//console.log('storing note: '+col[j].getAttribute("data-content"));
-					if ( col[j].getAttribute('class') == "note" ) {
+					//console.log(col[j].getAttribute('class').split(" "));
+					function oc(a) {
+						var o = {};
+						for(var i=0;i<a.length;i++) {
+							o[a[i]]='';
+						}
+						return o;
+					}
+					if ( "note" in oc(col[j].getAttribute('class').split(" "))) {
 						notes[note_count] = {};
 						notes[note_count]['type'] = 'note';
 						notes[note_count]['date'] = col[j].getAttribute("data-date");
