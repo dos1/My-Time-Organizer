@@ -285,6 +285,17 @@ $(document).ready(function() {
 		
 	document.addEventListener("keydown", keydown, false);
 			
+	function dragInfo() {
+			var helper = document.createElement('div');
+			helper.setAttribute("class", "helperSmall");
+			helper = $(helper);
+			helper.hide();
+			helper.css("width", "auto").css("height", "auto").css("top", $("#add_panel").offset().top+50).css("left", $("#add_panel").offset().left-30).css("z-index",100).css("position","absolute");
+			helper.html("Aby utworzyć nowy element, przeciągnij jeden z przycisków powyżej na kolumnę wybranego dnia.");
+			helper.appendTo('body');
+			helper.fadeIn(500).delay(5000).fadeOut(1000);
+	}
+	
 	document.getElementById("note_icon").ondragstart = function(e) {
 		e.dataTransfer.setData("Url","note://");
 		$(this).css("transform","scale(0.9) translate(-7px, -3px)");
@@ -309,7 +320,9 @@ $(document).ready(function() {
 	document.getElementById("task_icon").ondragend = function(e) {
 		$(this).css("transform","none");
 	}
-	
+	document.getElementById("note_icon").onclick = dragInfo;
+	document.getElementById("event_icon").onclick = dragInfo;
+	document.getElementById("task_icon").onclick = dragInfo;
 	
 	/* 
 		Środkowa tabela - aktualny tydzień
