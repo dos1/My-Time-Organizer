@@ -92,7 +92,12 @@ footer {
 #right_panel {
 	margin-right: 10%;
 }
-#right_panel > div {
+#buttons_panel {
+	display: inline-block;
+	position: relative;
+	top: -25px;
+}
+#buttons_panel div {
 	display: inline-block;
 	font-family: Sans-Serif;
 	font-size: 0px;
@@ -369,6 +374,7 @@ div[contenteditable=true] {
 }
 
 #right_panel > #add_panel {
+	display: inline-block;
 	width: auto;
 	height: 48px;
 	margin-right: 10px;
@@ -407,22 +413,25 @@ div[contenteditable=true] {
 #note_icon {
 	background-image: url('../images/top3.png');
 }
-#conf_panel, #help_panel, #view_panel {
-	position: relative;
-	top: -25px;
-}
-#conf_panel {
+#conf_btn {
 	background-image: url('../icons/conf.png');	
 }
-#help_panel {
+#help_btn {
 	background-image: url('../icons/help.png');	
 }
-#view_panel {
+#view_btn {
 	background-image: url('../icons/cal.png');	
 }
-#conf_panel:hover, #help_panel:hover, #view_panel:hover {
+#conf_btn:hover, #help_btn:hover, #view_btn:hover {
 	opacity: 0.8;
 	cursor: pointer;
+}
+#conf_btn:hover:after, #help_btn:hover:after, #view_btn:hover:after {
+	content: attr(title);
+	position: absolute;
+	font-size: 16px;
+	right: 0px;
+	top: 60px;
 }
 .day_content::-webkit-scrollbar {
 	position: absolute;
