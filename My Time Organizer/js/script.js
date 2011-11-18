@@ -51,12 +51,13 @@ function moveAnimate(element, newParent, old, saveNotes){
                 .css('zIndex', 1000).css('width',w).css('height',h);
 	if (old) {
 		o=$(old);
+		om = o.css('margin-top');
 		o.animate({marginTop:h+32}, 200);
 	}
         element.hide();
-        temp.animate( {'top': newOffset.top-20, 'left':newOffset.left}, 500, function(){
+        temp.animate( {'top': parseInt(newOffset.top)-parseInt(element.css('margin-top')), 'left':newOffset.left}, 500, function(){
            element.show();
-	   if (old) { o.css("margin-top", 20); }
+	   if (old) { o.css("margin-top", om); }
            temp.remove();	   
 	   $(".menu").css("display", "block");
         });
@@ -429,7 +430,7 @@ $(document).ready(function() {
 				$(note).addClass('note');
 				note.setAttribute('data-content', text);
 				note.setAttribute('data-bgcolor', '#5b5b5b');
-				note.setAttribute('data-date', this.getAttribute('id'));
+				//note.setAttribute('data-date', this.getAttribute('id'));
 			
 				fillNote(note);
 				//notify('Notatka dodana!');
@@ -437,7 +438,7 @@ $(document).ready(function() {
 				$(note).addClass('event');
 				note.setAttribute('data-content', text);
 				note.setAttribute('data-bgcolor', '#78c20f');
-				note.setAttribute('data-date', this.getAttribute('id'));
+				//note.setAttribute('data-date', this.getAttribute('id'));
 				note.setAttribute('data-time', '18:25');
 			
 				fillNote(note);
@@ -445,7 +446,7 @@ $(document).ready(function() {
 				$(note).addClass('task');
 				note.setAttribute('data-content', text);
 				note.setAttribute('data-bgcolor', '#82418e');
-				note.setAttribute('data-date', this.getAttribute('id'));
+				//note.setAttribute('data-date', this.getAttribute('id'));
 				note.setAttribute('data-done', 'false');
 				
 				fillNote(note);
@@ -575,7 +576,7 @@ $(document).ready(function() {
 					//if ( "note" in type ) {
 						notes[note_count] = {};
 						notes[note_count]['type'] = col[j].getAttribute("class");
-						notes[note_count]['date'] = col[j].getAttribute("data-date");
+						//notes[note_count]['date'] = col[j].getAttribute("data-date");
 						notes[note_count]['content'] = col[j].getAttribute("data-content");
 						notes[note_count]['bgcolor'] = col[j].getAttribute("data-bgcolor");
 						notes[note_count]['time'] = col[j].getAttribute("data-time");
@@ -606,7 +607,7 @@ $(document).ready(function() {
 				var note = document.createElement('div');
 				//console.log(column[j]);
 				$(note).addClass(column[j]['type']);
-				note.setAttribute('data-date', column[j]['date']);
+				//note.setAttribute('data-date', column[j]['date']);
 				note.setAttribute('data-content', column[j]['content']);
 				note.setAttribute('data-bgcolor', column[j]['bgcolor']);
 				note.setAttribute('data-done', column[j]['done']);
