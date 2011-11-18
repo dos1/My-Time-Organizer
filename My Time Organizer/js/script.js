@@ -25,7 +25,10 @@ function moveAnimate(element, newParent, old){
 	w = element.width()+14;
 	h = element.height()+16;
         var oldOffset = element.offset();
-        element.appendTo(newParent);
+        //element.appendTo(newParent);
+        var oldElement = element.clone().insertBefore(element);
+	oldElement.css('visibility','hidden');
+	oldElement.animate( {'height': 0, 'paddingTop': 0, 'paddingBottom':0, 'marginTop':0,'marginBottom':0}, 500, function() { oldElement.remove(); });
 	if (old) 
 		element.insertBefore($(old)); 
 	else
