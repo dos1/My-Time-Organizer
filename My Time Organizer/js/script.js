@@ -19,7 +19,15 @@ lang["en"]["notify_txt"] = "Event notification";
 lang["pl"]["days"] = ["Poniedziałek", "Wtorek", "Środa", "Czwartek", "Piątek", "Sobota", "Niedziela"];
 lang["pl"]["notify_txt"] = "Przypomnienie o wydarzeniu";
 
-function moveAnimate(element, newParent, old){
+
+function fixFirstNote() {
+	$(".note").each(function () { $(this).css("margin-top", "10px");	});
+	$(".task").each(function () { $(this).css("margin-top", "10px");	});
+	$(".event").each(function () { $(this).css("margin-top", "24px");	});
+	$(".day_content > div:first-child").css('margin-top', '22px');
+}
+
+function moveAnimate(element, newParent, old, saveNotes){
 	if (old==element[0]) return false;
 	$(".menu").css("display","none");
 	w = element.width()+14;
@@ -28,11 +36,12 @@ function moveAnimate(element, newParent, old){
         //element.appendTo(newParent);
         var oldElement = element.clone().insertBefore(element);
 	oldElement.css('visibility','hidden');
-	oldElement.animate( {'height': 0, 'paddingTop': 0, 'paddingBottom':0, 'marginTop':0,'marginBottom':0}, 500, function() { oldElement.remove(); });
+	oldElement.animate( {'height': 0, 'paddingTop': 0, 'paddingBottom':0, 'marginTop':0,'marginBottom':0}, 500, function() { oldElement.remove(); saveNotes(); });
 	if (old) 
 		element.insertBefore($(old)); 
 	else
 		element.appendTo(newParent);
+	fixFirstNote();
 	var newOffset = element.offset();
 
         var temp = element.clone().appendTo('body');
@@ -48,7 +57,7 @@ function moveAnimate(element, newParent, old){
         temp.animate( {'top': newOffset.top-20, 'left':newOffset.left}, 500, function(){
            element.show();
 	   if (old) { o.css("margin-top", 20); }
-           temp.remove();
+           temp.remove();	   
 	   $(".menu").css("display", "block");
         });
 }
@@ -442,7 +451,7 @@ $(document).ready(function() {
 				fillNote(note);
 			}
 			else if (type=="drag://") {
-				moveAnimate($("#draggedElement"), this, old);
+				moveAnimate($("#draggedElement"), this, old, saveNotes);
 				saveNotes();
 				return false;
 			}
@@ -584,6 +593,7 @@ $(document).ready(function() {
 		saveTable(document.getElementById('inner_table_left'));
 		saveTable(document.getElementById('inner_table_center'));
 		saveTable(document.getElementById('inner_table_right'));
+		fixFirstNote();
 	}
 	
 	function loadTable(table) {
@@ -615,4 +625,5 @@ $(document).ready(function() {
 			
 	resizeDays();
 	loadNotes();
+	fixFirstNote();
 });
