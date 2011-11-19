@@ -327,7 +327,7 @@ nav .header#current_day h3 {
 	-webkit-user-select: none;
 	content: attr(data-time);
 	position: absolute;
-	top: -15px;
+	top: -16px;
 	left: 0px;
 	display: block;
 	font-family: Sans-Serif;
@@ -342,6 +342,7 @@ nav .header#current_day h3 {
 	border-top-right-radius: 6px;
 	box-shadow: 1px -2px 4px rgba(0,0,0,0.2);
 	-webkit-transition: opacity 0.25s;
+	border-bottom: 1px solid rgba(0,0,0,0.1);
 }
 
 .event[data-editedNow=true]:after {
