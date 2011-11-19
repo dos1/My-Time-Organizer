@@ -51,12 +51,8 @@ body::before {
 	width: 						100%;
 	height: 					114px;
 	-webkit-box-sizing: border-box;
-	background-color: #bb9216;
 	content: "";
 	-webkit-transition: background-color 0.5s;
-}
-body.dark::before {
-	background-color: #a88314;	
 }
 footer {
 	color: white;
@@ -65,7 +61,6 @@ footer {
 	position: absolute;
 	bottom: 0px;
 	left: 0px;
-	background-color: #bb9216;
 	width: 100%;
 	height: 22px;
 	-webkit-box-sizing: border-box;
@@ -76,6 +71,7 @@ footer {
 	z-index: 10;
 	font-size: 11px;
 	font-family: Sans-Serif;
+	-webkit-transition: background-color 0.5s;
 }
 #logo {
 	float: left;
@@ -223,14 +219,6 @@ nav:nth-child(even):hover {
 	-webkit-box-sizing: border-box;
 	text-align: 				center;
 	position: relative;
-}
-
-nav:nth-of-type(even) .header, #inner_table_center nav:nth-of-type(odd) .header {
-	background-color: #a88314;
-}
-
-nav:nth-of-type(odd) .header, #inner_table_center nav:nth-of-type(even) .header {
-	background-color: #bb9216;
 }
 
 .header:after {
@@ -499,4 +487,13 @@ div[contenteditable=true] {
 	border: 0px;
 	width:16px;
 	-webkit-transform: translate(0px, -3px);
+}
+
+/* kolory */
+body.dark::before, nav:nth-of-type(even) .header, #inner_table_center nav:nth-of-type(odd) .header, body.dark footer {
+	background-color: #a88314;
+}
+
+body::before, #logo, nav:nth-of-type(odd) .header, #inner_table_center nav:nth-of-type(even) .header, footer {
+	background-color: #bb9216;
 }
