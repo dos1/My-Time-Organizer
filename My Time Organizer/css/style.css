@@ -288,8 +288,8 @@ nav .header#current_day h3 {
 	padding-right: 		5%;
 	padding-top: 		4%;
 	padding-bottom: 	4%;*/
-	padding: 7px;
-	/*padding-left: 8px;*/
+	padding: 5px;
+	padding-left: 8px;
 	/*border: 		1px solid #BCBCBC;*/
 	text-align:		 	justify;
 	font-family: 		Verdana;
@@ -314,8 +314,8 @@ nav .header#current_day h3 {
 	top: 0px;
 	width: 100%;
 	height: 100%;
-	border-top: 3px solid transparent;
-	border-bottom: 3px solid transparent;
+	/*border-top: 3px solid transparent;*/
+	border-left: 3px solid transparent;
 	-webkit-box-sizing: border-box;
 	content: "";
 	background-image: url('../images/note_bg.png');
