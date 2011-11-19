@@ -299,9 +299,9 @@ nav .header#current_day h3 {
 	background-color: 	attr(data-bgcolor, color); /*#e1e1e1;*/
 	-webkit-user-select: text;
 	-webkit-transition: background-color 0.5s, opacity 0.25s;
-	background-image: url('../images/note_pasek.png');
+	/*background-image: url('../images/note_pasek.png');
 	background-repeat: repeat-y;
-	background-size: 100% 3px;
+	background-size: 100% 3px;*/
 	position: relative;
 }
 .note, .task {
@@ -313,8 +313,8 @@ nav .header#current_day h3 {
 	top: 0px;
 	width: 100%;
 	height: 100%;
-	border-top: 3px solid transparent;
-	border-bottom: 3px solid transparent;
+	/*border-top: 3px solid transparent;*/
+	border-left: 3px solid transparent;
 	-webkit-box-sizing: border-box;
 	content: "";
 	background-image: url('../images/note_bg.png');
