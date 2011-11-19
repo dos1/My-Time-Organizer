@@ -304,10 +304,15 @@ nav .header#current_day h3 {
 	background-repeat: repeat-y;
 	background-size: 100% 3px;*/
 	position: relative;
+	border-bottom-left-radius: 3px;
+	border-top-left-radius: 3px;
 }
 .note, .task {
 	margin-top: 10px;
 }
+/*.event {
+	border-top-left-radius: 0px;	
+}*/
 .note::before, .event::before, .task::before {
 	position: absolute;
 	left: 0px;
@@ -328,7 +333,7 @@ nav .header#current_day h3 {
 	content: attr(data-time);
 	position: absolute;
 	top: -16px;
-	left: 0px;
+	left: 3px;
 	display: block;
 	font-family: Sans-Serif;
 	background-color: rgba(250,250,250,0.8);
