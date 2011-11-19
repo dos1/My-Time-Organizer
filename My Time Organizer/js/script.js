@@ -43,7 +43,7 @@ function moveAnimate(element, newParent, old, saveNotes){
         var oldElement = element.clone().insertBefore(element);
 	oldElement.css('visibility','hidden');
 	oldElement.attr('data-beingMoved','true');
-	oldElement.animate( {'height': 0, 'paddingTop': 0, 'paddingBottom':0, 'marginTop':0,'marginBottom':0}, 500, function() { oldElement.remove(); saveNotes(); });
+	oldElement.animate( {'height': 0, 'paddingTop': 0, 'paddingBottom':0, 'marginTop':0,'marginBottom':0}, 400, function() { oldElement.remove(); saveNotes(); });
 	if (old) 
 		element.insertBefore($(old)); 
 	else

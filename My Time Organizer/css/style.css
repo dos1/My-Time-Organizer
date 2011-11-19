@@ -242,6 +242,8 @@ nav:nth-child(even):hover {
 	border-bottom-right-radius: 6px;
 	box-shadow: 1px 2px 4px rgba(0,0,0,0.4);
 	z-index: 1;
+	background-image: url('../images/cien2.png');
+	background-repeat: repeat-x;
 }
 
 nav .header h3 {
@@ -348,10 +350,6 @@ nav .header#current_day h3 {
 	box-shadow: 1px -2px 4px rgba(0,0,0,0.2);
 	-webkit-transition: opacity 0.25s;
 	border-bottom: 1px solid rgba(0,0,0,0.1);
-}
-
-.event[data-editedNow=true]:after {
-	width: 100%;
 }
 .event .note_time {
 	display: none;
