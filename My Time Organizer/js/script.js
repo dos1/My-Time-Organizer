@@ -25,7 +25,7 @@ function fixFirstNote() {
 	$(".task").each(function () { $(this).css("margin-top", "10px");	});
 	$(".event").each(function () { $(this).css("margin-top", "24px");	});
 	$(".day_content > div:first-child").each(function () { 
-		if ($(this).attr('data-beingMoved'))
+		if (($(this).attr('data-beingMoved')) || ($(this).attr('data-beingDeleted')))
 			$(this).next().css('margin-top', '24px');
 		$(this).css('margin-top', '24px');
 	});
@@ -247,7 +247,9 @@ $(document).ready(function() {
 		icon.draggable = false;
 		icon.style.float = 'right';
 		icon.onclick = function() {
-			function removeNote() { this.parentNode.removeChild(this); saveNotes(); }
+			function removeNote() { this.parentNode.removeChild(this); }
+			$(this.parentNode.parentNode).attr('data-beingDeleted', true);
+			saveNotes();
 			$(this.parentNode.parentNode).animate({rotate: '-50deg', scale: 0, height: 0, paddingTop: 0, paddingBottom: 0, marginTop: 0, marginBottom: 0}, 500, removeNote);
 		}
 		note_icons.appendChild(icon);
@@ -603,6 +605,7 @@ $(document).ready(function() {
 					}
 					//type=oc(col[j].getAttribute('class').split(" "));
 					//if ( "note" in type ) {
+						if (col[j].getAttribute('data-beingDeleted')) continue;
 						notes[note_count] = {};
 						notes[note_count]['type'] = col[j].getAttribute("class");
 						//notes[note_count]['date'] = col[j].getAttribute("data-date");
