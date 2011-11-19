@@ -124,6 +124,14 @@ $(document).ready(function() {
 		
 		$(note).css('backgroundColor', note.getAttribute('data-bgcolor'));
 
+		if ($(note).attr('class')==='event') {
+			var note_time = document.createElement('div');
+			$(note_time).addClass('note_time');
+			note_time.innerHTML = $(note).attr('data-time');;
+			note_time.contentEditable = false;
+			note.appendChild(note_time);
+		}
+		
 		var note_content = document.createElement('div');
 		$(note_content).addClass('note_content');
 		if (note.getAttribute('data-content')==='') {
@@ -147,14 +155,23 @@ $(document).ready(function() {
 		icon.draggable = false;
 		icon.onfocus = icon.blur;
 		icon.onclick = function() {
-			note_content = this.parentNode.parentNode.childNodes[0];
+			note_content = $(this.parentNode.parentNode).find(".note_content")[0];
 			if (note_content.isContentEditable) {
 				note_content.parentNode.setAttribute('data-content', note_content.innerHTML);
 				note_content.contentEditable = false;
+				if ($(this.parentNode.parentNode).attr('class')=='event') {
+					console.log($(this.parentNode.parentNode).attr('class'));
+					$(this.parentNode.parentNode).find(".note_time")[0].contentEditable = false;
+					note_content.parentNode.setAttribute('data-time', $(this.parentNode.parentNode).find(".note_time")[0].innerHTML);
+				}
 				saveNotes();
 			} else {
 				note_content.innerHTML = note_content.parentNode.getAttribute('data-content');
 				note_content.contentEditable = true;
+				if ($(this.parentNode.parentNode).attr('class')=='event') {
+					$(this.parentNode.parentNode).find(".note_time")[0].innerHTML = note_content.parentNode.getAttribute('data-time');
+					$(this.parentNode.parentNode).find(".note_time")[0].contentEditable = true;
+				}
 				note_content.focus();
 			}
 			note_content.parentNode.setAttribute('data-editedNow', note_content.isContentEditable);

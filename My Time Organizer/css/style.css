@@ -351,6 +351,12 @@ nav .header#current_day h3 {
 .event[data-editedNow=true]:after {
 	opacity: 0;
 }
+.event .note_time {
+	display: none;
+}
+.event[data-editedNow=true] .note_time {
+	display: block;
+}
 .note_content {
 	min-height: 1em;
 }
