@@ -45,6 +45,7 @@ header {
 	z-index: 10;
 }
 body::before {
+	min-width: 975px;
 	z-index: -1;
 	position: absolute;
 	display: block;
@@ -57,21 +58,24 @@ body::before {
 footer {
 	color: white;
 	text-shadow: 0px 0px 5px rgba(0,0,0,0.4);
-	min-width: 975px;
 	position: absolute;
 	bottom: 0px;
-	left: 0px;
-	width: 100%;
+	right: 0px;
+	width: auto;
 	height: 22px;
 	-webkit-box-sizing: border-box;
-	border-top: 1px solid #d6be73;
 	box-shadow: 0px -1px 3px #d1d1d1;
 	padding: 3px;
+	padding-left: 8px;
 	text-align: right;
 	z-index: 10;
 	font-size: 11px;
 	font-family: Sans-Serif;
 	-webkit-transition: background-color 0.5s;
+	border-top-left-radius: 10px;
+	border: 1px solid rgba(255,255,255,0.3);
+	border-bottom: none;
+	border-right: none;
 }
 #logo {
 	float: left;
@@ -182,8 +186,8 @@ nav {
 	/*border-top: 1px solid darkgrey;
 	border-bottom: 1px solid darkgrey;*/
 	width: 			14.3%;
-        -webkit-box-sizing: border-box;
 	height: 		100%;
+	padding-bottom: 22px;
 	/*box-shadow: inset 0px 0px 8px rgba(255,255,255,0.6);*/
 	/*border-right: 1px solid #a6a6a6;*/
 }
@@ -271,6 +275,7 @@ nav .header#current_day h3 {
 	overflow-y: auto;
 	overflow-x: hidden;
 	padding: 5px;
+	padding-bottom: 27px;
 	-webkit-box-sizing: border-box;
 	-webkit-transition: background-color 0.25s, opacity 0.25s;
 	background-image: url('../images/cien.png');

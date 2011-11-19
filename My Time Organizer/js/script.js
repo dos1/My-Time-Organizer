@@ -104,7 +104,7 @@ $(document).ready(function() {
 	}
 
 	function resizeDays() {
-		$(".day_content").css("height",$("nav").height()-38);
+		$(".day_content").css("height",$("nav").height()-16);
 	}
 
 	window.onresize = resizeDays;
