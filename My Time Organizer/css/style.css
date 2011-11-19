@@ -323,14 +323,16 @@ nav .header#current_day h3 {
 	z-index: -1;
 }
 .event::after {
+	-webkit-user-select: none;
 	content: attr(data-time);
 	position: absolute;
-	top: -14px;
+	top: -15px;
 	left: 0px;
 	display: block;
 	font-family: Sans-Serif;
-	background-color: rgba(250,250,250,0.6);
+	background-color: rgba(250,250,250,0.8);
 	width: auto;
+	-webkit-box-sizing: border-box;
 	font-size: 12px;
 	padding: 0px;
 	padding-left: 5px;
@@ -342,7 +344,7 @@ nav .header#current_day h3 {
 }
 
 .event[data-editedNow=true]:after {
-	opacity: 0;
+	width: 100%;
 }
 .event .note_time {
 	display: none;
