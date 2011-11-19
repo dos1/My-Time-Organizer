@@ -288,7 +288,8 @@ nav .header#current_day h3 {
 	padding-right: 		5%;
 	padding-top: 		4%;
 	padding-bottom: 	4%;*/
-	padding: 7px;
+	padding: 4px;
+	padding-left: 8px;
 	/*border: 		1px solid #BCBCBC;*/
 	text-align:		 	justify;
 	font-family: 		Verdana;
