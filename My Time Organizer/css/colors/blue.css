@@ -1,0 +1,9 @@
+/* ciemny */
+body.dark::before, nav:nth-of-type(even) .header, #inner_table_center nav:nth-of-type(odd) .header, body.dark footer {
+	background-color: #457ad5;
+}
+
+/* jasny */
+body::before, #logo, nav:nth-of-type(odd) .header, #inner_table_center nav:nth-of-type(even) .header, footer {
+	background-color: #5889d7;
+}

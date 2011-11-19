@@ -270,7 +270,7 @@ nav .header#current_day h3 {
 }
 
 .day_content {
-	width: 		100%;
+	width: 100%;
 	height: 100%;
 	overflow-y: auto;
 	overflow-x: hidden;
@@ -494,13 +494,4 @@ div[contenteditable=true] {
 	border: 0px;
 	width:16px;
 	-webkit-transform: translate(0px, -3px);
-}
-
-/* kolory */
-body.dark::before, nav:nth-of-type(even) .header, #inner_table_center nav:nth-of-type(odd) .header, body.dark footer {
-	background-color: #a88314;
-}
-
-body::before, #logo, nav:nth-of-type(odd) .header, #inner_table_center nav:nth-of-type(even) .header, footer {
-	background-color: #bb9216;
 }
