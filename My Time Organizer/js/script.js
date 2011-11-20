@@ -109,7 +109,9 @@ $(document).ready(function() {
 
 	window.onresize = resizeDays;
 
-	function fillNote(note) {
+	function fillNote(note, anim) {
+		
+		anim = typeof(anim) != 'undefined' ? anim : true;
 		
 		$("#helper").css("display","none");
 		
@@ -279,7 +281,8 @@ $(document).ready(function() {
 		note_icons.appendChild(icon);
 
 		note.appendChild(note_icons);
-		$(note).scale(0).rotate('-70deg').css('margin-bottom','-100%').animate({rotate: 0, scale: 1, marginBottom: 0}, 500);
+		if (anim)
+			$(note).scale(0).rotate('-70deg').css('margin-bottom','-100%').animate({rotate: 0, scale: 1, marginBottom: 0}, 500);
 	}
 	
 	function right_slide() {
@@ -646,7 +649,7 @@ $(document).ready(function() {
 				note.setAttribute('data-bgcolor', column[j]['bgcolor']);
 				note.setAttribute('data-done', column[j]['done']);
 				note.setAttribute('data-time', column[j]['time']);
-				fillNote(note);
+				fillNote(note, false);
 				document.getElementById(table.childNodes[col].getAttribute('data-date')).appendChild(note);
 			}
 		}
