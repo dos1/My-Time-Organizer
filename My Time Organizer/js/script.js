@@ -20,17 +20,34 @@ lang["pl"]["days"] = ["Poniedziałek", "Wtorek", "Środa", "Czwartek", "Piątek"
 lang["pl"]["notify_txt"] = "Przypomnienie o wydarzeniu";
 
 function nyanNyan() {
+	function nyanNyanNyan() {
+		$('.header h3, #add_panel div, #info_panel, footer').each(function () { this.setAttribute('data-nyan', this.innerHTML); } );
+		$('.header h3, #add_panel div').each(function() { this.innerHTML = 'Nyan'; } );
+		$('#info_panel, #task_icon').html('Nyan-nyan');
+		$('footer').html('&copy; Nyanyan Nyan-Nyan Nyan NYAN Nyan, Nyan \'Nyan\' Nyan, Nyan ny4n Nyan');
+	}
+	function nyanNyanNyanNyan() {
+		$('.header h3, #add_panel div, #info_panel, footer').each(function () { if (this.innerHTML.indexOf('Nyan')!=-1) this.innerHTML = this.getAttribute('data-nyan'); } );		
+	}
+
 	if ($('.nyan')[0]) return false; // nayn
 	var nyan = document.createElement('div');
 	nyan = $(nyan);
 	nyan.addClass('nyan');
 	nyan.appendTo('body');
-	nyan.show();
+	
+	nyannyan = new Audio();
+	nyannyan.src = 'images/nyan_cat.ogg';
+	nyannyan.play();
+	
+	nyanNyanNyan();
+	
 	setTimeout( function () {
 		$('.nyan').attr('data-nyan', 'nyan'); // nyan nyan nyan nyan
+		$('body').attr('data-nyan', 'nyan');
 		setTimeout(function() {
 			$('.nyan').attr('data-nyan', 'nayn');
-			setTimeout( function() { $('.nyan').remove(); }, 4000);
+			setTimeout( function() { $('.nyan').remove(); nyanNyanNyanNyan(); $('body').attr('data-nyan', 'nayn'); }, 4000);
 		}, 4000);
 	});
 	return true; // nyan
@@ -182,6 +199,7 @@ $(document).ready(function() {
 					$(this.parentNode.parentNode).find(".note_time")[0].contentEditable = false;
 					note_content.parentNode.setAttribute('data-time', $(this.parentNode.parentNode).find(".note_time")[0].innerHTML);
 				}
+				if ((note_content.innerHTML.toLowerCase()==='nyan') || (note_content.innerHTML.toLowerCase()==='nyan nyan')) nyanNyan();
 				saveNotes();
 			} else {
 				note_content.innerHTML = note_content.parentNode.getAttribute('data-content');
