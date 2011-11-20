@@ -22,9 +22,10 @@ body {
 	height: 100%;
 	word-wrap: break-word;
 	-webkit-transition: background-color 0.5s;
-	background-image: url('../images/cien.png');
+	background-image: -webkit-linear-gradient(top, rgba(0,0,0,0.31) 0%,rgba(0,0,0,0.14) 40%,rgba(0,0,0,0.04) 80%,rgba(0,0,0,0.02) 100%);
 	background-repeat: repeat-x;
 	background-position: 0px 114px;
+	background-size: 100% 6px;
 }
 body.dark {
 	background-color: #e5e5e5;
@@ -242,8 +243,9 @@ nav:nth-child(even):hover {
 	border-bottom-right-radius: 6px;
 	box-shadow: 1px 2px 4px rgba(0,0,0,0.4);
 	z-index: 1;
-	background-image: url('../images/cien2.png');
+	background-image: -webkit-linear-gradient(top, rgba(0,0,0,0.12) 0%,rgba(0,0,0,0.03) 60%,rgba(0,0,0,0.01) 100%);
 	background-repeat: repeat-x;
+	background-size: 100% 6px;
 }
 
 nav .header h3 {
@@ -280,8 +282,9 @@ nav .header#current_day h3 {
 	padding-bottom: 27px;
 	-webkit-box-sizing: border-box;
 	-webkit-transition: background-color 0.25s, opacity 0.25s;
-	background-image: url('../images/cien.png');
+	background-image: -webkit-linear-gradient(top, rgba(0,0,0,0.31) 0%,rgba(0,0,0,0.14) 40%,rgba(0,0,0,0.04) 80%,rgba(0,0,0,0.02) 100%);
 	background-repeat: repeat-x;
+	background-size: 100% 6px;
 }
 .note, .task, .event {
 	width: 				100%;
@@ -302,7 +305,7 @@ nav .header#current_day h3 {
 	background-color: 	attr(data-bgcolor, color); /*#e1e1e1;*/
 	-webkit-user-select: text;
 	-webkit-transition: background-color 0.5s, opacity 0.25s;
-	background-image: url('../images/note_pasek.png'), url('../images/note_bg.png');
+	background-image: -webkit-linear-gradient(top, rgba(11,0,27,0.17) 0%,rgba(0,1,0,0.19) 1%,rgba(6,0,12,0.18) 2%,rgba(11,0,21,0.14) 8%,rgba(8,0,24,0.13) 9%,rgba(12,0,25,0.12) 10%,rgba(17,0,42,0.09) 15%,rgba(24,0,61,0.07) 18%,rgba(28,0,70,0.06) 19%,rgba(27,0,77,0.05) 20%,rgba(43,0,98,0.04) 22%,rgba(43,0,112,0.03) 23%,rgba(49,0,122,0.03) 24%,rgba(61,0,148,0.03) 25%,rgba(68,0,173,0.02) 26%,rgba(97,0,243,0.02) 27%,rgba(122,29,255,0.02) 28%,rgba(148,77,255,0.02) 29%,rgba(199,141,255,0.02) 30%,rgba(199,179,255,0.02) 31%,rgba(208,194,255,0.02) 32%,rgba(232,218,255,0.02) 33%,rgba(244,242,255,0.02) 34%,rgba(244,242,255,0.02) 62%,rgba(250,243,255,0.02) 63%,rgba(250,243,255,0.02) 67%,rgba(237,217,255,0.02) 68%,rgba(212,192,255,0.02) 69%,rgba(202,176,255,0.02) 70%,rgba(175,96,255,0.02) 71%,rgba(148,69,255,0.02) 72%,rgba(121,17,255,0.02) 73%,rgba(83,0,188,0.03) 74%,rgba(68,0,163,0.04) 75%,rgba(64,0,135,0.05) 76%,rgba(51,0,112,0.06) 77%,rgba(45,0,90,0.07) 78%,rgba(29,0,71,0.09) 81%,rgba(26,0,57,0.09) 82%,rgba(16,0,37,0.11) 86%,rgba(13,0,26,0.13) 90%,rgba(6,0,21,0.14) 92%,rgba(10,0,21,0.15) 93%,rgba(7,0,16,0.17) 98%,rgba(0,0,0,0.19) 99%,rgba(9,0,25,0.17) 100%), url('../images/note_bg.png');
  	background-repeat: no-repeat, no-repeat;
 	background-size: 3px 100%, 100% 100%;
 	background-position: 0px 0px, 3px 0px;
