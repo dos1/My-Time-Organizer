@@ -302,9 +302,10 @@ nav .header#current_day h3 {
 	background-color: 	attr(data-bgcolor, color); /*#e1e1e1;*/
 	-webkit-user-select: text;
 	-webkit-transition: background-color 0.5s, opacity 0.25s;
-	background-image: url('../images/note_pasek.png');
-	background-repeat: repeat-y;
-	background-size: 3px 100%;
+	background-image: url('../images/note_pasek.png'), url('../images/note_bg.png');
+ 	background-repeat: no-repeat, no-repeat;
+	background-size: 3px 100%, 100% 100%;
+	background-position: 0px 0px, 3px 0px;
 	position: relative;
 	border-bottom-left-radius: 3px;
 	border-top-left-radius: 3px;
@@ -312,25 +313,7 @@ nav .header#current_day h3 {
 .note, .task {
 	margin-top: 10px;
 }
-/*.event {
-	border-top-left-radius: 0px;	
-}*/
-.note::before, .event::before, .task::before {
-	position: absolute;
-	left: 0px;
-	top: 0px;
-	width: 100%;
-	height: 100%;
-	/*border-top: 3px solid transparent;*/
-	border-left: 3px solid transparent;
-	-webkit-box-sizing: border-box;
-	content: "";
-	background-image: url('../images/note_bg.png');
-	background-repeat: no-repeat;
-	background-size: 100% 100%;
-	z-index: -1;
-}
-.event::after {
+.event::before {
 	-webkit-user-select: none;
 	content: attr(data-time);
 	position: absolute;
