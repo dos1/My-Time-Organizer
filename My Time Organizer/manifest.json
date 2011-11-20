@@ -17,7 +17,6 @@
   },
 
   //"background_page": "aFile.html",
-  "content_security_policy": "default-src 'self' ",
   //"homepage_url": "http://path/to/homepage",
   "incognito": "split",
   "offline_enabled": true,
