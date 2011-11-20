@@ -1,11 +1,11 @@
 {
   // Required
   "name": "My Time Organizer",
-  "version": "0.1",
+  "version": "0.1.1",
 
   // Recommended
   //"description": "A Chrome time organizer with notes, events, event notifications and much more. Still in development stage so stay tuned!",
-  "description": "Organizer dnia, pozwalający na dodawanie notatek, wydarzeń, powiadomień i wiele, wiele innych. Aplikacja nadal znajduje się w fazie tworzenia, więc \"stay tuned\"!",
+  "description": "Organizer dnia, pozwalający na dodawanie notatek, wydarzeń i powiadomień. Aplikacja nadal znajduje się w fazie tworzenia.",
   "icons": {"48": "icons/icon48.png",
           "128": "icons/icon128.png"},
   //"default_locale": "pl",
@@ -16,19 +16,11 @@
     }
   },
 
-  // Add any of these that you need
   //"background_page": "aFile.html",
-  //"chrome_url_overrides": {...},
-  //"content_scripts": [...],
-  //"content_security_policy": "policyString",
-  //"file_browser_handlers": [...],
+  "content_security_policy": "default-src 'self' ",
   //"homepage_url": "http://path/to/homepage",
-  //"incognito": "spanning" or "split",
-  //"key": "publicKey",
-  //"minimum_chrome_version": "versionString",
-  //"nacl_modules": [...],
+  "incognito": "split",
   "offline_enabled": true,
-  //"omnibox": { "keyword": "aString" },
   //"options_page": "aFile.html",
-  "permissions": ["background", "notifications", "unlimitedStorage"]
+  "permissions": ["background", "notifications"]
 }
