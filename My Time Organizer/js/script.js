@@ -191,9 +191,10 @@ $(document).ready(function() {
 		icon.onwebkitspeechchange = function(e) {
 			note_content = $(this.parentNode.parentNode).find(".note_content")[0];
 			//console.log(e);
+			if (note_content.parentNode.getAttribute('data-content')!='') note_content.parentNode.setAttribute('data-content', note_content.parentNode.getAttribute('data-content') + "<br/>");
 			note_content.parentNode.setAttribute('data-content', note_content.parentNode.getAttribute('data-content') + e.results[0].utterance[0].toUpperCase() + e.results[0].utterance.slice(1));
 			note_content.innerHTML = note_content.parentNode.getAttribute('data-content');
-			icon.value = "";
+			this.value = "";
 			saveNotes();
 		}
 		note_icons.appendChild(icon);
