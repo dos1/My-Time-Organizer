@@ -104,6 +104,12 @@ footer {
 	font-size: 0px;
 	height: 40px;
 	width: 40px;
+	margin: 0;
+	margin-left: -4px;
+	padding-left: 4px;
+	background-position: 4px 0px;
+	background-repeat: no-repeat;
+	opacity: 0.8;
 }
 
 #border_table {
@@ -433,15 +439,26 @@ div[contenteditable=true] {
 	background-image: url('../icons/cal.png');	
 }
 #conf_btn:hover, #help_btn:hover, #view_btn:hover {
-	opacity: 0.8;
+	opacity: 1;
 	cursor: pointer;
 }
-#conf_btn:hover:after, #help_btn:hover:after, #view_btn:hover:after {
+#conf_btn:hover:after, #help_btn:hover:after, #view_btn:hover:after, #buttons_panel > #info_panel {
 	content: attr(alt);
 	position: absolute;
 	font-size: 16px;
 	right: 0px;
 	top: 60px;
+	background-color: white;
+	height: auto;
+	opacity: 1;
+	width: 400%;
+	margin: 0;
+	color: rgba(0,0,0,0.8);
+}
+#buttons_panel > #info_panel {
+	z-index: -1;
+	width: auto;
+	color: black;
 }
 .day_content::-webkit-scrollbar {
 	position: absolute;
