@@ -380,7 +380,7 @@ $(document).ready(function() {
 	
 	var now = moment();
 	var mdn = now.format("d")-1; // current day of the week
-	//alert(day);
+	if (mdn==-1) mdn = 6;
 	var d = now.add("days", (-1)*mdn);        // current day
 	var week_last = moment().add("days", -(7+mdn));   // last week
 	var week_next = moment().add("days", 7-mdn);     // next week
