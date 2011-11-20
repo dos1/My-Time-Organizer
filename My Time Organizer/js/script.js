@@ -19,6 +19,22 @@ lang["en"]["notify_txt"] = "Event notification";
 lang["pl"]["days"] = ["Poniedziałek", "Wtorek", "Środa", "Czwartek", "Piątek", "Sobota", "Niedziela"];
 lang["pl"]["notify_txt"] = "Przypomnienie o wydarzeniu";
 
+function nyanNyan() {
+	if ($('.nyan')[0]) return false; // nayn
+	var nyan = document.createElement('div');
+	nyan = $(nyan);
+	nyan.addClass('nyan');
+	nyan.appendTo('body');
+	nyan.show();
+	setTimeout( function () {
+		$('.nyan').attr('data-nyan', 'nyan'); // nyan nyan nyan nyan
+		setTimeout(function() {
+			$('.nyan').attr('data-nyan', 'nayn');
+			setTimeout( function() { $('.nyan').remove(); }, 4000);
+		}, 4000);
+	});
+	return true; // nyan
+}
 
 function fixFirstNote() {
 	$(".note").each(function () { $(this).css("margin-top", "10px");	});

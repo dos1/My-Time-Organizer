@@ -515,11 +515,12 @@ div[contenteditable=true] {
 	margin-left: -125px;
 	right: auto;
 	top: 50%;
-	-webkit-transform: rotateY(180deg);
+	-webkit-transform: rotateY(180deg) translate(0px, -44px);
 	-webkit-transition: left 3s linear, margin-left 3s linear;
+	z-index: 696969;
 }
-:hover .nyan {
+.nyan[data-nyan=nyan] {
 	margin-left: 0px;
 	left: 100%;
-	-webkit-transform: none;
+	-webkit-transform: translate(0px, -44px);
 }
