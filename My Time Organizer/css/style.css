@@ -503,3 +503,23 @@ div[contenteditable=true] {
 	width:16px;
 	-webkit-transform: translate(0px, -3px);
 }
+
+.nyan {
+	display: block;
+	width: 125px;
+	height: 88px;
+	background-image: url('../images/nyan_cat.gif');
+	background-repeat: no-repeat;
+	position: fixed;
+	left: 0px;
+	margin-left: -125px;
+	right: auto;
+	top: 50%;
+	-webkit-transform: rotateY(180deg);
+	-webkit-transition: left 3s linear, margin-left 3s linear;
+}
+:hover .nyan {
+	margin-left: 0px;
+	left: 100%;
+	-webkit-transform: none;
+}
