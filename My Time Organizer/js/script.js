@@ -634,7 +634,9 @@ $(document).ready(function() {
 		for ( var col = 0; col < table.childNodes.length; col++ ) {
 			var column = Array();
 			var note_count = 0;
-			column = JSON.parse(localStorage[table.childNodes[col].getAttribute('data-date')]);
+			var data = localStorage[table.childNodes[col].getAttribute('data-date')];
+			if (!data) continue;
+			column = JSON.parse(data);
 			for ( j = 0; j < column.length; j++ ) {
 				var note = document.createElement('div');
 				//console.log(column[j]);
