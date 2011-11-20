@@ -226,14 +226,14 @@ nav:nth-child(even):hover {
 	position: relative;
 }
 
-.header:after {
+.header::after {
 	content: attr(data-date);
 	display: block;
 	font-family: Sans-Serif;
-	background-color: rgba(250,250,250,0.9);
+	background-color: rgba(250,250,250,0.8);
 	width: auto;
 	position: absolute;
-	right: 4px;
+	right: 8px;
 	top: 35px;
 	font-size: 12px;
 	padding: 0px;
@@ -335,7 +335,7 @@ nav .header#current_day h3 {
 	border-top-right-radius: 6px;
 	box-shadow: 1px -2px 4px rgba(0,0,0,0.2);
 	-webkit-transition: opacity 0.25s;
-	border-bottom: 1px solid rgba(0,0,0,0.1);
+	border-bottom: 1px solid rgba(0,0,0,0.12);
 }
 .event .note_time {
 	display: none;
