@@ -189,25 +189,13 @@ $(document).ready(function() {
 		icon.draggable = false;
 		icon.onfocus = icon.blur;
 		icon.onwebkitspeechchange = function(e) {
-			note_content = this.parentNode.parentNode.childNodes[0];
+			note_content = $(this.parentNode.parentNode).find(".note_content")[0];
 			//console.log(e);
-			note_content.innerHTML = e.results[0].utterance[0].toUpperCase() + e.results[0].utterance.slice(1);
-			//icon.value = "";
-			note_content.parentNode.setAttribute('data-content', note_content.innerHTML);
-			note_content.focus();
+			note_content.parentNode.setAttribute('data-content', note_content.parentNode.getAttribute('data-content') + e.results[0].utterance[0].toUpperCase() + e.results[0].utterance.slice(1));
+			note_content.innerHTML = note_content.parentNode.getAttribute('data-content');
+			icon.value = "";
 			saveNotes();
 		}
-			/*if (note_content.isContentEditable) {
-				note_content.parentNode.setAttribute('data-content', note_content.innerHTML);
-				note_content.contentEditable = false;
-				saveNotes();
-			} else {
-				note_content.innerHTML = note_content.parentNode.getAttribute('data-content');
-				note_content.contentEditable = true;
-				note_content.focus();
-			}
-			note_content.parentNode.setAttribute('data-editedNow', note_content.isContentEditable);
-		}*/
 		note_icons.appendChild(icon);
 
 		var icon = document.createElement('img');
