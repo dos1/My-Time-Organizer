@@ -503,6 +503,8 @@ $(document).ready(function() {
 	function right_slide() {
 		//alert("Prawa szczałka!");
 		if ($("[data-editedNow=true]")[0]) return false;
+		if ($("[data-nyan=nyan]")[0]) return false;
+
 		$("#inner_table_left").remove();
 		$("#inner_table_center").attr('id','inner_table_left');
 		$("#inner_table_right").attr('id','inner_table_center');
@@ -527,9 +529,10 @@ $(document).ready(function() {
 	}
 		
 	function left_slide() {
-		//alert("Lewa szczałka!");
-		
+		//alert("Lewa szczałka!");		
 		if ($("[data-editedNow=true]")[0]) return false;
+		if ($("[data-nyan=nyan]")[0]) return false;
+
 		$("#inner_table_right").remove();
 		$("#inner_table_center").attr('id','inner_table_right');
 		$("#inner_table_left").attr('id','inner_table_center');
