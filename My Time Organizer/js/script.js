@@ -407,6 +407,7 @@ function fillWeekTable(table) {
 		
 		week.add("days", 1);
 	}
+	week.subtract("days", lang[mylang]["days"].length);
 	
 }
 
@@ -510,10 +511,15 @@ $(document).ready(function() {
 		$(table).attr('id','inner_table_right');
 		$(table).insertAfter("#inner_table_center");
 		
-		weeks['inner_table_left'] = weeks['inner_table_center'];
-		weeks['inner_table_center']=weeks['inner_table_right'];
-		//weeks['inner_table_right'].add("days",7);
+		weeks['inner_table_left'].add("days", 7);
+		weeks['inner_table_center'].add("days", 7);
+		weeks['inner_table_right'].add("days",7);
 				
+		/*console.log(weeks['inner_table_left'].format("DD-MM-YYYY"));
+		console.log(weeks['inner_table_center'].format("DD-MM-YYYY"));
+		console.log(weeks['inner_table_right'].format("DD-MM-YYYY"));
+		console.log('---------------------------');*/
+		
 		fillWeekTable(table);
 		loadTable(table);
 		
@@ -532,9 +538,14 @@ $(document).ready(function() {
 		$(table).attr('id','inner_table_left');
 		$(table).insertBefore("#inner_table_center");  
 				
-		weeks['inner_table_right'] = weeks['inner_table_center'];
-		weeks['inner_table_center']=weeks['inner_table_left'];
-		weeks['inner_table_left'].subtract("days", 14);
+		weeks['inner_table_right'].subtract("days", 7);
+		weeks['inner_table_center'].subtract("days", 7);
+		weeks['inner_table_left'].subtract("days", 7);
+		
+		/*console.log(weeks['inner_table_left'].format("DD-MM-YYYY"));
+		console.log(weeks['inner_table_center'].format("DD-MM-YYYY"));
+		console.log(weeks['inner_table_right'].format("DD-MM-YYYY"));
+		console.log('---------------------------');*/
 		
 		fillWeekTable(table);
 		loadTable(table);
@@ -603,46 +614,10 @@ $(document).ready(function() {
 	weeks['inner_table_center'] = d;
 	weeks['inner_table_right'] = week_next;
 
-	/*document.getElementById('inner_table_center').setAttribute('data-week', d);
-	document.getElementById('inner_table_right').setAttribute('data-week', week_next);*/
-	
 	fillWeekTable(document.getElementById('inner_table_left'));
 	fillWeekTable(document.getElementById('inner_table_center'));
 	fillWeekTable(document.getElementById('inner_table_right'));
 	
-	/*for(i = 0; i < lang[mylang]["days"].length; i++) {
-		
-		var lmyd = (week_last.format("D") < 10) ? "0"+week_last.format("D") : week_last.format("D");
-		var dmyd = (d.format("D") < 10) ? "0"+d.format("D") : d.format("D");
-		var nmyd = (week_next.format("D") < 10) ? "0"+week_next.format("D") : week_next.format("D");
-		
-		var lmym = (week_last.format("M") < 10) ? "0"+week_last.format("M") : week_last.format("M");
-		var dmym = (d.format("M") < 10) ? "0"+d.format("D") : d.format("M");
-		var nmym = (week_next.format("M") < 10) ? "0"+week_next.format("M") : week_next.format("M");
-		
-		var lmyy = week_last.format("YYYY");
-		var dmyy = d.format("YYYY");
-		var nmyy = week_next.format("YYYY");
-		
-		var lmydate = "day"+lmyd+"-"+lmym+"-"+lmyy;
-		var dmydate = "day"+dmyd+"-"+dmym+"-"+dmyy;
-		var nmydate = "day"+nmyd+"-"+nmym+"-"+nmyy;
-
-		doNav(false, document.getElementById('inner_table_left'), week_last, lmydate);
-		doNav(i == mdn, document.getElementById('inner_table_center'), d, dmydate);
-		doNav(false, document.getElementById('inner_table_right'), week_next, nmydate);
-		
-		setDayHandlers(document.getElementById(lmydate));
-		setDayHandlers(document.getElementById(dmydate));
-		setDayHandlers(document.getElementById(nmydate));
-		
-		//
-		d.add("days", 1);
-		week_last.add("days", 1);
-		week_next.add("days", 1);
-	}*/
-			
-			
 	resizeDays();
 	loadNotes();
 });
