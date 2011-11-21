@@ -383,7 +383,9 @@ function doNav(cur, parent, d, date) {
 	var content = document.createElement('div');
 	content.setAttribute('class', 'day_content');
 	content.setAttribute('id', date);
-	nav.appendChild(content);	
+	nav.appendChild(content);
+	
+	return nav;
 }
 
 function fillWeekTable(table) {
@@ -400,7 +402,7 @@ function fillWeekTable(table) {
 
 		doNav(false, table, week, mydate); // TODO: detect current day
 		
-		setDayHandlers(table);
+		setDayHandlers(document.getElementById(mydate));
 		
 		week.add("days", 1);
 	}
@@ -509,7 +511,7 @@ $(document).ready(function() {
 		
 		weeks['inner_table_left'] = weeks['inner_table_center'];
 		weeks['inner_table_center']=weeks['inner_table_right'];
-		weeks['inner_table_right'].add(7);
+		weeks['inner_table_right'].add("days",7);
 				
 		fillWeekTable(table);
 		
@@ -526,11 +528,11 @@ $(document).ready(function() {
 
 		table = document.createElement('div');
 		$(table).attr('id','inner_table_left');
-		$(table).insertBefore("#inner_table_center");		  
+		$(table).insertBefore("#inner_table_center");  
 		
 		weeks['inner_table_right'] = weeks['inner_table_center'];
 		weeks['inner_table_center']=weeks['inner_table_left'];
-		weeks['inner_table_left'].add(-7);
+		weeks['inner_table_left'].subtract("days", 7);
 				
 		fillWeekTable(table);
 		
