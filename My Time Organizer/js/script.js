@@ -512,7 +512,7 @@ $(document).ready(function() {
 		
 		weeks['inner_table_left'] = weeks['inner_table_center'];
 		weeks['inner_table_center']=weeks['inner_table_right'];
-		weeks['inner_table_right'].add("days",7);
+		//weeks['inner_table_right'].add("days",7);
 				
 		fillWeekTable(table);
 		loadTable(table);
@@ -531,14 +531,10 @@ $(document).ready(function() {
 		table = document.createElement('div');
 		$(table).attr('id','inner_table_left');
 		$(table).insertBefore("#inner_table_center");  
-		
-		console.log(weeks);
-		
+				
 		weeks['inner_table_right'] = weeks['inner_table_center'];
 		weeks['inner_table_center']=weeks['inner_table_left'];
-		weeks['inner_table_left'].subtract("days", 7);
-
-		console.log(weeks);
+		weeks['inner_table_left'].subtract("days", 14);
 		
 		fillWeekTable(table);
 		loadTable(table);
