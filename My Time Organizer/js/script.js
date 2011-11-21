@@ -58,6 +58,19 @@ function nyanNyan() {
 	function updateWeek() {
 		$("#info_panel").html("Tydzień "+weeks['inner_table_center'].format("w")+", "+weeks['inner_table_center'].format("YYYY"));
 	}
+	
+	function toToday() {
+		diff = moment().diff(weeks['inner_table_center'], 'weeks');
+		if (diff>0) {
+			for (var i=0; i<diff; i++) {
+				right_slide();
+			}
+		} else {
+			for (var i=0; i>diff; i--) {
+				left_slide();
+			}			
+		}
+	}
 
 	function saveTable(table) {
 		//console.log('TABLE: '+table.getAttribute('id')+ ', length: '+table.childNodes.length);
@@ -470,40 +483,6 @@ function moveAnimate(element, newParent, old, saveNotes){
         });
 }
 
-function notify(text) {
-	// Create a simple text notification:
-	var notification = webkitNotifications.createNotification(
-	    'icons/icon48.png',  // icon url - can be relative
-	    lang[mylang]["notify_txt"],  // notification title
-	    text  // notification body text
-	);
-
-	// Or create an HTML notification:
-	//var notification = webkitNotifications.createHTMLNotification(
-	//  'notification.html'  // html url - can be relative
-	//);
-
-	// Then show the notification.
-	notification.show(); 
-}
-
-	
-$(document).ready(function() {
-	//notify("Yay!");
-
-	function colorFromBgColor(color) {
-		r=parseInt(color.substring(1,3),16);
-		g=parseInt(color.substring(3,5),16);
-		b=parseInt(color.substring(5,7),16);
-		if (((r+b+g)/3)>85) return "#333333"; else return "#ffffff";
-	}
-
-	function resizeDays() {
-		$(".day_content").css("height",$("nav").height()-16);
-	}
-
-	window.onresize = resizeDays;
-	
 	function right_slide() {
 		//alert("Prawa szczałka!");
 		if ($("[data-editedNow=true]")[0]) return false;
@@ -559,10 +538,46 @@ $(document).ready(function() {
 		
 		if ($("body").attr('class')=='dark') $("body").removeClass("dark"); else $("body").addClass("dark");
 	}
-		
+
+
+function notify(text) {
+	// Create a simple text notification:
+	var notification = webkitNotifications.createNotification(
+	    'icons/icon48.png',  // icon url - can be relative
+	    lang[mylang]["notify_txt"],  // notification title
+	    text  // notification body text
+	);
+
+	// Or create an HTML notification:
+	//var notification = webkitNotifications.createHTMLNotification(
+	//  'notification.html'  // html url - can be relative
+	//);
+
+	// Then show the notification.
+	notification.show(); 
+}
+
+	
+$(document).ready(function() {
+	//notify("Yay!");
+
+	function colorFromBgColor(color) {
+		r=parseInt(color.substring(1,3),16);
+		g=parseInt(color.substring(3,5),16);
+		b=parseInt(color.substring(5,7),16);
+		if (((r+b+g)/3)>85) return "#333333"; else return "#ffffff";
+	}
+
+	function resizeDays() {
+		$(".day_content").css("height",$("nav").height()-16);
+	}
+
+	window.onresize = resizeDays;
+			
 	function keydown(e) {
 		if(event.which == 39) right_slide(); // prawa szczałka
 		else if (event.which == 37) left_slide(); // lewa szczałka
+		else if (event.which == 40) toToday(); // dolna szczałka
 	}
 		
 	document.addEventListener("keydown", keydown, false);
