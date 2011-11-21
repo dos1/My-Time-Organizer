@@ -366,7 +366,7 @@ function nyanNyan() {
 	}
 
 
-function doNav(cur, parent, d, date) {
+function doNav(parent, d, date) {
 	var nav = document.createElement('nav');
 	parent.appendChild(nav);
 	var header = document.createElement('div');
@@ -375,7 +375,7 @@ function doNav(cur, parent, d, date) {
 
 	header.innerHTML = "<h3>"+lang[mylang]["days"][i]+"</h3>";
 
-	if (cur) header.setAttribute('id','current_day');
+	if (d.format("DD-MM-YYYY")===moment().format("DD-MM-YYYY")) header.setAttribute('id','current_day');
   
 	if (d.format("YYYY")!=moment().format("YYYY"))
 		header.setAttribute('data-date',d.format("D")+"."+d.format("M")+"."+d.format("YY"));
@@ -404,7 +404,7 @@ function fillWeekTable(table) {
 		
 		var mydate = "day"+myd+"-"+mym+"-"+myy;
 
-		doNav(false, table, week, mydate); // TODO: detect current day
+		doNav(table, week, mydate); // TODO: detect current day
 		
 		setDayHandlers(document.getElementById(mydate));
 		
