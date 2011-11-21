@@ -1,12 +1,13 @@
-- dynamiczna zamiana tygodni // hun7er
 - konfiguracja animacji, layoutu, ogólne ustawienia // w sumie to może ja - hun7er. Ale jak zrobię tygodnie
 - eventy i powiadomienia // powiadomienia zrobił dos, przypomnienia o eventach działające w tle zrobię ja - hun7er
-- eventy i inne typy oprócz notatek // częściowo dos, a potem: się zobaczy
 - animowany tutorial // dos
 - funkcja cofnij // dos
 - synchronizacja z google calendar	// to w sumie może spróbuję - mug3tsu
+- automatyczne pokazywanie i ukrywanie "Nie dodano żadnych elementów" wedle potrzeby // dos
+- widget wyboru godziny w wydarzeniach // dos
+- numer tygodnia // dos
 
-- automatyczne pokazywanie i ukrywanie "Nie dodano żadnych elementów" wedle potrzeby
+- autosortowanie wydarzeń wg. godziny
 - dodawanie linków do notatek
 - widok miesiąca
 

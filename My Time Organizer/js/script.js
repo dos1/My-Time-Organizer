@@ -377,8 +377,11 @@ function doNav(cur, parent, d, date) {
 
 	if (cur) header.setAttribute('id','current_day');
   
-        header.setAttribute('data-date',d.format("D")+"."+d.format("M"));
-  
+	if (d.format("YYYY")!=moment().format("YYYY"))
+		header.setAttribute('data-date',d.format("D")+"."+d.format("M")+"."+d.format("YY"));
+	else
+		header.setAttribute('data-date',d.format("D")+"."+d.format("M"));
+	
 	nav.appendChild(header);
   
 	var content = document.createElement('div');
