@@ -19,6 +19,8 @@ lang["en"]["notify_txt"] = "Event notification";
 lang["pl"]["days"] = ["Poniedziałek", "Wtorek", "Środa", "Czwartek", "Piątek", "Sobota", "Niedziela"];
 lang["pl"]["notify_txt"] = "Przypomnienie o wydarzeniu";
 
+var weeks = {};
+
 function nyanNyan() {
 	function nyanNyanNyan() {
 		$('.header h3, #add_panel div, #info_panel, footer').each(function () { this.setAttribute('data-nyan', this.innerHTML); } );
@@ -384,6 +386,27 @@ function doNav(cur, parent, d, date) {
 	nav.appendChild(content);	
 }
 
+function fillWeekTable(table) {
+	var week = weeks[table.getAttribute('id')];
+	for(i = 0; i < lang[mylang]["days"].length; i++) {
+		
+		var myd = (week.format("D") < 10) ? "0"+week.format("D") : week.format("D");
+		
+		var mym = (week.format("M") < 10) ? "0"+week.format("M") : week.format("M");
+		
+		var myy = week.format("YYYY");
+		
+		var mydate = "day"+myd+"-"+mym+"-"+myy;
+
+		doNav(false, table, week, mydate); // TODO: detect current day
+		
+		setDayHandlers(table);
+		
+		week.add("days", 1);
+	}
+	
+}
+
 function fixFirstNote() {
 	$(".note").each(function () { $(this).css("margin-top", "10px");	});
 	$(".task").each(function () { $(this).css("margin-top", "10px");	});
@@ -476,13 +499,19 @@ $(document).ready(function() {
 	function right_slide() {
 		//alert("Prawa szczałka!");
 		if ($("[data-editedNow=true]")[0]) return false;
-		$("#inner_table_left").attr('id','inner_table_temp');
+		$("#inner_table_left").remove();
 		$("#inner_table_center").attr('id','inner_table_left');
 		$("#inner_table_right").attr('id','inner_table_center');
-		$("#inner_table_temp").attr('id','inner_table_right');
-		$("#inner_table_right").insertAfter("#inner_table_center");
 
-		// TODO: wypełnić #inner_table_right na nowo tutaj...
+		table = document.createElement('div');
+		$(table).attr('id','inner_table_right');
+		$(table).insertAfter("#inner_table_center");
+		
+		weeks['inner_table_left'] = weeks['inner_table_center'];
+		weeks['inner_table_center']=weeks['inner_table_right'];
+		weeks['inner_table_right'].add(7);
+				
+		fillWeekTable(table);
 		
 		if ($("body").attr('class')=='dark') $("body").removeClass("dark"); else $("body").addClass("dark");
 	}
@@ -491,14 +520,19 @@ $(document).ready(function() {
 		//alert("Lewa szczałka!");
 		
 		if ($("[data-editedNow=true]")[0]) return false;
-		  
-		$("#inner_table_right").attr('id','inner_table_temp');
+		$("#inner_table_right").remove();
 		$("#inner_table_center").attr('id','inner_table_right');
 		$("#inner_table_left").attr('id','inner_table_center');
-		$("#inner_table_temp").attr('id','inner_table_left');
-		$("#inner_table_left").insertBefore("#inner_table_center");		  
+
+		table = document.createElement('div');
+		$(table).attr('id','inner_table_left');
+		$(table).insertBefore("#inner_table_center");		  
 		
-		// TODO: wypełnić #inner_table_left na nowo tutaj...
+		weeks['inner_table_right'] = weeks['inner_table_center'];
+		weeks['inner_table_center']=weeks['inner_table_left'];
+		weeks['inner_table_left'].add(-7);
+				
+		fillWeekTable(table);
 		
 		if ($("body").attr('class')=='dark') $("body").removeClass("dark"); else $("body").addClass("dark");
 	}
@@ -560,7 +594,18 @@ $(document).ready(function() {
 	var week_last = moment().add("days", -(7+mdn));   // last week
 	var week_next = moment().add("days", 7-mdn);     // next week
 					
-	for(i = 0; i < lang[mylang]["days"].length; i++) {
+	weeks['inner_table_left'] = week_last;
+	weeks['inner_table_center'] = d;
+	weeks['inner_table_right'] = week_next;
+
+	/*document.getElementById('inner_table_center').setAttribute('data-week', d);
+	document.getElementById('inner_table_right').setAttribute('data-week', week_next);*/
+	
+	fillWeekTable(document.getElementById('inner_table_left'));
+	fillWeekTable(document.getElementById('inner_table_center'));
+	fillWeekTable(document.getElementById('inner_table_right'));
+	
+	/*for(i = 0; i < lang[mylang]["days"].length; i++) {
 		
 		var lmyd = (week_last.format("D") < 10) ? "0"+week_last.format("D") : week_last.format("D");
 		var dmyd = (d.format("D") < 10) ? "0"+d.format("D") : d.format("D");
@@ -590,7 +635,7 @@ $(document).ready(function() {
 		d.add("days", 1);
 		week_last.add("days", 1);
 		week_next.add("days", 1);
-	}
+	}*/
 			
 			
 	resizeDays();
