@@ -514,6 +514,7 @@ $(document).ready(function() {
 		weeks['inner_table_right'].add("days",7);
 				
 		fillWeekTable(table);
+		loadTable(table);
 		
 		if ($("body").attr('class')=='dark') $("body").removeClass("dark"); else $("body").addClass("dark");
 	}
@@ -535,6 +536,7 @@ $(document).ready(function() {
 		weeks['inner_table_left'].subtract("days", 7);
 				
 		fillWeekTable(table);
+		loadTable(table);
 		
 		if ($("body").attr('class')=='dark') $("body").removeClass("dark"); else $("body").addClass("dark");
 	}
