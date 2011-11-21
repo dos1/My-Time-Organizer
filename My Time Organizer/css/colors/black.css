@@ -1,9 +1,9 @@
 /* ciemny */
-body.dark::before, nav:nth-of-type(even) .header, #inner_table_center nav:nth-of-type(odd) .header, body.dark footer {
+body.dark::before, body.dark nav:nth-of-type(even) .header, nav:nth-of-type(odd) .header, body.dark footer {
 	background-color: #0a0a0a;
 }
 
 /* jasny */
-body::before, #logo, nav:nth-of-type(odd) .header, #inner_table_center nav:nth-of-type(even) .header, footer {
+body::before, #logo, body.dark nav:nth-of-type(odd) .header, nav:nth-of-type(even) .header, footer {
 	background-color: #1a1a1a;
 }

@@ -309,48 +309,33 @@ $(document).ready(function() {
 	}
 	
 	function right_slide() {
-	//alert("Prawa szczałka!");
-	 $("nav").css("box-shadow", "none");
-
+		//alert("Prawa szczałka!");
 		if ($("[data-editedNow=true]")[0]) return false;
-		if ($("#inner_table_center").css("transform") !== "translate(100%, 0px)") {
-			$("#inner_table_center").css("transform", "translate(-100%, 0px)");
-			$("#inner_table_right").css("transform", "translate(-100%, 0px)");
-			
-			$("body").removeClass("dark");
-			//
-		}
-		if ($("#inner_table_left").css("transform") !== "translate(-100%, 0px)") {    
-			$("#inner_table_left").css("transform", "translate(0px, 0px)");
-			$("body").addClass("dark");
-		}
-		if ($("#inner_table_center").css("transform") === "translate(100%, 0px)") {
-			$("#inner_table_center").css("transform", "");
-			$("body").removeClass("dark");
-		}
+		$("#inner_table_left").attr('id','inner_table_temp');
+		$("#inner_table_center").attr('id','inner_table_left');
+		$("#inner_table_right").attr('id','inner_table_center');
+		$("#inner_table_temp").attr('id','inner_table_right');
+		$("#inner_table_right").insertAfter("#inner_table_center");
+
+		// TODO: wypełnić #inner_table_right na nowo tutaj...
+		
+		if ($("body").attr('class')=='dark') $("body").removeClass("dark"); else $("body").addClass("dark");
 	}
 		
 	function left_slide() {
-			 $("nav").css("box-shadow", "none");
 		//alert("Lewa szczałka!");
+		
 		if ($("[data-editedNow=true]")[0]) return false;
-		if ($("#inner_table_center").css("transform") !== "translate(-100%, 0px)") {
-			$("#inner_table_center").css("transform", "translate(100%, 0px)");
-			$("#inner_table_left").css("transform", "translate(100%, 0px)");
-			$("body").removeClass("dark");
-			
-		}
-		// z tym aktualnie jest problem (i nie mam pojęcia czemu). Dokładniej to w ogóle nie wyświetla się tablica prawa.
-		if($("#inner_table_right").css("transform") !== "translate(100%, 0px)") {
-			$("#inner_table_right").css("transform", "translate(0px, 0px)");
-			$("body").addClass("dark");	
-		}
-		//
-		if ($("#inner_table_center").css("transform") === "translate(-100%, 0px)") {
-			$("#inner_table_center").css("transform", "");
-			$("body").removeClass("dark");
-			
-		}
+		  
+		$("#inner_table_right").attr('id','inner_table_temp');
+		$("#inner_table_center").attr('id','inner_table_right');
+		$("#inner_table_left").attr('id','inner_table_center');
+		$("#inner_table_temp").attr('id','inner_table_left');
+		$("#inner_table_left").insertBefore("#inner_table_center");		  
+		
+		// TODO: wypełnić #inner_table_left na nowo tutaj...
+		
+		if ($("body").attr('class')=='dark') $("body").removeClass("dark"); else $("body").addClass("dark");
 	}
 		
 	function keydown(e) {
