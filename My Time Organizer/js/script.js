@@ -122,6 +122,7 @@ function nyanNyan() {
 				document.getElementById(table.childNodes[col].getAttribute('data-date')).appendChild(note);
 			}
 		}
+		fixFirstNote();
 	}
 	
 	function loadNotes() {
@@ -531,10 +532,14 @@ $(document).ready(function() {
 		$(table).attr('id','inner_table_left');
 		$(table).insertBefore("#inner_table_center");  
 		
+		console.log(weeks);
+		
 		weeks['inner_table_right'] = weeks['inner_table_center'];
 		weeks['inner_table_center']=weeks['inner_table_left'];
 		weeks['inner_table_left'].subtract("days", 7);
-				
+
+		console.log(weeks);
+		
 		fillWeekTable(table);
 		loadTable(table);
 		
@@ -644,5 +649,4 @@ $(document).ready(function() {
 			
 	resizeDays();
 	loadNotes();
-	fixFirstNote();
 });
