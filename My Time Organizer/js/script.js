@@ -395,66 +395,7 @@ $(document).ready(function() {
 	var d = now.add("days", (-1)*mdn);        // current day
 	var week_last = moment().add("days", -(7+mdn));   // last week
 	var week_next = moment().add("days", 7-mdn);     // next week
-		
-	
-	
-	
-	/*
-	
-	for(i = 0; i < 7; i++) {
-		arr1[i] = 'day'+(i+1); // wypieprzyć bo 3 razy się id powtarza
-		arr2[i] = document.getElementById(arr1[i]);
-		arr2[i].ondrop = function(event) {
-			$(this).css("background-color", "transparent"); $(this.childNodes).css("opacity", "1");
-			old = $('[data-draggedOver=true]')[0];
-			if (old) { $(old).animate({rotate:'0deg'},100); old.setAttribute('data-draggedOver', 'false'); }
-		        var type = event.dataTransfer.getData("Url");
-			var text = event.dataTransfer.getData("Text");
-			//alert("type: "+type+", text:"+text);
-			if ((!text) || (text===type)) text="";
-			var note = document.createElement('div');
-			if ((type==="note://") || (text)) {
-				note.setAttribute('data-content', text);
-				note.setAttribute('data-bgcolor', '#f0f000');
-				note.setAttribute('data-date', arr1[i]); //FIXME!
 			
-				fillNote(note);
-				//notify('Notatka dodana!');
-			} else if (type=="event://") {
-				note.setAttribute('data-content', text);
-				note.setAttribute('data-bgcolor', '#e00000');
-				note.setAttribute('data-date', arr1[i]); //FIXME!
-			
-				fillNote(note);
-			} else if (type=="task://") {
-				note.setAttribute('data-content', text);
-				note.setAttribute('data-bgcolor', '#00e000');
-				note.setAttribute('data-date', arr1[i]); //FIXME!
-			
-				fillNote(note);
-			}
-			else if (type=="drag://") {
-				moveAnimate($("#draggedElement"), this, old);
-				saveNotes();
-				return false;
-			}
-			if (old) 
-				this.insertBefore(note,old); 
-			else
-				this.appendChild(note);
-			saveNotes();
-
-		}
-		arr2[i].ondragover = function () { $(this).css("background-color", "white"); $(this.childNodes).css("opacity", "0.75"); 
-					return false; }
-		arr2[i].ondragleave = function () { $(this).css("background-color", "transparent"); $(this.childNodes).css("opacity", "1"); 
-								old = $('[data-draggedOver=true]')[0];
-					if (old) { $(old).rotate('0deg');; old.setAttribute('data-draggedOver', 'false'); }
-		}
-	}
-	
-	*/
-	
 	function setDayHandlers(element) {
 		
 		function arrOnDrop(event) {
@@ -520,14 +461,8 @@ $(document).ready(function() {
 		//
 			
 	}
-	
-	
-	var arr1_1 = new Array(), arr2_1= new Array(),
-		arr1_2 = new Array(), arr2_2 = new Array(),
-		arr1_3 = new Array(), arr2_3 = new Array();
-	
+		
 	for(i = 0; i < lang[mylang]["days"].length; i++) {
-
 		
 		function doNav(cur, parent, d, date) {
 			var nav = document.createElement('nav');
@@ -536,9 +471,7 @@ $(document).ready(function() {
 			header.setAttribute('class','header');
 			nav.setAttribute('data-date', date);
 			
-			//header.innerHTML = "<h3>"+d.format("D")+"."+d.format("M")+"<br/>"+lang[mylang]["days"][i]+"</h3>";
 			header.innerHTML = "<h3>"+lang[mylang]["days"][i]+"</h3>";
-
 			
 			if (cur) header.setAttribute('id','current_day');
 		  
@@ -573,20 +506,9 @@ $(document).ready(function() {
 		doNav(i == mdn, document.getElementById('inner_table_center'), d, dmydate);
 		doNav(false, document.getElementById('inner_table_right'), week_next, nmydate);
 		
-		//
-		arr1_1[i] = lmydate; // wypieprzyć bo 3 razy się id powtarza
-		arr1_2[i] = dmydate;
-		arr1_3[i] = nmydate;
-		//
-		
-		//
-		arr2_1[i] = document.getElementById(arr1_1[i]);
-		arr2_2[i] = document.getElementById(arr1_2[i]);
-		arr2_3[i] = document.getElementById(arr1_3[i]);
-
-		setDayHandlers(arr2_1[i]);
-		setDayHandlers(arr2_2[i]);
-		setDayHandlers(arr2_3[i]);
+		setDayHandlers(document.getElementById(lmydate));
+		setDayHandlers(document.getElementById(dmydate));
+		setDayHandlers(document.getElementById(nmydate));
 		
 		//
 		d.add("days", 1);
