@@ -55,6 +55,10 @@ function nyanNyan() {
 	return true; // nyan
 }
 
+	function updateWeek() {
+		$("#info_panel").html("Tydzień "+weeks['inner_table_center'].format("w")+", "+weeks['inner_table_center'].format("YYYY"));
+	}
+
 	function saveTable(table) {
 		//console.log('TABLE: '+table.getAttribute('id')+ ', length: '+table.childNodes.length);
 			for ( var column = 0; column < table.childNodes.length; column++ ) {
@@ -123,6 +127,7 @@ function nyanNyan() {
 			}
 		}
 		fixFirstNote();
+		updateWeek();
 	}
 	
 	function loadNotes() {
@@ -138,8 +143,6 @@ function nyanNyan() {
 		
 		$("#helper").css("display","none");
 		
-		//$(note).addClass('note');
-
 		note.ondragover = function() {
 			old = $('[data-draggedOver=true]')[0];
 			if ((old!=note) && (old)) { $(old).rotate('0deg'); old.setAttribute('data-draggedOver', 'false'); }
@@ -253,8 +256,6 @@ function nyanNyan() {
 
 		icon.style.marginLeft = '6px';
 		note_icons.appendChild(icon);
-		
-		
 
 		var icon = document.createElement('img');
 		icon.setAttribute('src', 'icons/close.png');
