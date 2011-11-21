@@ -53,94 +53,81 @@ function nyanNyan() {
 	return true; // nyan
 }
 
-function fixFirstNote() {
-	$(".note").each(function () { $(this).css("margin-top", "10px");	});
-	$(".task").each(function () { $(this).css("margin-top", "10px");	});
-	$(".event").each(function () { $(this).css("margin-top", "24px");	});
-	$(".day_content > div:first-child").each(function () { 
-		if (($(this).attr('data-beingMoved')) || ($(this).attr('data-beingDeleted')))
-			$(this).next().css('margin-top', '24px');
-		$(this).css('margin-top', '24px');
-	});
-}
-
-function moveAnimate(element, newParent, old, saveNotes){
-	if (old==element[0]) return false;
-	if ((element.next().length===0) && (element.parent()[0]===newParent) && (!(old))) return false;
-	if ((old) && (element.next()[0]===old)) return false;
-	$(".menu").css("display","none");
-	w = element.width()+14;
-	h = element.height()+14;
-        var oldOffset = element.offset();
-        //element.appendTo(newParent);
-        var oldElement = element.clone().insertBefore(element);
-	oldElement.css('visibility','hidden');
-	oldElement.attr('data-beingMoved','true');
-	oldElement.animate( {'height': 0, 'paddingTop': 0, 'paddingBottom':0, 'marginTop':0,'marginBottom':0}, 400, function() { oldElement.remove(); saveNotes(); });
-	if (old) 
-		element.insertBefore($(old)); 
-	else
-		element.appendTo(newParent);
-	fixFirstNote();
-	var newOffset = element.offset();
-
-        var temp = element.clone().appendTo('body');
-        temp    .css('position', 'absolute')
-                .css('left', oldOffset.left)
-                .css('top', oldOffset.top)
-                .css('zIndex', 1000).css('width',w).css('height',h);
-	if (old) {
-		o=$(old);
-		om = o.css('margin-top');
-		o.animate({marginTop:h+32}, 200);
+	function saveTable(table) {
+		//console.log('TABLE: '+table.getAttribute('id')+ ', length: '+table.childNodes.length);
+			for ( var column = 0; column < table.childNodes.length; column++ ) {
+				//console.log('START: ' +table.childNodes[column]);
+				//console.log(' --- ' + table.childNodes[column].getAttribute('data-date'));
+				col = document.getElementById(table.childNodes[column].getAttribute('data-date')).childNodes;
+				
+				//var column = document.getElementById('day'+(i+1)).childNodes;
+				var note_count = 0;
+				var notes = new Array();
+				for ( j = 0; j < col.length; j++ ) {
+					//console.log('storing note: '+col[j].getAttribute("data-content"));
+					//console.log(col[j].getAttribute('class').split(" "));
+					function oc(a) {
+						var o = {};
+						for(var i=0;i<a.length;i++) {
+							o[a[i]]='';
+						}
+						return o;
+					}
+					//type=oc(col[j].getAttribute('class').split(" "));
+					//if ( "note" in type ) {
+						if (col[j].getAttribute('data-beingDeleted')) continue;
+						notes[note_count] = {};
+						notes[note_count]['type'] = col[j].getAttribute("class");
+						//notes[note_count]['date'] = col[j].getAttribute("data-date");
+						notes[note_count]['content'] = col[j].getAttribute("data-content");
+						notes[note_count]['bgcolor'] = col[j].getAttribute("data-bgcolor");
+						notes[note_count]['time'] = col[j].getAttribute("data-time");
+						notes[note_count]['done'] = col[j].getAttribute("data-done");
+						note_count += 1;
+					//}
+				}
+				localStorage[table.childNodes[column].getAttribute('data-date')]=JSON.stringify(notes);
+				//console.log(table.childNodes[column].getAttribute('data-date')+': '+JSON.stringify(notes));
+				//alert(localStorage['day'+(i+1)]);
+			}				
 	}
-	if (element.attr('class')!=='event') fix = 10; else fix = 22; //ugly hack ;/
-        element.hide();
-	if ((newOffset.left==oldOffset.left) && (newOffset.top>oldOffset.top)) {
-		newOffset.top-=h;
-		if (fix==22) newOffset.top-=10;
+			
+	function saveNotes() {
+		saveTable(document.getElementById('inner_table_left'));
+		saveTable(document.getElementById('inner_table_center'));
+		saveTable(document.getElementById('inner_table_right'));
+		fixFirstNote();
 	}
-        temp.animate( {'top': parseInt(newOffset.top)-fix, 'left':newOffset.left}, 500, function(){
-           element.show();
-	   if (old) { o.css("margin-top", om); }
-           temp.remove();	   
-	   $(".menu").css("display", "block");
-        });
-}
-
-function notify(text) {
-	// Create a simple text notification:
-	var notification = webkitNotifications.createNotification(
-	    'icons/icon48.png',  // icon url - can be relative
-	    lang[mylang]["notify_txt"],  // notification title
-	    text  // notification body text
-	);
-
-	// Or create an HTML notification:
-	//var notification = webkitNotifications.createHTMLNotification(
-	//  'notification.html'  // html url - can be relative
-	//);
-
-	// Then show the notification.
-	notification.show(); 
-}
-
 	
-$(document).ready(function() {
-	//notify("Yay!");
-
-	function colorFromBgColor(color) {
-		r=parseInt(color.substring(1,3),16);
-		g=parseInt(color.substring(3,5),16);
-		b=parseInt(color.substring(5,7),16);
-		if (((r+b+g)/3)>85) return "#333333"; else return "#ffffff";
+	function loadTable(table) {
+		//console.log('TABLE: '+table.getAttribute('id')+ ', length: '+table.childNodes.length);
+		for ( var col = 0; col < table.childNodes.length; col++ ) {
+			var column = Array();
+			var note_count = 0;
+			var data = localStorage[table.childNodes[col].getAttribute('data-date')];
+			if (!data) continue;
+			column = JSON.parse(data);
+			for ( j = 0; j < column.length; j++ ) {
+				var note = document.createElement('div');
+				//console.log(column[j]);
+				$(note).addClass(column[j]['type']);
+				//note.setAttribute('data-date', column[j]['date']);
+				note.setAttribute('data-content', column[j]['content']);
+				note.setAttribute('data-bgcolor', column[j]['bgcolor']);
+				note.setAttribute('data-done', column[j]['done']);
+				note.setAttribute('data-time', column[j]['time']);
+				fillNote(note, false);
+				document.getElementById(table.childNodes[col].getAttribute('data-date')).appendChild(note);
+			}
+		}
+	}
+	
+	function loadNotes() {
+		loadTable(document.getElementById('inner_table_left'));
+		loadTable(document.getElementById('inner_table_center'));
+		loadTable(document.getElementById('inner_table_right'));
 	}
 
-	function resizeDays() {
-		$(".day_content").css("height",$("nav").height()-16);
-	}
-
-	window.onresize = resizeDays;
 
 	function fillNote(note, anim) {
 		
@@ -307,6 +294,184 @@ $(document).ready(function() {
 		if (anim)
 			$(note).scale(0).rotate('-70deg').css('margin-bottom','-100%').animate({rotate: 0, scale: 1, marginBottom: 0}, 500);
 	}
+
+
+	function setDayHandlers(element) {
+		
+		function arrOnDrop(event) {
+			//console.log(this.getAttribute('id'));
+
+			$(this).css("background-color", "transparent"); $(this.childNodes).css("opacity", "1");
+			old = $('[data-draggedOver=true]')[0];
+			if (old) { $(old).animate({rotate:'0deg'},100); old.setAttribute('data-draggedOver', 'false'); }
+		        var type = event.dataTransfer.getData("Url");
+			var text = event.dataTransfer.getData("Text");
+			//alert("type: "+type+", text:"+text);
+			if ((!text) || (text===type)) text="";
+			var note = document.createElement('div');
+			if ((type==="note://") || (text)) {
+				$(note).addClass('note');
+				note.setAttribute('data-content', text);
+				note.setAttribute('data-bgcolor', '#5b5b5b');
+				//note.setAttribute('data-date', this.getAttribute('id'));
+			
+				fillNote(note);
+				//notify('Notatka dodana!');
+			} else if (type=="event://") {
+				$(note).addClass('event');
+				note.setAttribute('data-content', text);
+				note.setAttribute('data-bgcolor', '#78c20f');
+				//note.setAttribute('data-date', this.getAttribute('id'));
+				note.setAttribute('data-time', '18:25');
+			
+				fillNote(note);
+			} else if (type=="task://") {
+				$(note).addClass('task');
+				note.setAttribute('data-content', text);
+				note.setAttribute('data-bgcolor', '#82418e');
+				//note.setAttribute('data-date', this.getAttribute('id'));
+				note.setAttribute('data-done', 'false');
+				
+				fillNote(note);
+			}
+			else if (type=="drag://") {
+				moveAnimate($("#draggedElement"), this, old, saveNotes);
+				saveNotes();
+				return false;
+			}
+			if (old) 
+				this.insertBefore(note,old); 
+			else
+				this.appendChild(note);
+			saveNotes();
+
+		}
+		element.ondrop = arrOnDrop;
+		
+		//
+		function arrDragOver() { $(this).css("background-color", "white"); $(this.childNodes).css("opacity", "0.75"); 
+					return false; }
+		function arrDragLeave() { $(this).css("background-color", "transparent"); $(this.childNodes).css("opacity", "1"); 
+								old = $('[data-draggedOver=true]')[0];
+					if (old) { $(old).rotate('0deg');; old.setAttribute('data-draggedOver', 'false'); }
+		}
+		//
+		element.ondragover = arrDragOver;
+		element.ondragleave = arrDragLeave;
+		//
+			
+	}
+
+
+function doNav(cur, parent, d, date) {
+	var nav = document.createElement('nav');
+	parent.appendChild(nav);
+	var header = document.createElement('div');
+	header.setAttribute('class','header');
+	nav.setAttribute('data-date', date);
+
+	header.innerHTML = "<h3>"+lang[mylang]["days"][i]+"</h3>";
+
+	if (cur) header.setAttribute('id','current_day');
+  
+        header.setAttribute('data-date',d.format("D")+"."+d.format("M"));
+  
+	nav.appendChild(header);
+  
+	var content = document.createElement('div');
+	content.setAttribute('class', 'day_content');
+	content.setAttribute('id', date);
+	nav.appendChild(content);	
+}
+
+function fixFirstNote() {
+	$(".note").each(function () { $(this).css("margin-top", "10px");	});
+	$(".task").each(function () { $(this).css("margin-top", "10px");	});
+	$(".event").each(function () { $(this).css("margin-top", "24px");	});
+	$(".day_content > div:first-child").each(function () { 
+		if (($(this).attr('data-beingMoved')) || ($(this).attr('data-beingDeleted')))
+			$(this).next().css('margin-top', '24px');
+		$(this).css('margin-top', '24px');
+	});
+}
+
+function moveAnimate(element, newParent, old, saveNotes){
+	if (old==element[0]) return false;
+	if ((element.next().length===0) && (element.parent()[0]===newParent) && (!(old))) return false;
+	if ((old) && (element.next()[0]===old)) return false;
+	$(".menu").css("display","none");
+	w = element.width()+14;
+	h = element.height()+14;
+        var oldOffset = element.offset();
+        //element.appendTo(newParent);
+        var oldElement = element.clone().insertBefore(element);
+	oldElement.css('visibility','hidden');
+	oldElement.attr('data-beingMoved','true');
+	oldElement.animate( {'height': 0, 'paddingTop': 0, 'paddingBottom':0, 'marginTop':0,'marginBottom':0}, 400, function() { oldElement.remove(); saveNotes(); });
+	if (old) 
+		element.insertBefore($(old)); 
+	else
+		element.appendTo(newParent);
+	fixFirstNote();
+	var newOffset = element.offset();
+
+        var temp = element.clone().appendTo('body');
+        temp    .css('position', 'absolute')
+                .css('left', oldOffset.left)
+                .css('top', oldOffset.top)
+                .css('zIndex', 1000).css('width',w).css('height',h);
+	if (old) {
+		o=$(old);
+		om = o.css('margin-top');
+		o.animate({marginTop:h+32}, 200);
+	}
+	if (element.attr('class')!=='event') fix = 10; else fix = 22; //ugly hack ;/
+        element.hide();
+	if ((newOffset.left==oldOffset.left) && (newOffset.top>oldOffset.top)) {
+		newOffset.top-=h;
+		if (fix==22) newOffset.top-=10;
+	}
+        temp.animate( {'top': parseInt(newOffset.top)-fix, 'left':newOffset.left}, 500, function(){
+           element.show();
+	   if (old) { o.css("margin-top", om); }
+           temp.remove();	   
+	   $(".menu").css("display", "block");
+        });
+}
+
+function notify(text) {
+	// Create a simple text notification:
+	var notification = webkitNotifications.createNotification(
+	    'icons/icon48.png',  // icon url - can be relative
+	    lang[mylang]["notify_txt"],  // notification title
+	    text  // notification body text
+	);
+
+	// Or create an HTML notification:
+	//var notification = webkitNotifications.createHTMLNotification(
+	//  'notification.html'  // html url - can be relative
+	//);
+
+	// Then show the notification.
+	notification.show(); 
+}
+
+	
+$(document).ready(function() {
+	//notify("Yay!");
+
+	function colorFromBgColor(color) {
+		r=parseInt(color.substring(1,3),16);
+		g=parseInt(color.substring(3,5),16);
+		b=parseInt(color.substring(5,7),16);
+		if (((r+b+g)/3)>85) return "#333333"; else return "#ffffff";
+	}
+
+	function resizeDays() {
+		$(".day_content").css("height",$("nav").height()-16);
+	}
+
+	window.onresize = resizeDays;
 	
 	function right_slide() {
 		//alert("Prawa szczałka!");
@@ -388,103 +553,14 @@ $(document).ready(function() {
 		Środkowa tabela - aktualny tydzień
 	*/
 	
-	
 	var now = moment();
 	var mdn = now.format("d")-1; // current day of the week
 	if (mdn==-1) mdn = 6;
 	var d = now.add("days", (-1)*mdn);        // current day
 	var week_last = moment().add("days", -(7+mdn));   // last week
 	var week_next = moment().add("days", 7-mdn);     // next week
-			
-	function setDayHandlers(element) {
-		
-		function arrOnDrop(event) {
-			//console.log(this.getAttribute('id'));
-
-			$(this).css("background-color", "transparent"); $(this.childNodes).css("opacity", "1");
-			old = $('[data-draggedOver=true]')[0];
-			if (old) { $(old).animate({rotate:'0deg'},100); old.setAttribute('data-draggedOver', 'false'); }
-		        var type = event.dataTransfer.getData("Url");
-			var text = event.dataTransfer.getData("Text");
-			//alert("type: "+type+", text:"+text);
-			if ((!text) || (text===type)) text="";
-			var note = document.createElement('div');
-			if ((type==="note://") || (text)) {
-				$(note).addClass('note');
-				note.setAttribute('data-content', text);
-				note.setAttribute('data-bgcolor', '#5b5b5b');
-				//note.setAttribute('data-date', this.getAttribute('id'));
-			
-				fillNote(note);
-				//notify('Notatka dodana!');
-			} else if (type=="event://") {
-				$(note).addClass('event');
-				note.setAttribute('data-content', text);
-				note.setAttribute('data-bgcolor', '#78c20f');
-				//note.setAttribute('data-date', this.getAttribute('id'));
-				note.setAttribute('data-time', '18:25');
-			
-				fillNote(note);
-			} else if (type=="task://") {
-				$(note).addClass('task');
-				note.setAttribute('data-content', text);
-				note.setAttribute('data-bgcolor', '#82418e');
-				//note.setAttribute('data-date', this.getAttribute('id'));
-				note.setAttribute('data-done', 'false');
-				
-				fillNote(note);
-			}
-			else if (type=="drag://") {
-				moveAnimate($("#draggedElement"), this, old, saveNotes);
-				saveNotes();
-				return false;
-			}
-			if (old) 
-				this.insertBefore(note,old); 
-			else
-				this.appendChild(note);
-			saveNotes();
-
-		}
-		element.ondrop = arrOnDrop;
-		
-		//
-		function arrDragOver() { $(this).css("background-color", "white"); $(this.childNodes).css("opacity", "0.75"); 
-					return false; }
-		function arrDragLeave() { $(this).css("background-color", "transparent"); $(this.childNodes).css("opacity", "1"); 
-								old = $('[data-draggedOver=true]')[0];
-					if (old) { $(old).rotate('0deg');; old.setAttribute('data-draggedOver', 'false'); }
-		}
-		//
-		element.ondragover = arrDragOver;
-		element.ondragleave = arrDragLeave;
-		//
-			
-	}
-		
+					
 	for(i = 0; i < lang[mylang]["days"].length; i++) {
-		
-		function doNav(cur, parent, d, date) {
-			var nav = document.createElement('nav');
-			parent.appendChild(nav);
-			var header = document.createElement('div');
-			header.setAttribute('class','header');
-			nav.setAttribute('data-date', date);
-			
-			header.innerHTML = "<h3>"+lang[mylang]["days"][i]+"</h3>";
-			
-			if (cur) header.setAttribute('id','current_day');
-		  
-		        header.setAttribute('data-date',d.format("D")+"."+d.format("M"));
-		  
-			nav.appendChild(header);
-		  
-			var content = document.createElement('div');
-			content.setAttribute('class', 'day_content');
-			content.setAttribute('id', date);
-			nav.appendChild(content);
-			
-		}
 		
 		var lmyd = (week_last.format("D") < 10) ? "0"+week_last.format("D") : week_last.format("D");
 		var dmyd = (d.format("D") < 10) ? "0"+d.format("D") : d.format("D");
@@ -516,80 +592,6 @@ $(document).ready(function() {
 		week_next.add("days", 1);
 	}
 			
-	function saveTable(table) {
-		//console.log('TABLE: '+table.getAttribute('id')+ ', length: '+table.childNodes.length);
-			for ( var column = 0; column < table.childNodes.length; column++ ) {
-				//console.log('START: ' +table.childNodes[column]);
-				//console.log(' --- ' + table.childNodes[column].getAttribute('data-date'));
-				col = document.getElementById(table.childNodes[column].getAttribute('data-date')).childNodes;
-				
-				//var column = document.getElementById('day'+(i+1)).childNodes;
-				var note_count = 0;
-				var notes = new Array();
-				for ( j = 0; j < col.length; j++ ) {
-					//console.log('storing note: '+col[j].getAttribute("data-content"));
-					//console.log(col[j].getAttribute('class').split(" "));
-					function oc(a) {
-						var o = {};
-						for(var i=0;i<a.length;i++) {
-							o[a[i]]='';
-						}
-						return o;
-					}
-					//type=oc(col[j].getAttribute('class').split(" "));
-					//if ( "note" in type ) {
-						if (col[j].getAttribute('data-beingDeleted')) continue;
-						notes[note_count] = {};
-						notes[note_count]['type'] = col[j].getAttribute("class");
-						//notes[note_count]['date'] = col[j].getAttribute("data-date");
-						notes[note_count]['content'] = col[j].getAttribute("data-content");
-						notes[note_count]['bgcolor'] = col[j].getAttribute("data-bgcolor");
-						notes[note_count]['time'] = col[j].getAttribute("data-time");
-						notes[note_count]['done'] = col[j].getAttribute("data-done");
-						note_count += 1;
-					//}
-				}
-				localStorage[table.childNodes[column].getAttribute('data-date')]=JSON.stringify(notes);
-				//console.log(table.childNodes[column].getAttribute('data-date')+': '+JSON.stringify(notes));
-				//alert(localStorage['day'+(i+1)]);
-			}				
-	}
-			
-	function saveNotes() {
-		saveTable(document.getElementById('inner_table_left'));
-		saveTable(document.getElementById('inner_table_center'));
-		saveTable(document.getElementById('inner_table_right'));
-		fixFirstNote();
-	}
-	
-	function loadTable(table) {
-		//console.log('TABLE: '+table.getAttribute('id')+ ', length: '+table.childNodes.length);
-		for ( var col = 0; col < table.childNodes.length; col++ ) {
-			var column = Array();
-			var note_count = 0;
-			var data = localStorage[table.childNodes[col].getAttribute('data-date')];
-			if (!data) continue;
-			column = JSON.parse(data);
-			for ( j = 0; j < column.length; j++ ) {
-				var note = document.createElement('div');
-				//console.log(column[j]);
-				$(note).addClass(column[j]['type']);
-				//note.setAttribute('data-date', column[j]['date']);
-				note.setAttribute('data-content', column[j]['content']);
-				note.setAttribute('data-bgcolor', column[j]['bgcolor']);
-				note.setAttribute('data-done', column[j]['done']);
-				note.setAttribute('data-time', column[j]['time']);
-				fillNote(note, false);
-				document.getElementById(table.childNodes[col].getAttribute('data-date')).appendChild(note);
-			}
-		}
-	}
-	
-	function loadNotes() {
-		loadTable(document.getElementById('inner_table_left'));
-		loadTable(document.getElementById('inner_table_center'));
-		loadTable(document.getElementById('inner_table_right'));
-	}
 			
 	resizeDays();
 	loadNotes();
