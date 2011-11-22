@@ -291,7 +291,13 @@ function nyanNyan() {
 		icon.ondragstart = function(e) {
 			old = document.getElementById("draggedElement");
 			if (old) old.setAttribute("id", "");
+			old = document.getElementById("draggedElementClone");
+			if (old) old.remove();
 			this.parentNode.parentNode.setAttribute("id","draggedElement");
+			clone = $(this.parentNode.parentNode).clone();
+			clone.css("display", "none");
+			clone.appendTo("body");
+			clone.attr("id","draggedElementClone");
 			e.dataTransfer.setDragImage(this.parentNode.parentNode, $(this.parentNode.parentNode).width, $(this.parentNode.parentNode).height);
 			e.dataTransfer.setData("Url","drag://");
 		}
@@ -352,7 +358,19 @@ function nyanNyan() {
 				fillNote(note);
 			}
 			else if (type=="drag://") {
-				moveAnimate($("#draggedElement"), this, old, saveNotes);
+				if (document.getElementById('draggedElement')) {
+					moveAnimate($("#draggedElement"), this, old, saveNotes);
+					$("#draggedElementClone").remove();
+				}
+				else {
+					if (old)
+						$("#draggedElementClone").insertBefore(old);
+					else
+						$("#draggedElementClone").appendTo(this);
+					note = $("#draggedElementClone");
+					note.attr("id","");
+					note.css("display", "block").scale(0).rotate('-70deg').css('margin-bottom','-100%').animate({rotate: 0, scale: 1, marginBottom: 0}, 500);
+				}
 				saveNotes();
 				return false;
 			}
@@ -583,8 +601,8 @@ $(document).ready(function() {
 	}
 		
 	document.addEventListener("keydown", keydown, false);
-	$("#left_arrow").click(left_slide);
-	$("#right_arrow").click(right_slide);
+	$("#left_arrow").click(left_slide)[0].ondragenter=left_slide;
+	$("#right_arrow").click(right_slide)[0].ondragenter=right_slide;
 			
 	function dragInfo() {
 			var helper = document.createElement('div');
