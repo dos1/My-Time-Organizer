@@ -508,7 +508,7 @@ div[contenteditable=true] {
 	position: fixed;
 	z-index: 696966;
 	right: 90px;
-	top: 0px;
+	top: 2px;
 	background-image: url('../images/nyan_rainbow.gif');
 	background-position: -2px 0px;
 	background-repeat: repeat-x;

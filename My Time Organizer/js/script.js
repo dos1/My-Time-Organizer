@@ -451,7 +451,7 @@ function moveAnimate(element, newParent, old, saveNotes){
         var oldElement = element.clone().insertBefore(element);
 	oldElement.css('visibility','hidden');
 	oldElement.attr('data-beingMoved','true');
-	oldElement.animate( {'height': 0, 'paddingTop': 0, 'paddingBottom':0, 'marginTop':0,'marginBottom':0}, 400, function() { oldElement.remove(); saveNotes(); });
+	oldElement.animate( {'height': 0, 'paddingTop': 0, 'paddingBottom':0, 'marginTop':0,'marginBottom':0}, 400);
 	if (old) 
 		element.insertBefore($(old)); 
 	else
@@ -476,10 +476,12 @@ function moveAnimate(element, newParent, old, saveNotes){
 		if (fix==22) newOffset.top-=10;
 	}
         temp.animate( {'top': parseInt(newOffset.top)-fix, 'left':newOffset.left}, 500, function(){
+	   oldElement.remove();
            element.show();
 	   if (old) { o.css("margin-top", om); }
            temp.remove();	   
 	   $(".menu").css("display", "block");
+	   saveNotes();
         });
 }
 
