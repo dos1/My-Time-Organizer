@@ -492,20 +492,50 @@ div[contenteditable=true] {
 	display: block;
 	width: 125px;
 	height: 88px;
-	background-image: url('../images/nyan_cat.gif');
-	background-repeat: no-repeat;
 	position: fixed;
 	left: 0px;
 	margin-left: -150px;
 	top: 50%;
-	-webkit-transform: rotateY(180deg) translate(0px, -24px);
+	-webkit-transform: translate(-300px, -24px);
 	-webkit-transition: left 3.25s linear, margin-left 3.25s linear;
 	z-index: 696969;
 }
+.nyan::before {
+	display: block;
+	content: "";
+	height: 86px;
+	width: 300px;
+	position: fixed;
+	z-index: 696966;
+	right: 90px;
+	top: 0px;
+	background-image: url('../images/nyan_rainbow.gif');
+	background-position: -2px 0px;
+	background-repeat: repeat-x;
+}
+.nyan::after {
+	display: block;
+	content: "";
+	width: 125px;
+	height: 88px;
+	background-image: url('../images/nyan_cat.gif');
+	background-repeat: no-repeat;
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	z-index: 696969;
+        -webkit-transform: rotateY(180deg);
+}
 .nyan[data-nyan=nyan] {
-	margin-left: 0px;
+	margin-left: 300px;
 	left: 100%;
 	-webkit-transform: translate(0px, -64px);
+}
+.nyan[data-nyan=nyan]::after {
+	-webkit-transform: none;
+}
+.nyan[data-nyan=nayn]::before {
+	right: -270px;
 }
 body[data-nyan=nyan]::after {
 	display: block;
@@ -515,6 +545,6 @@ body[data-nyan=nyan]::after {
 	width: 100%;
 	height: 100%;
 	left: 0px;
-	background-color: rgba(0,0,0,0.1);
-	z-index: 696968;
+	background-color: rgba(0,0,0,0.2);
+	z-index: 696967;
 }
