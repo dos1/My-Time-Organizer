@@ -392,9 +392,9 @@ function doNav(parent, d, date) {
 	if (d.format("DD-MM-YYYY")===moment().format("DD-MM-YYYY")) header.setAttribute('id','current_day');
   
 	if (d.format("YYYY")!=moment().format("YYYY"))
-		header.setAttribute('data-date',d.format("D")+"."+d.format("M")+"."+d.format("YY"));
+		header.setAttribute('data-date',((d.format("D") < 10) ? "0"+d.format("D") : d.format("D"))+"."+((d.format("M") < 10) ? "0"+d.format("M") : d.format("M"))+"."+d.format("YY"));
 	else
-		header.setAttribute('data-date',d.format("D")+"."+d.format("M"));
+		header.setAttribute('data-date',((d.format("D") < 10) ? "0"+d.format("D") : d.format("D"))+"."+((d.format("M") < 10) ? "0"+d.format("M") : d.format("M")));
 	
 	nav.appendChild(header);
   
