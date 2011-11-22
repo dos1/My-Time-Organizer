@@ -548,3 +548,31 @@ body[data-nyan=nyan]::after {
 	background-color: rgba(0,0,0,0.2);
 	z-index: 696967;
 }
+#left_arrow, #right_arrow {
+	position: absolute;
+	width: 50px;
+	height: 100px;
+	padding: 18px;
+	padding-top: 32px;
+	-webkit-box-sizing: border-box;
+	background-color: rgba(0,0,0,0.1);
+	font-size: 30px;
+	font-weight: bold;
+	border-radius: 10px;
+	text-shadow: 0px 0px 10px rgba(0,0,0,0.3);
+	top: 50%;
+	color: white;
+	-webkit-transition: 0.5s;
+	cursor: pointer;
+}
+#left_arrow:hover, #right_arrow:hover {
+	background-color: rgba(0,0,0,0.3);
+}
+#left_arrow {
+	left: 5%;
+	-webkit-transform: translate(-25px, -50px);	
+}
+#right_arrow {
+	right: 5%;
+	-webkit-transform: translate(25px, -50px);	
+}

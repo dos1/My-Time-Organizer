@@ -583,6 +583,8 @@ $(document).ready(function() {
 	}
 		
 	document.addEventListener("keydown", keydown, false);
+	$("#left_arrow").click(left_slide);
+	$("#right_arrow").click(right_slide);
 			
 	function dragInfo() {
 			var helper = document.createElement('div');
