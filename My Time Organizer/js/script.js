@@ -58,7 +58,17 @@ function nyanNyan() {
 	function updateWeek() {
 		$("#info_panel").html("Tydzień "+weeks['inner_table_center'].format("w")+", "+weeks['inner_table_center'].format("YYYY"));
 	}
-	
+
+	function incID() {
+		if (localStorage['id']) {
+			localStorage['id']=parseInt(localStorage['id'])+1;
+		} else {
+			localStorage['id']=1;
+		}
+		return localStorage['id'];
+	}
+
+
 	function toToday() {
 		diff = moment().diff(weeks['inner_table_center'], 'weeks');
 		if (diff>0) {
@@ -96,8 +106,12 @@ function nyanNyan() {
 					//if ( "note" in type ) {
 						if (col[j].getAttribute('data-beingDeleted')) continue;
 						notes[note_count] = {};
+						if (!parseInt(col[j].getAttribute("data-id"))) {
+							col[j].setAttribute("data-id", incID());
+						}
+						notes[note_count]['id'] = col[j].getAttribute("data-id");
 						notes[note_count]['type'] = col[j].getAttribute("class");
-						//notes[note_count]['date'] = col[j].getAttribute("data-date");
+						notes[note_count]['date'] = col[j].getAttribute("data-date");
 						notes[note_count]['content'] = col[j].getAttribute("data-content");
 						notes[note_count]['bgcolor'] = col[j].getAttribute("data-bgcolor");
 						notes[note_count]['time'] = col[j].getAttribute("data-time");
@@ -130,7 +144,8 @@ function nyanNyan() {
 				var note = document.createElement('div');
 				//console.log(column[j]);
 				$(note).addClass(column[j]['type']);
-				//note.setAttribute('data-date', column[j]['date']);
+				note.setAttribute('data-id', column[j]['id']);
+				note.setAttribute('data-date', column[j]['date']);				
 				note.setAttribute('data-content', column[j]['content']);
 				note.setAttribute('data-bgcolor', column[j]['bgcolor']);
 				note.setAttribute('data-done', column[j]['done']);
@@ -152,10 +167,10 @@ function nyanNyan() {
 
 	function fillNote(note, anim) {
 		
+		if (!$(note).attr('class')) return false; // HACK, FIXME
+		
 		anim = typeof(anim) != 'undefined' ? anim : true;
-		
-		$("#helper").css("display","none");
-		
+				
 		note.ondragover = function() {
 			old = $('[data-draggedOver=true]')[0];
 			if ((old!=note) && (old)) { $(old).rotate('0deg'); old.setAttribute('data-draggedOver', 'false'); }
@@ -276,7 +291,7 @@ function nyanNyan() {
 		icon.draggable = false;
 		icon.style.float = 'right';
 		icon.onclick = function() {
-			function removeNote() { this.parentNode.removeChild(this); }
+			function removeNote() { this.parentNode.removeChild(this); showHideHelper();}
 			$(this.parentNode.parentNode).attr('data-beingDeleted', true);
 			saveNotes();
 			$(this.parentNode.parentNode).animate({rotate: '-50deg', scale: 0, height: 0, paddingTop: 0, paddingBottom: 0, marginTop: 0, marginBottom: 0}, 500, removeNote);
@@ -292,8 +307,12 @@ function nyanNyan() {
 			old = document.getElementById("draggedElement");
 			if (old) old.setAttribute("id", "");
 			old = document.getElementById("draggedElementClone");
-			if (old) old.remove();
+			if (old) $(old).remove();
 			this.parentNode.parentNode.setAttribute("id","draggedElement");
+			if (!parseInt(this.parentNode.parentNode.getAttribute("data-id"))) {
+				this.parentNode.parentNode.setAttribute("data-id",incID());
+				saveNotes();
+			}
 			clone = $(this.parentNode.parentNode).clone();
 			clone.css("display", "none");
 			clone.appendTo("body");
@@ -301,6 +320,7 @@ function nyanNyan() {
 			e.dataTransfer.setDragImage(this.parentNode.parentNode, $(this.parentNode.parentNode).width, $(this.parentNode.parentNode).height);
 			e.dataTransfer.setData("Url","drag://");
 		}
+		icon.ondragend = showHideHelper;
 		icon.onclick = function() {
 			var helper = document.createElement('div');
 			helper.setAttribute("class", "helperSmall");
@@ -315,7 +335,7 @@ function nyanNyan() {
 
 		note.appendChild(note_icons);
 		if (anim)
-			$(note).scale(0).rotate('-70deg').css('margin-bottom','-100%').animate({rotate: 0, scale: 1, marginBottom: 0}, 500);
+			$(note).css('display','block').scale(0).rotate('-70deg').css('margin-bottom','-100%').animate({rotate: 0, scale: 1, marginBottom: 0}, 500);
 	}
 
 
@@ -336,7 +356,7 @@ function nyanNyan() {
 				$(note).addClass('note');
 				note.setAttribute('data-content', text);
 				note.setAttribute('data-bgcolor', '#5b5b5b');
-				//note.setAttribute('data-date', this.getAttribute('id'));
+				note.setAttribute('data-date', this.getAttribute('id'));
 			
 				fillNote(note);
 				//notify('Notatka dodana!');
@@ -344,7 +364,7 @@ function nyanNyan() {
 				$(note).addClass('event');
 				note.setAttribute('data-content', text);
 				note.setAttribute('data-bgcolor', '#78c20f');
-				//note.setAttribute('data-date', this.getAttribute('id'));
+				note.setAttribute('data-date', this.getAttribute('id'));
 				note.setAttribute('data-time', '18:25');
 			
 				fillNote(note);
@@ -352,13 +372,14 @@ function nyanNyan() {
 				$(note).addClass('task');
 				note.setAttribute('data-content', text);
 				note.setAttribute('data-bgcolor', '#82418e');
-				//note.setAttribute('data-date', this.getAttribute('id'));
+				note.setAttribute('data-date', this.getAttribute('id'));
 				note.setAttribute('data-done', 'false');
 				
 				fillNote(note);
 			}
 			else if (type=="drag://") {
 				if (document.getElementById('draggedElement')) {
+					$("#draggedElement").attr('data-date', this.getAttribute('id'));
 					moveAnimate($("#draggedElement"), this, old, saveNotes);
 					$("#draggedElementClone").remove();
 				}
@@ -368,12 +389,23 @@ function nyanNyan() {
 					else
 						$("#draggedElementClone").appendTo(this);
 					note = $("#draggedElementClone");
+					id = note.attr('data-id');
+					date = note.attr('data-date');
+					notes = JSON.parse(localStorage[date]);
+					for (var i in notes) {
+						if (notes[i]['id']==id) {
+							notes.splice(i,1);
+						}
+					}
+					localStorage[date] = JSON.stringify(notes);
 					note.attr("id","");
-					note.css("display", "block").scale(0).rotate('-70deg').css('margin-bottom','-100%').animate({rotate: 0, scale: 1, marginBottom: 0}, 500);
+					note.attr('data-date', this.getAttribute('id'));
+					note.children().remove();
+					fillNote(note[0]);
 				}
 				saveNotes();
 				return false;
-			}
+			} else { console.log("arrOnDrop: unknown type"); return false; }
 			if (old) 
 				this.insertBefore(note,old); 
 			else
@@ -503,10 +535,45 @@ function moveAnimate(element, newParent, old, saveNotes){
         });
 }
 
+	function countNotes(table) {
+		var sum=0;
+			for ( var column = 0; column < table.childNodes.length; column++ ) {
+				//console.log('START: ' +table.childNodes[column]);
+				//console.log(' --- ' + table.childNodes[column].getAttribute('data-date'));
+				col = document.getElementById(table.childNodes[column].getAttribute('data-date')).childNodes;
+				
+				//var column = document.getElementById('day'+(i+1)).childNodes;
+				var note_count = 0;
+				var notes = new Array();
+				sum += col.length;
+					//console.log('storing note: '+col[j].getAttribute("data-content"));
+			}	
+		return sum;
+	}
+
+	function showHideHelper(anim) {
+		anim = typeof(anim) != 'undefined' ? anim : true;
+		
+		if (countNotes(document.getElementById('inner_table_center'))) {
+			if (anim) {
+				$("#helper").fadeOut(500);
+			} else { $("#helper").hide(); }
+		} else {
+			$("#helper").fadeIn(500);
+		}
+	}
+	
+	function slide() {
+		if ($("body").attr('class')=='dark') $("body").removeClass("dark"); else $("body").addClass("dark");
+		showHideHelper();
+	}
+
 	function right_slide() {
 		//alert("Prawa szczałka!");
 		if ($("[data-editedNow=true]")[0]) return false;
 		if ($("[data-nyan=nyan]")[0]) return false;
+		
+		saveTable(document.getElementById("inner_table_left"));
 
 		$("#inner_table_left").remove();
 		$("#inner_table_center").attr('id','inner_table_left');
@@ -527,8 +594,7 @@ function moveAnimate(element, newParent, old, saveNotes){
 		
 		fillWeekTable(table);
 		loadTable(table);
-		
-		if ($("body").attr('class')=='dark') $("body").removeClass("dark"); else $("body").addClass("dark");
+		slide();
 	}
 		
 	function left_slide() {
@@ -536,6 +602,8 @@ function moveAnimate(element, newParent, old, saveNotes){
 		if ($("[data-editedNow=true]")[0]) return false;
 		if ($("[data-nyan=nyan]")[0]) return false;
 
+		saveTable(document.getElementById("inner_table_right"));
+		
 		$("#inner_table_right").remove();
 		$("#inner_table_center").attr('id','inner_table_right');
 		$("#inner_table_left").attr('id','inner_table_center');
@@ -555,8 +623,7 @@ function moveAnimate(element, newParent, old, saveNotes){
 		
 		fillWeekTable(table);
 		loadTable(table);
-		
-		if ($("body").attr('class')=='dark') $("body").removeClass("dark"); else $("body").addClass("dark");
+		slide();
 	}
 
 
@@ -632,12 +699,15 @@ $(document).ready(function() {
 	}
 	document.getElementById("note_icon").ondragend = function(e) {
 		$(this).css("transform","none");
+		showHideHelper();
 	}
 	document.getElementById("event_icon").ondragend = function(e) {
 		$(this).css("transform","none");
+		showHideHelper();
 	}
 	document.getElementById("task_icon").ondragend = function(e) {
 		$(this).css("transform","none");
+		showHideHelper();
 	}
 	document.getElementById("note_icon").onclick = dragInfo;
 	document.getElementById("event_icon").onclick = dragInfo;
@@ -664,4 +734,5 @@ $(document).ready(function() {
 	
 	resizeDays();
 	loadNotes();
+	showHideHelper(false);
 });

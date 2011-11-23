@@ -9,7 +9,7 @@
 - autosortowanie wydarzeń wg. godziny
 - dodawanie linków do notatek
 - widok miesiąca
-- przycisk powrotu do dzisiaj (funkcja już jest)
-- poprawić: przy przesuwaniu notatki gdzieś w daleki tydzień do przodu lub do tyłu, notka się duplikuje (zostaje w pamięci też tam, gdzie była)
+- przycisk powrotu do dzisiaj (funkcja już jest, póki co przypisana tylko do szczałki w dół)
+- usuwanie osieroconych color pickerów i smallHelperów ;x
 
 - publikacja :D
