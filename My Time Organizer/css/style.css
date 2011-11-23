@@ -577,14 +577,17 @@ body[data-nyan=nyan]::after {
 	padding-top: 32px;
 	-webkit-box-sizing: border-box;
 	background-color: rgba(0,0,0,0.1);
-	font-size: 30px;
-	font-weight: bold;
+	font-size: 0px;
+	text-indent: -999px;
+	overflow: hidden;
 	border-radius: 10px;
 	text-shadow: 0px 0px 10px rgba(0,0,0,0.3);
 	top: 50%;
 	color: white;
 	-webkit-transition: 0.5s;
 	cursor: pointer;
+	background-position: 10px 34px;
+	background-repeat: no-repeat;
 }
 #left_arrow:hover, #right_arrow:hover {
 	background-color: rgba(0,0,0,0.3);
@@ -592,8 +595,11 @@ body[data-nyan=nyan]::after {
 #left_arrow {
 	left: 5%;
 	-webkit-transform: translate(-25px, -50px);	
+	background-position: 9px 34px;
+	background-image: url('../icons/icon_left_arrow.png');
 }
 #right_arrow {
 	right: 5%;
 	-webkit-transform: translate(25px, -50px);	
+	background-image: url('../icons/icon_right_arrow.png');
 }
