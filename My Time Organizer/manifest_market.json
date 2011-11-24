@@ -1,0 +1,18 @@
+{
+  "name": "My Time Organizer",
+  "version": "0.1.2",
+
+  "description": "Organizer dnia, pozwalający na dodawanie notatek, wydarzeń i powiadomień. Aplikacja nadal znajduje się w fazie tworzenia.",
+  "icons": {"48": "icons/icon48.png",
+          "128": "icons/icon128.png"},
+
+  "app": {
+    "launch": {
+       "local_path": "index.html"
+    }
+  },
+
+  "incognito": "split",
+  "offline_enabled": true,
+  "permissions": ["background", "notifications"]
+}
