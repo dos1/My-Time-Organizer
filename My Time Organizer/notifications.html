@@ -1,8 +1,15 @@
 <html>
+<script type="text/javascript" src="js/script.js"></script>
 <script>
-  var notification = webkitNotifications.createNotification("",
-      "Simple Background App",
-      "A background window has been created");
-  notification.show();
+	//alert(now.format("hh:mm"));
+	function checkTime() {
+		var now = moment();
+		var checked = false;
+		if ( now.format("mm") % 2 == 0 && !checked) {
+			notify("Teraz s¹ parzyste minuty ("+now.format("HH:mm")+")");
+			checked = true;
+		}
+	}
+	var t = setTimeout("checkTime()", 1000);
 </script>
 </html>

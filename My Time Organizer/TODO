@@ -13,3 +13,13 @@
 - usuwanie osieroconych color pickerów i smallHelperów ;x
 
 - publikacja :D
+
+// user requests:
+- naprawić problem z mniejszymi rozdzielczościami - znika ikona przenoszenia wpisu
+- linki które można klikać (regexp jakiś pewnie)
+- Michał Jastrzębski 
+	"Troche się ten szary paseczek przy notatce zlewa z tym purpurowym przy zadanie. 
+	Proponowalbym albo pogrubic ten pasek albo kolor purpury rozjaśnić troche :P"
+- Paweł Tarszewski 
+	"godziny przy wpisach dać pogrubione, daty przy dniach tygodnia powiększyć, 
+	i wyrypac albo zmniejszyć te zaokrąglenia wszystkie jak na razie tyle
