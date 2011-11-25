@@ -679,7 +679,7 @@ $(document).ready(function() {
 			helper.css("width", "auto").css("height", "auto").css("top", $("#add_panel").offset().top+45).css("left", $("#add_panel").offset().left-30).css("z-index",100).css("position","absolute");
 			helper.html("Aby utworzyć nowy element, przeciągnij jeden z przycisków powyżej na kolumnę wybranego dnia.");
 			helper.appendTo('body');
-			helper.fadeIn(500).delay(5000).fadeOut(1000);
+			helper.fadeIn(500).delay(5000).fadeOut(1000, function() { $(this).remove(); } );
 	}
 	
 	document.getElementById("note_icon").ondragstart = function(e) {
