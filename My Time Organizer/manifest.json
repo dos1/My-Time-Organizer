@@ -6,8 +6,10 @@
   // Recommended
   //"description": "A Chrome time organizer with notes, events, event notifications and much more. Still in development stage so stay tuned!",
   "description": "Organizer dnia, pozwalający na dodawanie notatek, wydarzeń i powiadomień. Aplikacja nadal znajduje się w fazie tworzenia.",
-  "icons": {"48": "icons/icon48.png",
-          "128": "icons/icon128.png"},
+  "icons": {
+	"16": "icons/icon16.png",
+	"48": "icons/icon48.png",
+	"128": "icons/icon128.png"},
   //"default_locale": "pl",
 
   "app": {
