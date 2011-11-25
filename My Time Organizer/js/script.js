@@ -329,7 +329,7 @@ function nyanNyan() {
 			helper.css("width", "auto").css("height", "auto").css("top", $(icon).offset().top+16).css("left", $(icon).offset().left).css("position","absolute");
 			helper.html("Aby przenieść notatkę, przeciągnij ikonkę i upuść ją na wybrane miejsce.");
 			helper.appendTo('body');
-			helper.fadeIn(500).delay(3000).fadeOut(1000);
+			helper.fadeIn(500).delay(3000).fadeOut(1000, function() { $(this).remove(); });
 		}
 		note_icons.appendChild(icon);
 
