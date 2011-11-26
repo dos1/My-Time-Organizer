@@ -23,5 +23,7 @@
   "incognito": "split",
   "offline_enabled": true,
   //"options_page": "aFile.html",
-  "permissions": ["background", "notifications"]
+  // ta wersja bedzie finalna, debug jest bez background
+  //"permissions": ["background", "notifications"]
+  "permissions": ["notifications"]
 }
