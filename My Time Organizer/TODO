@@ -1,10 +1,10 @@
-- konfiguracja animacji, layoutu, ogólne ustawienia // w sumie to może ja - hun7er. Ale jak zrobię tygodnie
+- konfiguracja animacji, layoutu, ogólne ustawienia // w sumie to może ja - hun7er. Ale jak zrobię tygodnie // ...albo i teraz
 - eventy i powiadomienia // powiadomienia zrobił dos, przypomnienia o eventach działające w tle zrobię ja - hun7er
 - animowany tutorial // dos
 - funkcja cofnij // dos
 - synchronizacja z google calendar // to w sumie może spróbuję - mug3tsu
-- automatyczne pokazywanie i ukrywanie "Nie dodano żadnych elementów" wedle potrzeby // dos
-- widget wyboru godziny w wydarzeniach // dos
+- automatyczne pokazywanie i ukrywanie "Nie dodano żadnych elementów" wedle potrzeby // dos - zrobione
+- widget wyboru godziny w wydarzeniach // dos // ja zrobię razem z panelem wypełniania wydarzenia - hun7er
 
 - autosortowanie wydarzeń wg. godziny
 - dodawanie linków do notatek
@@ -12,14 +12,14 @@
 - przycisk powrotu do dzisiaj (funkcja już jest, póki co przypisana tylko do szczałki w dół)
 - usuwanie osieroconych color pickerów
 
-- publikacja :D
+- publikacja :D // opublikowane, teraz update'y ;-)
 
 // user requests:
 - naprawić problem z mniejszymi rozdzielczościami - znika ikona przenoszenia wpisu
 - linki które można klikać (regexp jakiś pewnie)
 - Michał Jastrzębski 
 	"Troche się ten szary paseczek przy notatce zlewa z tym purpurowym przy zadanie. 
-	Proponowalbym albo pogrubic ten pasek albo kolor purpury rozjaśnić troche :P"
+	Proponowalbym albo pogrubic ten pasek albo kolor purpury rozjaśnić troche :P"     // purpura rozjaśniona, hun7er
 - Paweł Tarszewski 
-	"godziny przy wpisach dać pogrubione, daty przy dniach tygodnia powiększyć, 
+	"godziny przy wpisach dać pogrubione, daty przy dniach tygodnia powiększyć,
 	i wyrypac albo zmniejszyć te zaokrąglenia wszystkie jak na razie tyle

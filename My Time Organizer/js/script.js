@@ -10,18 +10,24 @@ lang = new Array();
 lang["en"] = new Array();
 lang["pl"] = new Array();
 
-var mylang ="pl";
+var mylang ="en";
 		
 /* English */
 lang["en"]["days"] = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
 lang["en"]["ntypes"] = ["Event", "Task", "Note"];
 lang["en"]["notify_txt"] = "Event notification";
+lang["en"]["icons"] = ["Switch view", "Configuration", "Help"];
 lang["en"]["week"] = "Week";
+var troll = "'";
+lang["en"]["helper_txt"] = 'There aren'+troll+'t any items added for that week. To do so, drag an icon with item type from top and drop it onto selected column. Check "Help" for further information.';
+
 /* Polish */
 lang["pl"]["days"] = ["Poniedziałek", "Wtorek", "Środa", "Czwartek", "Piątek", "Sobota", "Niedziela"];
 lang["pl"]["ntypes"] = ["Wydarzenie", "Zadanie", "Notatka"];
 lang["pl"]["notify_txt"] = "Przypomnienie o wydarzeniu";
+lang["pl"]["icons"] = ["Przełącz widok", "Konfiguracja", "Pomoc"];
 lang["pl"]["week"] = "Tydzień";
+lang["pl"]["helper_txt"] = 'Nie dodano jeszcze żadnych elementów do wyświetlonego tygodnia. Aby to uczynić, przeciągnij ikonkę z górnego paska do wybranej kolumny. Kliknij "Pomoc", aby uzyskać dodatkowe informacje.';
 
 var weeks = {};
 
@@ -653,6 +659,15 @@ $(document).ready(function() {
 	$("#event_icon").text(lang[mylang]["ntypes"][0]);
 	$("#task_icon").text(lang[mylang]["ntypes"][1]);
 	$("#note_icon").text(lang[mylang]["ntypes"][2]);
+	
+	$("#view_btn").text(lang[mylang]["icons"][0]);
+	$("#view_btn").attr("alt", lang[mylang]["icons"][0]);
+	$("#conf_btn").text(lang[mylang]["icons"][1]);
+	$("#conf_btn").attr("alt", lang[mylang]["icons"][1]);
+	$("#help_btn").text(lang[mylang]["icons"][2]);
+	$("#help_btn").attr("alt", lang[mylang]["icons"][2]);
+	
+	$("#helper").text(lang[mylang]["helper_txt"]);
 	
 	//notify("Yay!");
 
