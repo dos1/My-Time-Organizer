@@ -294,10 +294,9 @@ function nyanNyan() {
 			}
 		});
 
-		console.log($(icon).data('colorpickerId'));
-
+		$(note).attr('data-colorpickerId',$(icon).data('colorpickerId'));
 		
-		icon.style.marginLeft = '2px';
+		icon.style.marginLeft = '3px';
 		note_icons.appendChild(icon);
 
 		var icon = document.createElement('img');
@@ -583,6 +582,16 @@ function moveAnimate(element, newParent, old, saveNotes){
 		if ($("body").attr('class')=='dark') $("body").removeClass("dark"); else $("body").addClass("dark");
 		showHideHelper();
 	}
+	
+	function removeTable(table) {
+		var notes=table.children().children(".day_content").children();
+		//console.log(notes);
+		for (i=0; i<notes.length; i++) {
+			//console.log(notes[i]);
+			$("#"+$(notes[i]).attr('data-colorpickerId')).remove();
+		}
+		table.remove();
+	}
 
 	function right_slide() {
 		//alert("Prawa szczałka!");
@@ -591,7 +600,7 @@ function moveAnimate(element, newParent, old, saveNotes){
 		
 		saveTable(document.getElementById("inner_table_left"));
 
-		$("#inner_table_left").remove();
+		removeTable($("#inner_table_left"));
 		$("#inner_table_center").attr('id','inner_table_left');
 		$("#inner_table_right").attr('id','inner_table_center');
 
@@ -620,7 +629,7 @@ function moveAnimate(element, newParent, old, saveNotes){
 
 		saveTable(document.getElementById("inner_table_right"));
 		
-		$("#inner_table_right").remove();
+		removeTable($("#inner_table_right"));
 		$("#inner_table_center").attr('id','inner_table_right');
 		$("#inner_table_left").attr('id','inner_table_center');
 
