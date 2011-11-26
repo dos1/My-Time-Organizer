@@ -1,13 +1,7 @@
 <html>
-<script type="text/javascript" src="js/moment.js"></script>
+<script type="text/javascript" src="js/script.js"></script>
 <script>
-	var notification = webkitNotifications.createNotification(
-	    'icons/icon48.png',  // icon url - can be relative
-	    "Appka dzia³a",  // notification title
-	    "Dzia³am sobie w tle ³adnie" // notification body text
-	);
-	notification.show();
-	//notify("Zosta³am wystartowana!");
+	notify("Zosta³am wystartowana!");
 	//alert(now.format("hh:mm"));
 	/*function checkTime() {
 		var now = moment();
@@ -15,12 +9,7 @@
 	}*/
 	setTimeout(function() {
 		var now = moment();
-		var notification = webkitNotifications.createNotification(
-	    'icons/icon48.png',  // icon url - can be relative
-	    "Godzina",  // notification title
-	    "Teraz jest "+now.format("HH:mm") // notification body text
-		);
-		notification.show();
+		notify("Teraz jest "+now.format("HH:mm"));
 	}, 60000);
 </script>
 </html>
