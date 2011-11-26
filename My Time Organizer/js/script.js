@@ -187,6 +187,8 @@ function nyanNyan() {
 			note.removeAttr('style');
 			note.empty();
 			fillNote(note[0]);
+			note.css('box-shadow', '#2020f0 0px 0px 10px 0px');
+			setTimeout(function(note) { note.animate({boxShadow: '0px 0px 10px rgba(0,0,0,0.5)'}, 2000); }, 3000, note);
 			saveNotes();
 			showHideHelper();
 		}
