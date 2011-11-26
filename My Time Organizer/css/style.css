@@ -638,6 +638,6 @@ body[data-nyan=nyan]::after {
 	font-family: Verdana;
 }
 
-#event_edit_panel #editt {
+#event_edit_panel #editt, #cancel {
 	float: right;
 }

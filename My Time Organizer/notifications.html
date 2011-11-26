@@ -2,14 +2,13 @@
 <script type="text/javascript" src="js/script.js"></script>
 <script>
 	//alert(now.format("hh:mm"));
-	function checkTime() {
+	/*function checkTime() {
 		var now = moment();
-		var checked = false;
-		if ( now.format("mm") % 2 == 0 && !checked) {
-			notify("Teraz s¹ parzyste minuty ("+now.format("HH:mm")+")");
-			checked = true;
-		}
-	}
-	var t = setTimeout("checkTime()", 1000);
+		notify("Teraz jest "+now.format("HH:mm"));
+	}*/
+	setTimeout(function() {
+		var now = moment();
+		notify("Teraz jest "+now.format("HH:mm"));
+	}, 60000);
 </script>
 </html>
