@@ -10,7 +10,7 @@ lang = new Array();
 lang["en"] = new Array();
 lang["pl"] = new Array();
 
-var mylang ="en";
+var mylang ="pl";
 		
 /* English */
 lang["en"]["days"] = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
@@ -19,7 +19,8 @@ lang["en"]["notify_txt"] = "Event notification";
 lang["en"]["icons"] = ["Switch view", "Configuration", "Help"];
 lang["en"]["week"] = "Week";
 var troll = "'";
-lang["en"]["helper_txt"] = 'There aren'+troll+'t any items added for that week. To do so, drag an icon with item type from top and drop it onto selected column. Check "Help" for further information.';
+lang["en"]["items_txt"] = ["Click pencil icon to edit that note or cross icon to delete it.", "Click pencil icon to edit that task or cross icon to delete it.", "Click pencil icon to edit that event or cross icon to delete it."];
+lang["en"]["helper_txt"] = 'There aren'+troll+'t any items added for that week. To do so, drag an icon with item type from the top panel and drop it onto selected column. Check "Help" for further information.';
 
 /* Polish */
 lang["pl"]["days"] = ["Poniedziałek", "Wtorek", "Środa", "Czwartek", "Piątek", "Sobota", "Niedziela"];
@@ -27,6 +28,7 @@ lang["pl"]["ntypes"] = ["Wydarzenie", "Zadanie", "Notatka"];
 lang["pl"]["notify_txt"] = "Przypomnienie o wydarzeniu";
 lang["pl"]["icons"] = ["Przełącz widok", "Konfiguracja", "Pomoc"];
 lang["pl"]["week"] = "Tydzień";
+lang["pl"]["items_txt"] = ["Kliknij ikonę ołówka, aby edytować tę notatkę, lub krzyżyk, aby ją usunąć.", "Kliknij ikonę ołówka, aby edytować to zadanie, lub krzyżyk, aby je usunąć.", "Kliknij ikonę ołówka, aby edytować to wydarzenie, lub krzyżyk, aby je usunąć."];
 lang["pl"]["helper_txt"] = 'Nie dodano jeszcze żadnych elementów do wyświetlonego tygodnia. Aby to uczynić, przeciągnij ikonkę z górnego paska do wybranej kolumny. Kliknij "Pomoc", aby uzyskać dodatkowe informacje.';
 
 var weeks = {};
@@ -202,11 +204,11 @@ function nyanNyan() {
 		$(note_content).addClass('note_content');
 		if (note.getAttribute('data-content')==='') {
 			if (note.getAttribute('class')==='note')
-				note_content.innerHTML = 'Kliknij ikonę ołówka, aby edytować tę notatkę, lub krzyżyk, aby ją usunąć.';
+				note_content.innerHTML = lang[mylang]["items_txt"][0];
 			else if (note.getAttribute('class')==='task')
-				note_content.innerHTML = 'Kliknij ikonę ołówka, aby edytować to zadanie, lub krzyżyk, aby je usunąć.';
+				note_content.innerHTML = lang[mylang]["items_txt"][1];
 			else if (note.getAttribute('class')==='event')
-				note_content.innerHTML = 'Kliknij ikonę ołówka, aby edytować to wydarzenie, lub krzyżyk, aby je usunąć.';
+				note_content.innerHTML = lang[mylang]["items_txt"][2];
 		}
 		else note_content.innerHTML = note.getAttribute('data-content');
 		note_content.contentEditable = false;
