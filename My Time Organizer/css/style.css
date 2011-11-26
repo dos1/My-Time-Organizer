@@ -605,3 +605,39 @@ body[data-nyan=nyan]::after {
 	-webkit-transform: translate(25px, -50px);	
 	background-image: url('../icons/icon_right_arrow.png');
 }
+
+#event_edit_panel {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	margin: -85px 0 0 -180px;
+	padding: 10px;
+	text-align: justify;
+	-webkit-box-sizing: border-box;
+	background-color: white;
+	box-shadow: 0px 0px 15px rgba(0,0,0,0.4);
+	min-height: 170px;
+	width: 350px;
+	z-index: 1000000;
+	font-family: Verdana;
+	font-size: 0.77em;
+}
+
+#event_edit_panel .input_text {
+	width: 99%;
+}
+
+#event_edit_panel textarea {
+	font-family: Verdana;
+	margin-left: -0.9px;
+	width: 98.6%;
+}
+
+#event_edit_panel #repeat {
+	margin-left: 15px;
+	font-family: Verdana;
+}
+
+#event_edit_panel #editt {
+	float: right;
+}

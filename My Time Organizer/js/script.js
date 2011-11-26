@@ -336,6 +336,7 @@ function nyanNyan() {
 			e.dataTransfer.setData("Url","drag://");
 		}
 		icon.ondragend = showHideHelper;
+		
 		icon.onclick = function() {
 			var helper = document.createElement('div');
 			helper.setAttribute("class", "helperSmall");

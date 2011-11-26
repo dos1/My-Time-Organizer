@@ -25,12 +25,25 @@
 		<script type="text/javascript" src="js/script.js"></script>
 </head>
 <body>
+		<div id="event_edit_panel" style="display: none;">
+			<input type="text" name="" value="Tytuł" class="input_text" id="event_title_submit"/>
+			<textarea id="event_desc_txt">Opis wydarzenia</textarea>
+			<input type="text" name="" id="event_time_submit" value="Godzina (hh:mm)" class="input_text"/><br/>
+			Powtarzaj:
+			<select id="repeat">
+			<option>nigdy</option>
+			<option>codziennie</option>
+			<option>co tydzień</option>
+			<option>co miesiąc</option>
+			<option>co rok</option>
+			</select><br/>
+			<input type="submit" id="editt" value="Edytuj"/>
+		</div>
 		<!-- items that can be dropped onto the table -->
 		<header>
 			<div id="logo">My Time Organizer</div>
 
 			<div id="right_panel">
-
 				<div id="add_panel">
 					<div id="event_icon" draggable="true">
 					</div>
