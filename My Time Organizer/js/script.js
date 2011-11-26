@@ -14,10 +14,14 @@ var mylang ="pl";
 		
 /* English */
 lang["en"]["days"] = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
+lang["en"]["ntypes"] = ["Event", "Task", "Note"];
 lang["en"]["notify_txt"] = "Event notification";
+lang["en"]["week"] = "Week";
 /* Polish */
 lang["pl"]["days"] = ["Poniedziałek", "Wtorek", "Środa", "Czwartek", "Piątek", "Sobota", "Niedziela"];
+lang["pl"]["ntypes"] = ["Wydarzenie", "Zadanie", "Notatka"];
 lang["pl"]["notify_txt"] = "Przypomnienie o wydarzeniu";
+lang["pl"]["week"] = "Tydzień";
 
 var weeks = {};
 
@@ -56,7 +60,7 @@ function nyanNyan() {
 }
 
 	function updateWeek() {
-		$("#info_panel").html("Tydzień "+weeks['inner_table_center'].format("w")+", "+weeks['inner_table_center'].format("YYYY"));
+		$("#info_panel").html(lang[mylang]["week"]+" "+weeks['inner_table_center'].format("w")+", "+weeks['inner_table_center'].format("YYYY"));
 	}
 
 	function incID() {
@@ -282,7 +286,7 @@ function nyanNyan() {
 			}
 		});
 
-		icon.style.marginLeft = '6px';
+		icon.style.marginLeft = '3px';
 		note_icons.appendChild(icon);
 
 		var icon = document.createElement('img');
@@ -302,7 +306,7 @@ function nyanNyan() {
 		icon.setAttribute('src', 'icons/move.png');
 		icon.draggable = true;
 		icon.setAttribute('title', 'Przenieś');
-		icon.style.marginLeft = '6px';
+		icon.style.marginLeft = '3px';
 		icon.ondragstart = function(e) {
 			old = document.getElementById("draggedElement");
 			if (old) old.setAttribute("id", "");
@@ -646,6 +650,10 @@ function notify(text) {
 
 	
 $(document).ready(function() {
+	$("#event_icon").text(lang[mylang]["ntypes"][0]);
+	$("#task_icon").text(lang[mylang]["ntypes"][1]);
+	$("#note_icon").text(lang[mylang]["ntypes"][2]);
+	
 	//notify("Yay!");
 
 	function colorFromBgColor(color) {
