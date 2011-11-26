@@ -1,7 +1,37 @@
+<!DOCTYPE html>
+<!--
+/* [?] My Time Organizer @ Google Apps Hackathon 12.11.2011 (11/12/2011)
+ * [+] Authors: 
+ * - Dominik Galewski (mug3tsu)
+ * - Sebastian Krzyszkowiak (dos)
+ * - Krzysztof Marciniak (hun7er)
+ * [!] [alphabetical order]
+ */
+-->
 <html>
-<script type="text/javascript" src="js/script.js"></script>
+<head>
+<meta charset="utf-8">
 <script>
-	notify("Zosta≥am wystartowana!");
+
+function notify(text) {
+	// Create a simple text notification:
+	var notification = webkitNotifications.createNotification(
+	    'icons/icon48.png',  // icon url - can be relative
+	    lang[mylang]["notify_txt"],  // notification title
+	    text  // notification body text
+	);
+
+	// Or create an HTML notification:
+	//var notification = webkitNotifications.createHTMLNotification(
+	//  'notification.html'  // html url - can be relative
+	//);
+
+	// Then show the notification.
+	notification.show(); 
+}
+
+
+	notify("Zosta≈Çam wystartowana!");
 	//alert(now.format("hh:mm"));
 	/*function checkTime() {
 		var now = moment();
@@ -12,4 +42,6 @@
 		notify("Teraz jest "+now.format("HH:mm"));
 	}, 60000);
 </script>
+</head>
+<body></body>
 </html>
