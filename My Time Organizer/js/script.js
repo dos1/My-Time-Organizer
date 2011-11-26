@@ -82,7 +82,8 @@ function nyanNyan() {
 
 
 	function toToday() {
-		diff = moment().diff(weeks['inner_table_center'], 'weeks');
+		diff = moment().diff(weeks['inner_table_center'], 'days');
+		diff = Math.floor(diff/7);
 		if (diff>0) {
 			for (var i=0; i<diff; i++) {
 				right_slide();
@@ -335,7 +336,6 @@ function nyanNyan() {
 			e.dataTransfer.setData("Url","drag://");
 		}
 		icon.ondragend = showHideHelper;
-		
 		icon.onclick = function() {
 			var helper = document.createElement('div');
 			helper.setAttribute("class", "helperSmall");
