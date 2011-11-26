@@ -294,7 +294,10 @@ function nyanNyan() {
 			}
 		});
 
-		icon.style.marginLeft = '3px';
+		console.log($(icon).data('colorpickerId'));
+
+		
+		icon.style.marginLeft = '2px';
 		note_icons.appendChild(icon);
 
 		var icon = document.createElement('img');

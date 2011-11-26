@@ -405,7 +405,7 @@ div[contenteditable=true] {
 	cursor: 			move;
 	height: 			20px;
 	padding: 5px;
-	padding-top: 7px;
+	padding-top: 10px;
 	width: 134px;
 	height: 48px;
 	color: white;
@@ -501,7 +501,7 @@ div[contenteditable=true] {
 	cursor:pointer;
 	margin:auto;
 	/*margin:15px;*/
-	margin-left: 5px;
+	margin-left: 2px;
 	color:transparent;
 	background-color:transparent;
 	border: 0px;
