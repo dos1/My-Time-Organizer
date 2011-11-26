@@ -1,7 +1,6 @@
 - konfiguracja animacji, layoutu, ogólne ustawienia // w sumie to może ja - hun7er. Ale jak zrobię tygodnie // ...albo i teraz
 - eventy i powiadomienia // powiadomienia zrobił dos, przypomnienia o eventach działające w tle zrobię ja - hun7er
 - animowany tutorial // dos
-- funkcja cofnij // dos
 - synchronizacja z google calendar // to w sumie może spróbuję - mug3tsu
 - panel wypełniania wydarzenia // hun7er
 
@@ -9,6 +8,8 @@
 - dodawanie linków do notatek
 - widok miesiąca
 - przycisk powrotu do dzisiaj (funkcja już jest, póki co przypisana tylko do szczałki w dół)
+- naprawić undelete gdy wskazany jest inny tydzień
+- chwilowy glow po undelete
 
 // user requests:
 - linki które można klikać (regexp jakiś pewnie)

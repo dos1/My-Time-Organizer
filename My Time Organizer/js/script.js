@@ -178,8 +178,23 @@ function nyanNyan() {
 		loadTable(document.getElementById('inner_table_right'));
 	}
 
-	function removeNote(note) {
+	function undeleteNote() {
+		note = deletedItems.pop();
+		if (note) {
+			// TODO: slide to correct week
+			note.appendTo($('#'+note.attr('data-date')));
+			note.removeAttr('data-beingDeleted');
+			note.removeAttr('style');
+			note.empty();
+			fillNote(note[0]);
+			saveNotes();
+			showHideHelper();
+		}
+	}
+
+	function deleteNote(note) {
 	// takes jQuery object
+		$("#"+note.attr('data-colorpickerId')).remove();
 		note.detach();
 		deletedItems.push(note);
 	}
@@ -312,10 +327,10 @@ function nyanNyan() {
 		icon.draggable = false;
 		icon.style.float = 'right';
 		icon.onclick = function() {
-			function removeNoteCallback() { removeNote($(this)); showHideHelper();}
+			function removeNote() { deleteNote($(this)); showHideHelper();}
 			$(this.parentNode.parentNode).attr('data-beingDeleted', true);
 			saveNotes();
-			$(this.parentNode.parentNode).animate({rotate: '-50deg', scale: 0, height: 0, paddingTop: 0, paddingBottom: 0, marginTop: 0, marginBottom: 0}, 500, removeNoteCallback);
+			$(this.parentNode.parentNode).animate({rotate: '-50deg', scale: 0, height: 0, paddingTop: 0, paddingBottom: 0, marginTop: 0, marginBottom: 0}, 500, removeNote);
 		}
 		note_icons.appendChild(icon);
 		
@@ -421,7 +436,7 @@ function nyanNyan() {
 					localStorage[date] = JSON.stringify(notes);
 					note.attr("id","");
 					note.attr('data-date', this.getAttribute('id'));
-					note.children().remove();
+					note.empty();
 					fillNote(note[0]);
 				}
 				saveNotes();
@@ -706,6 +721,7 @@ $(document).ready(function() {
 		if(event.which == 39) right_slide(); // prawa szczałka
 		else if (event.which == 37) left_slide(); // lewa szczałka
 		else if (event.which == 40) toToday(); // dolna szczałka
+		else if (event.which == 08) undeleteNote(); // bekspejs
 	}
 		
 	document.addEventListener("keydown", keydown, false);
