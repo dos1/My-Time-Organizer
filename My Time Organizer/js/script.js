@@ -32,6 +32,7 @@ lang["pl"]["items_txt"] = ["Kliknij ikonę ołówka, aby edytować tę notatkę,
 lang["pl"]["helper_txt"] = 'Nie dodano jeszcze żadnych elementów do wyświetlonego tygodnia. Aby to uczynić, przeciągnij ikonkę z górnego paska do wybranej kolumny. Kliknij "Pomoc", aby uzyskać dodatkowe informacje.';
 
 var weeks = {};
+var deletedItems = [];
 
 function nyanNyan() {
 	function nyanNyanNyan() {
@@ -177,6 +178,11 @@ function nyanNyan() {
 		loadTable(document.getElementById('inner_table_right'));
 	}
 
+	function removeNote(note) {
+	// takes jQuery object
+		note.detach();
+		deletedItems.push(note);
+	}
 
 	function fillNote(note, anim) {
 		
@@ -306,10 +312,10 @@ function nyanNyan() {
 		icon.draggable = false;
 		icon.style.float = 'right';
 		icon.onclick = function() {
-			function removeNote() { this.parentNode.removeChild(this); showHideHelper();}
+			function removeNoteCallback() { removeNote($(this)); showHideHelper();}
 			$(this.parentNode.parentNode).attr('data-beingDeleted', true);
 			saveNotes();
-			$(this.parentNode.parentNode).animate({rotate: '-50deg', scale: 0, height: 0, paddingTop: 0, paddingBottom: 0, marginTop: 0, marginBottom: 0}, 500, removeNote);
+			$(this.parentNode.parentNode).animate({rotate: '-50deg', scale: 0, height: 0, paddingTop: 0, paddingBottom: 0, marginTop: 0, marginBottom: 0}, 500, removeNoteCallback);
 		}
 		note_icons.appendChild(icon);
 		
