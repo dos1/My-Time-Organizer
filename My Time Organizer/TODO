@@ -11,7 +11,6 @@
 - przycisk powrotu do dzisiaj (funkcja już jest, póki co przypisana tylko do szczałki w dół)
 
 // user requests:
-- naprawić problem z mniejszymi rozdzielczościami - znika ikona przenoszenia wpisu
 - linki które można klikać (regexp jakiś pewnie)
 - Paweł Tarszewski 
 	"godziny przy wpisach dać pogrubione, daty przy dniach tygodnia powiększyć,

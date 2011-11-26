@@ -594,10 +594,7 @@ function moveAnimate(element, newParent, old, saveNotes){
 	}
 
 	function right_slide() {
-		//alert("Prawa szczałka!");
-		if ($("[data-editedNow=true]")[0]) return false;
-		if ($("[data-nyan=nyan]")[0]) return false;
-		
+		//alert("Prawa szczałka!");		
 		saveTable(document.getElementById("inner_table_left"));
 
 		removeTable($("#inner_table_left"));
@@ -624,9 +621,6 @@ function moveAnimate(element, newParent, old, saveNotes){
 		
 	function left_slide() {
 		//alert("Lewa szczałka!");		
-		if ($("[data-editedNow=true]")[0]) return false;
-		if ($("[data-nyan=nyan]")[0]) return false;
-
 		saveTable(document.getElementById("inner_table_right"));
 		
 		removeTable($("#inner_table_right"));
@@ -700,6 +694,9 @@ $(document).ready(function() {
 	window.onresize = resizeDays;
 			
 	function keydown(e) {
+		if ($("[data-editedNow=true]")[0]) return false;
+		if ($("[data-nyan=nyan]")[0]) return false;
+
 		if(event.which == 39) right_slide(); // prawa szczałka
 		else if (event.which == 37) left_slide(); // lewa szczałka
 		else if (event.which == 40) toToday(); // dolna szczałka
