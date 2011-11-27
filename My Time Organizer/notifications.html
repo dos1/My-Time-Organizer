@@ -31,15 +31,31 @@ function notify(text) {
 	notification.show(); 
 }
 
-var t;
+var t, tcurday, wpisy;
+var TodayTODO = new Array();
 
-function getTime() {
+function checkEvents() {
 	var now = moment();
-	//notify("Teraz jest "+now.format("HH:mm"));
-	t = setTimeout("getTime()", 60000);
+	var tday = now.format("D") < 10 ? "0"+now.format("D") : now.format("D");
+	var tmon = now.format("M") < 10 ? "0"+now.format("M") : now.format("M");
+	var tyear = now.format("YYYY");
+	
+	var today = "day"+tday+"-"+tmon+"-"+tyear;
+	
+	wpisy = JSON.parse(localStorage[today]);
+	for (var i = 0; i < wpisy.length; i++) {
+		if (wpisy[i].type == 'event') {
+			if (now.format('HH:mm') == wpisy[i].time) notify(wpisy[i].content);
+		}
+	}
+	
+	//notify("Na dzis: "+localStorage[today]);
+	t = setTimeout("checkEvents()", 30000);
 }
-
-	getTime();
+	//wpisy = localStorage[today];
+	//for (var i = 0; i < wpisy.length(); i++) TodayTODO = JSON.parse(wpisy[i]);
+	
+	checkEvents();
 	notify("Zostałam wystartowana!");
 	//alert(now.format("hh:mm"));
 	/*function checkTime() {
