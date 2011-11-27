@@ -82,8 +82,8 @@ function nyanNyan() {
 	}
 
 
-	function toToday() {
-		diff = moment().diff(weeks['inner_table_center'], 'days');
+	function slideTo(day) {
+		diff = day.diff(weeks['inner_table_center'], 'days');
 		diff = Math.floor(diff/7);
 		if (diff>0) {
 			for (var i=0; i<diff; i++) {
@@ -181,8 +181,10 @@ function nyanNyan() {
 	function undeleteNote() {
 		note = deletedItems.pop();
 		if (note) {
-			// TODO: slide to correct week
-			note.appendTo($('#'+note.attr('data-date')));
+			date = note.attr('data-date');
+			slideTo(moment(date.substr(3), "DD-MM-YYYY"));
+			
+			note.appendTo($('#'+date));
 			note.removeAttr('data-beingDeleted');
 			note.removeAttr('style');
 			note.empty();
@@ -722,7 +724,7 @@ $(document).ready(function() {
 
 		if(event.which == 39) right_slide(); // prawa szczałka
 		else if (event.which == 37) left_slide(); // lewa szczałka
-		else if (event.which == 40) toToday(); // dolna szczałka
+		else if (event.which == 40) slideTo(moment()); // dolna szczałka
 		else if (event.which == 08) undeleteNote(); // bekspejs
 	}
 		
