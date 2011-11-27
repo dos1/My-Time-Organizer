@@ -9,12 +9,15 @@
 function expand() {
 	elem = $('#info_panel');
 	elem.attr('data-expand','true');
-	
+	$("#tutorialText").html("Aby przemieszczać się między poszczególnymi tygodniami, możesz najechać myszką na numer tygodnia wskazany powyżej albo kliknąć na przycisk ze strzałką znajdujący się na boku ekranu. Pierwsza ikonka pozwoli Ci wybrać interesującą Cię datę, druga zaś - przeniesie do dzisiaj.<br/><br/>Dodatkowo możesz skorzystać ze sterowania klawiaturą zgodnie ze schematem obok.");
+	$('#tutorial').animate({top: elem.offset().top+30, left: (elem.offset().left+parseInt(elem.css('width')))-parseInt($('#tutorial').css('width'))}, 1);
+	$('#tutorial').fadeIn(500);	
 }
 
 function second() {
+	$('#tutorial').fadeOut(500);
 	elem = $('#left_arrow');
-	$('#tutorialHighlight').delay(1000).animate({height: parseInt(elem.css('height'))+60, width: parseInt(elem.css('width'))+35, top: elem.offset().top-5, left: elem.offset().left}, 1000);
+	$('#tutorialHighlight').animate({height: parseInt(elem.css('height'))+60, width: parseInt(elem.css('width'))+35, top: elem.offset().top-5, left: elem.offset().left}, 1000);
 	elem = $('#right_arrow');
 	$('#tutorialHighlight').delay(500).animate({height: parseInt(elem.css('height'))+60, width: parseInt(elem.css('width'))+35, top: elem.offset().top-5, left: elem.offset().left}, 1000);
 
@@ -43,7 +46,7 @@ function first() {
 	$('#tutorialHighlight').animate({height: parseInt(elem.css('height'))+60, width: parseInt(elem.css('width'))+50, top: elem.offset().top-50, left: elem.offset().left-40}, 1000);
 
 	
-	$('#tutorialNext')[0].onclick = null;
+	$('#tutorialNext')[0].onclick = second;
 }
 
 //$(document).ready(function() {
