@@ -679,18 +679,3 @@ body[data-nyan=nyan]::after {
 .datepicker, .colorpicker {
 	z-index: 100001;
 }
-.next_button {
-	background-image: url('../icons/icon_right_arrow.png');	
-	background-repeat: no-repeat;
-	background-position: top right;
-	height: 24px;
-	cursor: pointer;
-	opacity: 0.75;
-	margin-top: 10px;
-	text-align: right;
-	padding-right: 32px;
-	padding-top: 8px;
-}
-.next_button:hover {
-	opacity: 1;
-}

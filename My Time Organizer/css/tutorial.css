@@ -58,3 +58,20 @@
 	margin-bottom: 8px;
 	content: "Działa! :)";
 }*/
+.next_button {
+	background-image: url('../icons/icon_right_arrow.png');	
+	background-repeat: no-repeat;
+	background-position: top right;
+	height: 24px;
+	width: 100px;
+	float: right;
+	cursor: pointer;
+	opacity: 0.75;
+	margin-top: 10px;
+	text-align: right;
+	padding-right: 32px;
+	padding-top: 8px;
+}
+.next_button:hover {
+	opacity: 1;
+}
