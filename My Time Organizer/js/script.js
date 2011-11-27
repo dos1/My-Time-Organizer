@@ -724,7 +724,11 @@ $(document).ready(function() {
 		if(event.which == 39) right_slide(); // prawa szczałka
 		else if (event.which == 37) left_slide(); // lewa szczałka
 		else if (event.which == 40) slideTo(moment()); // dolna szczałka
-		else if (event.which == 08) undeleteNote(); // bekspejs
+		else if (event.which == 08) { // bekspejs
+			undeleteNote(); 
+			var regRule = /input/i;
+			return (regRule.test(event.target)) ? true : false;			
+		}
 	}
 		
 	document.addEventListener("keydown", keydown, false);
