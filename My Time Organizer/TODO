@@ -2,13 +2,13 @@
 - eventy i powiadomienia // powiadomienia zrobił dos, przypomnienia o eventach działające w tle zrobię ja - hun7er
 - synchronizacja z google calendar // to w sumie może spróbuję - mug3tsu
 - panel wypełniania wydarzenia // hun7er
+- widok miesiąca // dos
+- czcionki na windowsie // dos
+- cofanie na backspace ;/ // dos
+- reimplementacja slideTo() // dos
 
 - autosortowanie wydarzeń wg. godziny
 - dodawanie linków do notatek
-- widok miesiąca
-- czcionki na windowsie
-
-- reimplementacja slideTo()
 
 // user requests:
 - linki które można klikać (regexp jakiś pewnie)
