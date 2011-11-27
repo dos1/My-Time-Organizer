@@ -16,6 +16,7 @@ function end() {
 function fourth() {
 	
 	$("#tutorialAddon").remove();
+	slideTo(moment());
 	elem = $('#info_panel');
 	elem.attr('data-expand','false');
 
