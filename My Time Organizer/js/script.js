@@ -333,7 +333,7 @@ function nyanNyan() {
 			function removeNote() { deleteNote($(this)); showHideHelper();}
 			$(this.parentNode.parentNode).attr('data-beingDeleted', true);
 			saveNotes();
-			$(this.parentNode.parentNode).animate({rotate: '-50deg', scale: 0, height: 0, paddingTop: 0, paddingBottom: 0, marginTop: 0, marginBottom: 0}, 500, removeNote);
+			$(this.parentNode.parentNode).animate({rotate: '-50deg', scale: 0, height: 0, paddingTop: 0, paddingBottom: 0, marginTop: 0, marginBottom: 0}, {duration:500, complete:removeNote, queue: false});
 		}
 		note_icons.appendChild(icon);
 		
@@ -374,7 +374,7 @@ function nyanNyan() {
 
 		note.appendChild(note_icons);
 		if (anim)
-			$(note).css('display','block').scale(0).rotate('-70deg').css('margin-bottom','-100%').animate({rotate: 0, scale: 1, marginBottom: 0}, 500);
+			$(note).css('display','block').scale(0).rotate('-70deg').css('margin-bottom','-100%').animate({rotate: 0, scale: 1, marginBottom: 0}, {duration: 500, queue: false});
 	}
 
 
@@ -791,6 +791,8 @@ $(document).ready(function() {
 	fillWeekTable(document.getElementById('inner_table_left'));
 	fillWeekTable(document.getElementById('inner_table_center'));
 	fillWeekTable(document.getElementById('inner_table_right'));
+	
+	$("#help_btn").click(tutorialStart);
 	
 	resizeDays();
 	loadNotes();
