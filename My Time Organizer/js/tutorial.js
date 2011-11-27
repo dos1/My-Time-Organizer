@@ -6,15 +6,48 @@
  * [!] [alphabetical order]
  */
 
+
+function end() {
+	$('#tutorial').fadeOut(500, function() { $('#tutorial').remove();  });
+	$('#tutorialHighlight').css("display", "none");
+	$('#helper').css("visibility", "visible");
+}
+
+function fourth() {
+	
+	$("#tutorialAddon").remove();
+	elem = $('#info_panel');
+	elem.attr('data-expand','false');
+
+	elem = $('#help_btn');
+	$('#tutorialHighlight').animate({height: 0, width: 0, top: window.innerHeight/2, left: window.innerWidth/2}, 500);
+
+	$("#tutorialText").html("My Time Organizer ma przede wszystkim ułatwiać życie użytkownikom, dlatego staramy się słuchać ich opinii i pomysłów. Aby w przyszłości przekazać nam, autorom aplikacji, wiadomość odnośnie aplikacji, kliknij na przycisk pomocy. Ten sam przycisk umożliwi Ci również ponowne wyświetlenie tego samouczka.<br/><br/>I to by było na tyle!");
+	$('#tutorial').animate({top: window.innerHeight/2, left: window.innerWidth/2}, {duration: 1000, queue: false}).css('transform','translate(-200px,-50px)');
+	$("#tutorialNext").html("Zakończ");
+	$('#tutorialNext')[0].onclick = null;	
+	$("#tutorialNext")[0].onclick = end;
+}
+
 function expand() {
 	elem = $('#info_panel');
 	elem.attr('data-expand','true');
-	$("#tutorialText").html("Aby przemieszczać się między poszczególnymi tygodniami, możesz najechać myszką na numer tygodnia wskazany powyżej albo kliknąć na przycisk ze strzałką znajdujący się na boku ekranu. Pierwsza ikonka pozwoli Ci wybrać interesującą Cię datę, druga zaś - przeniesie do dzisiaj.<br/><br/>Dodatkowo możesz skorzystać ze sterowania klawiaturą zgodnie ze schematem obok.");
+	$("#tutorialAddon").remove();
+	$("#tutorialText").html("Aby przemieszczać się między poszczególnymi tygodniami, możesz najechać myszką na numer tygodnia wskazany powyżej albo kliknąć na przycisk ze strzałką znajdujący się na boku ekranu. Pierwsza ikonka pozwoli Ci wybrać interesującą Cię datę, druga zaś - przeniesie do obecnego tygodnia.<br/><br/>Dodatkowo możesz skorzystać ze sterowania klawiaturą zgodnie ze schematem obok.");
 	$('#tutorial').animate({top: elem.offset().top+30, left: (elem.offset().left+parseInt(elem.css('width')))-parseInt($('#tutorial').css('width'))}, 1);
-	$('#tutorial').fadeIn(500);	
+	$('#tutorialNext')[0].onclick = null;	
+	$('#tutorialNext')[0].onclick = fourth;
+	$('#tutorial').fadeIn(500);
 }
 
-function second() {
+function third() {
+	
+	var notes=$("#tutorialAddon").children(".day_content").children();
+	//console.log(notes);
+	for (i=0; i<notes.length; i++) {
+		$("#"+$(notes[i]).attr('data-colorpickerId')).remove();
+	}
+	
 	$('#tutorial').fadeOut(500);
 	elem = $('#left_arrow');
 	$('#tutorialHighlight').animate({height: parseInt(elem.css('height'))+60, width: parseInt(elem.css('width'))+35, top: elem.offset().top-5, left: elem.offset().left}, 1000);
@@ -25,8 +58,28 @@ function second() {
 	$('#tutorialHighlight').delay(500).animate({height: parseInt(elem.css('height'))+10, width: parseInt(elem.css('width'))+40, top: elem.offset().top-5, left: elem.offset().left-20}, 1000, expand);
 }
 
+function secondText() {
+	$('#tutorialText').html("Po najechaniu myszką na notatkę, zadanie lub wydarzenie wysuwa się panel kontrolny, umożliwiający edycję tekstu, wprowadzanie głosowe, zmianę koloru paska, przemieszczenie elementu do innego dnia lub usunięcie go.<br/><br/>Panel pojawi się również w notatkach umieszczonych w kolumnie obok. Śmiało, wypróbuj go!");	
+	$('#tutorialNext')[0].onclick = null;	
+	$('#tutorialNext')[0].onclick = third;
+}
+
+function second() {
+	var notes=$("#tutorialAddon").children(".day_content").children();
+	if (notes.length==0) {
+			var note = document.createElement('div');
+			$(note).addClass('note');
+			note.setAttribute('data-content', '');
+			note.setAttribute('data-bgcolor', '#5b5b5b');
+			
+			fillNote(note);
+			$(note).appendTo("#tutorialAddon .day_content");
+	}
+	$('#tutorialText').fadeOut(500, secondText).fadeIn(500);
+}
+
 function first() {
-	$('#tutorial').css("-webkit-transform","none").css('left', $('#tutorial').offset().left-200).css('top', $('#tutorial').offset().top-50);
+	$('#tutorial').css("-webkit-transform","none").css('left', $('#tutorial').offset().left+200).css('top', $('#tutorial').offset().top+50);
 
 	wrap = document.createElement('div');
 	wrap.id = 'tutorialAddon';
@@ -45,13 +98,13 @@ function first() {
 	
 	$('#tutorialHighlight').animate({height: parseInt(elem.css('height'))+60, width: parseInt(elem.css('width'))+50, top: elem.offset().top-50, left: elem.offset().left-40}, 1000);
 
-	
+	$('#tutorialNext')[0].onclick = null;	
 	$('#tutorialNext')[0].onclick = second;
 }
 
 //$(document).ready(function() {
 function tutorialStart() {
-	$('#helper').hide();
+	$('#helper').css("visibility", "hidden");
 	//$('#tutorialHighlight').animate({height: 500, width: 30, top: 10, left: 10}, 5000, first);
 	okno = document.createElement('div');
 	okno.id = 'tutorial';
@@ -64,7 +117,6 @@ function tutorialStart() {
 	text = document.createElement('div');
 	text.id = 'tutorialText';
 	text = $(text);
-	text.css('line-height', '1.2em');
 	text.html("Witaj w My Time Organizer! Ten samouczek pomoże Ci zapoznać się z funkcjami i zasadami działania aplikacji.");
 	text.appendTo(okno);
 	

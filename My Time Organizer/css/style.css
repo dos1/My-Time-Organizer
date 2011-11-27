@@ -517,8 +517,10 @@ div[contenteditable=true] {
 	padding: 20px;
 	font-family: Sans-Serif;
 	font-size: 12px;
+	line-height: 1.2em;
 	text-align: justify;
 	-webkit-box-sizing: border-box;
+	-webkit-transition: -webkit-transform 1s;
 	-webkit-transform: translate(-200px,-50px);
 	color: white;
 	background-color: rgba(0,0,0,0.75);

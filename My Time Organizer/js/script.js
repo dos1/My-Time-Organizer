@@ -552,7 +552,7 @@ function moveAnimate(element, newParent, old, saveNotes){
         temp    .css('position', 'absolute')
                 .css('left', oldOffset.left)
                 .css('top', oldOffset.top)
-                .css('zIndex', 1000).css('width',w).css('height',h);
+                .css('zIndex', 999999).css('width',w).css('height',h);
 	if (old) {
 		o=$(old);
 		om = o.css('margin-top');
