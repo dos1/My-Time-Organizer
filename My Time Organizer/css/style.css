@@ -66,7 +66,7 @@ footer {
 	height: 22px;
 	-webkit-box-sizing: border-box;
 	box-shadow: 0px -1px 3px #d1d1d1;
-	padding: 3px;
+	padding: 4px;
 	padding-left: 8px;
 	text-align: right;
 	z-index: 10;
@@ -209,7 +209,7 @@ nav:nth-child(even):hover {
 .header {
 	width: 						100%;
 	height: 					35px;
-	padding-top: 				9px;
+	padding-top: 				13px;
 	-webkit-box-sizing: border-box;
 	text-align: 				center;
 	position: relative;
@@ -226,7 +226,7 @@ nav:nth-child(even):hover {
 	right: 8px;
 	top: 35px;
 	font-size: 12px;
-	padding: 0px;
+	padding-bottom: 2px;
 	padding-left: 5px;
 	padding-right: 5px;
 	border-bottom-left-radius: 6px;
@@ -253,7 +253,7 @@ nav .header#current_day {
 	/*background-image: url('../images/cur_day.png');
 	background-repeat: no-repeat;
 	background-size: 100% 100%;*/
-	padding-top: 7px;
+	padding-top: 11px;
 }
 nav .header#current_day:after {
 	font-weight: bold;
@@ -318,9 +318,10 @@ nav .header#current_day h3 {
 	width: auto;
 	-webkit-box-sizing: border-box;
 	font-size: 12px;
-	padding: 0px;
-	padding-left: 5px;
-	padding-right: 5px;
+	padding-top: 1px;
+	padding-bottom: 2px;
+	padding-left: 4px;
+	padding-right: 4px;
 	border-top-left-radius: 6px;
 	border-top-right-radius: 6px;
 	box-shadow: 1px -2px 4px rgba(0,0,0,0.2);
@@ -356,6 +357,7 @@ nav .header#current_day h3 {
 }
 .note_content {
 	min-height: 1em;
+	padding: 1px;
 }
 
 .menu {
@@ -392,6 +394,9 @@ div[contenteditable=true] {
 	outline: 1px dotted #ccc;
 	background-color: rgba(255,255,255,0.5);
 }
+.event .note_content[contenteditable=true] {
+	margin-top: 5px;
+}
 
 #right_panel > #add_panel {
 	display: inline-block;
@@ -405,9 +410,7 @@ div[contenteditable=true] {
 	cursor: 			move;
 	height: 			20px;
 	/*padding: 5px;*/
-	position: relative;
-	top: -1px;
-	padding-top: 9px;
+	padding-top: 13px;
 	width: 134px;
 	height: 48px;
 	color: white;
@@ -455,6 +458,7 @@ div[contenteditable=true] {
 	font-size: 16px;
 	right: 0px;
 	top: 60px;
+	padding-bottom: 5px;
 	background-color: white;
 	height: auto;
 	opacity: 1;

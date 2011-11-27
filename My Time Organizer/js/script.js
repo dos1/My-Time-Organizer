@@ -10,7 +10,7 @@ lang = new Array();
 lang["en"] = new Array();
 lang["pl"] = new Array();
 
-var mylang ="pl";
+var mylang = "pl";
 		
 /* English */
 lang["en"]["days"] = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
@@ -18,9 +18,8 @@ lang["en"]["ntypes"] = ["Event", "Task", "Note"];
 lang["en"]["notify_txt"] = "Event notification";
 lang["en"]["icons"] = ["Switch view", "Configuration", "Help"];
 lang["en"]["week"] = "Week";
-var troll = "'";
 lang["en"]["items_txt"] = ["Click pencil icon to edit that note or cross icon to delete it.", "Click pencil icon to edit that task or cross icon to delete it.", "Click pencil icon to edit that event or cross icon to delete it."];
-lang["en"]["helper_txt"] = 'There aren'+troll+'t any items added for that week. To do so, drag an icon with item type from the top panel and drop it onto selected column. Check "Help" for further information.';
+lang["en"]["helper_txt"] = 'There aren\'t any items added for that week. To do so, drag an icon with item type from the top panel and drop it onto selected column. Check "Help" for further information.';
 
 /* Polish */
 lang["pl"]["days"] = ["Poniedziałek", "Wtorek", "Środa", "Czwartek", "Piątek", "Sobota", "Niedziela"];
@@ -254,7 +253,7 @@ function nyanNyan() {
 				note_content.parentNode.setAttribute('data-content', note_content.innerHTML);
 				note_content.contentEditable = false;
 				if ($(this.parentNode.parentNode).attr('class')=='event') {
-					console.log($(this.parentNode.parentNode).attr('class'));
+					//console.log($(this.parentNode.parentNode).attr('class'));
 					$(this.parentNode.parentNode).find(".note_time")[0].contentEditable = false;
 					note_content.parentNode.setAttribute('data-time', $(this.parentNode.parentNode).find(".note_time")[0].innerHTML);
 				}
