@@ -666,3 +666,6 @@ body[data-nyan=nyan]::after {
 #event_edit_panel #editt, #cancel {
 	float: right;
 }
+.datepicker, .colorpicker {
+	z-index: 6666;
+}

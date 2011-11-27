@@ -797,6 +797,19 @@ $(document).ready(function() {
 	fillWeekTable(document.getElementById('inner_table_right'));
 	
 	$("#help_btn").click(tutorialStart);
+	$("#info_panel div").DatePicker({
+	date: weeks['inner_table_center'].format('YYYY-MM-DD'),
+	current: moment().format('YYYY-MM-DD'),
+	starts: 1,
+	position: 'b',
+	onBeforeShow: function(){
+		$('#info_panel div').DatePickerSetDate(weeks['inner_table_center'].format('YYYY-MM-DD'), true);
+	},
+	onChange: function(formated, dates){
+		slideTo(moment(formated, "YYYY-MM-DD"));
+		//$('#info_panel div').DatePickerHide();
+	}
+	});
 	
 	resizeDays();
 	loadNotes();
