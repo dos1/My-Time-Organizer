@@ -35,13 +35,13 @@ var deletedItems = [];
 
 function nyanNyan() {
 	function nyanNyanNyan() {
-		$('.header h3, #add_panel div, #info_panel, footer').each(function () { this.setAttribute('data-nyan', this.innerHTML); } );
+		$('.header h3, #add_panel div, #info_panel span, footer').each(function () { this.setAttribute('data-nyan', this.innerHTML); } );
 		$('.header h3, #add_panel div').each(function() { this.innerHTML = 'Nyan'; } );
-		$('#info_panel, #task_icon').html('Nyan-nyan');
+		$('#info_panel span, #task_icon').html('Nyan-nyan');
 		$('footer').html('&copy; Nyanyan Nyan-Nyan Nyan NYAN Nyan, Nyan \'Nyan\' Nyan, Nyan ny4n Nyan');
 	}
 	function nyanNyanNyanNyan() {
-		$('.header h3, #add_panel div, #info_panel, footer').each(function () { if (this.innerHTML.indexOf('Nyan')!=-1) this.innerHTML = this.getAttribute('data-nyan'); } );		
+		$('.header h3, #add_panel div, #info_panel span, footer').each(function () { if (this.innerHTML.indexOf('Nyan')!=-1) this.innerHTML = this.getAttribute('data-nyan'); } );		
 	}
 
 	if ($('.nyan')[0]) return false; // nayn
@@ -797,19 +797,20 @@ $(document).ready(function() {
 	fillWeekTable(document.getElementById('inner_table_right'));
 	
 	$("#help_btn").click(tutorialStart);
-	$("#info_panel div").DatePicker({
+	$("#info_panel div .week").DatePicker({
 	date: weeks['inner_table_center'].format('YYYY-MM-DD'),
 	current: moment().format('YYYY-MM-DD'),
 	starts: 1,
 	position: 'b',
 	onBeforeShow: function(){
-		$('#info_panel div').DatePickerSetDate(weeks['inner_table_center'].format('YYYY-MM-DD'), true);
+		$('#info_panel div .week').DatePickerSetDate(weeks['inner_table_center'].format('YYYY-MM-DD'), true);
 	},
 	onChange: function(formated, dates){
 		slideTo(moment(formated, "YYYY-MM-DD"));
 		//$('#info_panel div').DatePickerHide();
 	}
 	});
+	$("#info_panel div .today").click(function () { slideTo(moment()); });
 	
 	resizeDays();
 	loadNotes();

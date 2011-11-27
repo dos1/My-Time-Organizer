@@ -488,6 +488,15 @@ div[contenteditable=true] {
 	width: 0px;
 	-webkit-transition: all 0.5s;
 }
+#buttons_panel > #info_panel div > img {
+	margin-left: 4px;
+	cursor: pointer;
+	opacity: 0.7;
+	-webkit-transition: opacity 0.5s;	
+}
+#buttons_panel > #info_panel div > img:hover {
+	opacity: 1;
+}
 #buttons_panel > #info_panel:hover div, #buttons_panel > #info_panel[data-expand=true] div {
 	width: 40px;
 	opacity: 1;
@@ -667,5 +676,5 @@ body[data-nyan=nyan]::after {
 	float: right;
 }
 .datepicker, .colorpicker {
-	z-index: 6666;
+	z-index: 100000;
 }
