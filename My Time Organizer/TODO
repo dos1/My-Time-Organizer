@@ -8,6 +8,8 @@
 - dodawanie linków do notatek
 - widok miesiąca
 
+- reimplementacja slideTo()
+
 // user requests:
 - linki które można klikać (regexp jakiś pewnie)
 - Paweł Tarszewski 

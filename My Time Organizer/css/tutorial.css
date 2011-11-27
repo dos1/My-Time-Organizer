@@ -36,3 +36,25 @@
 #tutorialHighlight > .hack::after {
 	top: 100%;
 }
+
+#tutorialAddon .day_content .menu {
+	display: none !important;
+}
+#tutorialAddon .day_content > div {
+	margin-top: 10px !important;
+}
+#tutorialAddon .day_content > div.event {
+	margin-top: 20px !important;
+}
+#tutorialAddon .day_content .note_content {
+	font-size: 0px;
+	color: rgba(0,0,0,0);
+}
+#tutorialAddon .day_content .note_content::after {
+	display: block;
+	color: black;
+	font-size: 11px;
+	margin-top: 5px;
+	margin-bottom: 8px;
+	content: "Działa! :)";
+}
