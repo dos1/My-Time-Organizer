@@ -6,8 +6,19 @@
  * [!] [alphabetical order]
  */
 
+function second() {
+	elem = $('#left_arrow');
+	$('#tutorialHighlight').delay(1000).animate({height: parseInt(elem.css('height'))+60, width: parseInt(elem.css('width'))+35, top: elem.offset().top-5, left: elem.offset().left}, 1000);
+	elem = $('#right_arrow');
+	$('#tutorialHighlight').delay(500).animate({height: parseInt(elem.css('height'))+60, width: parseInt(elem.css('width'))+35, top: elem.offset().top-5, left: elem.offset().left}, 1000);
+
+	elem = $('#info_panel');
+	$('#tutorialHighlight').delay(500).animate({height: parseInt(elem.css('height'))+10, width: parseInt(elem.css('width'))+40, top: elem.offset().top-5, left: elem.offset().left-20}, 1000);
+}
+
 function first() {
-	$('#tutorialHighlight').animate({height: parseInt($('#add_panel').css('height'))+60, width: parseInt($('#add_panel').css('width'))+50, top: $('#add_panel').offset().top-50, left: $('#add_panel').offset().left-40}, 1000);
+	elem = $('#add_panel');
+	$('#tutorialHighlight').animate({height: parseInt(elem.css('height'))+60, width: parseInt(elem.css('width'))+50, top: elem.offset().top-50, left: elem.offset().left-40}, 1000, second);
 }
 
 //$(document).ready(function() {
