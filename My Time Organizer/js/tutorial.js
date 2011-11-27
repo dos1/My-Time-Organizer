@@ -6,6 +6,12 @@
  * [!] [alphabetical order]
  */
 
+function expand() {
+	elem = $('#info_panel');
+	elem.attr('data-expand','true');
+	
+}
+
 function second() {
 	elem = $('#left_arrow');
 	$('#tutorialHighlight').delay(1000).animate({height: parseInt(elem.css('height'))+60, width: parseInt(elem.css('width'))+35, top: elem.offset().top-5, left: elem.offset().left}, 1000);
@@ -13,7 +19,7 @@ function second() {
 	$('#tutorialHighlight').delay(500).animate({height: parseInt(elem.css('height'))+60, width: parseInt(elem.css('width'))+35, top: elem.offset().top-5, left: elem.offset().left}, 1000);
 
 	elem = $('#info_panel');
-	$('#tutorialHighlight').delay(500).animate({height: parseInt(elem.css('height'))+10, width: parseInt(elem.css('width'))+40, top: elem.offset().top-5, left: elem.offset().left-20}, 1000);
+	$('#tutorialHighlight').delay(500).animate({height: parseInt(elem.css('height'))+10, width: parseInt(elem.css('width'))+40, top: elem.offset().top-5, left: elem.offset().left-20}, 1000, expand);
 }
 
 function first() {

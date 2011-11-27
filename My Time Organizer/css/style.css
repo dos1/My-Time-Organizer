@@ -473,20 +473,23 @@ div[contenteditable=true] {
 	width: auto;
 	color: black;
 	z-index: 0;
-	width: 400%;
+	width: 165px;
 }
 #buttons_panel > #info_panel div {
 	display: inline-block;
 	width: auto;
 	height: auto;
 	overflow: hidden;
+	white-space: nowrap;
 	color: black;
 	font-size: 12px;
 	margin-right: 6px;
 	opacity: 0;
+	width: 0px;
 	-webkit-transition: all 0.5s;
 }
-#buttons_panel:hover > #info_panel div {
+#buttons_panel > #info_panel:hover div, #buttons_panel > #info_panel[data-expand=true] div {
+	width: 40px;
 	opacity: 1;
 }
 .day_content::-webkit-scrollbar {
