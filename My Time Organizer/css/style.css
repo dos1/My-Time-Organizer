@@ -467,11 +467,27 @@ div[contenteditable=true] {
 	width: 400%;
 	margin: 0;
 	color: rgba(0,0,0,0.8);
+	z-index: 1;
 }
 #buttons_panel > #info_panel {
-	z-index: -1;
 	width: auto;
 	color: black;
+	z-index: 0;
+	width: 400%;
+}
+#buttons_panel > #info_panel div {
+	display: inline-block;
+	width: auto;
+	height: auto;
+	overflow: hidden;
+	color: black;
+	font-size: 12px;
+	margin-right: 6px;
+	opacity: 0;
+	-webkit-transition: all 0.5s;
+}
+#buttons_panel:hover > #info_panel div {
+	opacity: 1;
 }
 .day_content::-webkit-scrollbar {
 	position: absolute;

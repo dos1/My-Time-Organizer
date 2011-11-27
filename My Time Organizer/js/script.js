@@ -68,7 +68,7 @@ function nyanNyan() {
 }
 
 	function updateWeek() {
-		$("#info_panel").html(lang[mylang]["week"]+" "+weeks['inner_table_center'].format("w")+", "+weeks['inner_table_center'].format("YYYY"));
+		$("#info_panel span").html(lang[mylang]["week"]+" "+weeks['inner_table_center'].format("w")+", "+weeks['inner_table_center'].format("YYYY"));
 	}
 
 	function incID() {
@@ -276,7 +276,7 @@ function nyanNyan() {
 		var icon = document.createElement('input');
 		icon.setAttribute('type', 'text');
 		icon.setAttribute('class', 'lolxd');
-		icon.setAttribute('title', 'Rozpoznawanie mowy');
+		icon.setAttribute('title', 'Wprowadzanie głosowe');
 		icon.setAttribute('x-webkit-speech', 'x-webkit-speech');
 		icon.draggable = false;
 		icon.onfocus = icon.blur;
