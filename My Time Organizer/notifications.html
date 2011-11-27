@@ -11,6 +11,7 @@
 <html>
 <head>
 <meta charset="utf-8">
+<script type="text/javascript" src="js/moment.min.js"></script>
 <script>
 
 function notify(text) {
@@ -30,17 +31,25 @@ function notify(text) {
 	notification.show(); 
 }
 
+var t;
 
+function getTime() {
+	var now = moment();
+	//notify("Teraz jest "+now.format("HH:mm"));
+	t = setTimeout("getTime()", 60000);
+}
+
+	getTime();
 	notify("Zostałam wystartowana!");
 	//alert(now.format("hh:mm"));
 	/*function checkTime() {
 		var now = moment();
 		notify("Teraz jest "+now.format("HH:mm"));
-	}*/
+	}
 	setTimeout(function() {
 		var now = moment();
 		notify("Teraz jest "+now.format("HH:mm"));
-	}, 60000);
+	}, 6000);*/
 </script>
 </head>
 <body></body>
