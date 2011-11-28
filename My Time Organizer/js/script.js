@@ -574,10 +574,12 @@ function moveAnimate(element, newParent, old, saveNotes){
 	var newOffset = element.offset();
 
         var temp = element.clone().appendTo('body');
-        temp    .css('position', 'absolute')
+	if ((element.attr('class')==='task') && (newParent.parentNode.getAttribute('data-currentDay')!=='true')) fix2 = 27; else fix2 = 0; //ugly hack ;/
+
+	temp    .css('position', 'absolute')
                 .css('left', oldOffset.left)
                 .css('top', oldOffset.top)
-                .css('zIndex', 999999).css('width',w).css('height',h);
+                .css('zIndex', 999999).css('width',w).css('height',h-fix2);
 	if (old) {
 		o=$(old);
 		om = o.css('margin-top');
