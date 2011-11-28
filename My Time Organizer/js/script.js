@@ -82,6 +82,7 @@ function nyanNyan() {
 
 
 	function slideTo(day) {
+		day.add("days", 1);
 		diff = day.diff(weeks['inner_table_center'], 'days');
 		diff = Math.floor(diff/7);
 		if (diff>0) {
