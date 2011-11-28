@@ -683,3 +683,9 @@ body[data-nyan=nyan]::after {
 nav[data-currentDay=true] .day_content .task[data-done=false] {
 	box-shadow: #82418e 0px 0px 8px 2px;
 }
+nav .day_content .task input[type=checkbox], nav .day_content .task label {
+	display: none;
+}
+nav[data-currentDay=true] .day_content .task input[type=checkbox], nav[data-currentDay=true] .day_content .task label {
+	display: inline-block;
+}

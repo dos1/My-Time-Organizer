@@ -32,6 +32,7 @@ lang["pl"]["helper_txt"] = 'Nie dodano jeszcze żadnych elementów do wyświetlo
 
 var weeks = {};
 var deletedItems = [];
+var labelCounter = 0;
 
 function nyanNyan() {
 	function nyanNyanNyan() {
@@ -242,6 +243,21 @@ function nyanNyan() {
 		note_content.contentEditable = false;
 		note.appendChild(note_content);
 
+		if ($(note).attr('class')==='task') {
+			check = document.createElement('input');
+			check.type = 'checkbox';
+			check.id = 'checkbox'+labelCounter;
+			note.appendChild(check);
+			text = document.createElement('label');
+			text.setAttribute('for', 'checkbox'+labelCounter);
+			text.innerHTML = 'wykonane';
+			note.appendChild(text);
+			check.checked = (note.getAttribute('data-done')=='true');
+			check.onchange = function() { this.parentNode.setAttribute('data-done',this.checked); saveNotes(); };
+			labelCounter++;
+		}
+
+		
 		var note_icons = document.createElement('div');
 		$(note_icons).addClass('menu');
 
