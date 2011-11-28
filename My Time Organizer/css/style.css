@@ -683,9 +683,29 @@ body[data-nyan=nyan]::after {
 nav[data-currentDay=true] .day_content .task[data-done=false] {
 	box-shadow: #82418e 0px 0px 8px 2px;
 }
-nav .day_content .task input[type=checkbox], nav .day_content .task label {
-	display: none;
-}
-nav[data-currentDay=true] .day_content .task input[type=checkbox], nav[data-currentDay=true] .day_content .task label {
+.task input[type=checkbox], .task label {
+	height: 0px;
+	opacity: 0;
+	-webkit-transition: all 0.5s;
 	display: inline-block;
+	overflow: hidden;
+}
+nav[data-currentDay=true] .day_content .task input[type=checkbox], nav[data-currentDay=true] .day_content .task label,
+.task:hover input[type=checkbox], .task:hover label {
+	opacity: 1;
+	height: 14px;
+	margin-top: 6px;
+}
+.task label {
+	position: relative;
+	top: -3px;
+	margin-bottom: -3px;
+}
+.task .note_content {
+	margin-bottom: -13px;
+	-webkit-transition: margin-bottom 0.5s;
+}
+nav[data-currentDay=true] .day_content .task .note_content,
+.task:hover .note_content {
+	margin-bottom: 0px;
 }
