@@ -680,3 +680,6 @@ body[data-nyan=nyan]::after {
 .datepicker, .colorpicker {
 	z-index: 100001;
 }
+nav[data-currentDay=true] .day_content .task[data-done=false] {
+	box-shadow: #82418e 0px 0px 8px 2px;
+}

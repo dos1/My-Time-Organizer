@@ -14,9 +14,11 @@ mail($a, 'Wiadomość z formularza MTO: '.$_POST['title'], 'Od: '.$_POST['mail']
 'From: "My Time Organizer" <mto@dosowisko.net>' . "\r\n" .'Content-type: text/plain; charset=utf-8' . "\r\n");
 }
 
-m('mto@dosowisko.net'); // dos
-m('hun7err@gmail.com'); // hun7err
-m('mug3tsu92@gmail.com'); // mug3tsu92
+if ($_POST) {
+  m('mto@dosowisko.net'); // dos
+  m('hun7err@gmail.com'); // hun7err
+  m('mug3tsu92@gmail.com'); // mug3tsu92
+}
 ?>
 <html>
 	<head>

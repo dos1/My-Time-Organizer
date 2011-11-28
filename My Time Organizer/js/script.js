@@ -189,8 +189,9 @@ function nyanNyan() {
 			note.removeAttr('style');
 			note.empty();
 			fillNote(note[0]);
+			shad = note.css('box-shadow');
 			note.css('box-shadow', '#2020f0 0px 0px 10px 0px');
-			setTimeout(function(note) { note.animate({boxShadow: '0px 0px 10px rgba(0,0,0,0.5)'}, 2000); }, 3000, note);
+			setTimeout(function(note) { note.animate({boxShadow: shad}, 2000); }, 3000, note);
 			saveNotes();
 			showHideHelper();
 		}
@@ -225,6 +226,7 @@ function nyanNyan() {
 			note_time.contentEditable = false;
 			note.appendChild(note_time);
 		}
+		
 		
 		var note_content = document.createElement('div');
 		$(note_content).addClass('note_content');
@@ -484,7 +486,7 @@ function doNav(parent, d, date) {
 
 	header.innerHTML = "<h3>"+lang[mylang]["days"][i]+"</h3>";
 
-	if (d.format("DD-MM-YYYY")===moment().format("DD-MM-YYYY")) header.setAttribute('id','current_day');
+	if (d.format("DD-MM-YYYY")===moment().format("DD-MM-YYYY")) { nav.setAttribute('data-currentDay','true'); header.setAttribute('id','current_day'); }
   
 	if (d.format("YYYY")!=moment().format("YYYY"))
 		header.setAttribute('data-date',((d.format("D") < 10) ? "0"+d.format("D") : d.format("D"))+"."+((d.format("M") < 10) ? "0"+d.format("M") : d.format("M"))+"."+d.format("YY"));
