@@ -145,17 +145,22 @@ function tutorialStart() {
 function fillContactForm() {
 	content = document.createElement('div');
 	content = $(content);
-	content.html('Formularz kontaktowy jest nieczynny. Wróć ponownie później!');
+	content.html('<form method="POST" onsubmit="end()" action="http://dosowisko.net/mto/contact/" target="_blank"><p>Przy pomocy tego formularza możesz wysłać wiadomość do twórców aplikacji My Time Organizer.</p><p>Gorąco zachęcamy do wysyłania nam opinii, raportów o błędach oraz pomysłów na ulepszenie naszej aplikacji!</p><p>Jeżeli chcesz, abyśmy Ci odpisali, możesz podać swój adres e-mail w polu do tego przeznaczonym.</p><input type="text" placeholder="Tytuł wiadomości..." /><textarea placeholder="Treść wiadomości..." /><input type="email" placeholder="Twój adres e-mail (opcjonalnie)" /><p>Przed wysłaniem wiadomości upewnij się, że komputer jest połączony z Internetem.</p><input type="submit" value="Wyślij" /><input type="button" value="Anuluj" onclick="end()"/></form>');
 	content.css('padding-top', 20);
+	content.find('input[type="text"], input[type="email"], textarea').css('width', '100%').css('-webkit-box-sizing', 'border-box').css('max-width','100%').css('min-width','100%');
+	content.find('textarea').css('height', '150px').css('min-height', '150px').css('max-height', '150px');
+	content.find('input[type="submit"], input[type="button"]').css('-webkit-box-sizing', 'border-box').css('width','50%');
+	$(content.find('p').css('margin-top', 5).css('margin-bottom', 5)[0]).css('margin-top',0);
 	content.appendTo('#tutorial');
 	content.hide();
 	content.fadeIn(500);
-	$("#tutorial").delay(5000).fadeOut(500, end);
+	//setTimeout(end, 5000);
 }
 
 function contactForm() {
 	$("#tutorial").children().fadeOut(500, fillContactForm);
-	$("#tutorial").animate({width: 400, height: 400},1000).css('transform','translate(-200px, -200px)');
+	console.log(window.innerHeight);
+	$("#tutorial").css('top',$("#tutorial").offset().top).css('left',$("#tutorial").offset().left+200).css('transform','none').animate({width: 400, height: 400, top: window.innerHeight/2 - 200, left: window.innerWidth/2 - 200},1000);
 }
 
 function helpScreen() {
