@@ -91,7 +91,7 @@ function first() {
 
 	wrap = document.createElement('div');
 	wrap.id = 'tutorialAddon';
-	$(wrap).css('float', 'left').css('width', '150px').css('height','225px').css('margin-right', '10px').css('background-color','white');
+	$(wrap).css('float', 'left').css('width', '150px').css('height','225px').css('margin-right', '10px').css('background-color','whiteSmoke');
 	$(wrap).insertBefore($('#tutorialText'));
 	
 	next = document.createElement('div');
