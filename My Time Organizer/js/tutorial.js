@@ -159,7 +159,6 @@ function fillContactForm() {
 
 function contactForm() {
 	$("#tutorial").children().fadeOut(500, fillContactForm);
-	console.log(window.innerHeight);
 	$("#tutorial").css('top',$("#tutorial").offset().top).css('left',$("#tutorial").offset().left+200).css('transform','none').animate({width: 400, height: 400, top: window.innerHeight/2 - 200, left: window.innerWidth/2 - 200},1000);
 }
 
