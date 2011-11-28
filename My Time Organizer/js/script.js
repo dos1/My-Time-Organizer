@@ -817,6 +817,7 @@ $(document).ready(function() {
 	
 	if (!localStorage['firstRunBubbleHidden']) {
 		var helper = document.createElement('div');
+		helper.id = 'helperTutorialFirstRun';
 		helper.setAttribute("class", "helper");
 		helper = $(helper);
 		helper.css("width", "300px").css("height", "auto").css("top", $('#help_btn').offset().top+25).css("left", $('#help_btn').offset().left-250).css("transform","none").css("position","absolute");
