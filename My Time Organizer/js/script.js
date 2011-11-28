@@ -725,9 +725,9 @@ $(document).ready(function() {
 		else if (event.which == 37) left_slide(); // lewa szczałka
 		else if (event.which == 40) slideTo(moment()); // dolna szczałka
 		else if (event.which == 08) { // bekspejs
-			undeleteNote(); 
-			var regRule = /input/i;
-			return (regRule.test(event.target)) ? true : false;			
+			var regRule = /(input)|(textarea)/i;
+			var lol = (regRule.test(event.target)) ? true : false;
+			if (!lol) { event.preventDefault(); undeleteNote(); }
 		}
 	}
 		
