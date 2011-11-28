@@ -812,6 +812,16 @@ $(document).ready(function() {
 	});
 	$("#info_panel div .today").click(function () { slideTo(moment()); });
 	
+	// font fix for Windows
+	if (navigator.userAgent.indexOf("Windows") != -1) {
+      var fileref=document.createElement("link")
+      fileref.setAttribute("rel", "stylesheet")
+      fileref.setAttribute("type", "text/css")
+      fileref.setAttribute("href", "css/windows.css")
+      $(fileref).appendTo($("head"));
+    }
+	// fix end
+	
 	resizeDays();
 	loadNotes();
 	showHideHelper(false);

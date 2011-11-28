@@ -526,6 +526,7 @@ div[contenteditable=true] {
 	background-color: rgba(0,0,0,0.75);
 	border-radius: 10px;
 	box-shadow: inset 0px 0px 3px white, 1px 1px 5px rgba(0,0,0,0.4);
+	z-index: 10;
 }
 
 .helperSmall {
