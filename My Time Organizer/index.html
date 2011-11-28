@@ -32,7 +32,6 @@
 </head>
 <body>
 		<div id="event_edit_panel" style="display: none;">
-			<input type="text" name="" value="Tytuł" class="input_text" id="event_title_submit"/>
 			<textarea id="event_desc_txt">Opis wydarzenia</textarea>
 			<div style="display: table; text-align: left;">
 				<div style="display: table-row;">
@@ -40,7 +39,7 @@
 						Start (hh:mm):
 					</div>
 					<div style="display: table-cell; padding-left: 10px">
-						<input type="text" name="" id="event_time_start_submit" value="" class="input_text"/>
+						<input type="text" name="" id="event_time_start" value="" class="input_text"/>
 					</div>
 				</div>
 				<div style="display: table-row;">	
@@ -48,7 +47,7 @@
 						Koniec (hh:mm):
 					</div>
 					<div style="display: table-cell; padding-left: 10px">
-						<input type="text" name="" id="event_time_end_submit" value="" class="input_text"/>
+						<input type="text" name="" id="event_time_end" value="" class="input_text"/>
 					</div>
 				</div>
 			</div>
@@ -75,6 +74,7 @@
 					</div>
 					<div style="display: table-cell; padding-left: 10px">
 						<select id="notify">
+							<option>0 minut przed</option>
 							<option>5 minut przed</option>
 							<option>10 minut przed</option>
 							<option>30 minut przed</option>
@@ -84,7 +84,7 @@
 					</div>
 				</div>
 			</div>
-			<input type="submit" id="cancel" value="Anuluj"/><input type="submit" id="editt" value="Edytuj"/>
+			<input type="submit" id="cancel" value="Anuluj" onclick="$('#event_edit_panel').hide();"/><input type="submit" id="editt" value="Edytuj"/>
 		</div>
 		<!-- items that can be dropped onto the table -->
 		<header>

@@ -131,6 +131,9 @@ function nyanNyan() {
 						notes[note_count]['bgcolor'] = col[j].getAttribute("data-bgcolor");
 						notes[note_count]['time'] = col[j].getAttribute("data-time");
 						notes[note_count]['done'] = col[j].getAttribute("data-done");
+						notes[note_count]['time-end'] = col[j].getAttribute("data-time-end");
+						notes[note_count]['repeat'] = col[j].getAttribute("data-repeat");
+						notes[note_count]['notify'] = col[j].getAttribute("data-notify");
 						note_count += 1;
 					//}
 				}
@@ -146,6 +149,14 @@ function nyanNyan() {
 		saveTable(document.getElementById('inner_table_right'));
 		fixFirstNote();
 	}
+	
+	/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	//
+	//  To tak żeby nie dało się przeoczyć ;-)
+	//  Dodałem do opcji notek (z myślą o eventach) pola 'time-end', 'repeat' i 'notify'
+	//  Teraz jest to głównie kwestia ładnego podpięcia funkcji wszystkich 
+	//
+	/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	
 	function loadTable(table) {
 		//console.log('TABLE: '+table.getAttribute('id')+ ', length: '+table.childNodes.length);
@@ -165,6 +176,9 @@ function nyanNyan() {
 				note.setAttribute('data-bgcolor', column[j]['bgcolor']);
 				note.setAttribute('data-done', column[j]['done']);
 				note.setAttribute('data-time', column[j]['time']);
+				note.setAttribute('data-time-end', column[j]['time-end']);
+				note.setAttribute('data-repeat', column[j]['repeat']);
+				note.setAttribute('data-notify', column[j]['notify']);
 				fillNote(note, false);
 				document.getElementById(table.childNodes[col].getAttribute('data-date')).appendChild(note);
 			}
@@ -290,10 +304,25 @@ function nyanNyan() {
 			}
 			note_content.parentNode.setAttribute('data-editedNow', note_content.isContentEditable);
 		}
-		icon.onclick = editNote;
-		if ($(note).attr('class')!=='event') { // FIXME: usunąć jak już będzie okienko edycji wydarzenia
-			note_content.onblur = editNote;
+
+//////////////////////////////////////// event edit handler /////////////////////////////////////////////////////////
+		
+		function editEventHandler() {
+			$("#event_desc_txt").text($(note).attr('data-content'));
+			$("#event_time_start").attr('value', $(note).attr('data-time'));
+			if ($(note).attr('data-time-end') == 'undefined') $("#event_time_end").attr('value', $(note).attr('data-time'));
+			else $("#event_time_end").attr('value', $(note).attr('data-time-end'));
+			$("#event_edit_panel").show();
 		}
+		
+		if ($(note).attr('class')!=='event') {
+			icon.onclick = editNote;
+		} else {
+			icon.onclick = editEventHandler;
+		}
+		/*if ($(note).attr('class')!=='event') { // FIXME: usunąć jak już będzie okienko edycji wydarzenia
+			note_content.onblur = editNote;
+		}*/
 
 		note_icons.appendChild(icon);
 		
