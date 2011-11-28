@@ -532,6 +532,7 @@ function moveAnimate(element, newParent, old, saveNotes){
 	if (old==element[0]) return false;
 	if ((element.next().length===0) && (element.parent()[0]===newParent) && (!(old))) return false;
 	if ((old) && (element.next()[0]===old)) return false;
+	$("body").css('overflow','hidden');
 	$(".menu").css("display","none");
 	w = element.width()+14;
 	h = element.height()+14;
@@ -570,6 +571,7 @@ function moveAnimate(element, newParent, old, saveNotes){
 	   if (old) { o.css("margin-top", om); }
            temp.remove();	   
 	   $(".menu").css("display", "block");
+	   	$("body").css('overflow','visible');
 	   saveNotes();
         });
 }
