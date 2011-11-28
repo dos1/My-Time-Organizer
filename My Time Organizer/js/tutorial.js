@@ -140,10 +140,23 @@ function tutorialStart() {
 	okno.fadeIn(500);
 	
 	$('#tutorialHighlight').css('display','block').css('left', $('#tutorialHighlight').offset().left).css('top', $('#tutorialHighlight').offset().top);
-	//first();
 }
 
+function fillContactForm() {
+	content = document.createElement('div');
+	content = $(content);
+	content.html('Formularz kontaktowy jest nieczynny. Wróć ponownie później!');
+	content.css('padding-top', 20);
+	content.appendTo('#tutorial');
+	content.hide();
+	content.fadeIn(500);
+	$("#tutorial").delay(5000).fadeOut(500, end);
+}
 
+function contactForm() {
+	$("#tutorial").children().fadeOut(500, fillContactForm);
+	$("#tutorial").animate({width: 400, height: 400},1000).css('transform','translate(-200px, -200px)');
+}
 
 function helpScreen() {
 	$('#helperTutorialFirstRun').remove();
@@ -162,23 +175,27 @@ function helpScreen() {
 	okno.empty();
 	okno.css("z-index", 100000).css('width',200).css('padding-top',0);
 		
+	wrap = document.createElement('div');
+	
 	next = document.createElement('div');
 	$(next).addClass('next_button');
 	next.innerHTML = 'Samouczek';
 	next.onclick = tutorialStart;
-	$(next).css('width','100%').appendTo(okno);
+	$(next).css('width','100%').appendTo(wrap);
 
 	next = document.createElement('div');
 	$(next).addClass('next_button');
 	next.innerHTML = 'Kontakt';
-	//next.onclick = first;
-	$(next).css('width','100%').appendTo(okno);
+	next.onclick = contactForm;
+	$(next).css('width','100%').appendTo(wrap);
 
 	next = document.createElement('div');
 	$(next).addClass('next_button');
 	next.innerHTML = 'Anuluj';
 	next.onclick = end;
-	$(next).css('width','100%').appendTo(okno);
+	$(next).css('width','100%').appendTo(wrap);
+
+	$(wrap).appendTo(okno);
 	
 	okno.appendTo("body");
 	okno.fadeIn(500);
