@@ -2,13 +2,13 @@
 - eventy i powiadomienia // powiadomienia zrobił dos, przypomnienia o eventach działające w tle zrobię ja - hun7er
 - synchronizacja z google calendar // to w sumie może spróbuję - mug3tsu
 - panel wypełniania wydarzenia // hun7er
-- widok miesiąca // dos
 - do hun7era od hun7era: zoptymalizować powiadomienia o eventach i dodać wybierane z listy <select> opcje powiadomień (przy tym edytować panel edycji wydarzenia i podpiąć go pod event edycji)
-- reimplementacja slideTo() // dos
-- kontakt i dymek do tutka przy pierwszym uruchomieniu // dos
+- widok miesiąca // dos
 
 - autosortowanie wydarzeń wg. godziny
 - dodawanie linków do notatek
+- reimplementacja slideTo() // dos
+- kontakt // dos
 
 // user requests:
 - linki które można klikać (regexp jakiś pewnie)

@@ -815,14 +815,25 @@ $(document).ready(function() {
 	});
 	$("#info_panel div .today").click(function () { slideTo(moment()); });
 	
+	if (!localStorage['firstRunBubbleHidden']) {
+		var helper = document.createElement('div');
+		helper.setAttribute("class", "helper");
+		helper = $(helper);
+		helper.css("width", "300px").css("height", "auto").css("top", $('#help_btn').offset().top+25).css("left", $('#help_btn').offset().left-250).css("transform","none").css("position","absolute");
+		helper.html("Witaj w My Time Organizer! Kliknij na ikonkę pomocy, aby uruchomić samouczek.");
+		helper.appendTo('body');
+		helper.show();
+		helper[0].onmouseover = function () { $(this).fadeOut(500, function() { $(this).remove(); localStorage['firstRunBubbleHidden']=true; }); };
+	}
+	
 	// font fix for Windows
 	if (navigator.userAgent.indexOf("Windows") != -1) {
-      var fileref=document.createElement("link")
-      fileref.setAttribute("rel", "stylesheet")
-      fileref.setAttribute("type", "text/css")
-      fileref.setAttribute("href", "css/windows.css")
-      $(fileref).appendTo($("head"));
-    }
+		var fileref=document.createElement("link")
+		fileref.setAttribute("rel", "stylesheet")
+		fileref.setAttribute("type", "text/css")
+		fileref.setAttribute("href", "css/windows.css")
+		$(fileref).appendTo($("head"));
+	}
 	// fix end
 	
 	resizeDays();
