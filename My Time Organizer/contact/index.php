@@ -10,7 +10,7 @@
 -->
 <?
 mail('mto@dosowisko.net', 'Wiadomość z formularza MTO: '.$_POST['title'], 'Od: '.$_POST['mail']."\n\n".$_POST['content'],
-'From: mto@dosowisko.net' . "\r\n" .'Content-type: text/plain; charset=utf-8' . "\r\n");
+'From: "My Time Organizer" <mto@dosowisko.net>' . "\r\n" .'Content-type: text/plain; charset=utf-8' . "\r\n");
 ?>
 <html>
 	<head>
