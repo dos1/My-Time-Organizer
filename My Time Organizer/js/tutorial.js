@@ -146,12 +146,12 @@ function tutorialStart() {
 
 
 function helpScreen() {
+	$('#helperTutorialFirstRun').remove();
+	localStorage['firstRunBubbleHidden']=true;
 	
 	if (!(localStorage['tutorialFirstTimePassed'])) { localStorage['tutorialFirstTimePassed']=true; tutorialStart(); return true; }
 	
 	$('#helper').css("visibility", "hidden");
-	$('#helperTutorialFirstRun').remove();
-	localStorage['firstRunBubbleHidden']=true;
 	
 	//$('#tutorialHighlight').animate({height: 500, width: 30, top: 10, left: 10}, 5000, first);
 	okno = document.createElement('div');
