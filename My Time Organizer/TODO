@@ -8,7 +8,6 @@
 - autosortowanie wydarzeń wg. godziny
 - dodawanie linków do notatek
 - reimplementacja slideTo() // dos
-- kontakt // dos
 
 // user requests:
 - linki które można klikać (regexp jakiś pewnie)
