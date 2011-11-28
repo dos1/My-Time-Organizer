@@ -248,28 +248,33 @@ function nyanNyan() {
 		icon.setAttribute('title', 'Edycja');
 		icon.draggable = false;
 		icon.onfocus = icon.blur;
-		icon.onclick = function() {
-			note_content = $(this.parentNode.parentNode).find(".note_content")[0];
+		function editNote() {
+			if ($(this).attr('class')=="note_content") t = $(this.parentNode).find("img")[0]; else t = this;
+			note_content = $(t.parentNode.parentNode).find(".note_content")[0];
 			if (note_content.isContentEditable) {
 				note_content.parentNode.setAttribute('data-content', note_content.innerHTML);
 				note_content.contentEditable = false;
-				if ($(this.parentNode.parentNode).attr('class')=='event') {
+				if ($(t.parentNode.parentNode).attr('class')=='event') {
 					//console.log($(this.parentNode.parentNode).attr('class'));
-					$(this.parentNode.parentNode).find(".note_time")[0].contentEditable = false;
-					note_content.parentNode.setAttribute('data-time', $(this.parentNode.parentNode).find(".note_time")[0].innerHTML);
+					$(t.parentNode.parentNode).find(".note_time")[0].contentEditable = false;
+					note_content.parentNode.setAttribute('data-time', $(t.parentNode.parentNode).find(".note_time")[0].innerHTML);
 				}
 				if ((note_content.innerHTML.toLowerCase()==='nyan') || (note_content.innerHTML.toLowerCase()==='nyan nyan')) nyanNyan();
 				saveNotes();
 			} else {
 				note_content.innerHTML = note_content.parentNode.getAttribute('data-content');
 				note_content.contentEditable = true;
-				if ($(this.parentNode.parentNode).attr('class')=='event') {
-					$(this.parentNode.parentNode).find(".note_time")[0].innerHTML = note_content.parentNode.getAttribute('data-time');
-					$(this.parentNode.parentNode).find(".note_time")[0].contentEditable = true;
+				if ($(t.parentNode.parentNode).attr('class')=='event') {
+					$(t.parentNode.parentNode).find(".note_time")[0].innerHTML = note_content.parentNode.getAttribute('data-time');
+					$(t.parentNode.parentNode).find(".note_time")[0].contentEditable = true;
 				}
 				note_content.focus();
 			}
 			note_content.parentNode.setAttribute('data-editedNow', note_content.isContentEditable);
+		}
+		icon.onclick = editNote;
+		if ($(note).attr('class')!=='event') { // FIXME: usunąć jak już będzie okienko edycji wydarzenia
+			note_content.onblur = editNote;
 		}
 
 		note_icons.appendChild(icon);
@@ -508,7 +513,7 @@ function fillWeekTable(table) {
 		
 		var mydate = "day"+myd+"-"+mym+"-"+myy;
 
-		doNav(table, week, mydate); // TODO: detect current day
+		doNav(table, week, mydate);
 		
 		setDayHandlers(document.getElementById(mydate));
 		
