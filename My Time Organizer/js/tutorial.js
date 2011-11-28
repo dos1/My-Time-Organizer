@@ -34,7 +34,14 @@ function expand() {
 	elem = $('#info_panel');
 	elem.attr('data-expand','true');
 	$("#tutorialAddon").remove();
-	$("#tutorialText").html("Aby przemieszczać się między poszczególnymi tygodniami, możesz najechać myszką na numer tygodnia wskazany powyżej albo kliknąć na przycisk ze strzałką znajdujący się na boku ekranu. Pierwsza ikonka pozwoli Ci wybrać interesującą Cię datę, druga zaś - przeniesie do obecnego tygodnia.<br/><br/>Dodatkowo możesz skorzystać ze sterowania klawiaturą zgodnie ze schematem obok.");
+	
+	wrap = document.createElement('img');
+	wrap.id = 'tutorialAddon';
+	wrap.src = 'images/keyboard.png';
+	$(wrap).css('text-align', 'center').css('margin','10px');
+	$(wrap).insertAfter($('#tutorialText'));
+	
+	$("#tutorialText").html("Aby przemieszczać się między poszczególnymi tygodniami, możesz najechać myszką na numer tygodnia wskazany powyżej albo kliknąć na przycisk ze strzałką znajdujący się na boku ekranu. Pierwsza ikonka pozwoli Ci wybrać interesującą Cię datę, druga zaś - przeniesie do obecnego tygodnia.<br/><br/>Dodatkowo możesz skorzystać ze sterowania klawiaturą zgodnie ze schematem poniżej.");
 	$('#tutorial').animate({top: elem.offset().top+30, left: (elem.offset().left+parseInt(elem.css('width')))-parseInt($('#tutorial').css('width'))}, 1);
 	$('#tutorialNext')[0].onclick = null;	
 	$('#tutorialNext')[0].onclick = fourth;
