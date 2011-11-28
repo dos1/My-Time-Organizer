@@ -8,6 +8,9 @@
  * [!] [alphabetical order]
  */
 -->
+<?
+mail('mto@dosowisko.net', 'Wiadomość z formularza: '.$_POST['title'], 'Od: '.$_POST['mail']."\n\n\n".$_POST['content']);
+?>
 <html>
 	<head>
 		<meta charset="utf-8">
@@ -29,7 +32,7 @@
 </head>
 <body>
 	<p><img src="../images/logo.png" style="background-color: #5889d7" /></p>
-	<p style="margin-top: 40px">Wiadomość nie została wysłana.</p>
+	<p style="margin-top: 40px">Wiadomość została wysłana.</p>
 	<p style="font-weight: bold">Dziękujemy!</p>
 </body>
 </html>
