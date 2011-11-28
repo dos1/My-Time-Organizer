@@ -34,15 +34,56 @@
 		<div id="event_edit_panel" style="display: none;">
 			<input type="text" name="" value="Tytuł" class="input_text" id="event_title_submit"/>
 			<textarea id="event_desc_txt">Opis wydarzenia</textarea>
-			<input type="text" name="" id="event_time_submit" value="Godzina (hh:mm)" class="input_text"/><br/>
-			Powtarzaj:
-			<select id="repeat">
-			<option>nigdy</option>
-			<option>codziennie</option>
-			<option>co tydzień</option>
-			<option>co miesiąc</option>
-			<option>co rok</option>
-			</select><br/>
+			<div style="display: table; text-align: left;">
+				<div style="display: table-row;">
+					<div style="display: table-cell;">
+						Start (hh:mm):
+					</div>
+					<div style="display: table-cell; padding-left: 10px">
+						<input type="text" name="" id="event_time_start_submit" value="" class="input_text"/>
+					</div>
+				</div>
+				<div style="display: table-row;">	
+					<div style="display: table-cell;">
+						Koniec (hh:mm):
+					</div>
+					<div style="display: table-cell; padding-left: 10px">
+						<input type="text" name="" id="event_time_end_submit" value="" class="input_text"/>
+					</div>
+				</div>
+			</div>
+			<!--Start (hh:mm): <input type="text" name="" id="event_time_start_submit" value="" class="input_text"/><br/>
+			Koniec (hh:mm): <input type="text" name="" id="event_time_end_submit" value="" class="input_text"/><br/>-->
+			<div style="display: table; text-align: left;">
+				<div style="display: table-row;">
+					<div style="display: table-cell;">
+						Powtarzaj:
+					</div>
+					<div style="display: table-cell; padding-left: 10px">
+						<select id="repeat">
+							<option>nigdy</option>
+							<option>codziennie</option>
+							<option>co tydzień</option>
+							<option>co miesiąc</option>
+							<option>co rok</option>
+						</select>
+					</div>
+				</div>
+				<div style="display: table-row;">
+					<div style="display: table-cell;">
+						Przypomnij: 
+					</div>
+					<div style="display: table-cell; padding-left: 10px">
+						<select id="notify">
+							<option>5 minut przed</option>
+							<option>10 minut przed</option>
+							<option>30 minut przed</option>
+							<option>1 godzinę przed</option>
+							<option>własne</option>
+						</select>
+					</div>
+				</div>
+			</div>
 			<input type="submit" id="cancel" value="Anuluj"/><input type="submit" id="editt" value="Edytuj"/>
 		</div>
 		<!-- items that can be dropped onto the table -->

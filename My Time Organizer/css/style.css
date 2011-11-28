@@ -652,7 +652,7 @@ body[data-nyan=nyan]::after {
 	-webkit-box-sizing: border-box;
 	background-color: white;
 	box-shadow: 0px 0px 15px rgba(0,0,0,0.4);
-	min-height: 170px;
+	min-height: 185px;
 	width: 350px;
 	z-index: 1000000;
 	font-family: Verdana;
@@ -670,7 +670,6 @@ body[data-nyan=nyan]::after {
 }
 
 #event_edit_panel #repeat {
-	margin-left: 15px;
 	font-family: Verdana;
 }
 
