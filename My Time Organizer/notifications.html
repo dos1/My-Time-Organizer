@@ -18,7 +18,7 @@ function notify(text) {
 	// Create a simple text notification:
 	var notification = webkitNotifications.createNotification(
 	    'icons/icon48.png',  // icon url - can be relative
-	    'Tytuł',  // notification title
+	    'Przypomnienie o wydarzeniu',  // notification title
 	    text  // notification body text
 	);
 
@@ -45,7 +45,7 @@ function checkEvents() {
 	wpisy = JSON.parse(localStorage[today]);
 	for (var i = 0; i < wpisy.length; i++) {
 		if (wpisy[i].type == 'event') {
-			if (now.format('HH:mm') == wpisy[i].time) notify(wpisy[i].content);
+			if (now.format('HH:mm') == wpisy[i].time) notify(wpisy[i].time+" "+wpisy[i].content);
 		}
 	}
 	

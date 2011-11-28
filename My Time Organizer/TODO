@@ -5,6 +5,7 @@
 - widok miesiąca // dos
 - czcionki na windowsie // dos
 - cofanie na backspace ;/ // dos
+- do hun7era od hun7era: zoptymalizować powiadomienia o eventach i dodać wybierane z listy <select> opcje powiadomień (przy tym edytować panel edycji wydarzenia i podpiąć go pod event edycji)
 - reimplementacja slideTo() // dos
 - kontakt i dymek do tutka przy pierwszym uruchomieniu // dos
 
