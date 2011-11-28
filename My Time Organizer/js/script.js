@@ -592,7 +592,7 @@ function moveAnimate(element, newParent, old, saveNotes){
 
 	function showHideHelper(anim) {
 		anim = typeof(anim) != 'undefined' ? anim : true;
-		
+		$("#helper").stop(false, true);
 		if (countNotes(document.getElementById('inner_table_center'))) {
 			if (anim) {
 				$("#helper").fadeOut(500);
