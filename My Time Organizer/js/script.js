@@ -301,7 +301,7 @@ function nyanNyan() {
 			onShow: function (colpkr) {
 					this.setAttribute('id', 'COLORPICKERTROLOLOLO');
 					this.parentNode.parentNode.setAttribute('data-whileInColorPicker', true);
-					$(colpkr).fadeIn(500);
+					$(colpkr).stop(true,true).fadeIn(500);
 					return false;
 			},
 			onHide: function (colpkr) {
@@ -309,7 +309,7 @@ function nyanNyan() {
 				document.getElementById('COLORPICKERTROLOLOLO').parentNode.parentNode.style.backgroundColor=document.getElementById('COLORPICKERTROLOLOLO').parentNode.parentNode.getAttribute('data-bgcolor');
 				//document.getElementById('COLORPICKERTROLOLOLO').parentNode.parentNode.style.color=colorFromBgColor(document.getElementById('COLORPICKERTROLOLOLO').parentNode.parentNode.getAttribute('data-bgcolor'));
 				document.getElementById('COLORPICKERTROLOLOLO').setAttribute('id', '');
-				$(colpkr).hide();
+				$(colpkr).stop(true,true).fadeOut(500);
 				saveNotes();
 				return false;
 			},
