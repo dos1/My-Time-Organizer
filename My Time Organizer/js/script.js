@@ -799,7 +799,7 @@ $(document).ready(function() {
 	fillWeekTable(document.getElementById('inner_table_center'));
 	fillWeekTable(document.getElementById('inner_table_right'));
 	
-	$("#help_btn").click(tutorialStart);
+	$("#help_btn").click(helpScreen);
 	$("#info_panel div .week").DatePicker({
 	date: weeks['inner_table_center'].format('YYYY-MM-DD'),
 	current: moment().format('YYYY-MM-DD'),

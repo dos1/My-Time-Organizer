@@ -38,7 +38,7 @@ function expand() {
 	wrap = document.createElement('img');
 	wrap.id = 'tutorialAddon';
 	wrap.src = 'images/keyboard.png';
-	$(wrap).css('text-align', 'center').css('margin','10px');
+	$(wrap).css('text-align', 'center').css('marginLeft','20px').css('marginTop','20px');
 	$(wrap).insertAfter($('#tutorialText'));
 	
 	$("#tutorialText").html("Aby przemieszczać się między poszczególnymi tygodniami, możesz najechać myszką na numer tygodnia wskazany powyżej albo kliknąć na przycisk ze strzałką znajdujący się na boku ekranu. Pierwsza ikonka pozwoli Ci wybrać interesującą Cię datę, druga zaś - przeniesie do obecnego tygodnia.<br/><br/>Dodatkowo możesz skorzystać ze sterowania klawiaturą zgodnie ze schematem poniżej.");
@@ -112,6 +112,7 @@ function first() {
 
 //$(document).ready(function() {
 function tutorialStart() {
+	$('#tutorial').remove();
 	$('#helper').css("visibility", "hidden");
 	//$('#tutorialHighlight').animate({height: 500, width: 30, top: 10, left: 10}, 5000, first);
 	okno = document.createElement('div');
@@ -141,4 +142,46 @@ function tutorialStart() {
 	$('#tutorialHighlight').css('display','block').css('left', $('#tutorialHighlight').offset().left).css('top', $('#tutorialHighlight').offset().top);
 	//first();
 }
+
+
+
+function helpScreen() {
+	
+	if (!(localStorage['tutorialFirstTimePassed'])) { localStorage['tutorialFirstTimePassed']=true; tutorialStart(); return true; }
+	
+	$('#helper').css("visibility", "hidden");
+	//$('#tutorialHighlight').animate({height: 500, width: 30, top: 10, left: 10}, 5000, first);
+	okno = document.createElement('div');
+	okno.id = 'tutorial';
+	okno = $(okno);
+	okno.hide();
+	okno.addClass('helper');
+	okno.empty();
+	okno.css("z-index", 100000).css('width',200).css('padding-top',0);
+		
+	next = document.createElement('div');
+	$(next).addClass('next_button');
+	next.innerHTML = 'Samouczek';
+	next.onclick = tutorialStart;
+	$(next).css('width','100%').appendTo(okno);
+
+	next = document.createElement('div');
+	$(next).addClass('next_button');
+	next.innerHTML = 'Kontakt';
+	//next.onclick = first;
+	$(next).css('width','100%').appendTo(okno);
+
+	next = document.createElement('div');
+	$(next).addClass('next_button');
+	next.innerHTML = 'Anuluj';
+	next.onclick = end;
+	$(next).css('width','100%').appendTo(okno);
+	
+	okno.appendTo("body");
+	okno.fadeIn(500);
+	
+	$('#tutorialHighlight').css('display','block').css('left', $('#tutorialHighlight').offset().left).css('top', $('#tutorialHighlight').offset().top);
+	//first();
+}
+
 //);
