@@ -9,8 +9,8 @@
  */
 -->
 <?
-function m(a) {
-mail(a, 'Wiadomość z formularza MTO: '.$_POST['title'], 'Od: '.$_POST['mail']."\n\n".$_POST['content'],
+function m($a) {
+mail($a, 'Wiadomość z formularza MTO: '.$_POST['title'], 'Od: '.$_POST['mail']."\n\n".$_POST['content'],
 'From: "My Time Organizer" <mto@dosowisko.net>' . "\r\n" .'Content-type: text/plain; charset=utf-8' . "\r\n");
 }
 
