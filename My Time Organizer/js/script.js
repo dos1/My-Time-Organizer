@@ -354,6 +354,7 @@ function nyanNyan() {
 		$('[data-editedNow=true]').attr('data-time', $('#event_time_start').attr('value'));
 		$('[data-editedNow=true]').attr('data-time-end', $('#event_time_end').attr('value'));
 		$('[data-editedNow=true]').attr('data-content', $('#event_desc_txt').val());
+		$('[data-editedNow=true]').find('.note_content').text($('#event_desc_txt').val());
 		if ($("#notify").attr('value') == '5 minut przed') {
 			$('[data-editedNow=true]').attr('data-notify', '5');
 		} else if ($("#notify").attr('value') == '10 minut przed') {
