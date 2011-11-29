@@ -374,6 +374,7 @@ function nyanNyan() {
 		$('[data-editedNow=true]').attr('data-editedNow', 'false');
 		saveNotes();
 		$("#event_edit_panel").hide();
+		$('#tutorialHighlight').css('display','none');
 		//console.log("Event val: "+myobject.attr('data-date'));
 		/*var myarr = new Array();
 		myarr = JSON.parse(localStorage[myobject.attr('data-date')]);
@@ -484,6 +485,7 @@ function nyanNyan() {
 			$(note).attr('data-editedNow', true);
 			
 			$("#event_edit_panel").show();
+			$('#tutorialHighlight').css('display','block');
 			//alert($("#repeat").attr('value'));
 		}
 		
@@ -1086,7 +1088,7 @@ $(document).ready(function() {
 	$("#help_btn").attr("alt", lang[mylang]["icons"][2]);
 	
 	$("#editt").click(function() { editMyEvent(); });
-	$("#cancel").click(function() { $('[data-editedNow=true]').attr('data-editedNow', 'false'); $('#event_edit_panel').hide(); });
+	$("#cancel").click(function() { $('[data-editedNow=true]').attr('data-editedNow', 'false');$('#event_edit_panel').hide();$('#tutorialHighlight').css('display','none'); });
 	
 	$("#helper").text(lang[mylang]["helper_txt"]);
 	
