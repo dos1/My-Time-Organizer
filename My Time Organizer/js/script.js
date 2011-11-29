@@ -687,6 +687,7 @@ function nextDayPreview(instant) {
 }
 
 function countItems(day, type, arg, val) {
+	if (!(localStorage[day])) return 0;
 	notes = JSON.parse(localStorage[day]);
 	var count = 0;
 	for (note in notes) {
