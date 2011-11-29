@@ -86,14 +86,29 @@ function nyanNyan() {
 		day.add("days", 1);
 		diff = day.diff(weeks['inner_table_center'], 'days');
 		diff = Math.floor(diff/7);
-		if (diff>0) {
-			for (var i=0; i<diff; i++) {
-				right_slide();
+		if (Math.abs(diff)<=2) {
+			if (diff>0) {
+				for (var i=0; i<diff; i++) {
+					right_slide();
+				}
+			} else {
+				for (var i=0; i>diff; i--) {
+					left_slide();
+				}			
 			}
-		} else {
-			for (var i=0; i>diff; i--) {
-				left_slide();
-			}			
+		}
+		else {
+			if (diff>0) {
+				weeks['inner_table_left'].add("weeks", diff-3);
+				weeks['inner_table_center'].add("weeks", diff-3);
+				weeks['inner_table_right'].add("weeks", diff-3);
+				right_slide(); right_slide(); right_slide(); 
+			} else {
+				weeks['inner_table_left'].add("weeks", diff+3);
+				weeks['inner_table_center'].add("weeks", diff+3);
+				weeks['inner_table_right'].add("weeks", diff+3);
+				left_slide(); left_slide(); left_slide();
+			}
 		}
 	}
 
