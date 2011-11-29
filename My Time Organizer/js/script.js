@@ -351,7 +351,28 @@ function nyanNyan() {
 	function editMyEvent(myobject) {
 		//alert("Test");
 		console.log("Executed.");
-		console.log($('[data-isEditedNow=true]'));
+		$('[data-editedNow=true]').attr('data-time', $('#event_time_start').attr('value'));
+		$('[data-editedNow=true]').attr('data-time-end', $('#event_time_end').attr('value'));
+		$('[data-editedNow=true]').attr('data-content', $('#event_desc_txt').val());
+		if ($("#notify").attr('value') == '5 minut przed') {
+			$('[data-editedNow=true]').attr('data-notify', '5');
+		} else if ($("#notify").attr('value') == '10 minut przed') {
+			$('[data-editedNow=true]').attr('data-notify', '10');
+		} else if ($("#notify").attr('value') == '30 minut przed') {
+			$('[data-editedNow=true]').attr('data-notify', '30');
+		} else if ($("#notify").attr('value') == '1 godzinę przed') {
+			$('[data-editedNow=true]').attr('data-notify', '60');
+		} else if ($("#notify").attr('value') == 'wcale') {
+			$('[data-editedNow=true]').attr('data-notify', '-1');
+		}
+		$('[data-editedNow=true]')
+		// data-time-end
+		//data-content
+		//data-notify
+		//console.log($('[data-isEditedNow=true]'));
+		$('[data-editedNow=true]').attr('editedNow', 'false');
+		saveNotes();
+		$("#event_edit_panel").hide();
 		//console.log("Event val: "+myobject.attr('data-date'));
 		/*var myarr = new Array();
 		myarr = JSON.parse(localStorage[myobject.attr('data-date')]);
