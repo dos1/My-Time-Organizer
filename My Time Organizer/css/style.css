@@ -337,6 +337,37 @@ nav .header#current_day h3 {
 .day.today {
 	box-shadow: 0px 0px 10px blue;
 }
+.day .counters {
+	text-align: center;
+	margin-left: -10px;
+	position: absolute;
+	bottom: 4px;
+	width: 100%;
+	-webkit-box-sizing: border-box;
+}
+.day .counters div {
+	display: inline-block;
+	margin-left: 20px;
+	position: relative;
+}
+.day .counters div::before {
+	content: "";
+	display: block;
+	width: 12px;
+	height: 12px;
+	background-color: red;
+	position: absolute;
+	left: -16px;
+}
+.day .counters .eventcount::before {
+	background-color: #78c20f;
+}
+.day .counters .taskcount::before {
+	background-color: #82418e;
+}
+.day .counters .notecount::before {
+	background-color: #5b5b5b;
+}
 .note, .task {
 	margin-top: 10px;
 }

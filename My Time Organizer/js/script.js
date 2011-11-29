@@ -43,15 +43,16 @@ var labelCounter = 0;
 	}
 
 
-	function toggleView() {
+	function toggleView(a, call) {
 		$('#inner_table_full, #inner_table_month').stop(true, true);
 		if ($('body').attr('data-view')=='week') {
 			$('body').attr('data-view','month');
+			showHideHelper();
 			$('#inner_table_full').fadeOut(500, function() { $('#inner_table_month').fadeIn(500); resizeDays(); });
 		}
 		else {
 			$('body').attr('data-view','week');
-			$('#inner_table_month').fadeOut(500, function() { $('#inner_table_full').fadeIn(500); resizeDays(); });
+			$('#inner_table_month').fadeOut(500, function() { $('#inner_table_full').fadeIn(500); showHideHelper(); resizeDays(); if (a) call(a); });
 		}
 		updateWeek();
 	}
@@ -619,7 +620,8 @@ function doNavMonth(parent, d, i, month) {
 		
 		var myy = d.format("YYYY");
 		
-		day.innerHTML = myd+"-"+mym+"-"+myy;
+		day.innerHTML = "<div class='date'>"+myd+"."+mym+"."+myy+"</div><div class='counters'><div class='eventcount' title='Wydarzenia'>0</div><div class='taskcount' title='Zadania'>0 (0)</div><div class='notecount' title='Notatki'>0</div></div>";
+		day.setAttribute('data-date', myd+"-"+mym+"-"+myy);
 		content.appendChild(day);
 		if (d.format("M")!=month) {
 			$(day).addClass('anotherMonth');
@@ -627,6 +629,8 @@ function doNavMonth(parent, d, i, month) {
 		if (d.format("D-M-YYYY")==moment().format("D-M-YYYY")) {
 			$(day).addClass('today');
 		}
+		day.onclick = function () { slideTo(moment(this.getAttribute('data-date'),'D-M-YYYY'));
+						toggleView(this, function (a) { $('#day'+a.getAttribute('data-date')).css('box-shadow','inset 0px 0px 50px #1030f0').delay(2000).animate({boxShadow: 'inset 0px 0px 0px #1030f0'},3000); }); };
 		d.add("weeks", 1);
 	}
 	d.subtract("weeks", 6);
@@ -760,7 +764,7 @@ function moveAnimate(element, newParent, old, saveNotes){
 	function showHideHelper(anim) {
 		anim = typeof(anim) != 'undefined' ? anim : true;
 		$("#helper").stop(false, true);
-		if (countNotes(document.getElementById('inner_table_center'))) {
+		if (($('body').attr('data-view')=='month') || (countNotes(document.getElementById('inner_table_center')))) {
 			if (anim) {
 				$("#helper").fadeOut(500);
 			} else { $("#helper").hide(); }
