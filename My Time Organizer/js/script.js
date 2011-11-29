@@ -59,7 +59,12 @@ function alignToMonday(inMonth) {
 */}
 
 	function resizeDays() {
-		h=$('.day').height()-26; if (h>11) $('.day .preview').css("max-height", h).css('visibility','visible'); else $('.day .preview').css('visibility','hidden');
+		function f() {
+			//console.log('mh ' + $(this).css('max-height') + ' h ' + $(this).height());
+			p = ($(this).parent().height()-28-$(this).height())/2;
+			$(this).css('top', p);
+		}
+		h=$('.day').height()-28; if (h>11) $('.day .preview').css("max-height", h).css('visibility','visible').each(f); else $('.day .preview').css('visibility','hidden');
 
 		if ($('body').attr('data-view')=='week')
 			$(".day_content").css("height",$("#inner_table_full nav").height()-16);
@@ -670,8 +675,13 @@ function nextDayPreview(instant) {
 				if (notes[id]) {
 					c = notes[id]['content'];
 					if (c=='') c='&lt;puste&gt;';
-					console.log(id + ' ' + c);
+					//console.log(id + ' ' + c);
 					$(this).html(c).fadeIn(instant ? 0 : 500);
+					p = ($(this).parent().height()-28-$(this).height())/2;
+					if (p<0) p=0;
+					//console.log($(this).parent().height() + ' ' + $(this).height() + ' '+p);
+					$(this).css('top', p);
+					
 				}
 				id++;
 				if (id>=notes.length) id=0;
@@ -740,6 +750,7 @@ function doNavMonth(parent, d, i, month) {
 		day.setAttribute('data-date', myd+"-"+mym+"-"+myy);
 		day.setAttribute('data-previewID', '0');
 		
+		
 		content.appendChild(day);
 		if (d.format("M")!=month) {
 			$(day).addClass('anotherMonth');
@@ -753,6 +764,7 @@ function doNavMonth(parent, d, i, month) {
 					alignToMonday();
 					toggleView(this, function (a) { $('#day'+a.getAttribute('data-date')).css('box-shadow','inset 0px 0px 50px #1030f0').delay(2000).animate({boxShadow: 'inset 0px 0px 0px #1030f0'},3000); });
 			};
+		
 		d.add("weeks", 1);
 	}
 	d.subtract("weeks", 6);
