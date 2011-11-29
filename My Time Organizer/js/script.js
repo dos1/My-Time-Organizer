@@ -669,9 +669,9 @@ function nextDayPreview(instant) {
 				var id = parseInt($(this).parent().attr('data-previewID'));
 				if (notes[id]) {
 					c = notes[id]['content'];
-					if (c=='') c='<puste>';
+					if (c=='') c='&lt;puste&gt;';
 					console.log(id + ' ' + c);
-					$(this).text(c).fadeIn(instant ? 0 : 500);
+					$(this).html(c).fadeIn(instant ? 0 : 500);
 				}
 				id++;
 				if (id>=notes.length) id=0;
