@@ -165,6 +165,7 @@ function nyanNyan() {
 		alignToMonday(true);
 		$('#inner_table_month').stop(false, true);
 		$('#inner_table_month').fadeOut(250, function() { $('#inner_table_month').empty(); fillMonthTable(document.getElementById('inner_table_month')); $('#inner_table_month').fadeIn(250); });
+		resizeDays();
 		updateWeek();
 	}
 
