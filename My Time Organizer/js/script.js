@@ -401,13 +401,13 @@ function nyanNyan() {
 		
 		$(note).css('backgroundColor', note.getAttribute('data-bgcolor'));
 
-		if ($(note).attr('class')==='event') {
+		/*if ($(note).attr('class')==='event') {
 			var note_time = document.createElement('div');
 			$(note_time).addClass('note_time');
 			note_time.innerHTML = $(note).attr('data-time');;
 			note_time.contentEditable = false;
 			note.appendChild(note_time);
-		}
+		}*/
 		
 		
 		var note_content = document.createElement('div');
