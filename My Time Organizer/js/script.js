@@ -561,7 +561,7 @@ function nyanNyan() {
 	}
 
 
-function doNav(parent, d, date) {
+function doNav(parent, d, date, i) {
 	var nav = document.createElement('nav');
 	parent.appendChild(nav);
 	var header = document.createElement('div');
@@ -587,12 +587,12 @@ function doNav(parent, d, date) {
 	return nav;
 }
 
-function doNavMonth(parent, d, date) {
+function doNavMonth(parent, d, i, month) {
 	var nav = document.createElement('nav');
 	parent.appendChild(nav);
 	var header = document.createElement('div');
 	header.setAttribute('class','header');
-	nav.setAttribute('data-date', date); // FIXME: dzień tygodnia
+	//nav.setAttribute('data-date', date); // FIXME: dzień tygodnia
 
 	header.innerHTML = "<h3>"+lang[mylang]["days"][i]+"</h3>";
 
@@ -610,6 +610,26 @@ function doNavMonth(parent, d, date) {
 	//content.setAttribute('id', date);
 	nav.appendChild(content);
 	
+	for (j=0; j<6; j++) {
+		var day = document.createElement('div');
+		day.setAttribute('class', 'day');
+		var myd = (d.format("D") < 10) ? "0"+d.format("D") : d.format("D");
+		
+		var mym = (d.format("M") < 10) ? "0"+d.format("M") : d.format("M");
+		
+		var myy = d.format("YYYY");
+		
+		day.innerHTML = myd+"-"+mym+"-"+myy;
+		content.appendChild(day);
+		if (d.format("M")!=month) {
+			$(day).addClass('anotherMonth');
+		}
+		if (d.format("D-M-YYYY")==moment().format("D-M-YYYY")) {
+			$(day).addClass('today');
+		}
+		d.add("weeks", 1);
+	}
+	d.subtract("weeks", 6);
 	return nav;
 }
 
@@ -624,8 +644,8 @@ function fillWeekTable(table) {
 		var myy = week.format("YYYY");
 		
 		var mydate = "day"+myd+"-"+mym+"-"+myy;
-
-		doNav(table, week, mydate);
+		
+		doNav(table, week, mydate, i);
 		
 		setDayHandlers(document.getElementById(mydate));
 		
@@ -636,18 +656,21 @@ function fillWeekTable(table) {
 }
 
 function fillMonthTable(table) {
-	var week = weeks[table.getAttribute('id')];
+	var w = weeks[table.getAttribute('id')];
+	var week = moment([parseInt(w.format("YYYY")),parseInt(w.format("M"))-1,1]);
+	console.log(week.format("YYYY-M-D"));
+	var month = week.format("M");
+	var mdn = week.format("d")-1; // current day of the week
+	if (mdn==-1) mdn = 6;
+	week.subtract("days", mdn);
+	
 	for(i = 0; i < lang[mylang]["days"].length; i++) {
-		
-		var myd = (week.format("D") < 10) ? "0"+week.format("D") : week.format("D");
 		
 		var mym = (week.format("M") < 10) ? "0"+week.format("M") : week.format("M");
 		
 		var myy = week.format("YYYY");
 		
-		var mydate = "days"+myd+"-"+mym+"-"+myy;
-
-		doNav(table, week, mydate);
+		doNavMonth(table, week, i, month);
 		
 		//setDayHandlers(document.getElementById(mydate));
 		
@@ -661,7 +684,7 @@ function fixFirstNote() {
 	$(".note").each(function () { $(this).css("margin-top", "10px");	});
 	$(".task").each(function () { $(this).css("margin-top", "10px");	});
 	$(".event").each(function () { $(this).css("margin-top", "24px");	});
-	$(".day_content > div:first-child").each(function () { 
+	$("#inner_table_full .day_content > div:first-child").each(function () { 
 		if (($(this).attr('data-beingMoved')) || ($(this).attr('data-beingDeleted')))
 			$(this).next().css('margin-top', '24px');
 		$(this).css('margin-top', '24px');
