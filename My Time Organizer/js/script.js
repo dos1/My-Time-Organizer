@@ -35,6 +35,25 @@ var deletedItems = [];
 var labelCounter = 0;
 
 
+function alignToMonday(inMonth) {
+//	function align(week) {
+	for (week in weeks) {
+		//console.log(weeks[week]);
+		var mdn = weeks[week].format("d")-1; // current day of the week
+		if (mdn==-1) mdn = 6;
+		m = weeks[week].format('M');
+		weeks[week].subtract("days", mdn);        // current day
+		if (inMonth) {
+			if (m!=weeks[week].format('M')) {
+				weeks[week].add("days", mdn+(7-mdn));
+			}
+		}
+	}
+/*	align(weeks['inner_table_left']);
+	align(weeks['inner_table_center']);
+	align(weeks['inner_table_right']);
+*/}
+
 	function resizeDays() {
 		if ($('body').attr('data-view')=='week')
 			$(".day_content").css("height",$("#inner_table_full nav").height()-16);
@@ -53,6 +72,16 @@ var labelCounter = 0;
 		}
 		else {
 			$('body').attr('data-view','week');
+			removeTable($('#inner_table_left'), true);
+			removeTable($('#inner_table_center'), true);
+			removeTable($('#inner_table_right'), true);
+			fillWeekTable(document.getElementById('inner_table_left'));
+			fillWeekTable(document.getElementById('inner_table_center'));
+			fillWeekTable(document.getElementById('inner_table_right'));
+			loadTable(document.getElementById('inner_table_left'));
+			loadTable(document.getElementById('inner_table_center'));
+			loadTable(document.getElementById('inner_table_right'));
+
 			$('#inner_table_month').fadeOut(500, function() { $('#inner_table_full').fadeIn(500); showHideHelper(); resizeDays(); if ((a) && (call)) call(a); $('#inner_table_month').empty(); });
 		}
 		updateWeek();
@@ -109,11 +138,25 @@ function nyanNyan() {
 		return localStorage['id'];
 	}
 
+	function slideToMonth(d) {
+		//day.add("days", 1);
+		day = moment('1-'+d.format('M-YYYY'), 'D-M-YYYY');
+		diff = day.diff(weeks['inner_table_center'], 'months');
+		//console.log(diff);
+		weeks['inner_table_left'].add("months", diff);
+		weeks['inner_table_center'].add("months", diff);
+		weeks['inner_table_right'].add("months", diff);
+		alignToMonday(true);
+		$('#inner_table_month').fadeOut(500, function() { fillMonthTable(document.getElementById('inner_table_month')); $('#inner_table_month').fadeIn(500); });
+	}
 
-	function slideTo(day) {
+	function slideTo(d) {
+		if ($('body').attr('data-view')=='month') return slideToMonth(day);
+		day = moment(d.format('D-M-YYYY'), 'D-M-YYYY');
 		day.add("days", 1);
 		diff = day.diff(weeks['inner_table_center'], 'days');
 		diff = Math.floor(diff/7);
+		console.log(diff);
 		if (Math.abs(diff)<=2) {
 			if (diff>0) {
 				for (var i=0; i<diff; i++) {
@@ -779,17 +822,22 @@ function moveAnimate(element, newParent, old, saveNotes){
 		showHideHelper();
 	}
 	
-	function removeTable(table) {
+	function removeTable(table, empty) {
 		var notes=table.children().children(".day_content").children();
 		//console.log(notes);
 		for (i=0; i<notes.length; i++) {
 			//console.log(notes[i]);
 			$("#"+$(notes[i]).attr('data-colorpickerId')).remove();
 		}
+		if (empty) table.empty(); else
 		table.remove();
 	}
 
 	function right_slide() {
+		if ($('body').attr('data-view')=='month') {
+			d = moment(weeks['inner_table_center'].format('D-M-YYYY'), 'D-M-YYYY');
+			d.add("months", 1);
+			return slideToMonth(d); }
 		//alert("Prawa szczałka!");		
 		saveTable(document.getElementById("inner_table_left"));
 
@@ -816,6 +864,10 @@ function moveAnimate(element, newParent, old, saveNotes){
 	}
 		
 	function left_slide() {
+		if ($('body').attr('data-view')=='month') {
+			d = moment(weeks['inner_table_center'].format('D-M-YYYY'), 'D-M-YYYY');
+			d.subtract("months", 1);
+			return slideToMonth(d); }
 		//alert("Lewa szczałka!");		
 		saveTable(document.getElementById("inner_table_right"));
 		
@@ -949,18 +1001,17 @@ $(document).ready(function() {
 		Środkowa tabela - aktualny tydzień
 	*/
 	
-	var now = moment();
-	var mdn = now.format("d")-1; // current day of the week
-	if (mdn==-1) mdn = 6;
-	var d = now.add("days", (-1)*mdn);        // current day
-	var week_last = moment().add("days", -(7+mdn));   // last week
-	var week_next = moment().add("days", 7-mdn);     // next week
+	var d = moment();        // current day
+	var week_last = moment().add("days", -7);   // last week
+	var week_next = moment().add("days", 7);     // next week
 					
 	weeks['inner_table_left'] = week_last;
 	weeks['inner_table_center'] = d;
 	weeks['inner_table_right'] = week_next;
 	weeks['inner_table_month'] = weeks['inner_table_center'];
 
+	alignToMonday();
+	
 	fillWeekTable(document.getElementById('inner_table_left'));
 	fillWeekTable(document.getElementById('inner_table_center'));
 	fillWeekTable(document.getElementById('inner_table_right'));
