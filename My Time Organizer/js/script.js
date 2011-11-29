@@ -147,7 +147,7 @@ function nyanNyan() {
 		weeks['inner_table_center'].add("months", diff);
 		weeks['inner_table_right'].add("months", diff);
 		alignToMonday(true);
-		$('#inner_table_month').fadeOut(500, function() { fillMonthTable(document.getElementById('inner_table_month')); $('#inner_table_month').fadeIn(500); });
+		$('#inner_table_month').fadeOut(500, function() { $('#inner_table_month').empty(); fillMonthTable(document.getElementById('inner_table_month')); $('#inner_table_month').fadeIn(500); });
 	}
 
 	function slideTo(d) {
