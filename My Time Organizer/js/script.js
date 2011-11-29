@@ -37,18 +37,21 @@ var labelCounter = 0;
 
 function alignToMonday(inMonth) {
 //	function align(week) {
-	for (week in weeks) {
-		//console.log(weeks[week]);
-		var mdn = weeks[week].format("d")-1; // current day of the week
-		if (mdn==-1) mdn = 6;
-		m = weeks[week].format('M');
-		weeks[week].subtract("days", mdn);        // current day
-		if (inMonth) {
-			if (m!=weeks[week].format('M')) {
-				weeks[week].add("days", mdn+(7-mdn));
-			}
+	//console.log(weeks[week]);
+	var mdn = weeks['inner_table_center'].format("d")-1; // current day of the week
+	if (mdn==-1) mdn = 6;
+	m = weeks['inner_table_center'].format('M');
+	weeks['inner_table_center'].subtract("days", mdn);        // current day
+	
+	if (inMonth) {
+		if (m!=weeks['inner_table_center'].format('M')) {
+			weeks['inner_table_center'].add("days", 7);
 		}
 	}
+
+	weeks['inner_table_left']=moment(weeks['inner_table_center'].format('D-M-YYYY'), 'D-M-YYYY').subtract("days", 7);
+	weeks['inner_table_right']=moment(weeks['inner_table_center'].format('D-M-YYYY'), 'D-M-YYYY').add("days", 7);
+
 /*	align(weeks['inner_table_left']);
 	align(weeks['inner_table_center']);
 	align(weeks['inner_table_right']);
@@ -63,7 +66,7 @@ function alignToMonday(inMonth) {
 
 
 	function toggleView(a, call) {
-		$('#inner_table_full, #inner_table_month').stop(true, true);
+		$('#inner_table_full, #inner_table_month').stop(false, true);
 		if ($('body').attr('data-view')=='week') {
 			$('body').attr('data-view','month');
 			showHideHelper();
@@ -72,6 +75,8 @@ function alignToMonday(inMonth) {
 		}
 		else {
 			$('body').attr('data-view','week');
+
+			$('#inner_table_month').fadeOut(500, function() { $('#inner_table_full').fadeIn(500); showHideHelper(); resizeDays(); 
 			removeTable($('#inner_table_left'), true);
 			removeTable($('#inner_table_center'), true);
 			removeTable($('#inner_table_right'), true);
@@ -81,8 +86,8 @@ function alignToMonday(inMonth) {
 			loadTable(document.getElementById('inner_table_left'));
 			loadTable(document.getElementById('inner_table_center'));
 			loadTable(document.getElementById('inner_table_right'));
-
-			$('#inner_table_month').fadeOut(500, function() { $('#inner_table_full').fadeIn(500); showHideHelper(); resizeDays(); if ((a) && (call)) call(a); $('#inner_table_month').empty(); });
+			if ((a) && (call)) call(a);
+			$('#inner_table_month').empty(); });
 		}
 		updateWeek();
 	}
@@ -147,16 +152,18 @@ function nyanNyan() {
 		weeks['inner_table_center'].add("months", diff);
 		weeks['inner_table_right'].add("months", diff);
 		alignToMonday(true);
+		$('#inner_table_month').stop(false, true);
 		$('#inner_table_month').fadeOut(500, function() { $('#inner_table_month').empty(); fillMonthTable(document.getElementById('inner_table_month')); $('#inner_table_month').fadeIn(500); });
+		updateWeek();
 	}
 
 	function slideTo(d) {
-		if ($('body').attr('data-view')=='month') return slideToMonth(day);
+		if ($('body').attr('data-view')=='month') return slideToMonth(d);
 		day = moment(d.format('D-M-YYYY'), 'D-M-YYYY');
 		day.add("days", 1);
 		diff = day.diff(weeks['inner_table_center'], 'days');
 		diff = Math.floor(diff/7);
-		console.log(diff);
+		//console.log(diff);
 		if (Math.abs(diff)<=2) {
 			if (diff>0) {
 				for (var i=0; i<diff; i++) {
@@ -673,8 +680,12 @@ function doNavMonth(parent, d, i, month) {
 		if (d.format("D-M-YYYY")==moment().format("D-M-YYYY")) {
 			$(day).addClass('today');
 		}
-		day.onclick = function () { slideTo(moment(this.getAttribute('data-date'),'D-M-YYYY'));
-						toggleView(this, function (a) { $('#day'+a.getAttribute('data-date')).css('box-shadow','inset 0px 0px 50px #1030f0').delay(2000).animate({boxShadow: 'inset 0px 0px 0px #1030f0'},3000); }); };
+		day.onclick = function () { 
+					weeks['inner_table_center'] = moment(this.getAttribute('data-date'),'D-M-YYYY');
+					weeks['inner_table_month'] = weeks['inner_table_center'];
+					alignToMonday();
+					toggleView(this, function (a) { $('#day'+a.getAttribute('data-date')).css('box-shadow','inset 0px 0px 50px #1030f0').delay(2000).animate({boxShadow: 'inset 0px 0px 0px #1030f0'},3000); });
+			};
 		d.add("weeks", 1);
 	}
 	d.subtract("weeks", 6);

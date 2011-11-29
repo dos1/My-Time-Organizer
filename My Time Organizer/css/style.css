@@ -546,7 +546,7 @@ body[data-view=month] #add_panel {
 	width: auto;
 	color: black;
 	z-index: 0;
-	width: 165px;
+	width: 185px;
 	margin-right: -8px;
 	padding-top: 2px;
 }
