@@ -76,7 +76,7 @@ function alignToMonday(inMonth) {
 		else {
 			$('body').attr('data-view','week');
 
-			$('#inner_table_month').fadeOut(500, function() { $('#inner_table_full').fadeIn(500); showHideHelper(); resizeDays(); 
+			$('#inner_table_month').fadeOut(500, function() { $('#inner_table_full').fadeIn(500);
 			removeTable($('#inner_table_left'), true);
 			removeTable($('#inner_table_center'), true);
 			removeTable($('#inner_table_right'), true);
@@ -87,6 +87,7 @@ function alignToMonday(inMonth) {
 			loadTable(document.getElementById('inner_table_center'));
 			loadTable(document.getElementById('inner_table_right'));
 			if ((a) && (call)) call(a);
+			showHideHelper(); resizeDays(); 
 			$('#inner_table_month').empty(); });
 		}
 		updateWeek();
