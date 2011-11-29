@@ -371,7 +371,7 @@ function nyanNyan() {
 		//data-content
 		//data-notify
 		//console.log($('[data-isEditedNow=true]'));
-		$('[data-editedNow=true]').attr('editedNow', 'false');
+		$('[data-editedNow=true]').attr('data-editedNow', 'false');
 		saveNotes();
 		$("#event_edit_panel").hide();
 		//console.log("Event val: "+myobject.attr('data-date'));
