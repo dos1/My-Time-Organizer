@@ -145,6 +145,33 @@ function tutorialStart() {
 	$('#tutorialHighlight').css('display','block').css('left', $('#tutorialHighlight').offset().left).css('top', $('#tutorialHighlight').offset().top);
 }
 
+function fillAboutApp() {
+	content = document.createElement('div');
+	content = $(content);
+	content.html('<p>My Time Organizer 1.0</p><p>Autorzy:</p><ul><li>Dominik \'mug3tsu\' Galewski</li><li>Sebastian \'dos\' Krzyszkowiak</li><li>Krzysztof \'hun7er\' Marciniak</li></ul><p>Użyte biblioteki:</p><ul><li>jQuery</li><li>jQuery CSS Transform</li><li>jQuery Animate CSS Rotate&amp;Scale</li><li>jQuery Animate Shadow</li><li>jQuery Colorpicker</li><li>jQuery Datepicker</li><li>moment.js</li></ul><p>Z podziękowaniami dla Poznań GTUG, którego hackaton umożliwił powstanie tej aplikacji.');
+	content.find('p').css('padding-top', 20);
+	content.find('li').css('list-style-type','disc').css('margin-left', 20);
+	content.appendTo('#tutorial');
+	
+	
+	next = document.createElement('div');
+	$(next).addClass('next_button');
+	next.innerHTML = 'Zamknij';
+	next.onclick = end;
+	$(next).css('width','100%').appendTo(content);
+
+	
+	content.hide();
+	content.fadeIn(500);
+	//setTimeout(end, 5000);
+}
+
+function aboutApp() {
+	$("#tutorial").children().fadeOut(500, fillAboutApp);
+	$("#tutorial").css('top',$("#tutorial").offset().top).css('left',$("#tutorial").offset().left+200).css('transform','none').animate({width: 400, top: window.innerHeight/2 - 200, left: window.innerWidth/2 - 200},1000);
+}
+
+
 function fillContactForm() {
 	content = document.createElement('div');
 	content = $(content);
@@ -196,6 +223,12 @@ function helpScreen() {
 	next.onclick = contactForm;
 	$(next).css('width','100%').appendTo(wrap);
 
+	next = document.createElement('div');
+	$(next).addClass('next_button');
+	next.innerHTML = 'O programie';
+	next.onclick = aboutApp;
+	$(next).css('width','100%').appendTo(wrap);
+	
 	next = document.createElement('div');
 	$(next).addClass('next_button');
 	next.innerHTML = 'Anuluj';
