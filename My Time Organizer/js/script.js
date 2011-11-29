@@ -669,6 +669,7 @@ function nextDayPreview(instant) {
 			//if (id==="NaN") id=0;
 			//if (notes[id])
 			//d = instant ? 0 : 500;
+			if (notes.length>1)
 			$(day).find('.preview').fadeOut(instant ? 0 : 500, function() { 
 				var notes = JSON.parse(localStorage['day'+$(this).parent().attr('data-date')]);
 				var id = parseInt($(this).parent().attr('data-previewID'));
@@ -687,7 +688,10 @@ function nextDayPreview(instant) {
 				if (id>=notes.length) id=0;
 				$(this).parent().attr('data-previewID', id);
 
-			});
+			}); else if (notes[id]) {
+					c = notes[id]['content'];
+					$(this).find('.preview').html(c);
+			}
 		}
 	}
 
