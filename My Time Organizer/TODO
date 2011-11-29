@@ -4,10 +4,8 @@
 - panel wypełniania wydarzenia // hun7er
 - do hun7era od hun7era: zoptymalizować powiadomienia o eventach i dodać wybierane z listy <select> opcje powiadomień (przy tym edytować panel edycji wydarzenia i podpiąć go pod event edycji)
 - widok miesiąca // dos
-  - przesuwanie miesięcy
   - skrót z dnia
   - liczniki
-  - błąd: po przesuwaniu miesięcy psuje się synchro w tygodniach w slide to today
 
 - autosortowanie wydarzeń wg. godziny
 - dodawanie linków do notatek

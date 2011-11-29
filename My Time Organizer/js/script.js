@@ -145,6 +145,8 @@ function nyanNyan() {
 
 	function slideToMonth(d) {
 		//day.add("days", 1);
+		if (weeks['inner_table_center'].format('M-YYYY')==d.format('M-YYYY')) return true;
+		
 		day = moment('1-'+d.format('M-YYYY'), 'D-M-YYYY');
 		diff = day.diff(weeks['inner_table_center'], 'months');
 		//console.log(diff);
@@ -180,11 +182,13 @@ function nyanNyan() {
 				weeks['inner_table_left'].add("weeks", diff-3);
 				weeks['inner_table_center'].add("weeks", diff-3);
 				weeks['inner_table_right'].add("weeks", diff-3);
+				alignToMonday();
 				right_slide(); right_slide(); right_slide(); 
 			} else {
 				weeks['inner_table_left'].add("weeks", diff+3);
 				weeks['inner_table_center'].add("weeks", diff+3);
 				weeks['inner_table_right'].add("weeks", diff+3);
+				alignToMonday();
 				left_slide(); left_slide(); left_slide();
 			}
 		}
