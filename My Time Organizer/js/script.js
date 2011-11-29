@@ -40,14 +40,17 @@ var labelCounter = 0;
 
 var dayPreviewInterval;
 
-if (!localStorage['color']) {
-	localStorage['color']='blue';
+function loadUIColor() {
+	if (!localStorage['color']) {
+		localStorage['color']='blue';
+	}
+	var fileref=document.createElement("link")
+	fileref.setAttribute("rel", "stylesheet")
+	fileref.setAttribute("type", "text/css")
+	fileref.setAttribute("href", "css/colors/"+localStorage['color']+".css")
+	$(fileref).appendTo($("head"));
 }
-var fileref=document.createElement("link")
-fileref.setAttribute("rel", "stylesheet")
-fileref.setAttribute("type", "text/css")
-fileref.setAttribute("href", "css/colors/"+localStorage['color']+".css")
-$(fileref).appendTo($("head"));
+loadUIColor();
 
 function alignToMonday(inMonth) {
 //	function align(week) {
