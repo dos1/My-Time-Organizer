@@ -34,6 +34,7 @@ var weeks = {};
 var deletedItems = [];
 var labelCounter = 0;
 
+var dayPreviewInterval;
 
 function alignToMonday(inMonth) {
 //	function align(week) {
@@ -58,10 +59,17 @@ function alignToMonday(inMonth) {
 */}
 
 	function resizeDays() {
+		h=$('.day').height()-26; if (h>11) $('.day .preview').css("max-height", h).css('visibility','visible'); else $('.day .preview').css('visibility','hidden');
+
 		if ($('body').attr('data-view')=='week')
 			$(".day_content").css("height",$("#inner_table_full nav").height()-16);
 		else
 			$(".day_content").css("height",$("#inner_table_month nav").height()-16);
+
+		
+		//$('.day .preview').each( function() { 
+		
+		//});
 	}
 
 
@@ -644,6 +652,40 @@ function doNav(parent, d, date, i) {
 	return nav;
 }
 
+function nextDayPreview(instant) {
+	function p() {
+		day = this;
+		if ($(this).hasClass('anotherMonth')) return true;
+		$(this).stop(false,true);
+		//console.log(localStorage['day'+$(day).attr('data-date')]);
+		if (localStorage['day'+$(day).attr('data-date')]) {
+			notes = JSON.parse(localStorage['day'+$(day).attr('data-date')]);
+			var id = $(day).attr('data-previewID');
+			//if (id==="NaN") id=0;
+			//if (notes[id])
+			//d = instant ? 0 : 500;
+			$(day).find('.preview').fadeOut(instant ? 0 : 500, function() { 
+				var notes = JSON.parse(localStorage['day'+$(this).parent().attr('data-date')]);
+				var id = parseInt($(this).parent().attr('data-previewID'));
+				if (notes[id]) {
+					c = notes[id]['content'];
+					if (c=='') c='<puste>';
+					console.log(id + ' ' + c);
+					$(this).text(c).fadeIn(instant ? 0 : 500);
+				}
+				id++;
+				if (id>=notes.length) id=0;
+				$(this).parent().attr('data-previewID', id);
+
+			});
+		}
+	}
+
+	days = $('.day').each(p);
+	
+	return false;
+}
+
 function countItems(day, type, arg, val) {
 	notes = JSON.parse(localStorage[day]);
 	var count = 0;
@@ -693,8 +735,10 @@ function doNavMonth(parent, d, i, month) {
 		
 		var myy = d.format("YYYY");
 		
-		day.innerHTML = "<div class='date'>"+myd+"."+mym+"."+myy+"</div><div class='counters'><div class='eventcount' title='Wydarzenia'>"+countItems("day"+myd+"-"+mym+"-"+myy, 'event')+"</div><div class='taskcount' title='Zadania'>"+countItems("day"+myd+"-"+mym+"-"+myy, 'task')+" ("+countItems("day"+myd+"-"+mym+"-"+myy, 'task', 'done', 'true')+")</div><div class='notecount' title='Notatki'>"+countItems("day"+myd+"-"+mym+"-"+myy, 'note')+"</div></div>";
+		day.innerHTML = "<div class='date'>"+myd+"."+mym+"."+myy+"</div><div class='preview'></div><div class='counters'><div class='eventcount' title='Wydarzenia'>"+countItems("day"+myd+"-"+mym+"-"+myy, 'event')+"</div><div class='taskcount' title='Zadania'>"+countItems("day"+myd+"-"+mym+"-"+myy, 'task')+" ("+countItems("day"+myd+"-"+mym+"-"+myy, 'task', 'done', 'true')+")</div><div class='notecount' title='Notatki'>"+countItems("day"+myd+"-"+mym+"-"+myy, 'note')+"</div></div>";
 		day.setAttribute('data-date', myd+"-"+mym+"-"+myy);
+		day.setAttribute('data-previewID', '0');
+		
 		content.appendChild(day);
 		if (d.format("M")!=month) {
 			$(day).addClass('anotherMonth');
@@ -758,7 +802,11 @@ function fillMonthTable(table) {
 		week.add("days", 1);
 	}
 	week.subtract("days", lang[mylang]["days"].length);
-	
+
+	clearInterval(dayPreviewInterval);
+	nextDayPreview(true);
+	dayPreviewInterval = setInterval(nextDayPreview, 5000);
+
 }
 
 function fixFirstNote() {
@@ -1093,7 +1141,7 @@ $(document).ready(function() {
 		$(fileref).appendTo($("head"));
 	}
 	// fix end
-	
+		
 	resizeDays();
 	loadNotes();
 	showHideHelper(false);
