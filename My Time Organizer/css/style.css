@@ -343,12 +343,15 @@ nav .header#current_day h3 {
 	position: absolute;
 	bottom: 4px;
 	width: 100%;
+	overflow: hidden;
+	white-space: nowrap;
 	-webkit-box-sizing: border-box;
 }
 .day .counters div {
 	display: inline-block;
 	margin-left: 20px;
 	position: relative;
+	white-space: nowrap;
 }
 .day .counters div::before {
 	content: "";
