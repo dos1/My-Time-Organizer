@@ -1086,6 +1086,7 @@ $(document).ready(function() {
 	$("#help_btn").attr("alt", lang[mylang]["icons"][2]);
 	
 	$("#editt").click(function() { editMyEvent($(this)); });
+	$("#cancel").click(function() { $('[data-editedNow=true]').attr('data-editedNow', 'false'); $('#event_edit_panel').hide(); });
 	
 	$("#helper").text(lang[mylang]["helper_txt"]);
 	
