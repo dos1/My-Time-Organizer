@@ -48,11 +48,12 @@ var labelCounter = 0;
 		if ($('body').attr('data-view')=='week') {
 			$('body').attr('data-view','month');
 			showHideHelper();
+			fillMonthTable(document.getElementById('inner_table_month'));
 			$('#inner_table_full').fadeOut(500, function() { $('#inner_table_month').fadeIn(500); resizeDays(); });
 		}
 		else {
 			$('body').attr('data-view','week');
-			$('#inner_table_month').fadeOut(500, function() { $('#inner_table_full').fadeIn(500); showHideHelper(); resizeDays(); if (a) call(a); });
+			$('#inner_table_month').fadeOut(500, function() { $('#inner_table_full').fadeIn(500); showHideHelper(); resizeDays(); if ((a) && (call)) call(a); $('#inner_table_month').empty(); });
 		}
 		updateWeek();
 	}
@@ -662,7 +663,7 @@ function fillWeekTable(table) {
 function fillMonthTable(table) {
 	var w = weeks[table.getAttribute('id')];
 	var week = moment([parseInt(w.format("YYYY")),parseInt(w.format("M"))-1,1]);
-	console.log(week.format("YYYY-M-D"));
+	//console.log(week.format("YYYY-M-D"));
 	var month = week.format("M");
 	var mdn = week.format("d")-1; // current day of the week
 	if (mdn==-1) mdn = 6;
@@ -964,7 +965,6 @@ $(document).ready(function() {
 	fillWeekTable(document.getElementById('inner_table_center'));
 	fillWeekTable(document.getElementById('inner_table_right'));
 
-	fillMonthTable(document.getElementById('inner_table_month'));
 	$('#inner_table_full').show();
 	$('#inner_table_month').hide();
 	$('body').attr('data-view','week');

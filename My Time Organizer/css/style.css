@@ -327,7 +327,8 @@ nav .header#current_day h3 {
 	background-position: 0px 0px;
 	border-bottom-left-radius: 0px;
 	border-top-left-radius: 0px;
-	height: 13%;
+	height: 14%;
+	min-height: 35px;
 	margin-top: 10px;
 	cursor: pointer;
 }
