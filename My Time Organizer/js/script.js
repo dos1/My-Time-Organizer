@@ -348,7 +348,7 @@ function nyanNyan() {
 	}
 
 	
-	function editMyEvent(myobject) {
+	function editMyEvent() {
 		//alert("Test");
 		console.log("Executed.");
 		$('[data-editedNow=true]').attr('data-time', $('#event_time_start').attr('value'));
@@ -1085,7 +1085,7 @@ $(document).ready(function() {
 	$("#help_btn").text(lang[mylang]["icons"][2]);
 	$("#help_btn").attr("alt", lang[mylang]["icons"][2]);
 	
-	$("#editt").click(function() { editMyEvent($(this)); });
+	$("#editt").click(function() { editMyEvent(); });
 	$("#cancel").click(function() { $('[data-editedNow=true]').attr('data-editedNow', 'false'); $('#event_edit_panel').hide(); });
 	
 	$("#helper").text(lang[mylang]["helper_txt"]);
