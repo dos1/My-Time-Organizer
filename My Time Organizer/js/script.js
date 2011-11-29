@@ -285,6 +285,7 @@ function nyanNyan() {
 	//
 	/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	
+	
 	function loadTable(table) {
 		//console.log('TABLE: '+table.getAttribute('id')+ ', length: '+table.childNodes.length);
 		for ( var col = 0; col < table.childNodes.length; col++ ) {
@@ -346,6 +347,23 @@ function nyanNyan() {
 		deletedItems.push(note);
 	}
 
+	
+	function editMyEvent(myobject) {
+		//alert("Test");
+		console.log("Executed.");
+		console.log($('[data-isEditedNow=true]'));
+		//console.log("Event val: "+myobject.attr('data-date'));
+		/*var myarr = new Array();
+		myarr = JSON.parse(localStorage[myobject.attr('data-date')]);
+		for (var i = 0; i < myarr.length; i++) {
+			
+		}*/
+		
+		
+		
+		//alert("Test");
+	}
+	
 	function fillNote(note, anim) {
 		
 		if (!$(note).attr('class')) return false; // HACK, FIXME
@@ -439,8 +457,15 @@ function nyanNyan() {
 			$("#event_time_start").attr('value', $(note).attr('data-time'));
 			if ($(note).attr('data-time-end') == 'undefined') $("#event_time_end").attr('value', $(note).attr('data-time'));
 			else $("#event_time_end").attr('value', $(note).attr('data-time-end'));
+			$("#event_edit_panel").attr('data-date', $(note).parent().attr('id'));
+			
+			$(note).attr('data-editedNow', true);
+			
 			$("#event_edit_panel").show();
+			//alert($("#repeat").attr('value'));
 		}
+		
+		
 		
 		if ($(note).attr('class')!=='event') {
 			icon.onclick = editNote;
@@ -1037,6 +1062,8 @@ $(document).ready(function() {
 	$("#conf_btn").attr("alt", lang[mylang]["icons"][1]);
 	$("#help_btn").text(lang[mylang]["icons"][2]);
 	$("#help_btn").attr("alt", lang[mylang]["icons"][2]);
+	
+	$("#editt").click(function() { editMyEvent($(this)); });
 	
 	$("#helper").text(lang[mylang]["helper_txt"]);
 	

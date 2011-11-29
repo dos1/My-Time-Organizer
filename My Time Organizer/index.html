@@ -30,14 +30,14 @@
 </head>
 <body>
 		<div id="event_edit_panel" style="display: none;">
-			<textarea id="event_desc_txt">Opis wydarzenia</textarea>
+			<textarea id="event_desc_txt" style="max-width: 100%">Opis wydarzenia</textarea>
 			<div style="display: table; text-align: left;">
 				<div style="display: table-row;">
 					<div style="display: table-cell;">
 						Start (hh:mm):
 					</div>
 					<div style="display: table-cell; padding-left: 10px">
-						<input type="text" name="" id="event_time_start" value="" class="input_text"/>
+						<input type="time" name="" id="event_time_start" value="" class="input_text"/>
 					</div>
 				</div>
 				<div style="display: table-row;">	
@@ -45,14 +45,21 @@
 						Koniec (hh:mm):
 					</div>
 					<div style="display: table-cell; padding-left: 10px">
-						<input type="text" name="" id="event_time_end" value="" class="input_text"/>
+						<input type="time" name="" id="event_time_end" value="" class="input_text"/>
 					</div>
 				</div>
 			</div>
 			<!--Start (hh:mm): <input type="text" name="" id="event_time_start_submit" value="" class="input_text"/><br/>
 			Koniec (hh:mm): <input type="text" name="" id="event_time_end_submit" value="" class="input_text"/><br/>-->
 			<div style="display: table; text-align: left;">
-				<div style="display: table-row;">
+				<!--
+				It will be available soon, really. But the deadline's too soon :<
+				Here, have some nice music instead ATM:
+					http://www.youtube.com/watch?v=5-b7mDdSt3M
+				;-)
+				-->
+				
+				<!--<div style="display: table-row;">
 					<div style="display: table-cell;">
 						Powtarzaj:
 					</div>
@@ -65,19 +72,18 @@
 							<option>co rok</option>
 						</select>
 					</div>
-				</div>
+				</div> -->
 				<div style="display: table-row;">
 					<div style="display: table-cell;">
 						Przypomnij: 
 					</div>
 					<div style="display: table-cell; padding-left: 10px">
 						<select id="notify">
-							<option>0 minut przed</option>
+							<option>wcale</option>
 							<option>5 minut przed</option>
 							<option>10 minut przed</option>
 							<option>30 minut przed</option>
 							<option>1 godzinę przed</option>
-							<option>własne</option>
 						</select>
 					</div>
 				</div>
