@@ -332,12 +332,10 @@ function nyanNyan() {
 		
 		if ($(note).attr('class')!=='event') {
 			icon.onclick = editNote;
+			note_content.onblur = editNote;
 		} else {
 			icon.onclick = editEventHandler;
 		}
-		/*if ($(note).attr('class')!=='event') { // FIXME: usunąć jak już będzie okienko edycji wydarzenia
-			note_content.onblur = editNote;
-		}*/
 
 		note_icons.appendChild(icon);
 		
