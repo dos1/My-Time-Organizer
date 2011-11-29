@@ -20,6 +20,7 @@ lang["en"]["icons"] = ["Switch view", "Configuration", "Help"];
 lang["en"]["week"] = "Week";
 lang["en"]["items_txt"] = ["Click pencil icon to edit that note or cross icon to delete it.", "Click pencil icon to edit that task or cross icon to delete it.", "Click pencil icon to edit that event or cross icon to delete it."];
 lang["en"]["helper_txt"] = 'There aren\'t any items added for that week. To do so, drag an icon with item type from the top panel and drop it onto selected column. Check "Help" for further information.';
+lang["en"]["months"] = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
 /* Polish */
 lang["pl"]["days"] = ["Poniedziałek", "Wtorek", "Środa", "Czwartek", "Piątek", "Sobota", "Niedziela"];
@@ -29,6 +30,9 @@ lang["pl"]["icons"] = ["Przełącz widok", "Konfiguracja", "Pomoc"];
 lang["pl"]["week"] = "Tydzień";
 lang["pl"]["items_txt"] = ["Kliknij ikonę ołówka, aby edytować tę notatkę, lub krzyżyk, aby ją usunąć.", "Kliknij ikonę ołówka, aby edytować to zadanie, lub krzyżyk, aby je usunąć.", "Kliknij ikonę ołówka, aby edytować to wydarzenie, lub krzyżyk, aby je usunąć."];
 lang["pl"]["helper_txt"] = 'Nie dodano jeszcze żadnych elementów do wyświetlonego tygodnia. Aby to uczynić, przeciągnij ikonkę z górnego paska do wybranej kolumny. Kliknij "Pomoc", aby uzyskać dodatkowe informacje.';
+lang["pl"]["months"] = ["Styczeń", "Luty", "Marzec", "Kwiecień", "Maj", "Czerwiec", "Lipiec", "Sierpień", "Wrzesień", "Październik", "Listopad", "Grudzień"];
+
+moment.months = lang[mylang]["months"];
 
 var weeks = {};
 var deletedItems = [];

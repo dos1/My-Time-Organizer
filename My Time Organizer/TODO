@@ -1,13 +1,9 @@
-- konfiguracja animacji, layoutu, ogólne ustawienia // w sumie to może ja - hun7er. Ale jak zrobię tygodnie // ...albo i teraz
-- eventy i powiadomienia // powiadomienia zrobił dos, przypomnienia o eventach działające w tle zrobię ja - hun7er
-- synchronizacja z google calendar // to w sumie może spróbuję - mug3tsu
+- konfiguracja animacji, layoutu, ogólne ustawienia // dos
+- eventy i powiadomienia // hun7er
 - panel wypełniania wydarzenia // hun7er
-- do hun7era od hun7era: zoptymalizować powiadomienia o eventach i dodać wybierane z listy <select> opcje powiadomień (przy tym edytować panel edycji wydarzenia i podpiąć go pod event edycji)
-- autosortowanie wydarzeń wg. godziny
-- dodawanie linków do notatek
 
-// user requests:
-- linki które można klikać (regexp jakiś pewnie)
-- Paweł Tarszewski 
-	"godziny przy wpisach dać pogrubione, daty przy dniach tygodnia powiększyć,
-	i wyrypac albo zmniejszyć te zaokrąglenia wszystkie jak na razie tyle
+- sygnał powiadomienia w konfiguracji
+- do hun7era od hun7era: zoptymalizować powiadomienia o eventach i dodać wybierane z listy <select> opcje powiadomień
+- autosortowanie wydarzeń wg. godziny
+- synchronizacja z google calendar // to w sumie może spróbuję - mug3tsu
+- linki w notatkach
