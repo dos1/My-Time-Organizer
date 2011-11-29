@@ -148,7 +148,7 @@ function tutorialStart() {
 function fillAboutApp() {
 	content = document.createElement('div');
 	content = $(content);
-	content.html('<p>My Time Organizer 1.0</p><p>Autorzy:</p><ul><li>Dominik \'mug3tsu\' Galewski</li><li>Sebastian \'dos\' Krzyszkowiak</li><li>Krzysztof \'hun7er\' Marciniak</li></ul><p>Użyte biblioteki:</p><ul><li>jQuery</li><li>jQuery CSS Transform</li><li>jQuery Animate CSS Rotate&amp;Scale</li><li>jQuery Animate Shadow</li><li>jQuery Colorpicker</li><li>jQuery Datepicker</li><li>moment.js</li></ul><p>Z podziękowaniami dla Poznań GTUG, którego hackaton umożliwił powstanie tej aplikacji oraz dla Nyan Cata, którego tęczowa moc napędza najbardziej mistyczne elementy kodu.');
+	content.html('<p>My Time Organizer 1.0</p><p>Autorzy:</p><ul><li>Dominik \'mug3tsu\' Galewski</li><li>Sebastian \'dos\' Krzyszkowiak</li><li>Krzysztof \'hun7er\' Marciniak</li></ul><p>Użyte biblioteki:</p><ul><li>jQuery</li><li>jQuery CSS Transform</li><li>jQuery Animate CSS Rotate&amp;Scale</li><li>jQuery Animate Shadow</li><li>jQuery Colorpicker</li><li>jQuery Datepicker</li><li>moment.js</li></ul><p>Z podziękowaniami dla Poznań GTUG, którego hackaton umożliwił powstanie tej aplikacji oraz dla Nyan Cata, którego tęczowa moc napędza najbardziej mistyczne fragmenty kodu.');
 	content.find('p').css('padding-top', 20);
 	content.find('li').css('list-style-type','disc').css('margin-left', 20);
 	content.appendTo('#tutorial');
