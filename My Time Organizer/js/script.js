@@ -69,7 +69,10 @@ function nyanNyan() {
 }
 
 	function updateWeek() {
-		$("#info_panel span").html(lang[mylang]["week"]+" "+weeks['inner_table_center'].format("w")+", "+weeks['inner_table_center'].format("YYYY"));
+		if ($('body').attr('data-view')=='week')
+			$("#info_panel span").html(lang[mylang]["week"]+" "+weeks['inner_table_center'].format("w")+", "+weeks['inner_table_center'].format("YYYY"));
+		else
+			$("#info_panel span").html(weeks['inner_table_center'].format("MMMM")+", "+weeks['inner_table_center'].format("YYYY"));
 	}
 
 	function incID() {
@@ -561,6 +564,32 @@ function doNav(parent, d, date) {
 	return nav;
 }
 
+function doNavMonth(parent, d, date) {
+	var nav = document.createElement('nav');
+	parent.appendChild(nav);
+	var header = document.createElement('div');
+	header.setAttribute('class','header');
+	nav.setAttribute('data-date', date); // FIXME: dzień tygodnia
+
+	header.innerHTML = "<h3>"+lang[mylang]["days"][i]+"</h3>";
+
+	//if (d.format("DD-MM-YYYY")===moment().format("DD-MM-YYYY")) { nav.setAttribute('data-currentDay','true'); header.setAttribute('id','current_day'); }
+  
+	/*if (d.format("YYYY")!=moment().format("YYYY"))
+		header.setAttribute('data-date',((d.format("D") < 10) ? "0"+d.format("D") : d.format("D"))+"."+((d.format("M") < 10) ? "0"+d.format("M") : d.format("M"))+"."+d.format("YY"));
+	else
+		header.setAttribute('data-date',((d.format("D") < 10) ? "0"+d.format("D") : d.format("D"))+"."+((d.format("M") < 10) ? "0"+d.format("M") : d.format("M")));*/
+	
+	nav.appendChild(header);
+  
+	var content = document.createElement('div');
+	content.setAttribute('class', 'day_content');
+	//content.setAttribute('id', date);
+	nav.appendChild(content);
+	
+	return nav;
+}
+
 function fillWeekTable(table) {
 	var week = weeks[table.getAttribute('id')];
 	for(i = 0; i < lang[mylang]["days"].length; i++) {
@@ -576,6 +605,28 @@ function fillWeekTable(table) {
 		doNav(table, week, mydate);
 		
 		setDayHandlers(document.getElementById(mydate));
+		
+		week.add("days", 1);
+	}
+	week.subtract("days", lang[mylang]["days"].length);
+	
+}
+
+function fillMonthTable(table) {
+	var week = weeks[table.getAttribute('id')];
+	for(i = 0; i < lang[mylang]["days"].length; i++) {
+		
+		var myd = (week.format("D") < 10) ? "0"+week.format("D") : week.format("D");
+		
+		var mym = (week.format("M") < 10) ? "0"+week.format("M") : week.format("M");
+		
+		var myy = week.format("YYYY");
+		
+		var mydate = "days"+myd+"-"+mym+"-"+myy;
+
+		doNav(table, week, mydate);
+		
+		//setDayHandlers(document.getElementById(mydate));
 		
 		week.add("days", 1);
 	}
@@ -782,7 +833,10 @@ $(document).ready(function() {
 	}
 
 	function resizeDays() {
-		$(".day_content").css("height",$("nav").height()-16);
+		if ($('body').attr('data-view')=='week')
+			$(".day_content").css("height",$("#inner_table_full nav").height()-16);
+		else
+			$(".day_content").css("height",$("#inner_table_month nav").height()-16);
 	}
 
 	window.onresize = resizeDays;
@@ -861,10 +915,32 @@ $(document).ready(function() {
 	weeks['inner_table_left'] = week_last;
 	weeks['inner_table_center'] = d;
 	weeks['inner_table_right'] = week_next;
+	weeks['inner_table_month'] = weeks['inner_table_center'];
 
 	fillWeekTable(document.getElementById('inner_table_left'));
 	fillWeekTable(document.getElementById('inner_table_center'));
 	fillWeekTable(document.getElementById('inner_table_right'));
+
+	fillMonthTable(document.getElementById('inner_table_month'));
+	$('#inner_table_full').show();
+	$('#inner_table_month').hide();
+	$('body').attr('data-view','week');
+	//setTimeout(function () { 	$('#inner_table_full').fadeIn(2000); }, 5000);
+	
+	function toggleView() {
+		$('#inner_table_full, #inner_table_month').stop(true, true);
+		if ($('body').attr('data-view')=='week') {
+			$('body').attr('data-view','month');
+			$('#inner_table_full').fadeOut(500, function() { $('#inner_table_month').fadeIn(500); resizeDays(); });
+		}
+		else {
+			$('body').attr('data-view','week');
+			$('#inner_table_month').fadeOut(500, function() { $('#inner_table_full').fadeIn(500); resizeDays(); });
+		}
+		updateWeek();
+	}
+		
+	$("#view_btn").click(toggleView);
 	
 	$("#help_btn").click(helpScreen);
 	$("#info_panel div .week").DatePicker({

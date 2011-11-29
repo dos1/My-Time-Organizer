@@ -147,7 +147,7 @@ footer {
 	-webkit-box-align: 	center;
 	-webkit-box-pack: 	center;
 	margin-left: -100%;
-	-webkit-transition: all 0.5s ease-out;
+	-webkit-transition: margin 0.5s ease-out;
 }
 
 #inner_table_center {
@@ -157,7 +157,7 @@ footer {
 	-webkit-box-orient: horizontal;
 	-webkit-box-align: 	center;
 	-webkit-box-pack: 	center;
-	-webkit-transition: all 0.5s ease-out;
+	-webkit-transition: margin 0.5s ease-out;
 }
 
 #inner_table_right {
@@ -168,9 +168,18 @@ footer {
 	-webkit-box-align: 	center;
 	-webkit-box-pack: 	center;
 	margin-left: 0%;
-	-webkit-transition: all 0.5s ease-out;
+	-webkit-transition: margin 0.5s ease-out;
 }
 
+#inner_table_month {
+	height: 			100%;
+	width: 				100%;
+	display: 			-webkit-box;
+	-webkit-box-orient: horizontal;
+	-webkit-box-align: 	center;
+	-webkit-box-pack: 	center;
+	-webkit-transition: margin 0.5s ease-out;
+}
 nav {
 	/*border-top: 1px solid darkgrey;
 	border-bottom: 1px solid darkgrey;*/
@@ -237,6 +246,9 @@ nav:nth-child(even):hover {
 	background-image: -webkit-linear-gradient(top, rgba(0,0,0,0.12) 0%,rgba(0,0,0,0.03) 60%,rgba(0,0,0,0.01) 100%);
 	background-repeat: repeat-x;
 	background-size: 100% 6px;
+}
+#inner_table_month .header::after {
+	display: none;
 }
 
 nav .header h3 {
@@ -408,6 +420,13 @@ div[contenteditable=true] {
 	margin-top: -15px;
 }
 
+#add_panel {
+	-webkit-transition: -webkit-transform 0.5s ease;
+}
+body[data-view=month] #add_panel {
+	-webkit-transform: translate(0px, -50px);
+}
+
 #add_panel div {
 	cursor: 			move;
 	height: 			20px;
@@ -458,9 +477,10 @@ div[contenteditable=true] {
 	content: attr(alt);
 	position: absolute;
 	font-size: 16px;
-	right: 0px;
-	top: 60px;
-	padding-bottom: 5px;
+	right: -5px;
+	top: 58px;
+	padding: 5px;
+	padding-top: 4px;
 	background-color: white;
 	height: auto;
 	opacity: 1;
@@ -474,6 +494,8 @@ div[contenteditable=true] {
 	color: black;
 	z-index: 0;
 	width: 165px;
+	margin-right: -8px;
+	padding-top: 2px;
 }
 #buttons_panel > #info_panel div {
 	display: inline-block;
