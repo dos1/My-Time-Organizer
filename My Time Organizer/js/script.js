@@ -644,6 +644,23 @@ function doNav(parent, d, date, i) {
 	return nav;
 }
 
+function countItems(day, type, arg, val) {
+	notes = JSON.parse(localStorage[day]);
+	var count = 0;
+	for (note in notes) {
+		if (!(arg)) {
+			if (notes[note]['type']==type) {
+				count++;
+			}
+		} else {
+			if ((notes[note]['type']==type) && (notes[note][arg]!=val)) {
+				count++;
+			}
+		}
+	}
+	return count;
+}
+
 function doNavMonth(parent, d, i, month) {
 	var nav = document.createElement('nav');
 	parent.appendChild(nav);
@@ -676,7 +693,7 @@ function doNavMonth(parent, d, i, month) {
 		
 		var myy = d.format("YYYY");
 		
-		day.innerHTML = "<div class='date'>"+myd+"."+mym+"."+myy+"</div><div class='counters'><div class='eventcount' title='Wydarzenia'>0</div><div class='taskcount' title='Zadania'>0 (0)</div><div class='notecount' title='Notatki'>0</div></div>";
+		day.innerHTML = "<div class='date'>"+myd+"."+mym+"."+myy+"</div><div class='counters'><div class='eventcount' title='Wydarzenia'>"+countItems("day"+myd+"-"+mym+"-"+myy, 'event')+"</div><div class='taskcount' title='Zadania'>"+countItems("day"+myd+"-"+mym+"-"+myy, 'task')+" ("+countItems("day"+myd+"-"+mym+"-"+myy, 'task', 'done', 'true')+")</div><div class='notecount' title='Notatki'>"+countItems("day"+myd+"-"+mym+"-"+myy, 'note')+"</div></div>";
 		day.setAttribute('data-date', myd+"-"+mym+"-"+myy);
 		content.appendChild(day);
 		if (d.format("M")!=month) {

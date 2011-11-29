@@ -359,12 +359,15 @@ nav .header#current_day h3 {
 	background-color: red;
 	position: absolute;
 	left: -16px;
+	background-position: -10px 0px;
 }
 .day .counters .eventcount::before {
 	background-color: #78c20f;
+	background-image: url('../images/top1.png');
 }
 .day .counters .taskcount::before {
 	background-color: #82418e;
+	background-image: url('../images/top2.png');
 }
 .day .counters .notecount::before {
 	background-color: #5b5b5b;
