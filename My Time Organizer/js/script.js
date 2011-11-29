@@ -373,7 +373,7 @@ function nyanNyan() {
 		//console.log($('[data-isEditedNow=true]'));
 		$('[data-editedNow=true]').attr('data-editedNow', 'false');
 		saveNotes();
-		$("#event_edit_panel").hide();
+		$("#event_edit_panel").fadeOut(500);
 		$('#tutorialHighlight').css('display','none');
 		//console.log("Event val: "+myobject.attr('data-date'));
 		/*var myarr = new Array();
@@ -484,7 +484,7 @@ function nyanNyan() {
 			
 			$(note).attr('data-editedNow', true);
 			
-			$("#event_edit_panel").show();
+			$("#event_edit_panel").fadeIn(250);
 			$('#tutorialHighlight').css('display','block');
 			//alert($("#repeat").attr('value'));
 		}
@@ -1088,7 +1088,7 @@ $(document).ready(function() {
 	$("#help_btn").attr("alt", lang[mylang]["icons"][2]);
 	
 	$("#editt").click(function() { editMyEvent(); });
-	$("#cancel").click(function() { $('[data-editedNow=true]').attr('data-editedNow', 'false');$('#event_edit_panel').hide();$('#tutorialHighlight').css('display','none'); });
+	$("#cancel").click(function() { $('[data-editedNow=true]').attr('data-editedNow', 'false');$('#event_edit_panel').fadeOut(500);$('#tutorialHighlight').css('display','none'); });
 	
 	$("#helper").text(lang[mylang]["helper_txt"]);
 	
@@ -1188,8 +1188,9 @@ $(document).ready(function() {
 	//setTimeout(function () { 	$('#inner_table_full').fadeIn(2000); }, 5000);
 			
 	$("#view_btn").click(toggleView);
-	
+	$("#conf_btn").click(confScreen);
 	$("#help_btn").click(helpScreen);
+
 	$("#info_panel div .week").DatePicker({
 	date: weeks['inner_table_center'].format('YYYY-MM-DD'),
 	current: moment().format('YYYY-MM-DD'),

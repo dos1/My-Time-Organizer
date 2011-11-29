@@ -746,14 +746,18 @@ body[data-nyan=nyan]::after {
 	font-size: 0.77em;
 }
 
-#event_edit_panel .input_text {
+/*#event_edit_panel .input_text {
 	width: 99%;
-}
+}*/
 
 #event_edit_panel textarea {
 	font-family: Verdana;
 	margin-left: -0.9px;
-	width: 98.6%;
+	width: 100%;
+	min-width: 100%;
+	max-width: 100%;
+	height: 150px;
+	-webkit-box-sizing: border-box;
 }
 
 #event_edit_panel #repeat {
