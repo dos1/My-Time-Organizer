@@ -374,7 +374,6 @@ nav .header#current_day h3 {
 .day .preview {
 	text-align: center;
 	margin-top: 3px;
-	height: 60%;
 	overflow: hidden;
 }
 .note, .task {
