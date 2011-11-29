@@ -112,6 +112,9 @@ function first() {
 
 //$(document).ready(function() {
 function tutorialStart() {
+	
+	if ($('body').attr('data-view')=='month') toggleView();
+	
 	$('#tutorial').remove();
 	$('#helper').css("visibility", "hidden");
 	//$('#tutorialHighlight').animate({height: 500, width: 30, top: 10, left: 10}, 5000, first);

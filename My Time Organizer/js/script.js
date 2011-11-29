@@ -34,6 +34,29 @@ var weeks = {};
 var deletedItems = [];
 var labelCounter = 0;
 
+
+	function resizeDays() {
+		if ($('body').attr('data-view')=='week')
+			$(".day_content").css("height",$("#inner_table_full nav").height()-16);
+		else
+			$(".day_content").css("height",$("#inner_table_month nav").height()-16);
+	}
+
+
+	function toggleView() {
+		$('#inner_table_full, #inner_table_month').stop(true, true);
+		if ($('body').attr('data-view')=='week') {
+			$('body').attr('data-view','month');
+			$('#inner_table_full').fadeOut(500, function() { $('#inner_table_month').fadeIn(500); resizeDays(); });
+		}
+		else {
+			$('body').attr('data-view','week');
+			$('#inner_table_month').fadeOut(500, function() { $('#inner_table_full').fadeIn(500); resizeDays(); });
+		}
+		updateWeek();
+	}
+
+
 function nyanNyan() {
 	function nyanNyanNyan() {
 		$('.header h3, #add_panel div, #info_panel span, footer').each(function () { this.setAttribute('data-nyan', this.innerHTML); } );
@@ -832,13 +855,6 @@ $(document).ready(function() {
 		if (((r+b+g)/3)>85) return "#333333"; else return "#ffffff";
 	}
 
-	function resizeDays() {
-		if ($('body').attr('data-view')=='week')
-			$(".day_content").css("height",$("#inner_table_full nav").height()-16);
-		else
-			$(".day_content").css("height",$("#inner_table_month nav").height()-16);
-	}
-
 	window.onresize = resizeDays;
 			
 	function keydown(e) {
@@ -926,20 +942,7 @@ $(document).ready(function() {
 	$('#inner_table_month').hide();
 	$('body').attr('data-view','week');
 	//setTimeout(function () { 	$('#inner_table_full').fadeIn(2000); }, 5000);
-	
-	function toggleView() {
-		$('#inner_table_full, #inner_table_month').stop(true, true);
-		if ($('body').attr('data-view')=='week') {
-			$('body').attr('data-view','month');
-			$('#inner_table_full').fadeOut(500, function() { $('#inner_table_month').fadeIn(500); resizeDays(); });
-		}
-		else {
-			$('body').attr('data-view','week');
-			$('#inner_table_month').fadeOut(500, function() { $('#inner_table_full').fadeIn(500); resizeDays(); });
-		}
-		updateWeek();
-	}
-		
+			
 	$("#view_btn").click(toggleView);
 	
 	$("#help_btn").click(helpScreen);
