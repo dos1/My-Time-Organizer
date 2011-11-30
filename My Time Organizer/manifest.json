@@ -1,8 +1,8 @@
 {
   "name": "My Time Organizer",
-  "version": "1.0",
+  "version": "1.0.0",
 
-  "description": "Organizer dnia, pozwalający na dodawanie notatek, wydarzeń, zadań i powiadomień w prosty, intuicyjny sposób, bez połączenia z Internetem.",
+  "description": "Organizer dnia, pozwalający na dodawanie notatek, wydarzeń, zadań i powiadomień w prosty, intuicyjny sposób.",
   "icons": {
 	"16": "icons/icon16.png",
 	"48": "icons/icon48.png",
