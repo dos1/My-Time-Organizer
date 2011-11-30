@@ -1,9 +1,14 @@
 /* ciemny */
 body.dark::before, body.dark nav:nth-of-type(even) .header, nav:nth-of-type(odd) .header, body.dark footer {
-	background-color: #0a0a0a;
+	background-color: #ff612a;
 }
 
 /* jasny */
 body::before, #logo, body.dark nav:nth-of-type(odd) .header, nav:nth-of-type(even) .header, footer {
-	background-color: #2a2a2a;
+	background-color: #ff8b2a;
+}
+
+/* dodatkowe */
+footer {
+	text-shadow: 0px 0px 5px rgba(0,0,0,0.6);
 }

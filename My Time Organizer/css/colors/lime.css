@@ -1,9 +1,15 @@
 /* ciemny */
 body.dark::before, body.dark nav:nth-of-type(even) .header, nav:nth-of-type(odd) .header, body.dark footer {
-	background-color: #0a0a0a;
+	background-color: #b3ff37;
 }
 
 /* jasny */
 body::before, #logo, body.dark nav:nth-of-type(odd) .header, nav:nth-of-type(even) .header, footer {
-	background-color: #2a2a2a;
+	background-color: #c8ff37;
+}
+
+/* dodatkowe */
+footer {
+	color: black;
+	text-shadow: none;
 }

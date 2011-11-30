@@ -1,6 +1,6 @@
 /* ciemny */
 body.dark::before, body.dark nav:nth-of-type(even) .header, nav:nth-of-type(odd) .header, body.dark footer {
-	background-color: #fba8d3;
+	background-color: #f9a6d1;
 }
 
 /* jasny */

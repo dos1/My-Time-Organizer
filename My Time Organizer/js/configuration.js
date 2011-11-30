@@ -51,6 +51,20 @@ function confScreen() {
 	$(next).appendTo($(wrap).find('p')[1]);
 
 	next = document.createElement('div');
+	$(next).addClass('selectColorVersion');
+	$(next).css('background-color', '#c8ff37');
+	next.setAttribute('data-color', 'lime');
+	next.onclick = setColor;
+	$(next).appendTo($(wrap).find('p')[1]);	
+	
+	next = document.createElement('div');
+	$(next).addClass('selectColorVersion');
+	$(next).css('background-color', '#ff8b2a');
+	next.setAttribute('data-color', 'orange');
+	next.onclick = setColor;
+	$(next).appendTo($(wrap).find('p')[1]);	
+	
+	next = document.createElement('div');
 	$(next).addClass('next_button');
 	next.innerHTML = 'Anuluj';
 	next.onclick = end;
