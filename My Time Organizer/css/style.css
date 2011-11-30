@@ -732,19 +732,19 @@ body[data-nyan=nyan]::after {
 
 #event_edit_panel {
 	position: fixed;
-	top: 50%;
+	top: 40%;
 	left: 50%;
 	margin: -85px 0 0 -180px;
 	padding: 10px;
 	text-align: justify;
 	-webkit-box-sizing: border-box;
-	background-color: white;
 	box-shadow: 0px 0px 15px rgba(0,0,0,0.4);
 	min-height: 185px;
 	width: 350px;
 	z-index: 1000000;
 	font-family: Verdana;
 	font-size: 0.77em;
+	-webkit-transform: none;
 }
 
 /*#event_edit_panel .input_text {
