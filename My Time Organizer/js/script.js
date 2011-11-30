@@ -84,9 +84,11 @@ function checkCurDay() {
 		$('[data-currentday=true]').attr('data-currentDay','');
 		$('#current_day')[0].id = '';
 		$('.day.today').removeClass('today');
-		curDay = moment().format('D-M-YYYY');
-		header = $('nav[data-date=day'+curDay+']').attr('data-currentDay','true').find('.header');
-		$('.day[data-date='+curDay+']').addClass('today');
+		d = moment();
+		curDay = d.format('D-M-YYYY');
+		day = ((d.format("D") < 10) ? "0"+d.format("D") : d.format("D"))+"-"+((d.format("M") < 10) ? "0"+d.format("M") : d.format("M"))+"-"+d.format("YYYY");
+		header = $('nav[data-date=day'+day+']').attr('data-currentDay','true').find('.header');
+		$('.day[data-date='+day+']').addClass('today');
 		if (header[0]) header[0].id = 'current_day';
 		
 	}
