@@ -746,6 +746,10 @@ body[data-nyan=nyan]::after {
 	font-size: 0.77em;
 	-webkit-transform: none;
 }
+#event_edit_panel input[type=time], #event_edit_panel select {
+	width: 100%;
+	-webkit-box-sizing: border-box;
+}
 /*#event_edit_panel .input_text {
 	width: 99%;
 }*/
