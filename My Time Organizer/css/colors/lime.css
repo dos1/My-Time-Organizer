@@ -1,10 +1,10 @@
 /* ciemny */
-body.dark::before, body.dark nav:nth-of-type(even) .header, nav:nth-of-type(odd) .header, body.dark footer {
-	background-color: #b3ff37;
+body.dark::before, #logo, body.dark nav:nth-of-type(even) .header, nav:nth-of-type(odd) .header, body.dark footer {
+	background-color: #affb33;
 }
 
 /* jasny */
-body::before, #logo, body.dark nav:nth-of-type(odd) .header, nav:nth-of-type(even) .header, footer {
+body::before, body.dark nav:nth-of-type(odd) .header, nav:nth-of-type(even) .header, footer {
 	background-color: #c8ff37;
 }
 
@@ -16,4 +16,8 @@ nav .header h3 {
 footer {
 	color: black;
 	text-shadow: none;
+}
+
+body, .day_content {
+	background-image: -webkit-linear-gradient(top, rgba(0,0,0,0.25) 0%,rgba(0,0,0,0.1) 40%,rgba(0,0,0,0.02) 80%,rgba(0,0,0,0.01) 100%);	
 }
