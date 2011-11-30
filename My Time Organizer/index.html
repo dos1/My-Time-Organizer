@@ -35,12 +35,13 @@
 		<div id="event_edit_panel" class="helper" style="display: none;">
 			<textarea id="event_desc_txt" style="max-width: 100%">Opis wydarzenia</textarea>
 			<div style="display: table; width: 100%; text-align: left;">
+				<form id="event_edit_form">
 				<div style="display: table-row;">
 					<div style="display: table-cell;">
 						Start (hh:mm):
 					</div>
 					<div style="display: table-cell; padding-left: 10px">
-						<input type="time" name="" id="event_time_start" value="" class="input_text"/>
+						<input type="time" required name="" id="event_time_start" value="" class="input_text"/>
 					</div>
 				</div>
 				<div style="display: table-row;">	
@@ -87,7 +88,8 @@
 					</div>
 				</div>
 			</div>
-			<input type="submit" id="cancel" value="Anuluj"/><input type="submit" id="editt" value="Edytuj"/>
+			<input type="button" id="cancel" value="Anuluj"/><input type="submit" id="editt" value="Edytuj"/>
+			</form>
 		</div>
 		<!-- items that can be dropped onto the table -->
 		<header>

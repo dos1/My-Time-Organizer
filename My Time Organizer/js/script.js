@@ -1104,7 +1104,7 @@ $(document).ready(function() {
 	$("#help_btn").text(lang[mylang]["icons"][2]);
 	$("#help_btn").attr("alt", lang[mylang]["icons"][2]);
 	
-	$("#editt").click(function() { editMyEvent(); });
+	$("#event_edit_form").submit(function() { editMyEvent(); return false; });
 	$("#cancel").click(function() { $('[data-editedNow=true]').attr('data-editedNow', 'false');$('#event_edit_panel').fadeOut(500);$('#tutorialHighlight').css('display','none'); });
 	
 	$("#helper").text(lang[mylang]["helper_txt"]);
