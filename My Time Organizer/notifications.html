@@ -45,12 +45,14 @@ function checkEvents() {
 	wpisy = JSON.parse(localStorage[today]);
 	for (var i = 0; i < wpisy.length; i++) {
 		if (wpisy[i].type == 'event') {
-			if (now.format('HH:mm') == wpisy[i].time) notify(wpisy[i].time+" "+wpisy[i].content);
+			var tbefore = moment();
+			tbefore.add("minutes", wpisy[i].notify);
+			if (now.format('HH:mm') == wpisy[i].time || tbefore.format('HH:mm') == wpisy[i].time) notify(wpisy[i].time+" "+wpisy[i].content);
 		}
 	}
 	
 	//notify("Na dzis: "+localStorage[today]);
-	t = setTimeout("checkEvents()", 30000);
+	t = setTimeout("checkEvents()", 60000);
 }
 	//wpisy = localStorage[today];
 	//for (var i = 0; i < wpisy.length(); i++) TodayTODO = JSON.parse(wpisy[i]);
