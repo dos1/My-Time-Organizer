@@ -487,6 +487,34 @@ function alignToMonday(inMonth) {
 			else $("#event_time_end").attr('value', $(note).attr('data-time-end'));
 			$("#event_edit_panel").attr('data-date', $(note).parent().attr('id'));
 			
+			/*
+			if ($("#notify").attr('value') == '5 minut przed') {
+				$('[data-editedNow=true]').attr('data-notify', '5');
+			} else if ($("#notify").attr('value') == '10 minut przed') {
+				$('[data-editedNow=true]').attr('data-notify', '10');
+			} else if ($("#notify").attr('value') == '30 minut przed') {
+				$('[data-editedNow=true]').attr('data-notify', '30');
+			} else if ($("#notify").attr('value') == '1 godzinę przed') {
+				$('[data-editedNow=true]').attr('data-notify', '60');
+			} else if ($("#notify").attr('value') == 'wcale') {
+				$('[data-editedNow=true]').attr('data-notify', '-1');
+			}
+			*/
+			
+			var wyniki = ["5 minut przed", "10 minut przed", "30 minut przed", "1 godzinę przed", "wcale"];
+			
+			if ($(note).attr('data-notify') == 5) {
+				$('#notify').attr('value', wyniki[0]);
+			} else if ($(note).attr('data-notify') == 10) {
+				$('#notify').attr('value', wyniki[1]);
+			} else if ($(note).attr('data-notify') == 30) {
+				$('#notify').attr('value', wyniki[2]);
+			} else if ($(note).attr('data-notify') == 60) {
+				$('#notify').attr('value', wyniki[3]);
+			} else if ($(note).attr('data-notify') == -1) {
+				$('#notify').attr('value', wyniki[4]);
+			}
+			
 			$(note).attr('data-editedNow', true);
 			
 			$("#event_edit_panel").fadeIn(250);
