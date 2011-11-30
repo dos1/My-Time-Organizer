@@ -8,6 +8,10 @@ body::before, #logo, body.dark nav:nth-of-type(odd) .header, nav:nth-of-type(eve
 	background-color: #c8ff37;
 }
 
+nav .header h3 {
+	text-shadow: 0px 0px 5px rgba(0,0,0,0.5);
+}
+
 /* dodatkowe */
 footer {
 	color: black;
