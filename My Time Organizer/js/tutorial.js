@@ -55,7 +55,7 @@ function third() {
 	for (i=0; i<notes.length; i++) {
 		$("#"+$(notes[i]).attr('data-colorpickerId')).remove();
 	}
-	
+	$('#event_edit_panel').fadeOut(500);
 	$('#tutorial').fadeOut(500);
 	elem = $('#left_arrow');
 	$('#tutorialHighlight').animate({height: parseInt(elem.css('height'))+60, width: parseInt(elem.css('width'))+35, top: elem.offset().top-5, left: elem.offset().left}, 1000);

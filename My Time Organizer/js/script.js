@@ -391,7 +391,8 @@ function nyanNyan() {
 		$('[data-editedNow=true]').attr('data-editedNow', 'false');
 		saveNotes();
 		$("#event_edit_panel").fadeOut(500);
-		$('#tutorialHighlight').css('display','none');
+		if (!document.getElementById('tutorial')) 
+			$('#tutorialHighlight').css('display','none');
 		//console.log("Event val: "+myobject.attr('data-date'));
 		/*var myarr = new Array();
 		myarr = JSON.parse(localStorage[myobject.attr('data-date')]);
@@ -1105,7 +1106,7 @@ $(document).ready(function() {
 	$("#help_btn").attr("alt", lang[mylang]["icons"][2]);
 	
 	$("#event_edit_form").submit(function() { editMyEvent(); return false; });
-	$("#cancel").click(function() { $('[data-editedNow=true]').attr('data-editedNow', 'false');$('#event_edit_panel').fadeOut(500);$('#tutorialHighlight').css('display','none'); });
+	$("#cancel").click(function() { $('[data-editedNow=true]').attr('data-editedNow', 'false');$('#event_edit_panel').fadeOut(500); if (!document.getElementById('tutorial')) $('#tutorialHighlight').css('display','none'); });
 	
 	$("#helper").text(lang[mylang]["helper_txt"]);
 	
