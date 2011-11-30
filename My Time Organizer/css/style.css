@@ -89,6 +89,7 @@ footer {
 	margin-left: 10%;
 	margin-top: -10px;
 	-webkit-transform: translate(-6px,0px);
+	-webkit-transition: background-color 0.5s;
 }
 #right_panel {
 	margin-right: 10%;
@@ -798,4 +799,13 @@ nav[data-currentDay=true] .day_content .task input[type=checkbox], nav[data-curr
 nav[data-currentDay=true] .day_content .task .note_content,
 .task:hover .note_content {
 	margin-bottom: 0px;
+}
+
+.selectColorVersion {
+	display: inline-block;
+	width: 32px;
+	height: 32px;
+	margin: 5px;
+	box-shadow: 0px 0px 10px rgba(255,255,255,0.5);
+	cursor: pointer;
 }

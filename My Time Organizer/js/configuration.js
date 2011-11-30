@@ -1,4 +1,10 @@
 
+function setColor() {
+		localStorage['color']=$(this).attr('data-color');
+		loadUIColor();
+		end();
+}
+
 function confScreen() {
 	
 	$('#helper').css("visibility", "hidden");
@@ -13,6 +19,37 @@ function confScreen() {
 		
 	wrap = document.createElement('div');
 		
+	$(wrap).html('<p>Wybierz wersję kolorystyczną:</p><p></p>');
+	$(wrap).find('p').css('text-align','center').css('padding-top',20);
+
+	next = document.createElement('div');
+	$(next).addClass('selectColorVersion');
+	$(next).css('background-color', '#457ad5');
+	next.setAttribute('data-color', 'blue');
+	next.onclick = setColor;
+	$(next).appendTo($(wrap).find('p')[1]);
+
+	next = document.createElement('div');
+	$(next).addClass('selectColorVersion');
+	$(next).css('background-color', '#fba8d3');
+	next.setAttribute('data-color', 'pink');
+	next.onclick = setColor;
+	$(next).appendTo($(wrap).find('p')[1]);
+
+	next = document.createElement('div');
+	$(next).addClass('selectColorVersion');
+	$(next).css('background-color', '#1a1a1a');
+	next.setAttribute('data-color', 'black');
+	next.onclick = setColor;
+	$(next).appendTo($(wrap).find('p')[1]);
+	
+	next = document.createElement('div');
+	$(next).addClass('selectColorVersion');
+	$(next).css('background-color', '#a88314');
+	next.setAttribute('data-color', 'brown');
+	next.onclick = setColor;
+	$(next).appendTo($(wrap).find('p')[1]);
+
 	next = document.createElement('div');
 	$(next).addClass('next_button');
 	next.innerHTML = 'Anuluj';
