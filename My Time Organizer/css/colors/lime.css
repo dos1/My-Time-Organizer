@@ -1,11 +1,11 @@
 /* ciemny */
 body.dark::before, #logo, body.dark nav:nth-of-type(even) .header, nav:nth-of-type(odd) .header, body.dark footer {
-	background-color: #affb33;
+	background-color: #a0e62f;
 }
 
 /* jasny */
 body::before, body.dark nav:nth-of-type(odd) .header, nav:nth-of-type(even) .header, footer {
-	background-color: #c8ff37;
+	background-color: #b4e632;
 }
 
 nav .header h3 {

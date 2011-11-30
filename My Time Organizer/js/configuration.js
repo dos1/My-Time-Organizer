@@ -52,7 +52,7 @@ function confScreen() {
 
 	next = document.createElement('div');
 	$(next).addClass('selectColorVersion');
-	$(next).css('background-color', '#c8ff37');
+	$(next).css('background-color', '#a0e62f');
 	next.setAttribute('data-color', 'lime');
 	next.onclick = setColor;
 	$(next).appendTo($(wrap).find('p')[1]);	
