@@ -1,9 +1,8 @@
-- konfiguracja animacji, layoutu, ogólne ustawienia // dos
 - eventy i powiadomienia // hun7er
 - panel wypełniania wydarzenia // hun7er
 
+Na potem:
 - sygnał powiadomienia w konfiguracji
-- do hun7era od hun7era: zoptymalizować powiadomienia o eventach i dodać wybierane z listy <select> opcje powiadomień
 - autosortowanie wydarzeń wg. godziny
 - synchronizacja z google calendar // to w sumie może spróbuję - mug3tsu
 - linki w notatkach
