@@ -40,6 +40,22 @@ var labelCounter = 0;
 
 var dayPreviewInterval;
 
+var curDay = moment().format('D-M-YYYY');
+
+function checkCurDay() {
+	if (curDay!=moment().format('D-M-YYYY'))  { 
+		//console.log('NEW DAY'); 
+		$('[data-currentday=true]').attr('data-currentDay','');
+		$('#current_day')[0].id = '';
+		$('.day.today').removeClass('today');
+		curDay = moment().format('D-M-YYYY');
+		header = $('nav[data-date=day'+curDay+']').attr('data-currentDay','true').find('.header');
+		$('.day[data-date='+curDay+']').addClass('today');
+		if (header[0]) header[0].id = 'current_day';
+		
+	}
+}
+
 function loadUIColor() {
 	if (!localStorage['color']) {
 		localStorage['color']='blue';
@@ -1228,6 +1244,7 @@ $(document).ready(function() {
 	}
 	// fix end
 		
+	setInterval(checkCurDay, 30000);
 	resizeDays();
 	loadNotes();
 	showHideHelper(false);
