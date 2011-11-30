@@ -60,9 +60,10 @@ function loadUIColor() {
 	if (!localStorage['color']) {
 		localStorage['color']='blue';
 	}
-	var fileref=document.createElement("link")
-	fileref.setAttribute("rel", "stylesheet")
-	fileref.setAttribute("type", "text/css")
+	//var fileref=document.createElement("link")
+	var fileref = document.getElementById('uicolorscss');
+	//fileref.setAttribute("rel", "stylesheet")
+	//fileref.setAttribute("type", "text/css")
 	fileref.setAttribute("href", "css/colors/"+localStorage['color']+".css")
 	$(fileref).appendTo($("head"));
 }
