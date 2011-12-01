@@ -184,7 +184,9 @@ footer {
 nav {
 	/*border-top: 1px solid darkgrey;
 	border-bottom: 1px solid darkgrey;*/
-	width: 			14.3%;
+	/*width: 			14.3%;*/
+	width: 0;
+	-webkit-box-flex: 1;
 	height: 		100%;
 	padding-bottom: 22px;
 	-webkit-transition: background-color 0.5s;
@@ -380,6 +382,7 @@ nav .header#current_day h3 {
 	margin-top: 3px;
 	overflow: hidden;
 	position: relative;
+	text-overflow: ellipsis;
 }
 .note, .task {
 	margin-top: 10px;
