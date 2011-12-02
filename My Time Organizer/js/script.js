@@ -118,12 +118,12 @@ function alignToMonday(inMonth) {
 */}
 
 	function resizeDays() {
-		function f() {
+		/*function f() {
 			//console.log('mh ' + $(this).css('max-height') + ' h ' + $(this).height());
 			p = ($(this).parent().height()-28-$(this).height())/2;
 			$(this).css('top', p);
-		}
-		h=$('.day').height()-28; if (h>11) $('.day .preview').css("max-height", h).css('visibility','visible').each(f); else $('.day .preview').css('visibility','hidden');
+		}*/
+		h=$('.day').height()-28; if (h>11) $('.day .previewbox .preview').css("max-height", h).css('visibility','visible'); else $('.day .previewbox .preview').css('visibility','hidden');
 
 		if ($('body').attr('data-view')=='week')
 			$(".day_content").css("height",$("#inner_table_full nav").height()-16);
@@ -193,7 +193,7 @@ function alignToMonday(inMonth) {
 		weeks['inner_table_right'].add("months", diff);
 		alignToMonday(true);
 		$('#inner_table_month').stop(false, true);
-		$('#inner_table_month').fadeOut(250, function() { $('#inner_table_month').empty(); fillMonthTable(document.getElementById('inner_table_month')); $('#inner_table_month').fadeIn(250, resizeDays); });
+		$('#inner_table_month').fadeOut(250, function() { $('#inner_table_month').empty(); fillMonthTable(document.getElementById('inner_table_month')); $('#inner_table_month').fadeIn(250); setTimeout(0,resizeDays); });
 		updateWeek();
 	}
 
@@ -744,27 +744,27 @@ function nextDayPreview(instant) {
 			//if (notes[id])
 			//d = instant ? 0 : 500;
 			if (notes.length>1)
-			$(day).find('.preview').fadeOut(instant ? 0 : 500, function() { 
-				var notes = JSON.parse(localStorage['day'+$(this).parent().attr('data-date')]);
-				var id = parseInt($(this).parent().attr('data-previewID'));
+			$(day).find('.previewbox').find('.preview').fadeOut(instant ? 0 : 500, function() { 
+				var notes = JSON.parse(localStorage['day'+$(this).parent().parent().attr('data-date')]);
+				var id = parseInt($(this).parent().parent().attr('data-previewID'));
 				if (notes[id]) {
 					c = notes[id]['content'];
 					if (c=='') c='&lt;puste&gt;';
 					//console.log(id + ' ' + c);
 					$(this).html(c).fadeIn(instant ? 0 : 500);
-					p = ($(this).parent().height()-28-$(this).height())/2;
-					if (p<0) p=0;
+					//p = ($(this).parent().parent().height()-28-$(this).height())/2;
+					//if (p<0) p=0;
 					//console.log($(this).parent().height() + ' ' + $(this).height() + ' '+p);
-					$(this).css('top', p);
+					//$(this).css('top', p);
 					
 				}
 				id++;
 				if (id>=notes.length) id=0;
-				$(this).parent().attr('data-previewID', id);
+				$(this).parent().parent().attr('data-previewID', id);
 
 			}); else if (notes[id]) {
 					c = notes[id]['content'];
-					$(this).find('.preview').html(c);
+					$(this).find('.previewbox').find('.preview').html(c);
 			}
 		}
 	}
@@ -824,7 +824,7 @@ function doNavMonth(parent, d, i, month) {
 		
 		var myy = d.format("YYYY");
 		
-		day.innerHTML = "<div class='date'>"+myd+"."+mym+"."+myy+"</div><div class='preview'></div><div class='counters'><div class='eventcount' title='Wydarzenia'>"+countItems("day"+myd+"-"+mym+"-"+myy, 'event')+"</div><div class='taskcount' title='Zadania'>"+countItems("day"+myd+"-"+mym+"-"+myy, 'task')+" ("+countItems("day"+myd+"-"+mym+"-"+myy, 'task', 'done', 'true')+")</div><div class='notecount' title='Notatki'>"+countItems("day"+myd+"-"+mym+"-"+myy, 'note')+"</div></div>";
+		day.innerHTML = "<div class='date'>"+myd+"."+mym+"."+myy+"</div><div class='previewbox'><div class='preview'></div></div><div class='counters'><div class='eventcount' title='Wydarzenia'>"+countItems("day"+myd+"-"+mym+"-"+myy, 'event')+"</div><div class='taskcount' title='Zadania'>"+countItems("day"+myd+"-"+mym+"-"+myy, 'task')+" ("+countItems("day"+myd+"-"+mym+"-"+myy, 'task', 'done', 'true')+")</div><div class='notecount' title='Notatki'>"+countItems("day"+myd+"-"+mym+"-"+myy, 'note')+"</div></div>";
 		day.setAttribute('data-date', myd+"-"+mym+"-"+myy);
 		day.setAttribute('data-previewID', '0');
 		

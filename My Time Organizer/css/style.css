@@ -377,7 +377,21 @@ nav .header#current_day h3 {
 .day .counters .notecount::before {
 	background-color: #5b5b5b;
 }
-.day .preview {
+.day .previewbox {
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-box-align: center;
+	-webkit-box-pack: center;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	height: 100%;
+	padding: 0;
+	margin: 0;
+}
+.day .previewbox .preview {
+	-webkit-box-flex: 0;
 	text-align: center;
 	margin-top: 3px;
 	overflow: hidden;
