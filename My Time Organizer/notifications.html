@@ -42,12 +42,14 @@ function checkEvents() {
 	
 	var today = "day"+tday+"-"+tmon+"-"+tyear;
 	
-	wpisy = JSON.parse(localStorage[today]);
-	for (var i = 0; i < wpisy.length; i++) {
-		if (wpisy[i].type == 'event') {
-			var tbefore = moment();
-			tbefore.add("minutes", wpisy[i].notify);
-			if (now.format('HH:mm') == wpisy[i].time || tbefore.format('HH:mm') == wpisy[i].time) notify(wpisy[i].time+" "+wpisy[i].content);
+	if (localStorage[today]) {
+		wpisy = JSON.parse(localStorage[today]);
+		for (var i = 0; i < wpisy.length; i++) {
+			if (wpisy[i].type == 'event') {
+				var tbefore = moment();
+				tbefore.add("minutes", wpisy[i].notify);
+				if (now.format('HH:mm') == wpisy[i].time || tbefore.format('HH:mm') == wpisy[i].time) notify(wpisy[i].time+" "+wpisy[i].content);
+			}
 		}
 	}
 	
