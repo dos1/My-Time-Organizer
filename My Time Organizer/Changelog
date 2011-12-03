@@ -1,0 +1,9 @@
+1.0.0:
+ - initial release
+
+1.0.1:
+ - cosmetic fixes
+ - fixed bug with updating current day not working under some circumstances
+ - fixed bug with notifications not working under some circumstances
+ - performance fixes in month view
+ - workaround for bug in Chrome causing lag on first run of MTO during browser session on Windows platforms 
