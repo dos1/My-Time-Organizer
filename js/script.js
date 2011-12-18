@@ -6,7 +6,7 @@
  * [!] [alphabetical order]
  */
 
-var __VERSION__ = "1.0.1";
+var __VERSION__ = "1.0.2";
 
 lang = new Array();
 lang["en"] = new Array();
