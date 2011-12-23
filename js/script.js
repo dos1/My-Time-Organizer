@@ -1115,6 +1115,7 @@ $(document).ready(function() {
 	function keydown(e) {
 		if ($("[data-editedNow=true]")[0]) return false;
 		if ($("[data-nyan=nyan]")[0]) return false;
+		if ($("#contactForm")[0]) return false;
 
 		if(event.which == 39) right_slide(); // prawa szczałka
 		else if (event.which == 37) left_slide(); // lewa szczałka
