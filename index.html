@@ -65,30 +65,31 @@
 					</div>
 					<div style="display: table-cell; padding-left: 10px">
 						<select id="repeat">
-							<option>nigdy</option>
-							<option>codziennie</option>
-							<option>co tydzień</option>
-							<option>co miesiąc</option>
-							<option>co rok</option>
+							<option><script type="text/javascript">document.write(chrome.i18n.getMessage("never"));</script></option>
+							<option><script type="text/javascript">document.write(chrome.i18n.getMessage("everyday"));</script></option>
+							<option><script type="text/javascript">document.write(chrome.i18n.getMessage("everyweek"));</script></option>
+							<option><script type="text/javascript">document.write(chrome.i18n.getMessage("everymonth"));</script></option>
+							<option><script type="text/javascript">document.write(chrome.i18n.getMessage("everyyear"));</script></option>
 						</select>
 					</div>
 				</div> -->
 				<div style="display: table-row;">
 					<div style="display: table-cell;">
-						Przypomnij: 
+						<script type="text/javascript">document.write(chrome.i18n.getMessage("remind"));</script> 
 					</div>
 					<div style="display: table-cell; padding-left: 10px">
 						<select id="notify">
-							<option>wcale</option>
-							<option>5 minut przed</option>
-							<option>10 minut przed</option>
-							<option>30 minut przed</option>
-							<option>1 godzinę przed</option>
+							<option><script type="text/javascript">document.write(chrome.i18n.getMessage("never"));</script></option>
+							<option><script type="text/javascript">document.write(chrome.i18n.getMessage("5min"));</script></option>
+							<option><script type="text/javascript">document.write(chrome.i18n.getMessage("10min"));</script></option>
+							<option><script type="text/javascript">document.write(chrome.i18n.getMessage("30min"));</script></option>
+							<option><script type="text/javascript">document.write(chrome.i18n.getMessage("1hour"));</script></option>
 						</select>
 					</div>
 				</div>
 			</div>
-			<input type="button" id="cancel" value="Anuluj"/><input type="submit" id="editt" value="Zastosuj"/>
+			<script type='text/javascript'>document.write('<input type="button" id="cancel" value="'+chrome.i18n.getMessage('cancel')+'"/>');</script>
+			<script type='text/javascript'>document.write('<input type="submit" id="editt" value="'+chrome.i18n.getMessage('zastosuj')+'"/>');</script>
 			</form>
 		</div>
 		<!-- items that can be dropped onto the table -->

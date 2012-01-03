@@ -9,22 +9,22 @@
 var __VERSION__ = "1.0.2";
 
 lang = new Array();
-lang["en"] = new Array();
-lang["pl"] = new Array();
+//lang["en"] = new Array();
+//lang["pl"] = new Array();
 
-var mylang = "pl";
+//var mylang = "pl";
 		
 /* English */
-lang["en"]["days"] = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
-lang["en"]["ntypes"] = ["Event", "Task", "Note"];
-lang["en"]["notify_txt"] = "Event notification";
-lang["en"]["icons"] = ["Switch view", "Configuration", "Help"];
-lang["en"]["week"] = "Week";
-lang["en"]["items_txt"] = ["Click pencil icon to edit that note or cross icon to delete it.", "Click pencil icon to edit that task or cross icon to delete it.", "Click pencil icon to edit that event or cross icon to delete it."];
-lang["en"]["helper_txt"] = 'There aren\'t any items added for that week. To do so, drag an icon with item type from the top panel and drop it onto selected column. Check "Help" for further information.';
-lang["en"]["months"] = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+lang["days"] = [chrome.i18n.getMessage("mon"), chrome.i18n.getMessage("tue"), chrome.i18n.getMessage("wed"), chrome.i18n.getMessage("thu"), chrome.i18n.getMessage("fri"), chrome.i18n.getMessage("sat"), chrome.i18n.getMessage("sun")];
+lang["ntypes"] = [chrome.i18n.getMessage("event"), chrome.i18n.getMessage("task"), chrome.i18n.getMessage("note")];
+lang["notify_txt"] = chrome.i18n.getMessage("notify_txt");
+lang["icons"] = [chrome.i18n.getMessage("icon1"), chrome.i18n.getMessage("icon2"), chrome.i18n.getMessage("icon3")];
+lang["week"] = chrome.i18n.getMessage("week");
+lang["items_txt"] = [chrome.i18n.getMessage("items_txt1"), chrome.i18n.getMessage("items_txt2"), chrome.i18n.getMessage("items_txt3")];
+lang["helper_txt"] = chrome.i18n.getMessage("helper_txt");
+lang["months"] = [chrome.i18n.getMessage("jan"), chrome.i18n.getMessage("feb"), chrome.i18n.getMessage("mar"), chrome.i18n.getMessage("apr"), chrome.i18n.getMessage("may"), chrome.i18n.getMessage("jun"), chrome.i18n.getMessage("jul"), chrome.i18n.getMessage("aug"), chrome.i18n.getMessage("sep"), chrome.i18n.getMessage("oct"), chrome.i18n.getMessage("nov"), chrome.i18n.getMessage("dec")];
 
-/* Polish */
+/* Polish //
 lang["pl"]["days"] = ["Poniedziałek", "Wtorek", "Środa", "Czwartek", "Piątek", "Sobota", "Niedziela"];
 lang["pl"]["ntypes"] = ["Wydarzenie", "Zadanie", "Notatka"];
 lang["pl"]["notify_txt"] = "Przypomnienie o wydarzeniu";
@@ -33,8 +33,8 @@ lang["pl"]["week"] = "Tydzień";
 lang["pl"]["items_txt"] = ["Kliknij ikonę ołówka, aby edytować tę notatkę, lub krzyżyk, aby ją usunąć.", "Kliknij ikonę ołówka, aby edytować to zadanie, lub krzyżyk, aby je usunąć.", "Kliknij ikonę ołówka, aby edytować to wydarzenie, lub krzyżyk, aby je usunąć."];
 lang["pl"]["helper_txt"] = 'Nie dodano jeszcze żadnych elementów do wyświetlonego tygodnia. Aby to uczynić, przeciągnij ikonkę z górnego paska do wybranej kolumny. Kliknij "Pomoc", aby uzyskać dodatkowe informacje.';
 lang["pl"]["months"] = ["Styczeń", "Luty", "Marzec", "Kwiecień", "Maj", "Czerwiec", "Lipiec", "Sierpień", "Wrzesień", "Październik", "Listopad", "Grudzień"];
-
-moment.months = lang[mylang]["months"];
+*/
+moment.months = lang["months"];
 
 var weeks = {};
 var deletedItems = [];
@@ -167,7 +167,7 @@ function alignToMonday(inMonth) {
 
 	function updateWeek() {
 		if ($('body').attr('data-view')=='week')
-			$("#info_panel span").html(lang[mylang]["week"]+" "+weeks['inner_table_center'].format("w")+", "+weeks['inner_table_center'].format("YYYY"));
+			$("#info_panel span").html(lang["week"]+" "+weeks['inner_table_center'].format("w")+", "+weeks['inner_table_center'].format("YYYY"));
 		else
 			$("#info_panel span").html(weeks['inner_table_center'].format("MMMM")+", "+weeks['inner_table_center'].format("YYYY"));
 	}
@@ -424,11 +424,11 @@ function alignToMonday(inMonth) {
 		$(note_content).addClass('note_content');
 		if (note.getAttribute('data-content')==='') {
 			if (note.getAttribute('class')==='note')
-				note_content.innerHTML = lang[mylang]["items_txt"][0];
+				note_content.innerHTML = lang["items_txt"][0];
 			else if (note.getAttribute('class')==='task')
-				note_content.innerHTML = lang[mylang]["items_txt"][1];
+				note_content.innerHTML = lang["items_txt"][1];
 			else if (note.getAttribute('class')==='event')
-				note_content.innerHTML = lang[mylang]["items_txt"][2];
+				note_content.innerHTML = lang["items_txt"][2];
 		}
 		else note_content.innerHTML = note.getAttribute('data-content');
 		note_content.contentEditable = false;
@@ -712,7 +712,7 @@ function doNav(parent, d, date, i) {
 	header.setAttribute('class','header');
 	nav.setAttribute('data-date', date);
 
-	header.innerHTML = "<h3>"+lang[mylang]["days"][i]+"</h3>";
+	header.innerHTML = "<h3>"+lang["days"][i]+"</h3>";
 
 	if (d.format("DD-MM-YYYY")===moment().format("DD-MM-YYYY")) { nav.setAttribute('data-currentDay','true'); header.setAttribute('id','current_day'); }
   
@@ -799,7 +799,7 @@ function doNavMonth(parent, d, i, month) {
 	header.setAttribute('class','header');
 	//nav.setAttribute('data-date', date); // FIXME: dzień tygodnia
 
-	header.innerHTML = "<h3>"+lang[mylang]["days"][i]+"</h3>";
+	header.innerHTML = "<h3>"+lang["days"][i]+"</h3>";
 
 	//if (d.format("DD-MM-YYYY")===moment().format("DD-MM-YYYY")) { nav.setAttribute('data-currentDay','true'); header.setAttribute('id','current_day'); }
   
@@ -851,7 +851,7 @@ function doNavMonth(parent, d, i, month) {
 
 function fillWeekTable(table) {
 	var week = weeks[table.getAttribute('id')];
-	for(i = 0; i < lang[mylang]["days"].length; i++) {
+	for(i = 0; i < lang["days"].length; i++) {
 		
 		var myd = (week.format("D") < 10) ? "0"+week.format("D") : week.format("D");
 		
@@ -867,7 +867,7 @@ function fillWeekTable(table) {
 		
 		week.add("days", 1);
 	}
-	week.subtract("days", lang[mylang]["days"].length);
+	week.subtract("days", lang["days"].length);
 	
 }
 
@@ -880,7 +880,7 @@ function fillMonthTable(table) {
 	if (mdn==-1) mdn = 6;
 	week.subtract("days", mdn);
 	
-	for(i = 0; i < lang[mylang]["days"].length; i++) {
+	for(i = 0; i < lang["days"].length; i++) {
 		
 		var mym = (week.format("M") < 10) ? "0"+week.format("M") : week.format("M");
 		
@@ -892,7 +892,7 @@ function fillMonthTable(table) {
 		
 		week.add("days", 1);
 	}
-	week.subtract("days", lang[mylang]["days"].length);
+	week.subtract("days", lang["days"].length);
 
 	clearInterval(dayPreviewInterval);
 	nextDayPreview(true);
@@ -1070,7 +1070,7 @@ function notify(text) {
 	// Create a simple text notification:
 	var notification = webkitNotifications.createNotification(
 	    'icons/icon48.png',  // icon url - can be relative
-	    lang[mylang]["notify_txt"],  // notification title
+	    lang["notify_txt"],  // notification title
 	    text  // notification body text
 	);
 
@@ -1085,21 +1085,21 @@ function notify(text) {
 
 	
 $(document).ready(function() {
-	$("#event_icon").text(lang[mylang]["ntypes"][0]);
-	$("#task_icon").text(lang[mylang]["ntypes"][1]);
-	$("#note_icon").text(lang[mylang]["ntypes"][2]);
+	$("#event_icon").text(lang["ntypes"][0]);
+	$("#task_icon").text(lang["ntypes"][1]);
+	$("#note_icon").text(lang["ntypes"][2]);
 	
-	$("#view_btn").text(lang[mylang]["icons"][0]);
-	$("#view_btn").attr("alt", lang[mylang]["icons"][0]);
-	$("#conf_btn").text(lang[mylang]["icons"][1]);
-	$("#conf_btn").attr("alt", lang[mylang]["icons"][1]);
-	$("#help_btn").text(lang[mylang]["icons"][2]);
-	$("#help_btn").attr("alt", lang[mylang]["icons"][2]);
+	$("#view_btn").text(lang["icons"][0]);
+	$("#view_btn").attr("alt", lang["icons"][0]);
+	$("#conf_btn").text(lang["icons"][1]);
+	$("#conf_btn").attr("alt", lang["icons"][1]);
+	$("#help_btn").text(lang["icons"][2]);
+	$("#help_btn").attr("alt", lang["icons"][2]);
 	
 	$("#event_edit_form").submit(function() { editMyEvent(); return false; });
 	$("#cancel").click(function() { $('[data-editedNow=true]').attr('data-editedNow', 'false');$('#event_edit_panel').fadeOut(500); if (!document.getElementById('tutorial')) $('#tutorialHighlight').css('display','none'); });
 	
-	$("#helper").text(lang[mylang]["helper_txt"]);
+	$("#helper").text(lang["helper_txt"]);
 	
 	//notify("Yay!");
 
