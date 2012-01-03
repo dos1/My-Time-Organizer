@@ -19,7 +19,7 @@ function confScreen() {
 		
 	wrap = document.createElement('div');
 		
-	$(wrap).html('<p>Wybierz wersję kolorystyczną:</p><p></p>');
+	$(wrap).html(chrome.i18n.getMessage("colorTheme"));
 	$(wrap).find('p').css('text-align','center').css('padding-top',20);
 
 	next = document.createElement('div');
@@ -66,7 +66,7 @@ function confScreen() {
 	
 	next = document.createElement('div');
 	$(next).addClass('next_button');
-	next.innerHTML = 'Anuluj';
+	next.innerHTML = chrome.i18n.getMessage("cancel");
 	next.onclick = end;
 	$(next).css('width','100%').appendTo(wrap);
 

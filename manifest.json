@@ -2,7 +2,7 @@
   "name": "My Time Organizer",
   "version": "1.0.2",
 
-  "description": "Organizer dnia, pozwalający na dodawanie notatek, wydarzeń, zadań i powiadomień w prosty, intuicyjny sposób.",
+  "description": "__MSG_appDesc__",
   "icons": {
 	"16": "icons/icon16.png",
 	"48": "icons/icon48.png",
@@ -13,7 +13,7 @@
        "local_path": "index.html"
     }
   },
-
+  "default_locale": "en",
   "background_page": "notifications.html",
   "incognito": "split",
   "offline_enabled": true,
