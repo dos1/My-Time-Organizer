@@ -23,9 +23,9 @@ function fourth() {
 	elem = $('#help_btn');
 	$('#tutorialHighlight').animate({height: 0, width: 0, top: window.innerHeight/2, left: window.innerWidth/2}, 500);
 
-	$("#tutorialText").html("My Time Organizer ma przede wszystkim ułatwiać życie użytkownikom, dlatego staramy się słuchać ich opinii i pomysłów. Aby w przyszłości przekazać nam, autorom aplikacji, wiadomość odnośnie aplikacji, kliknij na przycisk pomocy. Ten sam przycisk umożliwi Ci również ponowne wyświetlenie tego samouczka.<br/><br/>I to by było na tyle!");
+	$("#tutorialText").html(chrome.i18n.getMessage("lastTutorialTxt"));
 	$('#tutorial').animate({top: window.innerHeight/2, left: window.innerWidth/2}, {duration: 1000, queue: false}).css('transform','translate(-200px,-50px)');
-	$("#tutorialNext").html("Zakończ");
+	$("#tutorialNext").html(chrome.i18n.getMessage("finish"));
 	$('#tutorialNext')[0].onclick = null;	
 	$("#tutorialNext")[0].onclick = end;
 }
@@ -41,7 +41,7 @@ function expand() {
 	$(wrap).css('text-align', 'center').css('marginLeft','20px').css('marginTop','20px');
 	$(wrap).insertAfter($('#tutorialNext'));
 	
-	$("#tutorialText").html("Aby przemieszczać się między poszczególnymi tygodniami, możesz najechać myszką na numer tygodnia wskazany powyżej albo kliknąć na przycisk ze strzałką znajdujący się na boku ekranu. Pierwsza ikonka pozwoli Ci wybrać interesującą Cię datę, druga zaś - przeniesie do obecnego tygodnia.<br/><br/>Dodatkowo możesz skorzystać ze sterowania klawiaturą zgodnie ze schematem poniżej.");
+	$("#tutorialText").html(chrome.i18n.getMessage("tutorialTrololo"));
 	$('#tutorial').animate({top: elem.offset().top+30, left: (elem.offset().left+parseInt(elem.css('width')))-parseInt($('#tutorial').css('width'))}, 1);
 	$('#tutorialNext')[0].onclick = null;	
 	$('#tutorialNext')[0].onclick = fourth;
@@ -67,7 +67,7 @@ function third() {
 }
 
 function secondText() {
-	$('#tutorialText').html("Po najechaniu myszką na notatkę, zadanie lub wydarzenie wysuwa się panel kontrolny, umożliwiający edycję tekstu, wprowadzanie głosowe, zmianę koloru paska, przemieszczenie elementu do innego dnia lub usunięcie go.<br/><br/>Panel pojawi się również w notatkach umieszczonych w kolumnie obok. Śmiało, wypróbuj go!");	
+	$('#tutorialText').html(chrome.i18n.getMessage("secondText"));	
 	$('#tutorialNext')[0].onclick = null;	
 	$('#tutorialNext')[0].onclick = third;
 }
@@ -100,7 +100,7 @@ function first() {
 
 	setDayHandlers(next);
 	
-	$("#tutorialText").html("My Time Organizer pozwala na zorganizowanie dnia przy pomocy trzech podstawowych typów elementów: wydarzeń, zadań oraz notatek. Dodawanie ich do wybranego dnia odbywa się na prostej zasadzie \"przeciągnij i upuść\".<br/><br/>Możesz wypróbować ten mechanizm na kolumnie obok. Najedź kursorem na wybrany przycisk, wciśnij lewy przycisk myszki, przesuń kursor na kolumnę po czym puść przycisk.");
+	$("#tutorialText").html(chrome.i18n.getMessage("tutorialFirst"));
 	elem = $('#add_panel');
 	$('#tutorial').animate({top: elem.offset().top+70, left: elem.offset().left}, 1000);
 	
@@ -129,13 +129,13 @@ function tutorialStart() {
 	text = document.createElement('div');
 	text.id = 'tutorialText';
 	text = $(text);
-	text.html("Witaj w My Time Organizer! Ten samouczek pomoże Ci zapoznać się z funkcjami i zasadami działania aplikacji.");
+	text.html(chrome.i18n.getMessage("tutorialStart"));
 	text.appendTo(okno);
 	
 	next = document.createElement('div');
 	next.id = 'tutorialNext';
 	$(next).addClass('next_button');
-	next.innerHTML = 'Dalej';
+	next.innerHTML = chrome.i18n.getMessage("next");
 	next.onclick = first;
 	$(next).appendTo(okno);
 	
@@ -148,7 +148,7 @@ function tutorialStart() {
 function fillAboutApp() {
 	content = document.createElement('div');
 	content = $(content);
-	content.html('<p>My Time Organizer '+__VERSION__+'</p><p>Autorzy:</p><ul><li>Dominik \'mug3tsu\' Galewski</li><li>Sebastian \'dos\' Krzyszkowiak</li><li>Krzysztof \'hun7er\' Marciniak</li></ul><p>Użyte biblioteki:</p><ul><li>jQuery</li><li>jQuery CSS Transform</li><li>jQuery Animate CSS Rotate&amp;Scale</li><li>jQuery Animate Shadow</li><li>jQuery Colorpicker</li><li>jQuery Datepicker</li><li>moment.js</li></ul><p>Z podziękowaniami dla Poznań GTUG, którego hackaton umożliwił powstanie tej aplikacji oraz dla Nyan Cata, którego tęczowa moc napędza najbardziej mistyczne fragmenty kodu.');
+	content.html('<p>My Time Organizer '+__VERSION__+chrome.i18n.getMessage("About_txt"));
 	content.find('p').css('padding-top', 20);
 	content.find('li').css('list-style-type','disc').css('margin-left', 20);
 	content.appendTo('#tutorial');
@@ -176,7 +176,7 @@ function fillContactForm() {
 	content = document.createElement('div');
 	content.id = 'contactForm';
 	content = $(content);
-	content.html('<form method="POST" onsubmit="end()" action="http://dosowisko.net/mto/contact/" target="_blank"><p>Przy pomocy tego formularza możesz wysłać wiadomość do twórców aplikacji My Time Organizer.</p><p>Gorąco zachęcamy do wysyłania nam opinii, raportów o błędach oraz pomysłów na ulepszenie naszej aplikacji!</p><p>Jeżeli chcesz, abyśmy Ci odpisali, możesz podać swój adres e-mail w polu do tego przeznaczonym.</p><input type="text" name="title" placeholder="Tytuł wiadomości..." /><textarea name="content" required placeholder="Treść wiadomości..." /><input name="mail" type="email" placeholder="Twój adres e-mail (opcjonalnie)" /><p>Przed wysłaniem wiadomości upewnij się, że komputer jest połączony z Internetem.</p><input type="submit" value="Wyślij" /><input type="button" value="Anuluj" onclick="end()"/></form>');
+	content.html(chrome.i18n.getMessage("msgForm"));
 	content.css('padding-top', 20);
 	content.find('input[type="text"], input[type="email"], textarea').css('width', '100%').css('-webkit-box-sizing', 'border-box').css('max-width','100%').css('min-width','100%');
 	content.find('textarea').css('height', '150px').css('min-height', '150px').css('max-height', '150px');
@@ -214,25 +214,25 @@ function helpScreen() {
 	
 	next = document.createElement('div');
 	$(next).addClass('next_button');
-	next.innerHTML = 'Samouczek';
+	next.innerHTML = chrome.i18n.getMessage("tutorialStartText");
 	next.onclick = tutorialStart;
 	$(next).css('width','100%').appendTo(wrap);
 
 	next = document.createElement('div');
 	$(next).addClass('next_button');
-	next.innerHTML = 'Kontakt';
+	next.innerHTML = chrome.i18n.getMessage("Contact");
 	next.onclick = contactForm;
 	$(next).css('width','100%').appendTo(wrap);
 
 	next = document.createElement('div');
 	$(next).addClass('next_button');
-	next.innerHTML = 'O programie';
+	next.innerHTML = chrome.i18n.getMessage("About");
 	next.onclick = aboutApp;
 	$(next).css('width','100%').appendTo(wrap);
 	
 	next = document.createElement('div');
 	$(next).addClass('next_button');
-	next.innerHTML = 'Anuluj';
+	next.innerHTML = chrome.i18n.getMessage("cancel");
 	next.onclick = end;
 	$(next).css('width','100%').appendTo(wrap);
 
