@@ -1,0 +1,234 @@
+{
+  "appDesc": {
+    "message": "Organizer that lets you manage your time adding notes, events and tasks in an easy, intuitive way.", 
+    "description":"The description of the application, displayed in the web store."
+  },
+  "never": {
+    "message":"never",
+    "description":"Brak"
+  },
+	"next":{
+		"message":"Next",
+		"description":""
+	},
+  "5min": {
+    "message":"5 minutes before",
+    "description":""
+  },
+  "10min": {
+    "message":"10 minutes before",
+    "description":""
+  },
+  "15min": {
+    "message":"15 minutes before",
+    "description":""
+  },
+  "30min": {
+    "message":"30 minutes before",
+    "description":""
+  },
+  "1hour": {
+    "message":"1 hour before",
+    "description":""
+  },
+  "everyday":{
+    "message":"every day",
+    "description":""
+  },
+  "everyweek":{
+    "message":"every week",
+    "description":""
+  },
+  "everymonth":{
+    "message":"every month",
+    "description":""
+  },
+  "everyyear":{
+    "message":"every year",
+    "description":""
+  },
+  "remind":{
+    "message":"Remind me:",
+    "description":""
+  },
+  "zastosuj": {
+    "message":"Apply",
+    "description":""
+  },
+  "cancel": {
+    "message":"Cancel",
+    "description":""
+  },
+	"mon":{
+		"message":"Monday",
+		"description":""
+	},
+	"tue":{
+		"message":"Tuesday",
+		"description":""
+	},
+	"wed":{
+		"message":"Wednesday",
+		"description":""
+	},
+	"thu":{
+		"message":"Thursday",
+		"description":""
+	},
+	"fri":{
+		"message":"Friday",
+		"description":""
+	},
+	"sat":{
+		"message":"Saturday",
+		"description":""
+	},
+	"sun":{
+		"message":"Sunday",
+		"description":""
+	},
+	"event":{
+		"message":"Event",
+		"description":""
+	},
+	"task":{
+		"message":"Task",
+		"description":""
+	},
+	"note":{
+		"message":"Note",
+		"description":""
+	},
+	"notify_txt":{
+		"message":"Event notification",
+		"description":""
+	},
+	"icon1":{
+		"message":"Switch view",
+		"description":""
+	},
+	"icon2":{
+		"message":"Configuration",
+		"description":""
+	},
+	"icon3":{
+		"message":"Help",
+		"description":""
+	},
+	"week":{
+		"message":"Week",
+		"description":""
+	},
+	"items_txt1":{
+		"message":"Click pencil icon to edit that note or cross icon to delete it.",
+		"description":""
+	},
+	"items_txt2":{
+		"message":"Click pencil icon to edit that task or cross icon to delete it.",
+		"description":""
+	},
+	"items_txt3":{
+		"message":"Click pencil icon to edit that event or cross icon to delete it.",
+		"description":""
+	},
+	"helper_txt":{
+		"message":"There aren't any items added for that week. To do so, drag an icon with item type from the top panel and drop it onto selected column. Check 'Help' for further information.",
+		"description":""
+	},
+	"jan":{
+		"message":"January",
+		"description":""
+	},
+	"feb":{
+		"message":"February",
+		"description":""
+	},
+	"mar":{
+		"message":"March",
+		"description":""
+	},
+	"apr":{
+		"message":"April",
+		"description":""
+	},
+	"may":{
+		"message":"May",
+		"description":""
+	},
+	"jun":{
+		"message":"June",
+		"description":""
+	},
+	"jul":{
+		"message":"July",
+		"description":""
+	},
+	"aug":{
+		"message":"August",
+		"description":""
+	},
+	"sep":{
+		"message":"September",
+		"description":""
+	},
+	"oct":{
+		"message":"October",
+		"description":""
+	},
+	"nov":{
+		"message":"November",
+		"description":""
+	},
+	"dec":{
+		"message":"December",
+		"description":""
+	},
+	"finish":{
+		"message":"Finish",
+		"description":""
+	},
+	"tutorialStart":{
+		"message":"Welcome to My Time Organizer! This tutorial will help you understand the application usage and some basic functionalities.",
+		"description":""
+	},
+	"tutorialFirst":{
+		"message":"My Time Organizer lets you organize your day using three basic types of elements: events, tasks and notes. Adding them to a specific day (column) uses intuitive \"drag'n'drop\" method.<br/><br/>You can try it on the column that can be seen on your left. Hover any item you want with cursor, press left mouse button, move your cursor over the column and drop it.",
+		"description":""
+	},
+	"secondText":{
+		"message":"After hovering a note, task or event the control panel appears, giving you the opportunity to edit text, use voice input, change items' bar color, move the item to the other day or delete it.<br/><br/>The panel will appear in items dropped on the column on the left, too. Well, give it a try!",
+		"description":""
+	},
+	"lastTutorialTxt":{
+		"message":"My Time Organizer is meant to be a great help for users, so we listen to your voice (well, at least we try :) ). If you want to let us know about your ideas for changes, possible features, bugs etc. then enter the 'Help' menu. It also has the contact form which can be used to message us or to repeat the tutorial if you had any problems understanding it.<br/><br/>And that's all!",
+		"description":""
+	},
+	"msgForm":{
+		"message":"<form method=\"POST\" onsubmit=\"end()\" action=\"http://dosowisko.net/mto/contact/\" target=\"_blank\"><p>Using that form you can send a message to My Time Organizer crew.</p><p>We'd love to know what are your ideas about changing our application and to get information about bugs you found (but we hope you won't find many bugs ;-) ).</p><p>If you want us to answer your message, please fill in your e-mail.</p><input type=\"text\" name=\"title\" placeholder=\"Message title...\" /><textarea name=\"content\" required placeholder=\"Message...\" /><input name=\"mail\" type=\"email\" placeholder=\"Your e-mail address (optional)\" /><p>Before sending the message make sure your computer has active Internet connection.</p><input type=\"submit\" value=\"Send\" /><input type=\"button\" value=\"Cancel\" onclick=\"end()\"/></form>",
+		"description":""
+	},
+	"tutorialTrololo":{
+		"message":"To move between weeks you can hover the week number shown on the upper panel or click the button with an arrow on the side. First icon lets you choose a date and the second will move you to the current day.<br/><br/>Additionally you can use keyboard control like shown below.",
+		"description":""
+	},
+	"colorTheme":{
+		"message":"<p>Choose your color theme:</p><p></p>",
+		"description":""	
+	},
+	"tutorialStartText":{
+		"message":"Tutorial",
+		"description":""	
+	},
+	"About":{
+		"message":"About",
+		"description":""	
+	},
+	"Contact":{
+		"message":"Contact",
+		"description":""
+	},
+	"About_txt":{
+		"message":"</p><p>Authors:</p><ul><li>Dominik 'mug3tsu' Galewski</li><li>Sebastian 'dos' Krzyszkowiak</li><li>Krzysztof 'hun7er' Marciniak</li></ul><p>Libraries used:</p><ul><li>jQuery</li><li>jQuery CSS Transform</li><li>jQuery Animate CSS Rotate&amp;Scale</li><li>jQuery Animate Shadow</li><li>jQuery Colorpicker</li><li>jQuery Datepicker</li><li>moment.js</li></ul><p>We'd like to greatly thank Poznań GTUG, whose hackaton let us develop an idea for the application and Nyan Cat, whose rainbow's power makes the most mystic parts of code work.",
+		"description":""
+	}
+}
