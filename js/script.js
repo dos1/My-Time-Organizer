@@ -1222,7 +1222,7 @@ $(document).ready(function() {
 		helper.setAttribute("class", "helper");
 		helper = $(helper);
 		helper.css("width", "300px").css("height", "auto").css("top", $('#help_btn').offset().top+25).css("left", $('#help_btn').offset().left-250).css("transform","none").css("position","absolute");
-		helper.html("Witaj w My Time Organizer! Kliknij na ikonkę pomocy, aby uruchomić samouczek.");
+		helper.html(chrome.i18n.getMessage("start_tutorial"));
 		helper.appendTo('body');
 		helper.show();
 		helper[0].onmouseover = function () { $(this).fadeOut(500, function() { $(this).remove(); localStorage['firstRunBubbleHidden']=true; }); };

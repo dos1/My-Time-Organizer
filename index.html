@@ -32,13 +32,14 @@
 		<script type="text/javascript" src="js/script.js"></script>
 </head>
 <body>
-		<div id="event_edit_panel" class="helper" style="display: none;">
-			<textarea id="event_desc_txt" style="max-width: 100%" placeholder="Opis wydarzenia..."></textarea>
+		<div id="event_edit_panel" class="helper" style="display: none;"> <!-- event_descr -->
+			<!--<textarea id="event_desc_txt" style="max-width: 100%" placeholder="Opis wydarzenia..."></textarea>-->
+			<script type="text/javascript">document.write('<textarea id="event_desc_txt" style="max-width: 100%" placeholder="'+chrome.i18n.getMessage("event_descr")+'"></textarea>');</script>
 			<form id="event_edit_form">
 			<div style="display: table; width: 100%; text-align: left;">
 				<div style="display: table-row;">
 					<div style="display: table-cell;">
-						Start (hh:mm):
+						<script type="text/javascript">document.write(chrome.i18n.getMessage("start_time"));</script>
 					</div>
 					<div style="display: table-cell; padding-left: 10px">
 						<input type="time" required name="" id="event_time_start" value="" class="input_text"/>
@@ -46,7 +47,7 @@
 				</div>
 				<div style="display: table-row;">	
 					<div style="display: table-cell;">
-						Koniec (hh:mm):
+						<script type="text/javascript">document.write(chrome.i18n.getMessage("end_time"));</script>
 					</div>
 					<div style="display: table-cell; padding-left: 10px">
 						<input type="time" name="" id="event_time_end" value="" class="input_text"/>
@@ -57,6 +58,8 @@
 				Here, have some nice music instead ATM:
 					http://www.youtube.com/watch?v=5-b7mDdSt3M
 				;-)
+				
+				//edit: well, I guess it'll be available. Someday.
 				-->
 				
 				<!--<div style="display: table-row;">
@@ -106,13 +109,13 @@
 					</div>
 				</div>
 				<div id="buttons_panel">
-					<div id="view_btn" alt="Przełącz widok"></div>
+					<script type='text/javascript'>document.write('<div id="view_btn" alt="'+chrome.i18n.getMessage('icon1')+'"></div>');</script>
 
-					<div id="conf_btn" alt="Konfiguracja"></div>
-				
-					<div id="help_btn" alt="Pomoc"></div>
+					<script type='text/javascript'>document.write('<div id="conf_btn" alt="'+chrome.i18n.getMessage('icon2')+'"></div>');</script>
+					
+					<script type='text/javascript'>document.write('<div id="help_btn" alt="'+chrome.i18n.getMessage('icon3')+'"></div>');</script>
 
-					<div id="info_panel"><span>Nyan nyan</span><div><img src="icons/week.png" title="Wybierz datę" class="week"/><img src="icons/today.png" title="Przejdź do dzisiaj" class="today"/></div></div>
+					<div id="info_panel"><span>Nyan nyan</span><div><script type='text/javascript'>document.write('<img src="icons/week.png" title="'+chrome.i18n.getMessage('choose_date')+'" class="week"/>');</script><script type='text/javascript'>document.write('<img src="icons/today.png" title="'+chrome.i18n.getMessage('jump_to_today')+'" class="today"/>');</script></div></div>
 				</div>
 			</div>
 		</header>

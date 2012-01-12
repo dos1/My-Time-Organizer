@@ -37,7 +37,7 @@ function expand() {
 	
 	wrap = document.createElement('img');
 	wrap.id = 'tutorialAddon';
-	wrap.src = 'images/keyboard.png';
+	wrap.src = 'images/keyboard.'+chrome.i18n.getMessage("@@ui_locale")+'.png';
 	$(wrap).css('text-align', 'center').css('marginLeft','20px').css('marginTop','20px');
 	$(wrap).insertAfter($('#tutorialNext'));
 	

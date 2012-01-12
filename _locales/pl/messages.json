@@ -1,0 +1,258 @@
+{
+  "appDesc": {
+    "message": "Organizer dnia, pozwalający na dodawanie notatek, wydarzeń, zadań i powiadomień w prosty, intuicyjny sposób.", 
+    "description":"The description of the application, displayed in the web store."
+  },
+	"next":{
+		"message":"Dalej",
+		"description":""
+	},
+  "event_descr": {
+	"message":"Opis wydarzenia...",
+	"description":""
+  },
+  "never": {
+    "message":"wcale",
+    "description":"Brak"
+  },
+  "5min": {
+    "message":"5 minut przed",
+    "description":""
+  },
+  "10min": {
+    "message":"10 minut przed",
+    "description":""
+  },
+  "15min": {
+    "message":"15 minut przed",
+    "description":""
+  },
+  "30min": {
+    "message":"30 minut przed",
+    "description":""
+  },
+  "1hour": {
+    "message":"1 godzinę przed",
+    "description":""
+  },
+  "everyday":{
+    "message":"codziennie",
+    "description":""
+  },
+  "everyweek":{
+    "message":"co tydzień",
+    "description":""
+  },
+  "everymonth":{
+    "message":"co miesiąc",
+    "description":""
+  },
+  "everyyear":{
+    "message":"co rok",
+    "description":""
+  },
+  "remind":{
+    "message":"Przypomnij:",
+    "description":""
+  },
+  "zastosuj": {
+    "message":"Zastosuj",
+    "description":""
+  },
+  "cancel": {
+    "message":"Anuluj",
+    "description":""
+  },
+	"mon":{
+		"message":"Poniedziałek",
+		"description":""
+	},
+	"tue":{
+		"message":"Wtorek",
+		"description":""
+	},
+	"wed":{
+		"message":"Środa",
+		"description":""
+	},
+	"thu":{
+		"message":"Czwartek",
+		"description":""
+	},
+	"fri":{
+		"message":"Piątek",
+		"description":""
+	},
+	"sat":{
+		"message":"Sobota",
+		"description":""
+	},
+	"sun":{
+		"message":"Niedziela",
+		"description":""
+	},
+	"event":{
+		"message":"Wydarzenie",
+		"description":""
+	},
+	"task":{
+		"message":"Zadanie",
+		"description":""
+	},
+	"note":{
+		"message":"Notatka",
+		"description":""
+	},
+	"notify_txt":{
+		"message":"Przypomnienie o wydarzeniu",
+		"description":""
+	},
+	"icon1":{
+		"message":"Przełącz widok",
+		"description":""
+	},
+	"icon2":{
+		"message":"Konfiguracja",
+		"description":""
+	},
+	"icon3":{
+		"message":"Pomoc",
+		"description":""
+	},
+	"week":{
+		"message":"Tydzień",
+		"description":""
+	},
+	"items_txt1":{
+		"message":"Kliknij ikonę ołówka, aby edytować tę notatkę, lub krzyżyk, aby ją usunąć.",
+		"description":""
+	},
+	"items_txt2":{
+		"message":"Kliknij ikonę ołówka, aby edytować to zadanie, lub krzyżyk, aby je usunąć.",
+		"description":""
+	},
+	"items_txt3":{
+		"message":"Kliknij ikonę ołówka, aby edytować to wydarzenie, lub krzyżyk, aby je usunąć.",
+		"description":""
+	},
+	"helper_txt":{
+		"message":"Nie dodano jeszcze żadnych elementów do wyświetlonego tygodnia. Aby to uczynić, przeciągnij ikonkę z górnego paska do wybranej kolumny. Kliknij 'Pomoc' (ikona koła ratunkowego), aby uzyskać dodatkowe informacje.",
+		"description":""
+	},
+	"jan":{
+		"message":"Styczeń",
+		"description":""
+	},
+	"feb":{
+		"message":"Luty",
+		"description":""
+	},
+	"mar":{
+		"message":"Marzec",
+		"description":""
+	},
+	"apr":{
+		"message":"Kwiecień",
+		"description":""
+	},
+	"may":{
+		"message":"Maj",
+		"description":""
+	},
+	"jun":{
+		"message":"Czerwiec",
+		"description":""
+	},
+	"jul":{
+		"message":"Lipiec",
+		"description":""
+	},
+	"aug":{
+		"message":"Sierpień",
+		"description":""
+	},
+	"sep":{
+		"message":"Wrzesień",
+		"description":""
+	},
+	"oct":{
+		"message":"Październik",
+		"description":""
+	},
+	"nov":{
+		"message":"Listopad",
+		"description":""
+	},
+	"dec":{
+		"message":"Grudzień",
+		"description":""
+	},
+	"finish":{
+		"message":"Zakończ",
+		"description":""
+	},
+	"tutorialStart":{
+		"message":"Witaj w My Time Organizer! Ten samouczek pomoże Ci zapoznać się z funkcjami i zasadami działania aplikacji.",
+		"description":""
+	},
+	"tutorialFirst":{
+		"message":"My Time Organizer pozwala na zorganizowanie dnia przy pomocy trzech podstawowych typów elementów: wydarzeń, zadań oraz notatek. Dodawanie ich do wybranego dnia odbywa się na prostej zasadzie \"przeciągnij i upuść\".<br/><br/>Możesz wypróbować ten mechanizm na kolumnie obok. Najedź kursorem na wybrany przycisk, wciśnij lewy przycisk myszki, przesuń kursor na kolumnę po czym puść przycisk.",
+		"description":""
+	},
+	"secondText":{
+		"message":"Po najechaniu myszką na notatkę, zadanie lub wydarzenie wysuwa się panel kontrolny, umożliwiający edycję tekstu, wprowadzanie głosowe, zmianę koloru paska, przemieszczenie elementu do innego dnia lub usunięcie go.<br/><br/>Panel pojawi się również w notatkach umieszczonych w kolumnie obok. Śmiało, wypróbuj go!",
+		"description":""
+	},
+	"lastTutorialTxt":{
+		"message":"My Time Organizer ma przede wszystkim ułatwiać życie użytkownikom, dlatego staramy się słuchać ich opinii i pomysłów. Aby w przyszłości przekazać nam, autorom aplikacji, wiadomość odnośnie aplikacji, kliknij na przycisk pomocy. Ten sam przycisk umożliwi Ci również ponowne wyświetlenie tego samouczka.<br/><br/>I to by było na tyle!",
+		"description":""
+	},
+	"msgForm":{
+		"message":"<form method=\"POST\" onsubmit=\"end()\" action=\"http://dosowisko.net/mto/contact/\" target=\"_blank\"><p>Przy pomocy tego formularza możesz wysłać wiadomość do twórców aplikacji My Time Organizer.</p><p>Gorąco zachęcamy do wysyłania nam opinii, raportów o błędach oraz pomysłów na ulepszenie naszej aplikacji!</p><p>Jeżeli chcesz, abyśmy Ci odpisali, możesz podać swój adres e-mail w polu do tego przeznaczonym.</p><input type=\"text\" name=\"title\" placeholder=\"Tytuł wiadomości...\" /><textarea name=\"content\" required placeholder=\"Treść wiadomości...\" /><input name=\"mail\" type=\"email\" placeholder=\"Twój adres e-mail (opcjonalnie)\" /><p>Przed wysłaniem wiadomości upewnij się, że komputer jest połączony z Internetem.</p><input type=\"submit\" value=\"Wyślij\" /><input type=\"button\" value=\"Anuluj\" onclick=\"end()\"/></form>",
+		"description":""
+	},
+	"tutorialTrololo":{
+		"message":"Aby przemieszczać się między poszczególnymi tygodniami, możesz najechać myszką na numer tygodnia wskazany powyżej albo kliknąć na przycisk ze strzałką znajdujący się na boku ekranu. Pierwsza ikonka pozwoli Ci wybrać interesującą Cię datę, druga zaś - przeniesie do obecnego tygodnia.<br/><br/>Dodatkowo możesz skorzystać ze sterowania klawiaturą zgodnie ze schematem poniżej.",
+		"description":""
+	},
+	"colorTheme":{
+		"message":"<p>Wybierz wersję kolorystyczną:</p><p></p>",
+		"description":""	
+	},
+	"tutorialStartText":{
+		"message":"Samouczek",
+		"description":""	
+	},
+	"About":{
+		"message":"O programie",
+		"description":""	
+	},
+	"Contact":{
+		"message":"Kontakt",
+		"description":""
+	},
+	"About_txt":{
+		"message":"</p><p>Autorzy:</p><ul><li>Dominik 'mug3tsu' Galewski</li><li>Sebastian 'dos' Krzyszkowiak</li><li>Krzysztof 'hun7er' Marciniak</li></ul><p>Użyte biblioteki:</p><ul><li>jQuery</li><li>jQuery CSS Transform</li><li>jQuery Animate CSS Rotate&amp;Scale</li><li>jQuery Animate Shadow</li><li>jQuery Colorpicker</li><li>jQuery Datepicker</li><li>moment.js</li></ul><p>Z podziękowaniami dla Poznań GTUG, którego hackaton umożliwił powstanie tej aplikacji oraz dla Nyan Cata, którego tęczowa moc napędza najbardziej mistyczne fragmenty kodu.",
+		"description":""
+	},
+	"start_tutorial": {
+		"message":"Witaj w My Time Organizer! Kliknij na ikonkę pomocy, aby uruchomić samouczek.",
+		"description":""
+	},
+	"start_time": {
+		"message":"Start (hh:mm):",
+		"description":""
+	},
+	"end_time": {
+		"message":"End (hh:mm):",
+		"description":""
+	},
+	"choose_date": {
+		"message":"Wybierz datę",
+		"description":""
+	},
+	"jump_to_today": {
+		"message":"Przejdź do dzisiaj",
+		"description":""
+	}
+}
