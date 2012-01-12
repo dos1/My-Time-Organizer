@@ -7,6 +7,10 @@
 		"message":"Dalej",
 		"description":""
 	},
+  "event_descr": {
+	"message":"Opis wydarzenia...",
+	"description":""
+  },
   "never": {
     "message":"wcale",
     "description":"Brak"
@@ -229,6 +233,26 @@
 	},
 	"About_txt":{
 		"message":"</p><p>Autorzy:</p><ul><li>Dominik 'mug3tsu' Galewski</li><li>Sebastian 'dos' Krzyszkowiak</li><li>Krzysztof 'hun7er' Marciniak</li></ul><p>Użyte biblioteki:</p><ul><li>jQuery</li><li>jQuery CSS Transform</li><li>jQuery Animate CSS Rotate&amp;Scale</li><li>jQuery Animate Shadow</li><li>jQuery Colorpicker</li><li>jQuery Datepicker</li><li>moment.js</li></ul><p>Z podziękowaniami dla Poznań GTUG, którego hackaton umożliwił powstanie tej aplikacji oraz dla Nyan Cata, którego tęczowa moc napędza najbardziej mistyczne fragmenty kodu.",
+		"description":""
+	},
+	"start_tutorial": {
+		"message":"Witaj w My Time Organizer! Kliknij na ikonkę pomocy, aby uruchomić samouczek.",
+		"description":""
+	},
+	"start_time": {
+		"message":"Start (hh:mm):",
+		"description":""
+	},
+	"end_time": {
+		"message":"End (hh:mm):",
+		"description":""
+	},
+	"choose_date": {
+		"message":"Wybierz datę",
+		"description":""
+	},
+	"jump_to_today": {
+		"message":"Przejdź do dzisiaj",
 		"description":""
 	}
 }

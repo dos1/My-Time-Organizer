@@ -3,6 +3,10 @@
     "message": "Organizer that lets you manage your time adding notes, events and tasks in an easy, intuitive way.", 
     "description":"The description of the application, displayed in the web store."
   },
+  "event_descr": {
+	"message":"Event description...",
+	"description":""
+  },
   "never": {
     "message":"never",
     "description":"Brak"
@@ -229,6 +233,26 @@
 	},
 	"About_txt":{
 		"message":"</p><p>Authors:</p><ul><li>Dominik 'mug3tsu' Galewski</li><li>Sebastian 'dos' Krzyszkowiak</li><li>Krzysztof 'hun7er' Marciniak</li></ul><p>Libraries used:</p><ul><li>jQuery</li><li>jQuery CSS Transform</li><li>jQuery Animate CSS Rotate&amp;Scale</li><li>jQuery Animate Shadow</li><li>jQuery Colorpicker</li><li>jQuery Datepicker</li><li>moment.js</li></ul><p>We'd like to greatly thank Poznań GTUG, whose hackaton let us develop an idea for the application and Nyan Cat, whose rainbow's power makes the most mystic parts of code work.",
+		"description":""
+	},
+	"start_tutorial": {
+		"message":"Welcome to My Time Organizer! Click help icon to run the tutorial.",
+		"description":""
+	},
+	"start_time": {
+		"message":"Start (hh:mm):",
+		"description":""
+	},
+	"end_time": {
+		"message":"End (hh:mm):",
+		"description":""
+	},
+	"choose_date": {
+		"message":"Choose a date",
+		"description":""
+	},
+	"jump_to_today": {
+		"message":"Jump to today",
 		"description":""
 	}
 }
