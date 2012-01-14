@@ -1,3 +1,8 @@
+1.0.2:
+ - support for translations
+ - english translation
+ - bugfix: disabled keyboard handling while in contact form
+
 1.0.1:
  - cosmetic fixes
  - fixed bug with updating current day not working under some circumstances
