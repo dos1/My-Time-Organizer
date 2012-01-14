@@ -44,21 +44,18 @@
 	</head>
 	<body>
 		<div id="event_edit_panel" class="helper" style="display: none;"> <!-- event_descr -->
-			<!--<textarea id="event_desc_txt" style="max-width: 100%" placeholder="Opis wydarzenia..."></textarea>-->
-			<script type="text/javascript">document.write('<textarea id="event_desc_txt" style="max-width: 100%" placeholder="'+chrome.i18n.getMessage("event_descr")+'"></textarea>');</script>
+			<textarea id="event_desc_txt" style="max-width: 100%" placeholder="Opis wydarzenia..."></textarea>
 			<form id="event_edit_form">
 			<div style="display: table; width: 100%; text-align: left;">
 				<div style="display: table-row;">
-					<div style="display: table-cell;">
-						<script type="text/javascript">document.write(chrome.i18n.getMessage("start_time"));</script>
+					<div style="display: table-cell;" id="form_start_time">
 					</div>
 					<div style="display: table-cell; padding-left: 10px">
 						<input type="time" required name="" id="event_time_start" value="" class="input_text"/>
 					</div>
 				</div>
 				<div style="display: table-row;">	
-					<div style="display: table-cell;">
-						<script type="text/javascript">document.write(chrome.i18n.getMessage("end_time"));</script>
+					<div style="display: table-cell;" id="form_end_time">
 					</div>
 					<div style="display: table-cell; padding-left: 10px">
 						<input type="time" name="" id="event_time_end" value="" class="input_text"/>
@@ -88,22 +85,21 @@
 					</div>
 				</div> -->
 				<div style="display: table-row;">
-					<div style="display: table-cell;">
-						<script type="text/javascript">document.write(chrome.i18n.getMessage("remind"));</script> 
+					<div style="display: table-cell;" id="form_remind">
 					</div>
 					<div style="display: table-cell; padding-left: 10px">
 						<select id="notify">
-							<option><script type="text/javascript">document.write(chrome.i18n.getMessage("never"));</script></option>
-							<option><script type="text/javascript">document.write(chrome.i18n.getMessage("5min"));</script></option>
-							<option><script type="text/javascript">document.write(chrome.i18n.getMessage("10min"));</script></option>
-							<option><script type="text/javascript">document.write(chrome.i18n.getMessage("30min"));</script></option>
-							<option><script type="text/javascript">document.write(chrome.i18n.getMessage("1hour"));</script></option>
+							<option id="form_never"></option>
+							<option id="form_5min"></option>
+							<option id="form_10min"></option>
+							<option id="form_30min"></option>
+							<option id="form_1hour"></option>
 						</select>
 					</div>
 				</div>
 			</div>
-			<script type='text/javascript'>document.write('<input type="button" id="cancel" value="'+chrome.i18n.getMessage('cancel')+'"/>');</script>
-			<script type='text/javascript'>document.write('<input type="submit" id="editt" value="'+chrome.i18n.getMessage('zastosuj')+'"/>');</script>
+			<input type="button" id="cancel" value="anuluj"/>
+			<input type="submit" id="editt" value="zastosuj"/>
 			</form>
 		</div>
 		<!-- items that can be dropped onto the table -->
@@ -120,13 +116,13 @@
 					</div>
 				</div>
 				<div id="buttons_panel">
-					<script type='text/javascript'>document.write('<div id="view_btn" alt="'+chrome.i18n.getMessage('icon1')+'"></div>');</script>
+					<div id="view_btn" alt="icon1"></div>
 
-					<script type='text/javascript'>document.write('<div id="conf_btn" alt="'+chrome.i18n.getMessage('icon2')+'"></div>');</script>
+					<div id="conf_btn" alt="icon2"></div>
 					
-					<script type='text/javascript'>document.write('<div id="help_btn" alt="'+chrome.i18n.getMessage('icon3')+'"></div>');</script>
+					<div id="help_btn" alt="icon3"></div>
 
-					<div id="info_panel"><span>Nyan nyan</span><div><script type='text/javascript'>document.write('<img src="icons/week.png" title="'+chrome.i18n.getMessage('choose_date')+'" class="week"/>');</script><script type='text/javascript'>document.write('<img src="icons/today.png" title="'+chrome.i18n.getMessage('jump_to_today')+'" class="today"/>');</script></div></div>
+					<div id="info_panel"><span>Nyan nyan</span><div><img src="icons/week.png" title="choose_date" id="choose_date" class="week"/><img src="icons/today.png" title="jump_to_today" id="jump_to_today" class="today"/></div></div>
 				</div>
 			</div>
 		</header>
@@ -146,15 +142,9 @@
 		</div>
 		<!-- main table ends here -->
 
-		<div id="helper" class="helper"></div>
-
 		<footer>
 			&copy; Copyright 2011 Dominik 'mug3tsu' Galewski, Sebastian 'dos' Krzyszkowiak, Krzysztof 'hun7er' Marciniak
 		</footer>
-
-		<div id="tutorialHighlight">
-			<div class="hack"></div>
-		</div> <!-- TODO: add me to JS? -->
 
 	</body>
 </html>

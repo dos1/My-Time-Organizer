@@ -244,7 +244,7 @@
 		"description":""
 	},
 	"end_time": {
-		"message":"End (hh:mm):",
+		"message":"Koniec (hh:mm):",
 		"description":""
 	},
 	"choose_date": {
