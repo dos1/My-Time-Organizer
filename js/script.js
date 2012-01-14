@@ -24,6 +24,7 @@ lang["items_txt"] = [chrome.i18n.getMessage("items_txt1"), chrome.i18n.getMessag
 lang["helper_txt"] = chrome.i18n.getMessage("helper_txt");
 lang["months"] = [chrome.i18n.getMessage("jan"), chrome.i18n.getMessage("feb"), chrome.i18n.getMessage("mar"), chrome.i18n.getMessage("apr"), chrome.i18n.getMessage("may"), chrome.i18n.getMessage("jun"), chrome.i18n.getMessage("jul"), chrome.i18n.getMessage("aug"), chrome.i18n.getMessage("sep"), chrome.i18n.getMessage("oct"), chrome.i18n.getMessage("nov"), chrome.i18n.getMessage("dec")];
 
+
 /* Polish //
 lang["pl"]["days"] = ["Poniedziałek", "Wtorek", "Środa", "Czwartek", "Piątek", "Sobota", "Niedziela"];
 lang["pl"]["ntypes"] = ["Wydarzenie", "Zadanie", "Notatka"];
@@ -1087,6 +1088,26 @@ function notify(text) {
 
 	
 $(document).ready(function() {
+  
+	document.getElementById('event_desc_txt').setAttribute('placeholder', chrome.i18n.getMessage("event_descr"));
+	document.getElementById('form_start_time').innerHTML=chrome.i18n.getMessage("start_time");
+	document.getElementById('form_end_time').innerHTML=chrome.i18n.getMessage("end_time");
+	document.getElementById('form_remind').innerHTML=chrome.i18n.getMessage("remind");
+	document.getElementById('form_never').innerHTML=chrome.i18n.getMessage("never");
+	document.getElementById('form_5min').innerHTML=chrome.i18n.getMessage("5min");
+	document.getElementById('form_10min').innerHTML=chrome.i18n.getMessage("10min");
+	document.getElementById('form_30min').innerHTML=chrome.i18n.getMessage("30min");
+	document.getElementById('form_1hour').innerHTML=chrome.i18n.getMessage("1hour");
+	document.getElementById('cancel').innerHTML=chrome.i18n.getMessage("cancel");
+	document.getElementById('editt').innerHTML=chrome.i18n.getMessage("zastosuj");
+	document.getElementById('view_btn').setAttribute('alt', chrome.i18n.getMessage("icon1"));
+	document.getElementById('conf_btn').setAttribute('alt', chrome.i18n.getMessage("icon2"));
+	document.getElementById('help_btn').setAttribute('alt', chrome.i18n.getMessage("icon3"));
+	document.getElementById('choose_date').setAttribute('title', chrome.i18n.getMessage("choose_date"));
+	document.getElementById('jump_to_today').setAttribute('title', chrome.i18n.getMessage("jump_to_today"));
+	$('<div id="helper" class="helper"></div>').appendTo('body');
+	$('<div id="tutorialHighlight"><div class="hack"></div></div>').appendTo('body');  
+  
 	$("#event_icon").text(lang["ntypes"][0]);
 	$("#task_icon").text(lang["ntypes"][1]);
 	$("#note_icon").text(lang["ntypes"][2]);
@@ -1244,6 +1265,7 @@ $(document).ready(function() {
 	resizeDays();
 	loadNotes();
 	showHideHelper(false);
+	
 });
 
 function loadUIColor() {
