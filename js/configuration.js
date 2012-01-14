@@ -6,6 +6,8 @@ function setColor() {
 }
 
 function confScreen() {
+
+	_gaq.push(['_trackPageview', '/config']);
 	
 	$('#helper').css("visibility", "hidden");
 	

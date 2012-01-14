@@ -11,6 +11,11 @@ function end() {
 	$('#tutorial').fadeOut(500, function() { $('#tutorial').remove();  });
 	$('#tutorialHighlight').css("display", "none");
 	$('#helper').css("visibility", "visible");
+	if ($('body').attr('data-view')=='week') {
+		_gaq.push(['_trackPageview', '/']);
+	} else {
+		_gaq.push(['_trackPageview', '/month']);
+	}
 }
 
 function fourth() {
@@ -112,7 +117,8 @@ function first() {
 
 //$(document).ready(function() {
 function tutorialStart() {
-	
+	_gaq.push(['_trackPageview', '/help/tutorial']);
+
 	if ($('body').attr('data-view')=='month') toggleView();
 	
 	$('#tutorial').remove();
@@ -167,6 +173,7 @@ function fillAboutApp() {
 }
 
 function aboutApp() {
+	_gaq.push(['_trackPageview', '/help/about']);
 	$("#tutorial").children().fadeOut(500, fillAboutApp);
 	$("#tutorial").css('top',$("#tutorial").offset().top).css('left',$("#tutorial").offset().left+200).css('transform','none').animate({width: 400, top: window.innerHeight/2 - 200, left: window.innerWidth/2 - 200},1000);
 }
@@ -189,11 +196,14 @@ function fillContactForm() {
 }
 
 function contactForm() {
+	_gaq.push(['_trackPageview', '/help/contact']);
 	$("#tutorial").children().fadeOut(500, fillContactForm);
 	$("#tutorial").css('top',$("#tutorial").offset().top).css('left',$("#tutorial").offset().left+200).css('transform','none').animate({width: 400, height: 400, top: window.innerHeight/2 - 200, left: window.innerWidth/2 - 200},1000);
 }
 
 function helpScreen() {
+	_gaq.push(['_trackPageview', '/help']);
+
 	$('#helperTutorialFirstRun').remove();
 	localStorage['firstRunBubbleHidden']=true;
 	

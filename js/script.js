@@ -141,13 +141,14 @@ function alignToMonday(inMonth) {
 		$('#inner_table_full, #inner_table_month').stop(false, true);
 		if ($('body').attr('data-view')=='week') {
 			$('body').attr('data-view','month');
+			_gaq.push(['_trackPageview', '/month']);
 			showHideHelper();
 			fillMonthTable(document.getElementById('inner_table_month'));
 			$('#inner_table_full').fadeOut(500, function() { $('#inner_table_month').fadeIn(500); resizeDays(); });
 		}
 		else {
 			$('body').attr('data-view','week');
-
+			_gaq.push(['_trackPageview', '/']);
 			$('#inner_table_month').fadeOut(500, function() { $('#inner_table_full').fadeIn(500);
 			removeTable($('#inner_table_left'), true);
 			removeTable($('#inner_table_center'), true);
@@ -517,6 +518,7 @@ function alignToMonday(inMonth) {
 		icon.draggable = false;
 		icon.onfocus = icon.blur;
 		icon.onwebkitspeechchange = function(e) {
+			_gaq.push(['_trackEvent', 'VoiceEdit']);
 			note_content = $(this.parentNode.parentNode).find(".note_content")[0];
 			//console.log(e);
 			if (note_content.parentNode.getAttribute('data-content')!='') note_content.parentNode.setAttribute('data-content', note_content.parentNode.getAttribute('data-content') + "<br/>");
