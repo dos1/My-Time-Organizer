@@ -254,5 +254,33 @@
 	"jump_to_today": {
 		"message":"Przejdź do dzisiaj",
 		"description":""
+	},
+	"noteHelper": {
+		"message":"Aby przenieść notatkę, przeciągnij ikonkę i upuść ją na wybrane miejsce.",
+		"description":""
+	},
+	"moveText": {
+		"message":"Przenieś",
+		"description":""
+	},
+	"crtHelper": {
+		"message":"Aby utworzyć nowy element, przeciągnij jeden z przycisków powyżej na kolumnę wybranego dnia.",
+		"description":""
+	},
+	"editTxt": {
+		"message":"Edycja",
+		"description":""
+	},
+	"voiceInput": {
+		"message":"Wprowadzanie głosowe",
+		"description":""
+	},
+	"colorChg": {
+		"message":"Zmień kolor",
+		"desciption":""	
+	},
+	"deleteTxt": {
+		"message":"Usuń",
+		"description":""	
 	}
 }

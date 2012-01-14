@@ -455,7 +455,7 @@ function alignToMonday(inMonth) {
 
 		var icon = document.createElement('img');
 		icon.setAttribute('src', 'icons/write.png');
-		icon.setAttribute('title', 'Edycja');
+		icon.setAttribute('title', chrome.i18n.getMessage("editTxt"));
 		icon.draggable = false;
 		icon.onfocus = icon.blur;
 		function editNote() {
@@ -513,7 +513,7 @@ function alignToMonday(inMonth) {
 		var icon = document.createElement('input');
 		icon.setAttribute('type', 'text');
 		icon.setAttribute('class', 'lolxd');
-		icon.setAttribute('title', 'Wprowadzanie głosowe');
+		icon.setAttribute('title', chrome.i18n.getMessage("voiceInput"));
 		icon.setAttribute('x-webkit-speech', 'x-webkit-speech');
 		icon.draggable = false;
 		icon.onfocus = icon.blur;
@@ -531,7 +531,7 @@ function alignToMonday(inMonth) {
 
 		var icon = document.createElement('img');
 		icon.setAttribute('src', 'icons/color.png');
-		icon.setAttribute('title', 'Zmień kolor');
+		icon.setAttribute('title', chrome.i18n.getMessage("colorChg"));
 		icon.draggable = false;
 
 		$(icon).ColorPicker({
@@ -564,7 +564,7 @@ function alignToMonday(inMonth) {
 
 		var icon = document.createElement('img');
 		icon.setAttribute('src', 'icons/close.png');
-		icon.setAttribute('title', 'Usuń');
+		icon.setAttribute('title', chrome.i18n.getMessage("deleteTxt"));
 		icon.draggable = false;
 		icon.style.float = 'right';
 		icon.onclick = function() {
@@ -578,7 +578,7 @@ function alignToMonday(inMonth) {
 		var icon = document.createElement('img');
 		icon.setAttribute('src', 'icons/move.png');
 		icon.draggable = true;
-		icon.setAttribute('title', 'Przenieś');
+		icon.setAttribute('title', chrome.i18n.getMessage("moveText"));
 		icon.style.marginLeft = '3px';
 		icon.ondragstart = function(e) {
 			old = document.getElementById("draggedElement");
@@ -604,7 +604,7 @@ function alignToMonday(inMonth) {
 			helper = $(helper);
 			helper.hide();
 			helper.css("width", "auto").css("height", "auto").css("top", $(icon).offset().top+16).css("left", $(icon).offset().left).css("position","absolute");
-			helper.html("Aby przenieść notatkę, przeciągnij ikonkę i upuść ją na wybrane miejsce.");
+			helper.html(chrome.i18n.getMessage("noteHelper"));
 			helper.appendTo('body');
 			helper.fadeIn(500).delay(3000).fadeOut(1000, function() { $(this).remove(); });
 		}
@@ -1139,7 +1139,7 @@ $(document).ready(function() {
 			helper = $(helper);
 			helper.hide();
 			helper.css("width", "auto").css("height", "auto").css("top", $("#add_panel").offset().top+45).css("left", $("#add_panel").offset().left-30).css("z-index",100).css("position","absolute");
-			helper.html("Aby utworzyć nowy element, przeciągnij jeden z przycisków powyżej na kolumnę wybranego dnia.");
+			helper.html(chrome.i18n.getMessage("crtHelper"));
 			helper.appendTo('body');
 			helper.fadeIn(500).delay(5000).fadeOut(1000, function() { $(this).remove(); } );
 	}

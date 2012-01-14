@@ -254,5 +254,33 @@
 	"jump_to_today": {
 		"message":"Jump to today",
 		"description":""
+	},
+	"noteHelper": {
+		"message":"To move a note, drag the icon and drop in the chosen place.",
+		"description":""
+	},
+	"moveText": {
+		"message":"Move",
+		"description":""
+	},
+	"crtHelper": {
+		"message":"To create a new element, move one of the buttons above onto the chosen column.",
+		"description":""
+	},
+	"editTxt": {
+		"message":"Edit",
+		"description":""
+	},
+	"voiceInput": {
+		"message":"Voice input",
+		"description":""
+	},
+	"colorChg": {
+		"message":"Change color",
+		"description":""	
+	},
+	"deleteTxt": {
+		"message":"Delete",
+		"description":""	
 	}
 }
