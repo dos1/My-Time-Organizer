@@ -30,8 +30,19 @@
 		<script type="text/javascript" src="js/tutorial.js"></script>
 		<script type="text/javascript" src="js/configuration.js"></script>
 		<script type="text/javascript" src="js/script.js"></script>
-</head>
-<body>
+		<script type="text/javascript">
+			var _gaq = _gaq || [];
+			_gaq.push(['_setAccount', 'UA-27242070-2']);
+			_gaq.push(['_trackPageview']);
+
+			(function() {
+				var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+				ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+				var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+			})();
+		</script>
+	</head>
+	<body>
 		<div id="event_edit_panel" class="helper" style="display: none;"> <!-- event_descr -->
 			<!--<textarea id="event_desc_txt" style="max-width: 100%" placeholder="Opis wydarzenia..."></textarea>-->
 			<script type="text/javascript">document.write('<textarea id="event_desc_txt" style="max-width: 100%" placeholder="'+chrome.i18n.getMessage("event_descr")+'"></textarea>');</script>
@@ -140,9 +151,10 @@
 		<footer>
 			&copy; Copyright 2011 Dominik 'mug3tsu' Galewski, Sebastian 'dos' Krzyszkowiak, Krzysztof 'hun7er' Marciniak
 		</footer>
-<div id="tutorialHighlight">
-<div class="hack"></div>
-</div>
 
-</body>
+		<div id="tutorialHighlight">
+			<div class="hack"></div>
+		</div> <!-- TODO: add me to JS? -->
+
+	</body>
 </html>
