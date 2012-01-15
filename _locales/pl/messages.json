@@ -302,5 +302,9 @@
         "notes": {
                 "message":"Notatki",
                 "description":""
-        }
+        },
+	"notification_title": {
+		"message":"Przypomnienie o wydarzeniu",
+		"description":""
+	}
 }

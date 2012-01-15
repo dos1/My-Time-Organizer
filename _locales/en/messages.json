@@ -302,5 +302,9 @@
         "notes": {
                 "message":"Notes",
                 "description":""
-        } 
+        },
+	"notification_title": {
+		"message":"Event reminder",
+		"description":""
+	}
 }

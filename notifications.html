@@ -18,7 +18,7 @@ function notify(text) {
 	// Create a simple text notification:
 	var notification = webkitNotifications.createNotification(
 	    'icons/icon48.png',  // icon url - can be relative
-	    'Przypomnienie o wydarzeniu',  // notification title
+	    chrome.i18n.getMessage("notification_title"),  // notification title
 	    text  // notification body text
 	);
 
