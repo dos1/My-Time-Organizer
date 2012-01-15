@@ -413,15 +413,6 @@ function alignToMonday(inMonth) {
 		
 		$(note).css('backgroundColor', note.getAttribute('data-bgcolor'));
 
-		/*if ($(note).attr('class')==='event') {
-			var note_time = document.createElement('div');
-			$(note_time).addClass('note_time');
-			note_time.innerHTML = $(note).attr('data-time');;
-			note_time.contentEditable = false;
-			note.appendChild(note_time);
-		}*/
-		
-		
 		var note_content = document.createElement('div');
 		$(note_content).addClass('note_content');
 		if (note.getAttribute('data-content')==='') {
@@ -487,9 +478,9 @@ function alignToMonday(inMonth) {
 //////////////////////////////////////// event edit handler /////////////////////////////////////////////////////////
 		
 		function editEventHandler() {
-			$("#event_desc_txt").text($(note).attr('data-content'));
+			$("#event_desc_txt").val($(note).attr('data-content'));
 			$("#event_time_start").attr('value', $(note).attr('data-time'));
-			if ($(note).attr('data-time-end') == 'undefined') $("#event_time_end").attr('value', $(note).attr('data-time'));
+			if (!$(note).attr('data-time-end')) $("#event_time_end").attr('value', $(note).attr('data-time'));
 			else $("#event_time_end").attr('value', $(note).attr('data-time-end'));
 			$("#event_edit_panel").attr('data-date', $(note).parent().attr('id'));
 			
@@ -497,10 +488,7 @@ function alignToMonday(inMonth) {
 			
 			$("#event_edit_panel").fadeIn(250);
 			$('#tutorialHighlight').css('display','block');
-			//alert($("#repeat").attr('value'));
-		}
-		
-		
+		}		
 		
 		if ($(note).attr('class')!=='event') {
 			icon.onclick = editNote;
