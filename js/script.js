@@ -364,12 +364,12 @@ function alignToMonday(inMonth) {
 		$('[data-editedNow=true]').attr('data-content', $('#event_desc_txt').val());
 		$('[data-editedNow=true]').find('.note_content').text($('#event_desc_txt').val());
 		$('[data-editedNow=true]').attr('data-notify', $("#notify").val());
-		$('[data-editedNow=true]')
 		// data-time-end
 		//data-content
 		//data-notify
 		//console.log($('[data-isEditedNow=true]'));
 		$('[data-editedNow=true]').attr('data-editedNow', 'false');
+		if (($('#event_desc_txt').val().toLowerCase()==='nyan') || ($('#event_desc_txt').val().toLowerCase()==='nyan nyan')) nyanNyan();
 		saveNotes();
 		$("#event_edit_panel").fadeOut(500);
 		if (!document.getElementById('tutorial')) 
