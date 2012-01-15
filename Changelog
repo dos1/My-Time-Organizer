@@ -1,7 +1,13 @@
+1.0.3:
+ - fixes for translation support
+ - event editor is now correctly updated for each event
+ - updated text and added links in about screen
+ - already done tasks are now more distinguishable due to added opacity
+
 1.0.2:
- - support for translations
- - english translation
- - bugfix: disabled keyboard handling while in contact form
+ - fixed "moving through weeks while writing text" bug
+ - added translation support using Chrome i18n
+ - added English translation (en = en_GB + en_US)
 
 1.0.1:
  - cosmetic fixes

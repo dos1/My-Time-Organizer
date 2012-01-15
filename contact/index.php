@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--
 /* [?] My Time Organizer @ Google Apps Hackathon 12.11.2011 (11/12/2011)
- * [+] Authors: 
+ * [+] Authors:
  * - Dominik Galewski (mug3tsu)
  * - Sebastian Krzyszkowiak (dos)
  * - Krzysztof Marciniak (hun7er)
@@ -10,8 +10,8 @@
 -->
 <?
 function m($a) {
-mail($a, 'Wiadomość z formularza MTO: '.$_POST['title'], 'Od: '.$_POST['mail']."\n\n".$_POST['content'],
-'From: "My Time Organizer" <mto@dosowisko.net>' . "\r\n" .'Content-type: text/plain; charset=utf-8' . "\r\n");
+  mail($a, 'Wiadomość z formularza MTO: '.$_POST['title'], 'Od: '.$_POST['mail']."\n\n".$_POST['content'],
+  'From: "My Time Organizer" <mto@dosowisko.net>' . "\r\n" .'Content-type: text/plain; charset=utf-8' . "\r\n");
 }
 
 if ($_POST) {

@@ -422,7 +422,7 @@ function alignToMonday(inMonth) {
 			note.appendChild(check);
 			text = document.createElement('label');
 			text.setAttribute('for', 'checkbox'+labelCounter);
-			text.innerHTML = 'wykonane';
+			text.innerHTML = chrome.i18n.getMessage("done");
 			note.appendChild(text);
 			check.checked = (note.getAttribute('data-done')=='true');
 			check.onchange = function() { this.parentNode.setAttribute('data-done',this.checked); saveNotes(); };
@@ -803,7 +803,7 @@ function doNavMonth(parent, d, i, month) {
 		
 		var myy = d.format("YYYY");
 		
-		day.innerHTML = "<div class='date'>"+myd+"."+mym+"."+myy+"</div><div class='previewbox'><div class='preview'></div></div><div class='counters'><div class='eventcount' title='Wydarzenia'>"+countItems("day"+myd+"-"+mym+"-"+myy, 'event')+"</div><div class='taskcount' title='Zadania'>"+countItems("day"+myd+"-"+mym+"-"+myy, 'task')+" ("+countItems("day"+myd+"-"+mym+"-"+myy, 'task', 'done', 'true')+")</div><div class='notecount' title='Notatki'>"+countItems("day"+myd+"-"+mym+"-"+myy, 'note')+"</div></div>";
+		day.innerHTML = "<div class='date'>"+myd+"."+mym+"."+myy+"</div><div class='previewbox'><div class='preview'></div></div><div class='counters'><div class='eventcount' title='"+chrome.i18n.getMessage("events")+"'>"+countItems("day"+myd+"-"+mym+"-"+myy, 'event')+"</div><div class='taskcount' title='"+chrome.i18n.getMessage("tasks")+"'>"+countItems("day"+myd+"-"+mym+"-"+myy, 'task')+" ("+countItems("day"+myd+"-"+mym+"-"+myy, 'task', 'done', 'true')+")</div><div class='notecount' title='"+chrome.i18n.getMessage("notes")+"'>"+countItems("day"+myd+"-"+mym+"-"+myy, 'note')+"</div></div>";
 		day.setAttribute('data-date', myd+"-"+mym+"-"+myy);
 		day.setAttribute('data-previewID', '0');
 		

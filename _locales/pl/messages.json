@@ -232,7 +232,7 @@
 		"description":""
 	},
 	"About_txt":{
-		"message":"</p><p>Autorzy:</p><ul><li>Dominik 'mug3tsu' Galewski</li><li>Sebastian 'dos' Krzyszkowiak</li><li>Krzysztof 'hun7er' Marciniak</li></ul><p>Użyte biblioteki:</p><ul><li>jQuery</li><li>jQuery CSS Transform</li><li>jQuery Animate CSS Rotate&amp;Scale</li><li>jQuery Animate Shadow</li><li>jQuery Colorpicker</li><li>jQuery Datepicker</li><li>moment.js</li></ul><p>Z podziękowaniami dla Poznań GTUG, którego hackaton umożliwił powstanie tej aplikacji oraz dla Nyan Cata, którego tęczowa moc napędza najbardziej mistyczne fragmenty kodu.",
+		"message":"<p>Autorzy:</p><ul><li>Dominik 'mug3tsu' Galewski</li><li>Sebastian 'dos' Krzyszkowiak</li><li>Krzysztof 'hun7er' Marciniak</li></ul><p>Użyte biblioteki:</p><ul><li>jQuery</li><li>jQuery CSS Transform</li><li>jQuery Animate CSS Rotate&amp;Scale</li><li>jQuery Animate Shadow</li><li>jQuery Colorpicker</li><li>jQuery Datepicker</li><li>moment.js</li></ul><p>Z podziękowaniami dla Poznań GTUG, którego hackaton umożliwił powstanie tej aplikacji oraz dla Nyan Cata, którego tęczowa moc napędza najbardziej mistyczne fragmenty kodu.</p><p><a href=\"https://www.facebook.com/mytimeorganizer\">Polub nas na Facebooku</a>, <a href=\"https://plus.google.com/u/0/113997918179336327163\">zakręguj na Google Plus</a> lub <a href=\"https://github.com/dos1/My-Time-Organizer\">sforkuj na Githubie</a>!</p>",
 		"description":""
 	},
 	"start_tutorial": {
@@ -282,5 +282,25 @@
 	"deleteTxt": {
 		"message":"Usuń",
 		"description":""	
-	}
+	},
+	"close": {
+		"message":"Zamknij",
+		"description":""
+	},
+	"done": {
+		"message":"wykonane",
+		"description":""
+	},
+        "tasks": {
+                "message":"Zadania",
+                "description":""
+        },
+        "events": {
+                "message":"Wydarzenia",
+                "description":""
+        },
+        "notes": {
+                "message":"Notatki",
+                "description":""
+        }
 }

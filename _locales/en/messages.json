@@ -232,7 +232,7 @@
 		"description":""
 	},
 	"About_txt":{
-		"message":"</p><p>Authors:</p><ul><li>Dominik 'mug3tsu' Galewski</li><li>Sebastian 'dos' Krzyszkowiak</li><li>Krzysztof 'hun7er' Marciniak</li></ul><p>Libraries used:</p><ul><li>jQuery</li><li>jQuery CSS Transform</li><li>jQuery Animate CSS Rotate&amp;Scale</li><li>jQuery Animate Shadow</li><li>jQuery Colorpicker</li><li>jQuery Datepicker</li><li>moment.js</li></ul><p>We'd like to greatly thank Poznań GTUG, whose hackaton let us develop an idea for the application and Nyan Cat, whose rainbow's power makes the most mystic parts of code work.",
+		"message":"<p>Authors:</p><ul><li>Dominik 'mug3tsu' Galewski</li><li>Sebastian 'dos' Krzyszkowiak</li><li>Krzysztof 'hun7er' Marciniak</li></ul><p>Libraries used:</p><ul><li>jQuery</li><li>jQuery CSS Transform</li><li>jQuery Animate CSS Rotate&amp;Scale</li><li>jQuery Animate Shadow</li><li>jQuery Colorpicker</li><li>jQuery Datepicker</li><li>moment.js</li></ul><p>We'd like to greatly thank Poznań GTUG, whose hackaton let us develop an idea for the application and Nyan Cat, whose rainbow's power makes the most mystic parts of code work.</p><p><a href=\"https://www.facebook.com/mytimeorganizer\">Like us on Facebook</a>, <a href=\"https://plus.google.com/u/0/113997918179336327163\">cirle us on Google Plus</a> or <a href=\"https://github.com/dos1/My-Time-Organizer\">fork us on Github</a>!</p>",
 		"description":""
 	},
 	"start_tutorial": {
@@ -282,5 +282,25 @@
 	"deleteTxt": {
 		"message":"Delete",
 		"description":""	
-	}
+	},
+	"close": {
+		"message":"Close",
+		"description":""
+	},
+	"done": {
+		"message":"done",
+		"description":""
+	},
+        "tasks": {
+                "message":"Tasks",
+                "description":""  
+        },
+        "events": {
+                "message":"Events",
+                "description":""
+        },
+        "notes": {
+                "message":"Notes",
+                "description":""
+        } 
 }

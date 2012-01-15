@@ -78,3 +78,6 @@
 .next_button:hover {
 	opacity: 1;
 }
+#tutorial a {
+	color: white;
+}

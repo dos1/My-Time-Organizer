@@ -154,15 +154,14 @@ function tutorialStart() {
 function fillAboutApp() {
 	content = document.createElement('div');
 	content = $(content);
-	content.html('<p>My Time Organizer '+__VERSION__+chrome.i18n.getMessage("About_txt"));
+	content.html('<p>My Time Organizer '+__VERSION__+"</p>"+chrome.i18n.getMessage("About_txt"));
 	content.find('p').css('padding-top', 20);
 	content.find('li').css('list-style-type','disc').css('margin-left', 20);
 	content.appendTo('#tutorial');
 	
-	
 	next = document.createElement('div');
 	$(next).addClass('next_button');
-	next.innerHTML = 'Zamknij';
+	next.innerHTML = chrome.i18n.getMessage("close");
 	next.onclick = end;
 	$(next).css('width','100%').appendTo(content);
 
