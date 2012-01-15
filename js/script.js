@@ -1230,6 +1230,7 @@ $(document).ready(function() {
 	starts: 1,
 	position: 'b',
 	onBeforeShow: function(){
+		_gaq.push(['_trackEvent', 'DatePicker']);
 		$('#info_panel div .week').DatePickerSetDate(weeks['inner_table_center'].format('YYYY-MM-DD'), true);
 	},
 	onChange: function(formated, dates){
@@ -1237,7 +1238,7 @@ $(document).ready(function() {
 		//$('#info_panel div').DatePickerHide();
 	}
 	});
-	$("#info_panel div .today").click(function () { slideTo(moment()); });
+	$("#info_panel div .today").click(function () { _gaq.push(['_trackEvent', 'SlideToTodayButton']); slideTo(moment()); });
 	
 	if (!localStorage['firstRunBubbleHidden']) {
 		var helper = document.createElement('div');
