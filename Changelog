@@ -4,6 +4,7 @@
  - updated text and added links in about screen
  - already done tasks are now more distinguishable due to added opacity
  - nyan cat now works also for events
+ - fixed doubled notification when reminder for the event was disabled
 
 1.0.2:
  - fixed "moving through weeks while writing text" bug

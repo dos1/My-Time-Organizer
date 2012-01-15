@@ -31,8 +31,8 @@ function notify(text) {
 	notification.show(); 
 }
 
-var t, tcurday, wpisy;
-var TodayTODO = new Array();
+//var t, tcurday, wpisy;
+//var TodayTODO = new Array();
 
 function checkEvents() {
 	var now = moment();
@@ -43,33 +43,24 @@ function checkEvents() {
 	var today = "day"+tday+"-"+tmon+"-"+tyear;
 	
 	if (localStorage[today]) {
-		wpisy = JSON.parse(localStorage[today]);
+		var wpisy = JSON.parse(localStorage[today]);
 		for (var i = 0; i < wpisy.length; i++) {
 			if (wpisy[i].type == 'event') {
 				var tbefore = moment();
-				tbefore.add("minutes", wpisy[i].notify);
+				if (wpisy[i].notify!=-1) tbefore.add("minutes", wpisy[i].notify);
 				if (now.format('HH:mm') == wpisy[i].time || tbefore.format('HH:mm') == wpisy[i].time) notify(wpisy[i].time+" "+wpisy[i].content);
 			}
 		}
 	}
 	
 	//notify("Na dzis: "+localStorage[today]);
-	t = setTimeout("checkEvents()", 60000);
+	//t = setTimeout("checkEvents()", 60000);
 }
 	//wpisy = localStorage[today];
 	//for (var i = 0; i < wpisy.length(); i++) TodayTODO = JSON.parse(wpisy[i]);
-	
+
 	checkEvents();
-	//notify("Zostałam wystartowana!");
-	//alert(now.format("hh:mm"));
-	/*function checkTime() {
-		var now = moment();
-		notify("Teraz jest "+now.format("HH:mm"));
-	}
-	setTimeout(function() {
-		var now = moment();
-		notify("Teraz jest "+now.format("HH:mm"));
-	}, 6000);*/
+	setInterval("checkEvents()", 60000);
 </script>
 </head>
 <body></body>
