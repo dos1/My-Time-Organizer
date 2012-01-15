@@ -6,14 +6,16 @@
  * [!] [alphabetical order]
  */
 
-var __VERSION__ = "1.0.3";
+var __VERSION__ = "1.0.4";
 
 lang = new Array();
-//lang["en"] = new Array();
-//lang["pl"] = new Array();
 
-//var mylang = "pl";
-		
+if (typeof chrome === 'undefined') {
+  chrome = {}
+  chrome.i18n = {}
+  chrome.i18n.getMessage = function(a) { return a; }
+}
+
 /* English */
 lang["days"] = [chrome.i18n.getMessage("mon"), chrome.i18n.getMessage("tue"), chrome.i18n.getMessage("wed"), chrome.i18n.getMessage("thu"), chrome.i18n.getMessage("fri"), chrome.i18n.getMessage("sat"), chrome.i18n.getMessage("sun")];
 lang["ntypes"] = [chrome.i18n.getMessage("event"), chrome.i18n.getMessage("task"), chrome.i18n.getMessage("note")];
@@ -24,17 +26,6 @@ lang["items_txt"] = [chrome.i18n.getMessage("items_txt1"), chrome.i18n.getMessag
 lang["helper_txt"] = chrome.i18n.getMessage("helper_txt");
 lang["months"] = [chrome.i18n.getMessage("jan"), chrome.i18n.getMessage("feb"), chrome.i18n.getMessage("mar"), chrome.i18n.getMessage("apr"), chrome.i18n.getMessage("may"), chrome.i18n.getMessage("jun"), chrome.i18n.getMessage("jul"), chrome.i18n.getMessage("aug"), chrome.i18n.getMessage("sep"), chrome.i18n.getMessage("oct"), chrome.i18n.getMessage("nov"), chrome.i18n.getMessage("dec")];
 
-
-/* Polish //
-lang["pl"]["days"] = ["Poniedziałek", "Wtorek", "Środa", "Czwartek", "Piątek", "Sobota", "Niedziela"];
-lang["pl"]["ntypes"] = ["Wydarzenie", "Zadanie", "Notatka"];
-lang["pl"]["notify_txt"] = "Przypomnienie o wydarzeniu";
-lang["pl"]["icons"] = ["Przełącz widok", "Konfiguracja", "Pomoc"];
-lang["pl"]["week"] = "Tydzień";
-lang["pl"]["items_txt"] = ["Kliknij ikonę ołówka, aby edytować tę notatkę, lub krzyżyk, aby ją usunąć.", "Kliknij ikonę ołówka, aby edytować to zadanie, lub krzyżyk, aby je usunąć.", "Kliknij ikonę ołówka, aby edytować to wydarzenie, lub krzyżyk, aby je usunąć."];
-lang["pl"]["helper_txt"] = 'Nie dodano jeszcze żadnych elementów do wyświetlonego tygodnia. Aby to uczynić, przeciągnij ikonkę z górnego paska do wybranej kolumny. Kliknij "Pomoc", aby uzyskać dodatkowe informacje.';
-lang["pl"]["months"] = ["Styczeń", "Luty", "Marzec", "Kwiecień", "Maj", "Czerwiec", "Lipiec", "Sierpień", "Wrzesień", "Październik", "Listopad", "Grudzień"];
-*/
 moment.months = lang["months"];
 
 var weeks = {};
