@@ -359,23 +359,11 @@ function alignToMonday(inMonth) {
 
 	
 	function editMyEvent() {
-		//alert("Test");
-		console.log("Executed.");
 		$('[data-editedNow=true]').attr('data-time', $('#event_time_start').attr('value'));
 		$('[data-editedNow=true]').attr('data-time-end', $('#event_time_end').attr('value'));
 		$('[data-editedNow=true]').attr('data-content', $('#event_desc_txt').val());
 		$('[data-editedNow=true]').find('.note_content').text($('#event_desc_txt').val());
-		if ($("#notify").attr('value') == '5 minut przed') {
-			$('[data-editedNow=true]').attr('data-notify', '5');
-		} else if ($("#notify").attr('value') == '10 minut przed') {
-			$('[data-editedNow=true]').attr('data-notify', '10');
-		} else if ($("#notify").attr('value') == '30 minut przed') {
-			$('[data-editedNow=true]').attr('data-notify', '30');
-		} else if ($("#notify").attr('value') == '1 godzinę przed') {
-			$('[data-editedNow=true]').attr('data-notify', '60');
-		} else if ($("#notify").attr('value') == 'wcale') {
-			$('[data-editedNow=true]').attr('data-notify', '-1');
-		}
+		$('[data-editedNow=true]').attr('data-notify', $("#notify").val());
 		$('[data-editedNow=true]')
 		// data-time-end
 		//data-content
@@ -483,7 +471,7 @@ function alignToMonday(inMonth) {
 			if (!$(note).attr('data-time-end')) $("#event_time_end").attr('value', $(note).attr('data-time'));
 			else $("#event_time_end").attr('value', $(note).attr('data-time-end'));
 			$("#event_edit_panel").attr('data-date', $(note).parent().attr('id'));
-			
+			$('#notify').val($(note).attr('data-notify'));
 			$(note).attr('data-editedNow', true);
 			
 			$("#event_edit_panel").fadeIn(250);
