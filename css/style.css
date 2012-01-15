@@ -147,7 +147,6 @@ footer {
 	height: 			100%;
 	width: 80%;
 	display: 			-webkit-box;
-	display: 			-moz-box;
 	-webkit-box-orient: horizontal;
 	-moz-box-orient: horizontal;
 	-o-box-orient: horizontal;
@@ -174,7 +173,6 @@ footer {
 	height: 			100%;
 	width: 100%;
 	display: 			-webkit-box;
-	display: 			-moz-box;
 	-webkit-box-orient: horizontal;
 	-moz-box-orient: horizontal;
 	-o-box-orient: horizontal;
@@ -206,7 +204,6 @@ footer {
 	-o-box-orient: horizontal;
 	box-orient: horizontal;
 	-webkit-box-align: 	center;
-	-moz-box-align: 	center;
 	-o-box-align: 	center;
 	box-align: 	center;
 	-webkit-box-pack: 	center;
@@ -230,7 +227,6 @@ footer {
 	-o-box-orient: horizontal;
 	box-orient: horizontal;
 	-webkit-box-align: 	center;
-	-moz-box-align: 	center;
 	-o-box-align: 	center;
 	box-align: 	center;
 	-webkit-box-pack: 	center;
@@ -253,7 +249,6 @@ footer {
 	-o-box-orient: horizontal;
 	box-orient: horizontal;
 	-webkit-box-align: 	center;
-	-moz-box-align: 	center;
 	-o-box-align: 	center;
 	box-align: 	center;
 	-webkit-box-pack: 	center;
@@ -270,13 +265,12 @@ footer {
 	height: 			100%;
 	width: 				100%;
 	display: 			-webkit-box;
-	display: 			-moz-box;
+	display:			-moz-box;
 	-webkit-box-orient: horizontal;
 	-moz-box-orient: horizontal;
 	-o-box-orient: horizontal;
 	box-orient: horizontal;
 	-webkit-box-align: 	center;
-	-moz-box-align: 	center;
 	-o-box-align: 	center;
 	box-align: 	center;
 	-webkit-box-pack: 	center;
