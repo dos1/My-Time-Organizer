@@ -59,8 +59,14 @@ function checkEvents() {
 	//wpisy = localStorage[today];
 	//for (var i = 0; i < wpisy.length(); i++) TodayTODO = JSON.parse(wpisy[i]);
 
+function interval() {
 	checkEvents();
 	setInterval("checkEvents()", 60000);
+}
+
+	checkEvents();
+	var d=new Date();
+	if (((d%60000)/1000)!=0) setTimeout("interval()", Math.ceil(60-(d%60000)/1000)*1000); else setInterval("checkEvents()", 60000);
 </script>
 </head>
 <body></body>
