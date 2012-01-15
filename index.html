@@ -44,21 +44,21 @@
 	</head>
 	<body>
 		<div id="event_edit_panel" class="helper" style="display: none;"> <!-- event_descr -->
-			<textarea id="event_desc_txt" style="max-width: 100%" placeholder="Opis wydarzenia..."></textarea>
 			<form id="event_edit_form">
+			<textarea id="event_desc_txt" style="max-width: 100%" required placeholder="Opis wydarzenia..."></textarea>
 			<div style="display: table; width: 100%; text-align: left;">
 				<div style="display: table-row;">
 					<div style="display: table-cell;" id="form_start_time">
 					</div>
 					<div style="display: table-cell; padding-left: 10px">
-						<input type="time" required name="" id="event_time_start" value="" class="input_text"/>
+						<input type="time" required pattern="(([0-1]?[0-9])|(2[0-3])):[0-9]{2}" name="" id="event_time_start" value="" class="input_text"/>
 					</div>
 				</div>
 				<div style="display: table-row;">	
 					<div style="display: table-cell;" id="form_end_time">
 					</div>
 					<div style="display: table-cell; padding-left: 10px">
-						<input type="time" name="" id="event_time_end" value="" class="input_text"/>
+						<input type="time" pattern="(([0-1]?[0-9])|(2[0-3])):[0-9]{2}" name="" id="event_time_end" value="" class="input_text"/>
 					</div>
 				</div>
 				<!--
