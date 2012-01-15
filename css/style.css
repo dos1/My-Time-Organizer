@@ -1079,6 +1079,7 @@ nav[data-currentDay=true] .day_content .task input[type=checkbox], nav[data-curr
 	-moz-transition: margin-bottom 0.5s;
 	-o-transition: margin-bottom 0.5s;
 	transition: margin-bottom 0.5s;
+	text-align: left;
 }
 nav[data-currentDay=true] .day_content .task .note_content,
 .task:hover .note_content {
