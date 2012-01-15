@@ -622,7 +622,7 @@ function alignToMonday(inMonth) {
 		function arrOnDrop(event) {
 			//console.log(this.getAttribute('id'));
 
-			$(this).css("background-color", "transparent"); $(this.childNodes).css("opacity", "1");
+			$(this).css("background-color", "transparent"); $(this.childNodes).css("opacity", "");
 			old = $('[data-draggedOver=true]')[0];
 			if (old) { $(old).animate({rotate:'0deg'},100); old.setAttribute('data-draggedOver', 'false'); }
 		        var type = event.dataTransfer.getData("Url");
@@ -696,7 +696,7 @@ function alignToMonday(inMonth) {
 		//
 		function arrDragOver() { $(this).css("background-color", "white"); $(this.childNodes).css("opacity", "0.75"); 
 					return false; }
-		function arrDragLeave() { $(this).css("background-color", "transparent"); $(this.childNodes).css("opacity", "1"); 
+		function arrDragLeave() { $(this).css("background-color", "transparent"); $(this.childNodes).css("opacity", "");
 								old = $('[data-draggedOver=true]')[0];
 					if (old) { $(old).rotate('0deg');; old.setAttribute('data-draggedOver', 'false'); }
 		}
@@ -1098,8 +1098,8 @@ $(document).ready(function() {
 	document.getElementById('form_10min').innerHTML=chrome.i18n.getMessage("10min");
 	document.getElementById('form_30min').innerHTML=chrome.i18n.getMessage("30min");
 	document.getElementById('form_1hour').innerHTML=chrome.i18n.getMessage("1hour");
-	document.getElementById('cancel').innerHTML=chrome.i18n.getMessage("cancel");
-	document.getElementById('editt').innerHTML=chrome.i18n.getMessage("zastosuj");
+	document.getElementById('cancel').setAttribute('value',chrome.i18n.getMessage("cancel"));
+	document.getElementById('editt').setAttribute('value',chrome.i18n.getMessage("zastosuj"));
 	document.getElementById('view_btn').setAttribute('alt', chrome.i18n.getMessage("icon1"));
 	document.getElementById('conf_btn').setAttribute('alt', chrome.i18n.getMessage("icon2"));
 	document.getElementById('help_btn').setAttribute('alt', chrome.i18n.getMessage("icon3"));

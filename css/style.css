@@ -1052,6 +1052,12 @@ body[data-nyan=nyan]::after {
 nav[data-currentDay=true] .day_content .task[data-done=false] {
 	box-shadow: #82418e 0px 0px 8px 2px;
 }
+nav .day_content .task[data-done=true] {
+	opacity: 0.75;
+}
+nav .day_content .task:hover {
+	opacity: 1;
+}
 .task input[type=checkbox], .task label {
 	height: 0px;
 	opacity: 0;
