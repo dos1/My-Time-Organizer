@@ -37,6 +37,7 @@ var dayPreviewInterval;
 var curDay = moment().format('D-M-YYYY');
 
 function nyanNyan() {
+	_gaq.push(['_trackEvent', 'NyanNyan']);
 	function nyanNyanNyan() {
 		$('.header h3, #add_panel div, #info_panel span, footer').each(function () { this.setAttribute('data-nyan', this.innerHTML); } );
 		$('.header h3, #add_panel div').each(function() { this.innerHTML = 'Nyan'; } );
