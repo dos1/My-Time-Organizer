@@ -187,7 +187,7 @@ function alignToMonday(inMonth) {
 		weeks['inner_table_right'].add("months", diff);
 		alignToMonday(true);
 		$('#inner_table_month').stop(false, true);
-		$('#inner_table_month').fadeOut(250, function() { $('#inner_table_month').empty(); fillMonthTable(document.getElementById('inner_table_month')); $('#inner_table_month').fadeIn(250); });
+		$('#inner_table_month').fadeOut(250, function() { $('#inner_table_month').empty(); fillMonthTable(document.getElementById('inner_table_month')); $('#inner_table_month').fadeIn(250); setTimeout(resizeDays, 0); });
 		updateWeek();
 	}
 
