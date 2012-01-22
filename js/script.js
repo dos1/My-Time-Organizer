@@ -1108,13 +1108,13 @@ $(document).ready(function() {
 		if ($("[data-nyan=nyan]")[0]) return false;
 		if ($("#contactForm")[0]) return false;
 
-		if(event.which == 39) right_slide(); // prawa szczałka
-		else if (event.which == 37) left_slide(); // lewa szczałka
-		else if (event.which == 40) slideTo(moment()); // dolna szczałka
-		else if (event.which == 08) { // bekspejs
+		if(e.which == 39) right_slide(); // prawa szczałka
+		else if (e.which == 37) left_slide(); // lewa szczałka
+		else if (e.which == 40) slideTo(moment()); // dolna szczałka
+		else if (e.which == 08) { // bekspejs
 			var regRule = /(input)|(textarea)/i;
-			var lol = (regRule.test(event.target)) ? true : false;
-			if (!lol) { event.preventDefault(); undeleteNote(); }
+			var lol = (regRule.test(e.target)) ? true : false;
+			if (!lol) { e.preventDefault(); undeleteNote(); }
 		}
 	}
 		
