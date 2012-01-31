@@ -11,15 +11,10 @@
   "app": {
     "launch": {
        "local_path": "index.html"
-    },
-    "urls": [
-       "*://*.mytimeorganizer.com"
-    ]
+    }
   },
-  "homepage_url": "http://mytimeorganizer.com",
   "default_locale": "en",
   "background_page": "notifications.html",
-  "incognito": "split",
   "offline_enabled": true,
   "permissions": ["background", "notifications"]
 }
