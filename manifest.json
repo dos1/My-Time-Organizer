@@ -17,7 +17,6 @@
     ]
   },
   "homepage_url": "http://mytimeorganizer.com",
-  "content_security_policy": "default-src 'self' https://ssl.google-analytics.com http://mytimeorganizer.com",
   "default_locale": "en",
   "background_page": "notifications.html",
   "incognito": "split",
