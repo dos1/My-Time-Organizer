@@ -1,0 +1,3 @@
+Options -Multiviews
+RewriteEngine On
+RewriteRule ^/(..)/$ lang.php?id=$1

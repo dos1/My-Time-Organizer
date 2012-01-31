@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<!--
+/* [?] My Time Organizer @ Google Apps Hackathon 12.11.2011 (11/12/2011)
+ * [+] Authors: 
+ * - Dominik Galewski (mug3tsu)
+ * - Sebastian Krzyszkowiak (dos)
+ * - Krzysztof Marciniak (hun7er)
+ * [!] [alphabetical order]
+ */
+-->
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>My Time Organizer</title>
+		<base href="/" />
+		<link rel="stylesheet" href="css/reset.css" type="text/css" />
+		<link rel="stylesheet" href="css/style.css" type="text/css" />
+                <link rel="stylesheet" href="css/help.css" type="text/css" />
+		<link rel="chrome-webstore-item" href="https://chrome.google.com/webstore/detail/nbgjpoemniodpkigbjkleiaoifclhfdm" />
+		<link rel="shortcut icon" href="images/icon16.png" />
+		<script>
+			CONTACT_FORM_TEXT = "<form method=\"POST\" onsubmit=\"end()\" action=\"http://dosowisko.net/mto/contact/\" target=\"_blank\"><p>Using that form you can send a message to My Time Organizer crew.</p><p>We'd love to know what are your ideas about changing our application and to get information about bugs you found (but we hope you won't find many bugs ;-) ).</p><p>If you want us to answer your message, please fill in your e-mail.</p><input type=\"text\" name=\"title\" placeholder=\"Message title...\" /><textarea name=\"content\" required placeholder=\"Message...\" /><input name=\"mail\" type=\"email\" placeholder=\"Your e-mail address (optional)\" /><p>Before sending the message make sure your computer has active Internet connection.</p><input type=\"submit\" value=\"Send\" /><input type=\"button\" value=\"Cancel\" onclick=\"end()\"/></form>";
+		</script>
+		<script type="text/javascript" src="js/jquery-1.7.js"></script>
+		<script type="text/javascript" src="js/script.js"></script>
+                <script type="text/javascript" src="js/help.js"></script>
+		<script type="text/javascript">
+			var _gaq = _gaq || [];
+			_gaq.push(['_setAccount', 'UA-27242070-3']);
+			_gaq.push(['_setDomainName', 'mytimeorganizer.com']);
+			_gaq.push(['_trackPageview']);
+
+			(function() {
+				var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+				ga.src = 'https://ssl.google-analytics.com/ga.js';
+				var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+			})();
+		</script>
+	</head>
+	<body>
+		<header>
+			<div id="logo">My Time Organizer</div>
+
+			<div id="right_panel">
+				<div id="add_panel">
+					<div id="event_icon" class="active">
+						About
+					</div>
+					<a id="task_icon" href="_gaq.push(['_trackEvent', 'download']); https://chrome.google.com/webstore/detail/nbgjpoemniodpkigbjkleiaoifclhfdm">
+						Download
+					</a>
+					<div id="note_icon" onclick="helpScreen(); contactForm()">
+						Contact
+					</div>
+				</div>
+				<div id="buttons_panel">
+					<div id="info_panel">
+						<a href="https://www.facebook.com/mytimeorganizer">facebook</a> | <a href="https://plus.google.com/u/0/113997918179336327163/posts">google+</a> | <a href="https://github.com/dos1/My-Time-Organizer">github</a> | <a href="/pl/" id="langpl" title="wersja polska">wersja polska</a>
+					</div>
+				</div>
+			</div>
+		</header>
+
+		<div id="border_table">
+				<div id="inner_table_center">
+
+					<nav class="left"><div class="header"><h3>Your personal organizer</h3></div><div class="day_content">
+
+<div class="note" data-bgcolor="#457ad5">
+<img src="images/screen1.jpg" width="100%" />
+<h2>Become the master of time mainternance!</h2>
+<p>My Time Organizer will allow you to plan your schedule in the easiest way available.</p>
+</div>
+
+<div class="note button">
+<a onclick="_gaq.push(['_trackEvent', 'install']); chrome.webstore.install(); return false" id="install" href="#">Install My Time Organizer</a>
+<p>Application is available <b>free of charge</b> for Google Chrome and Chromium browsers.</p>
+</div>
+
+</div></nav>
+<nav class="center"><div class="header"><h3>Organize your time</h3></div><div class="day_content">
+
+<div class="note" data-bgcolor="#ffff5f">
+<h3>Organizer that lets you manage your time adding notes, events and tasks in an easy, intuitive way.</h3>
+<p>My Time Organizer is an application that lets you manage your time in the easiest way from the user's point of view. You can add info about events, tasks and/or notes and have yourself notificated about upcoming events/lectures/tests/exams/etc. Organize your time in advance using month-view!</p>
+</div>
+
+<div class="note" data-bgcolor="#78c20f">
+Plan your future events and tasks, and store important notes directly in your web browser.
+</div>
+<div class="note" data-bgcolor="#82418e">
+Access to your data at any given moment, even without an active internet connection.
+</div>
+<div class="note" data-bgcolor="#5b5b5b">
+Organize your time with an easy to use <i>drag'n'drop</i> interface including eye-catching animations.
+</div>
+
+</div></nav>
+<nav class="right"><div class="header"><h3>MTO News</h3></div><div class="day_content">
+<div class="note" data-bgcolor="#5889d7">
+<p style="text-align:center; padding-top: 1em;">Current version:</p>
+<h1>1.0.3</h1>
+</div>
+<div class="event" data-time="1.0.3">
+ - fixes for translation support<br/>
+ - event editor is now correctly updated for each event<br/>
+ - updated text and added links in about screen<br/>
+ - already done tasks are now more distinguishable due to added opacity<br/>
+ - nyan cat now works also for events<br/>
+ - fixed doubled notification when reminder for the event was disabled<br/>
+ - notifications are now always displayed on full minute
+</div>
+<div class="event" data-time="1.0.2">
+ - fixed "moving through weeks while writing text" bug<br/>
+ - added translation support using Chrome i18n<br/>
+ - added English translation (en = en_GB + en_US)
+</div>
+<div class="event" data-time="1.0.1">
+ - cosmetic fixes<br/>
+ - fixed bug with updating current day not working under some circumstances<br/>
+ - fixed bug with notifications not working under some circumstances<br/>
+ - performance fixes in month view<br/>
+ - workaround for bug in Chrome causing lag on first run of MTO during browser session on Windows platforms 
+</div>
+<div class="event" data-time="1.0.0">
+ - initial release
+</div>
+</div></nav>
+
+				</div>
+			</div>
+		</div>
+		<!-- main table ends here -->
+
+		<footer>
+			&copy; Copyright 2011-2012 Dominik 'mug3tsu' Galewski, Sebastian 'dos' Krzyszkowiak, Krzysztof 'hun7er' Marciniak
+		</footer>
+
+	</body>
+</html>
