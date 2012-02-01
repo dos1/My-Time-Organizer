@@ -12,7 +12,6 @@
 	<head>
 		<meta charset="utf-8">
 		<title>My Time Organizer</title>
-		<base href="/" />
 		<link rel="stylesheet" href="css/reset.css" type="text/css" />
 		<link rel="stylesheet" href="css/style.css" type="text/css" />
                 <link rel="stylesheet" href="css/help.css" type="text/css" />
@@ -22,6 +21,7 @@
 			CONTACT_FORM_TEXT = "<form method=\"POST\" onsubmit=\"end()\" action=\"http://dosowisko.net/mto/contact/\" target=\"_blank\"><p>Using that form you can send a message to My Time Organizer crew.</p><p>We'd love to know what are your ideas about changing our application and to get information about bugs you found (but we hope you won't find many bugs ;-) ).</p><p>If you want us to answer your message, please fill in your e-mail.</p><input type=\"text\" name=\"title\" placeholder=\"Message title...\" /><textarea name=\"content\" required placeholder=\"Message...\" /><input name=\"mail\" type=\"email\" placeholder=\"Your e-mail address (optional)\" /><p>Before sending the message make sure your computer has active Internet connection.</p><input type=\"submit\" value=\"Send\" /><input type=\"button\" value=\"Cancel\" onclick=\"end()\"/></form>";
 		</script>
 		<script type="text/javascript" src="js/jquery-1.7.js"></script>
+                <script type="text/javascript" src="js/easySlider1.7.js"></script>
 		<script type="text/javascript" src="js/script.js"></script>
                 <script type="text/javascript" src="js/help.js"></script>
 		<script type="text/javascript">
@@ -66,8 +66,16 @@
 
 					<nav class="left"><div class="header"><h3>Your personal organizer</h3></div><div class="day_content">
 
-<div class="note" data-bgcolor="#457ad5">
-<img src="images/screen1.jpg" width="100%" />
+<div id="slider-note" class="note" data-bgcolor="#457ad5">
+<div id="slider">
+<ul data-nr="0">
+<li>
+<img src="images/screen1.jpg" />
+</li>
+<li>
+<img src="images/screen2.jpg" />
+</li>
+</div>
 <h2>Become the master of time mainternance!</h2>
 <p>My Time Organizer will allow you to plan your schedule in the easiest way available.</p>
 </div>

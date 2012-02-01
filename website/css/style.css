@@ -1073,3 +1073,13 @@ a#langpl, a#langen {
 }
 a#langpl { background-image: url('/images/pl.gif'); }
 a#langen { background-image: url('/images/en.png'); }
+#slider ul, #slider li {
+        margin:0; 
+        padding:0;  
+        list-style:none;
+}
+#slider, #slider img {
+        width:100%;  
+        min-width: 100%;
+        max-width: 100%;
+}

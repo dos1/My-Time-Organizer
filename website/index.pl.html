@@ -12,7 +12,6 @@
 	<head>
 		<meta charset="utf-8">
 		<title>My Time Organizer</title>
-		<base href="/" />
 		<link rel="stylesheet" href="css/reset.css" type="text/css" />
 		<link rel="stylesheet" href="css/style.css" type="text/css" />
                 <link rel="stylesheet" href="css/help.css" type="text/css" />
@@ -22,6 +21,7 @@
                         CONTACT_FORM_TEXT = "<form method=\"POST\" onsubmit=\"end()\" action=\"http://dosowisko.net/mto/contact/\" target=\"_blank\"><p>Przy pomocy tego formularza możesz wysłać wiadomość do twórców aplikacji My Time Organizer.</p><p>Gorąco zachęcamy do wysyłania nam opinii, raportów o błędach oraz pomysłów na ulepszenie naszej aplikacji!</p><p>Jeżeli chcesz, abyśmy Ci odpisali, możesz podać swój adres e-mail w polu do tego przeznaczonym.</p><input type=\"text\" name=\"title\" placeholder=\"Tytuł wiadomości...\" /><textarea name=\"content\" required placeholder=\"Treść wiadomości...\" /><input name=\"mail\" type=\"email\" placeholder=\"Twój adres e-mail (opcjonalnie)\" /><p>Przed wysłaniem wiadomości upewnij się, że komputer jest połączony z Internetem.</p><input type=\"submit\" value=\"Wyślij\" /><input type=\"button\" value=\"Anuluj\" onclick=\"end()\"/></form>";
                 </script>
 		<script type="text/javascript" src="js/jquery-1.7.js"></script>
+		<script type="text/javascript" src="js/easySlider1.7.js"></script>
 		<script type="text/javascript" src="js/script.js"></script>
                 <script type="text/javascript" src="js/help.js"></script>
 		<script type="text/javascript">
@@ -66,8 +66,14 @@
 
 					<nav class="left"><div class="header"><h3>Twój osobisty kalendarz</h3></div><div class="day_content">
 
-<div class="note" data-bgcolor="#457ad5">
-<img src="images/screen1.jpg" width="100%" />
+<div class="note" id="slider-note" data-bgcolor="#457ad5">
+<div id="slider">
+<ul data-nr="0">
+<li>
+<img src="images/screen1.jpg" />
+<img src="images/screen2.jpg" />
+</li>
+</div>
 <h2>Zostań władcą swojego czasu!</h2>
 <p>My Time Organizer umożliwi Ci łatwe i przyjemne planowanie swoich zajęć.</p>
 </div>
