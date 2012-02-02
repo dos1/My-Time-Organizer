@@ -11,11 +11,7 @@ function end() {
 	$('#tutorial').fadeOut(500, function() { $('#tutorial').remove();  });
 	$('#tutorialHighlight').css("display", "none");
 	$('#helper').css("visibility", "visible");
-	if ($('body').attr('data-view')=='week') {
-		_gaq.push(['_trackPageview', '/']);
-	} else {
-		_gaq.push(['_trackPageview', '/month']);
-	}
+	_gaq.push(['_trackPageview', '/']);
 }
 
 function fourth() {
