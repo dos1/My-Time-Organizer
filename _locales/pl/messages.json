@@ -306,5 +306,33 @@
 	"notification_title": {
 		"message":"Przypomnienie o wydarzeniu",
 		"description":""
+	},
+	"confImportExport": {
+		"message":"Import/eksport danych",
+		"description":""
+	},
+	"confColor": {
+		"message":"Wersja kolorystyczna",
+		"description":""
+	},
+	"confClearDB": {
+		"message":"Wyczyść bazę danych",
+		"description":""
+	},
+	"confImport": {
+		"message":"Zaimportuj dane z pliku",
+		"description":""
+	},
+	"confExport": {
+		"message":"Wyeksportuj dane do pliku",
+		"description":""
+	},
+	"confDelete": {
+		"message":"Wykasuj",
+		"description":""
+	},
+	"confClearAreYouSure": {
+		"message":"<p>Wszystkie notatki, wydarzenia, zadania i ustawienia zostaną usunięte. Czy na pewno chcesz kontynuować?</p>",
+		"description":""
 	}
 }

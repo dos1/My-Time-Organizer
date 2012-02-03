@@ -23,12 +23,12 @@ function confEmptyAreYouSureScreen() {
 		
 	var wrap = document.createElement('div');
 		
-	$(wrap).html("<p>Wszystkie notatki, wydarzenia, zadania i ustawienia zostaną usunięte. Czy na pewno chcesz kontynuować?</p>");
+	$(wrap).html(chrome.i18n.getMessage("confClearAreYouSure"));
 	$(wrap).find('p').css('text-align','center').css('padding-top',20);
 
 	var next = document.createElement('div');
 	$(next).addClass('next_button');
-	next.innerHTML = "Wykasuj";
+	next.innerHTML = chrome.i18n.getMessage("confDelete");
 	next.onclick = removeData;
 	$(next).css('width','100%').appendTo(wrap);
 
@@ -141,19 +141,19 @@ function confImportExportScreen() {
 				
 	var next = document.createElement('div');
 	$(next).addClass('next_button');
-	next.innerHTML = "Zaimportuj dane z pliku";
+	next.innerHTML = chrome.i18n.getMessage("confImport");
 	next.onclick = confImportExportScreen;
 	$(next).css('width','100%').appendTo(okno);
 
 	next = document.createElement('div');
 	$(next).addClass('next_button');
-	next.innerHTML = "Wyeksportuj dane do pliku";
+	next.innerHTML = chrome.i18n.getMessage("confExport");
 	next.onclick = confImportExportScreen;
 	$(next).css('width','100%').appendTo(okno);
 
 	next = document.createElement('div');
 	$(next).addClass('next_button');
-	next.innerHTML = "Wyczyść bazę danych";
+	next.innerHTML = chrome.i18n.getMessage("confClearDB");
 	next.onclick = confEmptyAreYouSureScreen;
 	$(next).css('width','100%').appendTo(okno);
 
@@ -188,13 +188,13 @@ function confScreen() {
 		
 	var next = document.createElement('div');
 	$(next).addClass('next_button');
-	next.innerHTML = "Wersja kolorystyczna";
+	next.innerHTML = chrome.i18n.getMessage("confColor");
 	next.onclick = confColorThemeScreen;
 	$(next).css('width','100%').appendTo(okno);
 
 	next = document.createElement('div');
 	$(next).addClass('next_button');
-	next.innerHTML = "Import/eksport danych";
+	next.innerHTML = chrome.i18n.getMessage("confImportExport");
 	next.onclick = confImportExportScreen;
 	$(next).css('width','100%').appendTo(okno);
 	

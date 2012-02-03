@@ -306,5 +306,33 @@
 	"notification_title": {
 		"message":"Event reminder",
 		"description":""
+	},
+	"confImportExport": {
+		"message":"Import/export data",
+		"description":""
+	},
+	"confColor": {
+		"message":"Color theme",
+		"description":""
+	},
+	"confClearDB": {
+		"message":"Clear database",
+		"description":""
+	},
+	"confImport": {
+		"message":"Import data from file",
+		"description":""
+	},
+	"confExport": {
+		"message":"Export data to file",
+		"description":""
+	},
+	"confDelete": {
+		"message":"Delete",
+		"description":""
+	},
+	"confClearAreYouSure": {
+		"message":"<p>Your events, tasks, notes and configuration will be deleted. Are you sure you want to proceed?</p>",
+		"description":""
 	}
 }
