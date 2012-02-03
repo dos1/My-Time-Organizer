@@ -211,6 +211,7 @@ function alignToMonday(inMonth) {
 			}
 		}
 		else {
+			if (diff%2==0) slide();
 			if (diff>0) {
 				weeks['inner_table_left'].add("weeks", diff-3);
 				weeks['inner_table_center'].add("weeks", diff-3);
