@@ -7,6 +7,7 @@
  */
 
 var __VERSION__ = "1.0.4";
+var __RELEASE__ = false;
 
 lang = new Array();
 
@@ -1219,17 +1220,9 @@ $(document).ready(function() {
 		helper.show();
 		helper[0].onmouseover = function () { $(this).fadeOut(500, function() { $(this).remove(); localStorage['firstRunBubbleHidden']=true; }); };
 	}
+
+	if (!(__RELEASE__)) document.getElementById('logo').style.backgroundImage = "url('images/logodev.png')";
 	
-	// font fix for Windows
-	if (navigator.userAgent.indexOf("Windows") != -1) {
-		var fileref=document.createElement("link")
-		fileref.setAttribute("rel", "stylesheet")
-		fileref.setAttribute("type", "text/css")
-		fileref.setAttribute("href", "css/windows.css")
-		$(fileref).appendTo($("head"));
-	}
-	// fix end
-		
 	setInterval(checkCurDay, 30000);
 	resizeDays();
 	loadNotes();
@@ -1249,3 +1242,13 @@ function loadUIColor() {
 	$(fileref).appendTo($("head"));
 }
 loadUIColor();
+// font fix for Windows
+if (navigator.userAgent.indexOf("Windows") != -1) {
+        var fileref=document.createElement("link")
+        fileref.setAttribute("rel", "stylesheet")
+        fileref.setAttribute("type", "text/css")
+        fileref.setAttribute("href", "css/windows.css")
+        $(fileref).appendTo($("head"));
+}
+// fix end
+
