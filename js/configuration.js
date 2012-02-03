@@ -1,7 +1,50 @@
 
+function removeData() {
+	localStorage.clear();
+	window.location.reload();
+}
+
 function setColor() {
 		localStorage['color']=$(this).attr('data-color');
 		loadUIColor();
+}
+
+function confEmptyAreYouSureScreen() {
+
+	_gaq.push(['_trackPageview', '/config/importExport/clear']);
+
+	var okno = document.createElement('div');
+	okno.id = 'tutorial';
+	okno = $('#tutorial');
+	okno.hide();
+	okno.addClass('helper');
+	okno.empty();
+	okno.css("z-index", 100000).css('width',400).css('padding-top',0);
+		
+	var wrap = document.createElement('div');
+		
+	$(wrap).html("<p>Wszystkie notatki, wydarzenia, zadania i ustawienia zostaną usunięte. Czy na pewno chcesz kontynuować?</p>");
+	$(wrap).find('p').css('text-align','center').css('padding-top',20);
+
+	var next = document.createElement('div');
+	$(next).addClass('next_button');
+	next.innerHTML = "Wykasuj";
+	next.onclick = removeData;
+	$(next).css('width','100%').appendTo(wrap);
+
+	$(wrap).appendTo(okno);
+
+	next = document.createElement('div');
+	$(next).addClass('next_button');
+	next.innerHTML = chrome.i18n.getMessage("cancel");
+	next.onclick = confImportExportScreen;
+	$(next).css('width','100%').appendTo(okno);
+	
+	okno.appendTo("body");
+	okno.fadeIn(500);
+	
+	$('#tutorialHighlight').css('display','block').css('left', $('#tutorialHighlight').offset().left).css('top', $('#tutorialHighlight').offset().top);
+	//first();
 }
 
 function confColorThemeScreen() {
@@ -94,14 +137,25 @@ function confImportExportScreen() {
 	okno.hide();
 	okno.addClass('helper');
 	okno.empty();
-	okno.css("z-index", 100000).css('width',400).css('padding-top',0);
-		
-	var wrap = document.createElement('div');
-		
-	$(wrap).html("<p>Jeszcze tu nic nie ma.</p>");//chrome.i18n.getMessage("importExport"));
-	$(wrap).find('p').css('text-align','center').css('padding-top',20);
+	okno.css("z-index", 100000).css('width',250).css('padding-top',0);
+				
+	var next = document.createElement('div');
+	$(next).addClass('next_button');
+	next.innerHTML = "Zaimportuj dane z pliku";
+	next.onclick = confImportExportScreen;
+	$(next).css('width','100%').appendTo(okno);
 
-	$(wrap).appendTo(okno);
+	next = document.createElement('div');
+	$(next).addClass('next_button');
+	next.innerHTML = "Wyeksportuj dane do pliku";
+	next.onclick = confImportExportScreen;
+	$(next).css('width','100%').appendTo(okno);
+
+	next = document.createElement('div');
+	$(next).addClass('next_button');
+	next.innerHTML = "Wyczyść bazę danych";
+	next.onclick = confEmptyAreYouSureScreen;
+	$(next).css('width','100%').appendTo(okno);
 
 	next = document.createElement('div');
 	$(next).addClass('next_button');
@@ -132,7 +186,7 @@ function confScreen() {
 	okno.empty();
 	okno.css("z-index", 100000).css('width',250).css('padding-top',0);
 		
-	next = document.createElement('div');
+	var next = document.createElement('div');
 	$(next).addClass('next_button');
 	next.innerHTML = "Wersja kolorystyczna";
 	next.onclick = confColorThemeScreen;
