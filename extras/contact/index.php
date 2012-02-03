@@ -10,7 +10,7 @@
 -->
 <?
 function m($a) {
-  mail($a, 'Wiadomość z formularza MTO: '.$_POST['title'], 'Od: '.$_POST['mail']."\n\n".$_POST['content'],
+  mail($a, 'Wiadomość z formularza MTO: '.$_POST['title'], 'Od: '.$_POST['mail']." (lang: ".$_GET['lang'].")\n\n".$_POST['content'],
   'From: "My Time Organizer" <mto@dosowisko.net>' . "\r\n" .'Content-type: text/plain; charset=utf-8' . "\r\n");
 }
 
@@ -41,7 +41,12 @@ if ($_POST) {
 </head>
 <body>
 	<p><img src="../images/logo.png" style="background-color: #5889d7" /></p>
+	<? if ($_GET['lang']=='pl') { ?>
 	<p style="margin-top: 40px">Wiadomość została wysłana.</p>
 	<p style="font-weight: bold">Dziękujemy!</p>
+	<? } else { ?>
+	<p style="margin-top: 40px">Message has been sent.</p>
+	<p style="font-weight: bold">Thank you!</p>
+	<? } ?>
 </body>
 </html>
