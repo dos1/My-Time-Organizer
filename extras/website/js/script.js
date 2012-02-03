@@ -10,7 +10,7 @@ function resizeDays() {
  $("#slider ul").css('margin-left', "-"+s*w+"px");
 }
 
-window.onresize = resizeDays
+$(window).resize(resizeDays);
 
 $(document).ready(function() {
   $('.note').each(function() { $(this).css('backgroundColor', this.getAttribute('data-bgcolor')); });
@@ -32,7 +32,7 @@ $("#slider").easySlider({
 		pause: 5000,
 		controlsShow: false
 	});
-resizeDays();
+  resizeDays();
 });
 
         // font fix for Windows
