@@ -4,9 +4,39 @@ function removeData() {
 	window.location.reload();
 }
 
+function exportData() {
+
+	var data = {};
+	data.version = __VERSION__;
+	data.api = 1;
+	data.dev = !__RELEASE__;
+	data.date = new Date();
+	data.content = localStorage;
+	content = JSON.stringify(data);
+	//uriContent = "data:application/octet-stream," + encodeURIComponent(content);
+	//window.location.href = uriContent;
+	//location.href = window.webkitURL.createObjectURL(blob);
+	window.requestFileSystem  = window.requestFileSystem || window.webkitRequestFileSystem;
+	window.requestFileSystem(window.TEMPORARY, 5*1024*1024 /*5MB*/, function(fs) {
+		fs.root.getFile('MyTimeOrganizer-export.mto', {create: true}, function(fileEntry) {
+			fileEntry.createWriter(function(fileWriter) {
+				var bb = new WebKitBlobBuilder();
+				bb.append(content);
+				var blob = bb.getBlob('application/json'); 
+				fileWriter.write(blob);
+			}, function(e) {console.log(e); });
+			location.href = fileEntry.toURL();
+			end();
+		}, function(e) { console.log(e); });
+		
+		
+	}, function(e) { console.log(e); });
+	
+}
+
 function setColor() {
-		localStorage['color']=$(this).attr('data-color');
-		loadUIColor();
+	localStorage['color']=$(this).attr('data-color');
+	loadUIColor();
 }
 
 function confEmptyAreYouSureScreen() {
@@ -148,7 +178,7 @@ function confImportExportScreen() {
 	next = document.createElement('div');
 	$(next).addClass('next_button');
 	next.innerHTML = chrome.i18n.getMessage("confExport");
-	next.onclick = confImportExportScreen;
+	next.onclick = exportData;
 	$(next).css('width','100%').appendTo(okno);
 
 	next = document.createElement('div');
