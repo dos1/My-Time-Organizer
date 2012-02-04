@@ -268,7 +268,9 @@ function alignToMonday(inMonth) {
 						note_count += 1;
 					//}
 				}
-				localStorage[table.childNodes[column].getAttribute('data-date')]=JSON.stringify(notes);
+				if (note_count>0)
+					localStorage[table.childNodes[column].getAttribute('data-date')]=JSON.stringify(notes);
+				else localStorage.removeItem(table.childNodes[column].getAttribute('data-date'));
 				//console.log(table.childNodes[column].getAttribute('data-date')+': '+JSON.stringify(notes));
 				//alert(localStorage['day'+(i+1)]);
 			}				
