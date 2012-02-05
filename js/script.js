@@ -195,7 +195,6 @@ function alignToMonday(inMonth) {
 	function slideTo(d) {
 		if ($('body').attr('data-view')=='month') return slideToMonth(d);
 		day = moment(d.format('D-M-YYYY'), 'D-M-YYYY');
-		day.add("days", 1);
 		diff = day.diff(weeks['inner_table_center'], 'days');
 		diff = Math.floor(diff/7);
 		//console.log(diff);
