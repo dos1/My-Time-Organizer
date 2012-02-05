@@ -4,6 +4,11 @@ function removeData() {
 	window.location.reload();
 }
 
+function importData() {
+	// this
+	end();
+}
+
 function exportData() {
 
 	var data = {};
@@ -172,8 +177,10 @@ function confImportExportScreen() {
 	var next = document.createElement('div');
 	$(next).addClass('next_button');
 	next.innerHTML = chrome.i18n.getMessage("confImport");
-	next.onclick = confImportExportScreen;
-	$(next).css('width','100%').appendTo(okno);
+	//next.onclick = confImportExportScreen;
+	$(next).css('width','100%').css('position','relative').appendTo(okno);
+	
+	$input = $('<input type="file" />').appendTo(next).css('opacity','0').css('cursor','pointer').css('position','absolute').css('width','100%').css('height','100%').css('top','0').css('left','0').change(importData);
 
 	next = document.createElement('div');
 	$(next).addClass('next_button');
