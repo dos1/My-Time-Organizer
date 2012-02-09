@@ -334,5 +334,9 @@
 	"confClearAreYouSure": {
 		"message":"<p>Your events, tasks, notes and configuration will be deleted. Are you sure you want to proceed?</p>",
 		"description":""
+	},
+	"confImportAreYouSure": {
+		"message":"All actual data will be deleted and replaced with imported data. Are you sure you want to proceed?",
+		"description":""
 	}
 }

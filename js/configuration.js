@@ -4,9 +4,13 @@ function removeData() {
 	window.location.reload();
 }
 
-function importData() {
-	// this
-	end();
+function importData(input) {
+	if (confirm(chrome.i18n.getMessage("confImportAreYouSure"))) {
+		localStorage.clear();
+		end();
+	}
+	this.parentNode.innerHTML = this.parentNode.innerHTML;
+	$('#importfile').change(importData);
 }
 
 function exportData() {
@@ -194,7 +198,7 @@ function confImportExportScreen() {
 	//next.onclick = confImportExportScreen;
 	$(next).css('width','100%').css('position','relative').appendTo(okno);
 	
-	$input = $('<input type="file" />').appendTo(next).css('opacity','0').css('cursor','pointer').css('position','absolute').css('width','100%').css('height','100%').css('top','0').css('left','0').change(importData);
+	$input = $('<input type="file" id="importfile" style="opacity:0; cursor:pointer; position: absolute; width: 100%; height: 100%; left: 0; top: 0;"/>').appendTo($('<div>').appendTo(next)).change(importData);
 
 	next = document.createElement('div');
 	$(next).addClass('next_button');

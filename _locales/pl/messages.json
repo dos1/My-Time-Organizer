@@ -334,5 +334,9 @@
 	"confClearAreYouSure": {
 		"message":"<p>Wszystkie notatki, wydarzenia, zadania i ustawienia zostaną usunięte. Czy na pewno chcesz kontynuować?</p>",
 		"description":""
+	},
+	"confImportAreYouSure": {
+		"message":"Wszystkie aktualne dane zostaną usunięte i zastąpione przez importowane dane. Czy na pewno chcesz kontynuować?",
+		"description":""
 	}
 }
