@@ -31,6 +31,7 @@ function exportData() {
 	//location.href = window.webkitURL.createObjectURL(blob);
 	window.requestFileSystem  = window.requestFileSystem || window.webkitRequestFileSystem;
 	window.requestFileSystem(window.TEMPORARY, 5*1024*1024 /*5MB*/, function(fs) {
+		function saveExport() {
 		fs.root.getFile('MyTimeOrganizer-export.mto', {create: true}, function(fileEntry) {
 			fileEntry.createWriter(function(fileWriter) {
 				var bb = new WebKitBlobBuilder();
@@ -41,6 +42,11 @@ function exportData() {
 			location.href = fileEntry.toURL();
 			end();
 		}, function(e) { console.log(e); });
+		}
+		
+		fs.root.getFile('MyTimeOrganizer-export.mto', {create: false}, function(fileEntry) {
+			fileEntry.remove(function() { console.log('removed'); saveExport(); }, function(e) { console.log(e); saveExport(); });
+		}, function(e) { console.log(e); saveExport(); });
 		
 		
 	}, function(e) { console.log(e); });
