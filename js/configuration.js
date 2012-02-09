@@ -18,6 +18,14 @@ function exportData() {
 	data.date = new Date();
 	data.content = localStorage;
 	content = JSON.stringify(data);
+	data = JSON.parse(content);
+	for (var day in data.content) {
+		console.log(day);
+		if (day.indexOf('day') == 0) {
+			data.content[day] = JSON.parse(data.content[day]);
+		}
+	}
+	content = JSON.stringify(data, null, 2);
 	//uriContent = "data:application/octet-stream," + encodeURIComponent(content);
 	//window.location.href = uriContent;
 	//location.href = window.webkitURL.createObjectURL(blob);
